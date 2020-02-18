@@ -15,13 +15,13 @@ import phms.service.UserService;
 public class UserController {
 
 	@Autowired
-	UserService userservice;
+	UserService userService;
 
 	// selectOneUser
 	@RequestMapping("/selectOneUser")
 	public String selectOneUser(Model model) {
 		System.out.println(":::selectOneUser");
-		UserDto user = userservice.selectOneUser("joonmandoo");
+		UserDto user = userService.selectOneUser("joonmandoo");
 		System.out.println(user.toString());
 		model.addAttribute("user", user);
 		return "selectOneUser";
@@ -31,7 +31,7 @@ public class UserController {
 	@RequestMapping("/selectAllUser")
 	public String selectAllUser(Model model) {
 		System.out.println(":::selectAllUser");
-		List<UserDto> listUser = userservice.selectAllUser();
+		List<UserDto> listUser = userService.selectAllUser();
 		System.out.println(listUser.toString());
 		model.addAttribute("listUser", listUser);
 		return "selectAllUser";

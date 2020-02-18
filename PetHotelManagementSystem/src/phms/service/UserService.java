@@ -12,26 +12,26 @@ import phms.mapper.UserMapper;
 public class UserService {
 
 	@Autowired
-	UserMapper usermapper;
+	UserMapper userMapper;
 
 	public UserDto selectOneUser(String uId) {
-		return usermapper.selectOneUser(uId);
+		return userMapper.selectOneUser(uId);
 	}
 
 	public List<UserDto> selectAllUser() {
-		return usermapper.selectAllUser();
+		return userMapper.selectAllUser();
 	}
 
 	public int insertUser(UserDto user) {
-		return usermapper.insertUser(user);
+		return userMapper.insertUser(user);
 	}
 
 	public int updateUser(UserDto user) {
-		return usermapper.updateUser(user);
+		return userMapper.updateUser(user);
 	}
 
 	public int deleteUser(String uId) {
-		return usermapper.deleteUser(uId);
+		return userMapper.deleteUser(uId);
 	}
 
 }
