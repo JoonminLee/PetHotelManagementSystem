@@ -8,10 +8,10 @@ public class UserDto {
 	private String uId;
 	private String uPwd;
 	private String uName;
+	private String uGender;
 	private String uPhone;
 	private String uEmail;
 	private Date uBirth;
-	private String uGender;
 	private int uRNum;
 	
 	public int getuNum() {

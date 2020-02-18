@@ -17,8 +17,7 @@
 
 	<context:component-scan base-package="phms" />
 
-	<context:property-placeholder
-		location="classpath:phms/config/dbInfo.properties" />
+	<context:property-placeholder location="classpath:phms/config/dbInfo.properties" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -36,19 +35,18 @@
 
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation"
-			value="classpath:phms/config/mybatisConfig.xml" />
+		<property name="configLocation"	value="classpath:phms/config/mybatisConfig.xml" />
 		<property name="mapperLocations">
 			<list>
-				<value>classpath:phms/mapper/userMapper.xml</value>
-				<value>classpath:phms/mapper/visitorMapper.xml</value>
-				<value>classpath:phms/mapper/sizeMapper.xml</value>
-				<value>classpath:phms/mapper/roomMapper.xml</value>
-				<value>classpath:phms/mapper/reservationMapper.xml</value>
 				<value>classpath:phms/mapper/departmentMapper.xml</value>
 				<value>classpath:phms/mapper/employeeMapper.xml</value>
 				<value>classpath:phms/mapper/petMapper.xml</value>
 				<value>classpath:phms/mapper/positionMapper.xml</value>
+				<value>classpath:phms/mapper/reservationMapper.xml</value>
+				<value>classpath:phms/mapper/roomMapper.xml</value>
+				<value>classpath:phms/mapper/sizeMapper.xml</value>
+				<value>classpath:phms/mapper/userMapper.xml</value>
+				<value>classpath:phms/mapper/visitorMapper.xml</value>
 			</list>
 		</property>
 	</bean>

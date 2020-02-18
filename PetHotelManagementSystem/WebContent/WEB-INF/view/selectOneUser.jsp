@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>userSelectOneTest</title>
+<title>selectOneUser</title>
 </head>
 <body>
 ${user.toString() }
