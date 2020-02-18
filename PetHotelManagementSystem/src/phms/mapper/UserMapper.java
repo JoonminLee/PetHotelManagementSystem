@@ -1,5 +1,7 @@
 package phms.mapper;
 
-public interface UserMapper {
+import phms.dto.UserDto;
 
+public interface UserMapper {
+	public int userInsert(UserDto user);
 }
