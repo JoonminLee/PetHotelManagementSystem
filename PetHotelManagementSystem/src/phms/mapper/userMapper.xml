@@ -6,4 +6,10 @@
 	<select id="selectOneUser" resultType="user">
 		select * from user where u_id = #{uId}
 	</select>
+	<select id="selectAllUser" resultType="user">
+		select * from user;
+	</select>
+	<select id="selectAllUserAndPet" >
+		select * from user join pet where user.u_num = pet.p_u_num;
+	</select>
 </mapper>
