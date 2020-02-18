@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!-- <setting name="useGeneratedKeys" value="true"/> -->
+	</settings>
+	<typeAliases>
+		<typeAlias type="phms.dto.UserDto" alias="user"/>
+		<typeAlias type="phms.dto.DepartmentDto" alias="department"/>
+		<typeAlias type="phms.dto.EmployeeDto" alias="employee"/>
+		<typeAlias type="phms.dto.PetDto" alias="pet"/>
+		<typeAlias type="phms.dto.PositionDto" alias="position"/>
+		<typeAlias type="phms.dto.ReservationDto" alias="reservation"/>
+		<typeAlias type="phms.dto.RoomDto" alias="room"/>
+		<typeAlias type="phms.dto.SizeDto" alias="sizes"/>
+		<typeAlias type="phms.dto.VisitorDto" alias="visitor"/>
+	</typeAliases>	
+</configuration>
