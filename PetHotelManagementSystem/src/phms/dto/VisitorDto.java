@@ -3,27 +3,26 @@ package phms.dto;
 public class VisitorDto {
 
 	private int vNum;
-	private String vName;
-	private String vPhone;
+	private String vId;
+	private String vEmail;
 	private int vRoom;
-	
 	public int getvNum() {
 		return vNum;
 	}
 	public void setvNum(int vNum) {
 		this.vNum = vNum;
 	}
-	public String getvName() {
-		return vName;
+	public String getvId() {
+		return vId;
 	}
-	public void setvName(String vName) {
-		this.vName = vName;
+	public void setvId(String vId) {
+		this.vId = vId;
 	}
-	public String getvPhone() {
-		return vPhone;
+	public String getvEmail() {
+		return vEmail;
 	}
-	public void setvPhone(String vPhone) {
-		this.vPhone = vPhone;
+	public void setvEmail(String vEmail) {
+		this.vEmail = vEmail;
 	}
 	public int getvRoom() {
 		return vRoom;
@@ -31,11 +30,11 @@ public class VisitorDto {
 	public void setvRoom(int vRoom) {
 		this.vRoom = vRoom;
 	}
-	public VisitorDto(int vNum, String vName, String vPhone, int vRoom) {
+	public VisitorDto(int vNum, String vId, String vEmail, int vRoom) {
 		super();
 		this.vNum = vNum;
-		this.vName = vName;
-		this.vPhone = vPhone;
+		this.vId = vId;
+		this.vEmail = vEmail;
 		this.vRoom = vRoom;
 	}
 	public VisitorDto() {
@@ -43,9 +42,10 @@ public class VisitorDto {
 	}
 	@Override
 	public String toString() {
-		return "VisitorDto [vNum=" + vNum + ", vName=" + vName + ", vPhone=" + vPhone + ", vRoom=" + vRoom + "]";
+		return "VisitorDto [vNum=" + vNum + ", vId=" + vId + ", vEmail=" + vEmail + ", vRoom=" + vRoom + "]";
 	}
 	
+
 	
 	
 }

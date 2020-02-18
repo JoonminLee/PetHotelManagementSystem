@@ -17,7 +17,7 @@
 	
 	<context:component-scan base-package="phms" />
 	
-	<context:property-placeholder location="classpath:config/dbInfo.properties"/>
+	<context:property-placeholder location="classpath:phms/config/dbInfo.properties"/>
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />
@@ -32,7 +32,7 @@
 	</bean>
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:config/mybatisConfig.xml" />
+		<property name="configLocation" value="classpath:phms/config/mybatisConfig.xml" />
 	</bean>
 	<mybatis-spring:scan base-package="phms.mapper"/>
 	<mvc:annotation-driven />
