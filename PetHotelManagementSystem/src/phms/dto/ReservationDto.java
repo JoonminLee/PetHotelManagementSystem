@@ -5,7 +5,7 @@ import java.util.Date;
 public class ReservationDto {
 
 	private int reNum;
-	private String reName;
+	private String reId;
 	private String rePhone;
 	private String reRoom;
 	private Date reDate;
@@ -15,11 +15,11 @@ public class ReservationDto {
 	public void setReNum(int reNum) {
 		this.reNum = reNum;
 	}
-	public String getReName() {
-		return reName;
+	public String getReId() {
+		return reId;
 	}
-	public void setReName(String reName) {
-		this.reName = reName;
+	public void setReId(String reId) {
+		this.reId = reId;
 	}
 	public String getRePhone() {
 		return rePhone;
@@ -39,10 +39,10 @@ public class ReservationDto {
 	public void setReDate(Date reDate) {
 		this.reDate = reDate;
 	}
-	public ReservationDto(int reNum, String reName, String rePhone, String reRoom, Date reDate) {
+	public ReservationDto(int reNum, String reId, String rePhone, String reRoom, Date reDate) {
 		super();
 		this.reNum = reNum;
-		this.reName = reName;
+		this.reId = reId;
 		this.rePhone = rePhone;
 		this.reRoom = reRoom;
 		this.reDate = reDate;
@@ -52,7 +52,7 @@ public class ReservationDto {
 	}
 	@Override
 	public String toString() {
-		return "ReservationDto [reNum=" + reNum + ", reName=" + reName + ", rePhone=" + rePhone + ", reRoom=" + reRoom
+		return "ReservationDto [reNum=" + reNum + ", reId=" + reId + ", rePhone=" + rePhone + ", reRoom=" + reRoom
 				+ ", reDate=" + reDate + "]";
 	}
 	
