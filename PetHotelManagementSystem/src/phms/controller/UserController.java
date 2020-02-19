@@ -55,8 +55,52 @@ public class UserController {
 		System.out.println(":::insertUser");
 		user.setuBirth(LocalDate.parse(uBirthStr));
 		user.setuPhone("010-" + uPhone1 + "-" + uPhone2);
+		int result = userService.insertUser(user);
+		if (result == 1) {
+			System.out.println("insertUser 성공");
+			return "redirect:/user/selectAllUser";
+		} else {
+			System.out.println("insertUser 실패");
+			return "redirect:/user/insertUser";
+		}
+	}
+
+	@GetMapping("/updateUser")
+	public String updateUser(Model model, @RequestParam("uId") String uId) {
+		System.out.println(":::updateUser");
+		UserDto user = userService.selectOneUser(uId);
 		System.out.println(user.toString());
-		System.out.println("테스트테스트테스트");
-		return null;
+		model.addAttribute("user", user);
+		return "updateUser";
+	}
+
+	@PostMapping("/updateUser")
+	public String updateUser(UserDto user, @RequestParam("uBirthStr") String uBirthStr) {
+		System.out.println(":::updateUser");
+		user.setuBirth(LocalDate.parse(uBirthStr));
+		System.out.println(user.toString());
+		int result = userService.updateUser(user);
+		if (result == 1) {
+			System.out.println("updateUser 성공");
+			return "redirect:/user/selectAllUser";
+		} else {
+			System.out.println("updateUser 실패");
+			return "redirect:/user/updateUser";
+		}
+	}
+
+	@RequestMapping("/deleteUser")
+	public String deleteUser(Model model, @RequestParam("uId") String uId) {
+		System.out.println(":::deleteUser");
+		int result = userService.deleteUser(uId);
+		if (result == 1) {
+			System.out.println("deleteUser 성공");
+			model.addAttribute("result", "삭제 성공");
+			return "redirect:/user/selectAllUser";
+		} else {
+			System.out.println("deleteUser 실패");
+			model.addAttribute("result", "삭제 실패 : 고객센터에 문의해주세요");
+			return "redirect:/user/selectAllUser";
+		}
 	}
 }

@@ -8,8 +8,12 @@
 <title>selectAllUser</title>
 </head>
 <body>
-	<c:forEach var="i" items="${listUser}">
-		${i.toString()}
+	<c:forEach var="i" items="${listUser }">
+		${i.toString() } 
+		<br>
+		<a href="/user/updateUser?uId=${i.uId }">수정</a>
+		<a href="/user/deleteUser?uId=${i.uId }">삭제</a>
+		<hr>
 	</c:forEach>
 </body>
 </html>

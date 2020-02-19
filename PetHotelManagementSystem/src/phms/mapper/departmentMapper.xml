@@ -2,4 +2,20 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <mapper namespace="phms.mapper.DepartmentMapper"></mapper>
+ <mapper namespace="phms.mapper.DepartmentMapper">
+ 	<select id="selectOneDepartment" resultType="department">
+		select * from department where d_name = #{dName}
+	</select>
+	<select id="selectAllDepartment" resultType="department">
+		select * from department;
+	</select>
+	<insert id="insertDepartment">
+		insert into department (d_num, d_name) values(0, #{dName});
+	</insert>
+	<update id="updateDepartment">
+		update department set d_name=#{dName} where d_num=#{dNum};
+	</update>
+	<delete id="deleteDepartment">
+		delete from department where d_name=#{dName}
+	</delete>
+	</mapper>
