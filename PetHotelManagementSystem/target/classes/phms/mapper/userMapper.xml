@@ -7,13 +7,13 @@
 		select * from user where u_id = #{uId}
 	</select>
 	<select id="selectAllUser" resultType="user">
-		select * from user;
+		select * from user
 	</select>
 	<insert id="insertUser">
-		insert into user (u_num, u_id, u_pwd, u_name, u_gender, u_phone, u_email, u_birth) values(0, #{uId}, #{uPwd}, #{uName}, #{uGender}, #{uPhone}, #{uEmail}, #{uBirth});
+		insert into user (u_num, u_id, u_pwd, u_name, u_gender, u_phone, u_email, u_birth) values(0, #{uId}, #{uPwd}, #{uName}, #{uGender}, #{uPhone}, #{uEmail}, #{uBirth})
 	</insert>
 	<update id="updateUser">
-		update user set u_pwd=#{uPwd}, u_gender=#{uPhone}, u_email=#{uEmail}, u_birth=#{uBirth}, u_r_num=#{uRNum} where u_id=#{uId};
+		update user set u_pwd=#{uPwd}, u_gender=#{uPhone}, u_email=#{uEmail}, u_birth=#{uBirth}, u_r_num=#{uRNum} where u_id=#{uId}
 	</update>
 	<delete id="deleteUser">
 		delete from user where u_id=#{uId}

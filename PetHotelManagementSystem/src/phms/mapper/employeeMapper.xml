@@ -2,4 +2,20 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-   <mapper namespace="phms.mapper.EmployeeMapper"></mapper>
+<mapper namespace="phms.mapper.EmployeeMapper">
+   <select id="selectOneEmp" resultType="employee">
+   		select * from employee where e_num = #{eNum}
+   </select>
+   <select id="selectAllEmp" resultType="employee">
+   		select * from employee
+   </select>
+   <insert id="insertEmp">
+   		insert into employee (e_num, e_name, e_d_num, e_po_num, e_phone, e_hire_date) values(0, #{eName}, #{eDNum}, #{ePoNum}, #{ePhone}, #{eHireDate})
+   </insert>
+   <update id="updateEmp">
+   		update employee set e_name=#{eName}, e_d_num=#{eDNum}, e_po_Num=#{ePoNum}, e_phone=#{ePhone}, e_salary=#{eSalary} where e_num=#{eNum}
+   </update>
+   <delete id="deleteEmp">
+   		delete employee where e_num=#{eNum}
+   </delete>
+</mapper>

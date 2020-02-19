@@ -2,4 +2,30 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-   <mapper namespace="phms.mapper.RoomMapper"></mapper>
+<mapper namespace="phms.mapper.RoomMapper">
+	<select id="selectOneRoom" resultType="room">
+		select * from
+		room where
+		r_num = #{rNum}
+	</select>
+	<select id="selectAllRoom" resultType="room">
+		select * from
+		room
+	</select>
+	<insert id="insertRoom">
+		insert into room (r_num, r_s_num, r_w_price,
+		r_h_price,
+		r_status) values(0, #{rSize}, #{rWPrice},
+		#{rHPrice},
+		#{rStatus})
+	</insert>
+	<update id="updateRoom">
+		update room set r_s_num=#{rSize},
+		r_w_price=#{rWPrice},
+		r_h_price=#{rHPrice}, r_status=#{rStatus} where
+		r_rum=#{rNum}
+	</update>
+	<delete id="deleteRoom">
+		delete from room where r_rum=#{rNum}
+	</delete>
+</mapper>
