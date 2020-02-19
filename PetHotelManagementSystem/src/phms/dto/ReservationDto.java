@@ -1,6 +1,6 @@
 package phms.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class ReservationDto {
 
@@ -8,7 +8,7 @@ public class ReservationDto {
 	private String reId;
 	private String rePhone;
 	private String reRoom;
-	private Date reDate;
+	private LocalDate reDate;
 	public int getReNum() {
 		return reNum;
 	}
@@ -33,13 +33,13 @@ public class ReservationDto {
 	public void setReRoom(String reRoom) {
 		this.reRoom = reRoom;
 	}
-	public Date getReDate() {
+	public LocalDate getReDate() {
 		return reDate;
 	}
-	public void setReDate(Date reDate) {
+	public void setReDate(LocalDate reDate) {
 		this.reDate = reDate;
 	}
-	public ReservationDto(int reNum, String reId, String rePhone, String reRoom, Date reDate) {
+	public ReservationDto(int reNum, String reId, String rePhone, String reRoom, LocalDate reDate) {
 		super();
 		this.reNum = reNum;
 		this.reId = reId;

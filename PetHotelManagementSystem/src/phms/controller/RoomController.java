@@ -33,7 +33,7 @@ public class RoomController {
 	// selectAllRoom
 	@RequestMapping("/selectAllRoom")
 	public String selectAllRoom(Model model) {
-		System.out.println(":::selectOneRoom");
+		System.out.println(":::selectAllRoom");
 		List<RoomDto> listRoom = roomService.selectAllRoom();
 		System.out.println(listRoom.toString());
 		model.addAttribute("listRoom", listRoom);
@@ -55,7 +55,7 @@ public class RoomController {
 			System.out.println("insertRoom 성공");
 			return "redirect:/room/selectAllRoom";
 		} else {
-			System.out.println("insertUser 실패");
+			System.out.println("insertRoom 실패");
 			return "redirect:/room/insertRoom";
 		}
 	}
