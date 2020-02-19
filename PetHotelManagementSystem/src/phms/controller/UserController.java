@@ -56,6 +56,7 @@ public class UserController {
 		user.setuBirth(LocalDate.parse(uBirthStr));
 		user.setuPhone("010-" + uPhone1 + "-" + uPhone2);
 		System.out.println(user.toString());
+		System.out.println("테스트테스트테스트");
 		return null;
 	}
 }
