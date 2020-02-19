@@ -2,4 +2,29 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-   <mapper namespace="phms.mapper.ReservationMapper"></mapper>
+<mapper namespace="phms.mapper.ReservationMapper">
+	<select id="selectOneReservation" resultType="reservation">
+		select * from
+		reservation where
+		re_id = #{reId}
+	</select>
+	<select id="selectAllReservation" resultType="reservation">
+		select * from
+		reservation
+	</select>
+	<insert id="insertReservation">
+		insert into reservation (re_num, re_id, re_phone,
+		re_room,
+		re_date) values(0, #{reId}, #{rePhone},
+		#{reRoom}, #{reDate})
+	</insert>
+	<update id="updateReservation">
+		update reservation set re_id=#{reId},
+		re_phone=#{rePhone},
+		re_room=#{reRoom}, re_date=#{reDate} where	
+		re_id=#{reId}
+	</update>
+	<delete id="deleteReservation">
+		delete from reservation where re_id=#{reId}
+	</delete>
+</mapper>
