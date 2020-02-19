@@ -1,5 +1,7 @@
 package phms.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,7 @@ public class RoomService {
 		return roomMapper.selectOneRoom(rNum);
 	}
 	
-	public <List>RoomDto selectAllRoom(){
+	public List<RoomDto> selectAllRoom(){
 		return roomMapper.selectAllRoom();
 	}
 	

@@ -1,5 +1,7 @@
 package phms.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,7 @@ public class ReservationService {
 		return reservationMapper.selectOneReservation(reId);
 	}
 
-	public <List> ReservationDto selectAllReservation() {
+	public List<ReservationDto> selectAllReservation() {
 		return reservationMapper.selectAllReservation();
 	}
 

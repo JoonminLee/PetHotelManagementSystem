@@ -9,23 +9,19 @@
 		r_num = #{rNum}
 	</select>
 	<select id="selectAllRoom" resultType="room">
-		select * from
-		room
+		select * from room
 	</select>
 	<insert id="insertRoom">
-		insert into room (r_num, r_s_num, r_w_price,
-		r_h_price,
-		r_status) values(0, #{rSize}, #{rWPrice},
-		#{rHPrice},
-		#{rStatus})
+		insert into room (r_num, r_s_num, r_w_price, r_h_price, r_status) 
+		values(0, #{rSize}, #{rWPrice}, #{rHPrice}, #{rStatus})
 	</insert>
 	<update id="updateRoom">
 		update room set r_s_num=#{rSize},
 		r_w_price=#{rWPrice},
 		r_h_price=#{rHPrice}, r_status=#{rStatus} where
-		r_rum=#{rNum}
+		r_num=#{rNum}
 	</update>
 	<delete id="deleteRoom">
-		delete from room where r_rum=#{rNum}
+		delete from room where r_num=#{rNum}
 	</delete>
 </mapper>

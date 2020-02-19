@@ -1,12 +1,14 @@
 package phms.mapper;
 
+import java.util.List;
+
 import phms.dto.ReservationDto;
 
 public interface ReservationMapper {
 	
 	public ReservationDto selectOneReservation(String reId);
 	
-	public <List>ReservationDto selectAllReservation();
+	public List<ReservationDto> selectAllReservation();
 	
 	public int insertReservation(ReservationDto reservation);
 
