@@ -13,7 +13,7 @@
 		insert into position (po_num, po_name) values(0,#{poName});
 	</insert>
 	<update id="updatePosition">
-		update position set po_name=#{poName} where po_num=#{dNum};
+		update position set po_name=#{poName} where po_num=#{poNum};
 	</update>
 	<delete id="deletePosition">
 		delete from position where po_name=#{poName}

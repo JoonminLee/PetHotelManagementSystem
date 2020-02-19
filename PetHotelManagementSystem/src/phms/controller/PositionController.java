@@ -73,10 +73,10 @@ public class PositionController {
 		int result = positionService.updatePosition(position);
 		if (result == 1) {
 			System.out.println("updatePosition 성공");
-			return "redirect:/dep/selectAllPosition";
+			return "redirect:/posi/selectAllPosition";
 		} else {
 			System.out.println("updatePosition 실패");
-			return "redirect:/dep/updatePosition";
+			return "redirect:/posi/updatePosition";
 		}
 	}
 	
