@@ -2,4 +2,20 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-   <mapper namespace="phms.mapper.PositionMapper"></mapper>
+   <mapper namespace="phms.mapper.PositionMapper">
+   <select id="selectOnePosition" resultType="position">
+		select * from position where po_name = #{poName}
+	</select>
+	<select id="selectAllPosition" resultType="position">
+		select * from position;
+	</select>
+	<insert id="insertPosition">
+		insert into position (po_num, po_name) values(0,#{poName});
+	</insert>
+	<update id="updatePosition">
+		update position set po_name=#{poName} where po_num=#{dNum};
+	</update>
+	<delete id="deletePosition">
+		delete from position where po_name=#{poName}
+	</delete>
+   </mapper>
