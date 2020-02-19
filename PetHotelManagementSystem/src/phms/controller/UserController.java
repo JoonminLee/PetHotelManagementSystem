@@ -100,6 +100,7 @@ public class UserController {
 		} else {
 			System.out.println("deleteUser 실패");
 			model.addAttribute("result", "삭제 실패 : 고객센터에 문의해주세요");
+			System.out.println("testest");
 			return "redirect:/user/selectAllUser";
 		}
 	}
