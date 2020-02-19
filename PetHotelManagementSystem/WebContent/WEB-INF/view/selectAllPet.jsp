@@ -9,12 +9,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:forEach var="i" items="${listReserve }">
+	<c:forEach var="i" items="${listPet }">
 		${i.toString() } 
 		<br>
-		<a href="/reserve/updateReserve?reId=${i.reId }">수정</a>
-		<a href="/reserve/deleteReserve?reId=${i.reId }">삭제</a>
+		<a href="/pet/updatePet?pNum=${i.pNum }">수정</a>
+		<a href="/pet/deletePet?pNum=${i.pNum }">삭제</a>
 		<hr>
 	</c:forEach>
+
 </body>
 </html>

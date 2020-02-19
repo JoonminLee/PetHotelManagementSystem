@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-방리스트
-${room.toString() }
-
+Pet리스트
+${pet.toString() }
 </body>
 </html>

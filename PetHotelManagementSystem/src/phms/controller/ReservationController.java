@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import phms.dto.ReservationDto;
 import phms.dto.RoomDto;
+import phms.dto.UserDto;
 import phms.service.ReservationService;
 import phms.service.RoomService;
 
@@ -26,9 +27,9 @@ public class ReservationController {
 
 	// selectOneReserve
 	@RequestMapping("/selectOneReserve")
-	public String selectOneReserve(Model model) {
+	public String selectOneReserve(Model model, @RequestParam("reId") String reId) {
 		System.out.println(":::selectOneReserve");
-		ReservationDto reserve = reserveService.selectOneReservation("노창옥");
+		ReservationDto reserve = reserveService.selectOneReservation(reId);
 		System.out.println(reserve.toString());
 		model.addAttribute("reserve", reserve);
 		return "selectOneReserve";
@@ -45,6 +46,7 @@ public class ReservationController {
 	}
 
 	// insertReserve
+	// 예약하기화면.
 	@GetMapping("/insertReserve")
 	public String insertReserve() {
 		System.out.println(":::insertReserve");
@@ -64,6 +66,46 @@ public class ReservationController {
 		} else {
 			System.out.println("insertReserve 실패");
 			return "redirect:/reserve/insertReserve";
+		}
+	}
+	
+	@GetMapping("/updateReserve")
+	public String updateReserve(Model model, @RequestParam("reId") String reId) {
+		System.out.println(":::updateReserve");
+		ReservationDto reserve = reserveService.selectOneReservation(reId);
+		System.out.println(reserve.toString());
+		model.addAttribute("reserve", reserve);
+		return "updateReserve";
+	}
+	
+	
+	@PostMapping("/updateReserve")
+	public String updateReserve(ReservationDto reservation, @RequestParam("reDateStr") String reDateStr) {
+		System.out.println(":::updateReserve");
+		reservation.setReDate(LocalDate.parse(reDateStr));
+		System.out.println(reservation.toString());
+		int result = reserveService.updateReservation(reservation);
+		if (result == 1) {
+			System.out.println("updateReserve 성공");
+			return "redirect:/reserve/selectAllReserve";
+		} else {
+			System.out.println("updateReserve 실패");
+			return "redirect:/reserve/updateReserve";
+		}
+	}
+	
+	@RequestMapping("/deleteReserve")
+	public String deleteReserve(Model model, @RequestParam("reId") String reId) {
+		System.out.println(":::deleteReserve");
+		int result = reserveService.deleteReservation(reId);
+		if (result == 1) {
+			System.out.println("deleteReserve 성공");
+			model.addAttribute("result", "삭제 성공");
+			return "redirect:/reserve/selectAllReserve";
+		} else {
+			System.out.println("deleteReserve 실패");
+			model.addAttribute("result", "삭제 실패 : 고객센터에 문의해주세요");
+			return "redirect:/reserve/selectAllReserve";
 		}
 	}
 }

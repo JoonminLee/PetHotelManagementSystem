@@ -23,9 +23,9 @@ public class UserController {
 
 	// selectOneUser
 	@RequestMapping("/selectOneUser")
-	public String selectOneUser(Model model) {
+	public String selectOneUser(Model model, @RequestParam("uId") String uId) {
 		System.out.println(":::selectOneUser");
-		UserDto user = userService.selectOneUser("joonmandoo");
+		UserDto user = userService.selectOneUser(uId);
 		System.out.println(user.toString());
 		model.addAttribute("user", user);
 		return "selectOneUser";
@@ -42,6 +42,7 @@ public class UserController {
 	}
 
 	// insertUser
+	// 회원가입
 	@GetMapping("/insertUser")
 	public String insertUser() {
 		System.out.println(":::insertUser");
@@ -65,6 +66,8 @@ public class UserController {
 		}
 	}
 
+	// updateUser
+	// 마이페이지.
 	@GetMapping("/updateUser")
 	public String updateUser(Model model, @RequestParam("uId") String uId) {
 		System.out.println(":::updateUser");
@@ -89,6 +92,7 @@ public class UserController {
 		}
 	}
 
+	//deleteUser
 	@RequestMapping("/deleteUser")
 	public String deleteUser(Model model, @RequestParam("uId") String uId) {
 		System.out.println(":::deleteUser");
