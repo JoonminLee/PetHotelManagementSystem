@@ -2,4 +2,20 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-   <mapper namespace="phms.mapper.VisitorMapper"></mapper>
+<mapper namespace="phms.mapper.VisitorMapper">
+	<select id="selectOneVisitor" resultType="visitor">
+		select * from visitor where v_id=#{vId}
+	</select>
+	<select id="selectAllVisitor" resultType="visitor">
+		select * from visitor
+	</select>
+	<insert id="insertVisitor">
+		insert into visitor(v_num, v_id, v_name, v_email) value(0, #{vId}, #{vName}, #{vEmail})
+	</insert>
+	<update id="updateVisitor">
+		update visitor set v_id=#{vId}, v_name=#{vName}, v_email=#{vEmail}, v_room=#{vRoom} where v_id=#{v_id}
+	</update>
+	<delete id="deleteVisitor">
+		delete from visitor where v_id=#{vId}
+	</delete>
+</mapper>
