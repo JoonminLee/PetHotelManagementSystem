@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import common.loginAuthentication;
 import phms.dto.UserDto;
 import phms.service.UserService;
 
@@ -21,12 +22,14 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
+	@Autowired
+	loginAuthentication loginAuth;
+
 	// selectOneUser
 	@RequestMapping("/selectOneUser")
 	public String selectOneUser(Model model, @RequestParam("uId") String uId) {
 		System.out.println(":::selectOneUser");
 		UserDto user = userService.selectOneUser(uId);
-		System.out.println(user.toString());
 		model.addAttribute("user", user);
 		return "selectOneUser";
 	}
@@ -36,7 +39,6 @@ public class UserController {
 	public String selectAllUser(Model model) {
 		System.out.println(":::selectAllUser");
 		List<UserDto> listUser = userService.selectAllUser();
-		System.out.println(listUser.toString());
 		model.addAttribute("listUser", listUser);
 		return "selectAllUser";
 	}
@@ -72,7 +74,6 @@ public class UserController {
 	public String updateUser(Model model, @RequestParam("uId") String uId) {
 		System.out.println(":::updateUser");
 		UserDto user = userService.selectOneUser(uId);
-		System.out.println(user.toString());
 		model.addAttribute("user", user);
 		return "updateUser";
 	}
@@ -81,7 +82,6 @@ public class UserController {
 	public String updateUser(UserDto user, @RequestParam("uBirthStr") String uBirthStr) {
 		System.out.println(":::updateUser");
 		user.setuBirth(LocalDate.parse(uBirthStr));
-		System.out.println(user.toString());
 		int result = userService.updateUser(user);
 		if (result == 1) {
 			System.out.println("updateUser 성공");
@@ -92,7 +92,7 @@ public class UserController {
 		}
 	}
 
-	//deleteUser
+	// deleteUser
 	@RequestMapping("/deleteUser")
 	public String deleteUser(Model model, @RequestParam("uId") String uId) {
 		System.out.println(":::deleteUser");
@@ -105,6 +105,28 @@ public class UserController {
 			System.out.println("deleteUser 실패");
 			model.addAttribute("result", "삭제 실패 : 고객센터에 문의해주세요");
 			return "redirect:/user/selectAllUser";
+		}
+	}
+
+	// loginUser
+	@GetMapping("/loginUser")
+	public String loginUser() {
+		System.out.println(":::loginUser");
+		return "loginUser";
+	}
+
+	// loginUser
+	@PostMapping("/loginUser")
+	public String loginUser(Model model, @RequestParam("uId") String uId, @RequestParam("uPwd") String uPwd) {
+		System.out.println(":::loginUser");
+		int result = loginAuth.loginIdPwdCheck(uId, uPwd);
+		if (result == 1) {
+			System.out.println("로그인 성공");
+			model.addAttribute("uId", uId);
+			return "sessionLogin";
+		} else {
+			System.out.println("로그인 실패");
+			return "redirect:/user/loginUser";
 		}
 	}
 }
