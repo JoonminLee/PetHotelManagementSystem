@@ -117,13 +117,13 @@ public class UserController {
 
 	// loginUser
 	@PostMapping("/loginUser")
-	public String loginUser(Model model, @RequestParam("uId") String uId, @RequestParam("uPwd") String uPwd) {
+
+	public String loginUser(@RequestParam("uId") String uId, @RequestParam("uPwd") String uPwd) {
 		System.out.println(":::loginUser");
 		int result = loginAuth.loginIdPwdCheck(uId, uPwd);
 		if (result == 1) {
 			System.out.println("로그인 성공");
-			model.addAttribute("uId", uId);
-			return "sessionLogin";
+			return "redirect:/user/selectAllUser";
 		} else {
 			System.out.println("로그인 실패");
 			return "redirect:/user/loginUser";
