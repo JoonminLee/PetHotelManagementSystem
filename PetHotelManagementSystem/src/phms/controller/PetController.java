@@ -50,7 +50,6 @@ public class PetController {
 		return "insertPet";
 	}
 
-	// 여기는 아직안댐
 	// insertPet
 	@PostMapping("/insertPet")
 	public String insertPet(PetDto pet) {

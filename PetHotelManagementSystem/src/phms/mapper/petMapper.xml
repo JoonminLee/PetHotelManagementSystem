@@ -15,7 +15,7 @@
 		insert into pet (p_num, p_name, p_type,
 		p_u_num,
 		p_v_num)
-		values(0, #{pNum}, #{pName}, #{pType}, #{pUNum}, #{pVNum})
+		values(0, #{pName}, #{pType}, #{pUNum}, #{pVNum})
 	</insert>
 	<update id="updatePet">
 		update pet set p_num=#{pNum}, p_name=#{pName},
