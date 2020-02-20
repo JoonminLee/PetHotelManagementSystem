@@ -1,6 +1,6 @@
 package phms.dto;
 
-public class RoomDto {
+public class RoomDto { 
 
 	private int rNum;
 	private int rSNum;

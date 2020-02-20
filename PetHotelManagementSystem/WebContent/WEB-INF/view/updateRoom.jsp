@@ -9,7 +9,7 @@
 <body>
 	<form action="/room/updateRoom" method="post">
 		<input type="number" name="rNum" value="${room.rNum }" readonly>
-		<input type="number" name="rSNum" value="${room.rSNum }"> 
+		<input type="number" name="rSNum" value="${room.rSNum }">  
 		<input type="text" name="rWPrice" value="${room.rWPrice }"> 
 		<input type="text" name="rHPrice" value="${room.rHPrice }"> 
 		<input type="number" name="rStatus" value="${room.rStatus }"> 
