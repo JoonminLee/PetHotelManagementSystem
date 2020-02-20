@@ -2,4 +2,27 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-   <mapper namespace="phms.mapper.PetMapper"></mapper>
+<mapper namespace="phms.mapper.PetMapper">
+	<select id="selectOnePet" resultType="pet">
+		select * from
+		pet where
+		p_num = #{pNum}
+	</select>
+	<select id="selectAllPet" resultType="pet">
+		select * from pet
+	</select>
+	<insert id="insertPet">
+		insert into pet (p_num, p_name, p_type,
+		p_u_num,
+		p_v_num)
+		values(0, #{pName}, #{pType}, #{pUNum}, #{pVNum})
+	</insert>
+	<update id="updatePet">
+		update pet set p_num=#{pNum}, p_name=#{pName},
+		p_type=#{pType}, p_u_num=#{pUNum}, p_v_num=#{pVNum} where
+		p_num=#{pNum}
+	</update>
+	<delete id="deletePet">
+		delete from pet where p_num=#{pNum}
+	</delete>
+</mapper>
