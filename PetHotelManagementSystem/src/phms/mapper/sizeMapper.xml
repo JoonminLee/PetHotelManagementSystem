@@ -2,4 +2,26 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-   <mapper namespace="phms.mapper.SizeMapper"></mapper>
+<mapper namespace="phms.mapper.SizeMapper">
+	<select id="selectOneSize" resultType="size">
+		select * from
+		size where
+		s_num = #{sNum}
+	</select>
+	<select id="selectAllSize" resultType="size">
+		select * from size
+	</select>
+	<insert id="insertSize">
+		insert into size (s_num, s_size, s_r_price, s_w_price)
+		values(0,
+		#{sSize}, #{sRPrice}, #{sWPrice})
+	</insert>
+	<update id="updateSize">
+		update room set s_size=#{sSize}, s_r_price=#{sRPrice}, s_w_price=#{sWPrice}
+		where
+		s_num=#{sNum}
+	</update>
+	<delete id="deleteSize">
+		delete from room where s_num=#{sNum}
+	</delete>
+</mapper>

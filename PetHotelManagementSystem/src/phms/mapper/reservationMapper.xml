@@ -3,6 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="phms.mapper.ReservationMapper">
+	<select id="selectCheckInReservation" resultType="reservation">
+		select * from
+		reservation where
+		re_check_in=#{reCheckIn}
+	</select>
+	<select id="selectCheckOutReservation" resultType="reservation">
+		select * from
+		reservation where
+		re_check_out=#{reCheckOut}
+	</select>
 	<select id="selectOneReservation" resultType="reservation">
 		select * from
 		reservation where
@@ -14,14 +24,14 @@
 	</select>
 	<insert id="insertReservation">
 		insert into reservation (re_num, re_id, re_phone,
-		re_room,
-		re_date) values(0, #{reId}, #{rePhone},
-		#{reRoom}, #{reDate})
+		re_s_num, re_r_num, re_check_in, re_check_out) values(0, #{reId},
+		#{rePhone}, #{reSNum}, #{reRNum}, #{reCheckIn}, #{reCheckOut})
 	</insert>
 	<update id="updateReservation">
 		update reservation set re_id=#{reId},
 		re_phone=#{rePhone},
-		re_room=#{reRoom}, re_date=#{reDate} where	
+		re_s_num=#{reSNum}, re_r_num=#{reRNum},
+		re_check_in=#{reCheckIn}, re_check_out=#{reCheckOut} where
 		re_id=#{reId}
 	</update>
 	<delete id="deleteReservation">

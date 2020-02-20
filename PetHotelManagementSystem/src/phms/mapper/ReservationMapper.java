@@ -1,10 +1,16 @@
 package phms.mapper;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import phms.dto.ReservationDto;
 
 public interface ReservationMapper {
+	
+	//날짜로 조회하기.
+	public List<ReservationDto> selectCheckInReservation(LocalDate reDate);
+	
+	public List<ReservationDto> selectCheckOutReservation(LocalDate reDate);
 	
 	public ReservationDto selectOneReservation(String reId);
 	
