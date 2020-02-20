@@ -12,12 +12,12 @@
 	<%
 		if (session.getAttribute("id") == null) {
 			System.out.println("세션없음");
-	%><a href="/user/loginUser">로그인</a>
+	%><a href="/user/loginUser">로그인</a><hr>
 	<%
 		} else {
 	%>
 	<%=session.getAttribute("id")%>님 안녕하세요
-	<a href="/sess/sessionLogout">로그아웃</a>
+	<a href="/sess/sessionLogout">로그아웃</a><hr>
 	<hr>
 	<%
 		}

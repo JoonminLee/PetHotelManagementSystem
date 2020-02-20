@@ -13,10 +13,10 @@
 	</select>
 	<insert id="insertRoom">
 		insert into room (r_num, r_s_num, r_w_price, r_h_price, r_status) 
-		values(0, #{rSize}, #{rWPrice}, #{rHPrice}, #{rStatus})
+		values(0, #{rSNum}, #{rWPrice}, #{rHPrice}, #{rStatus})
 	</insert>
 	<update id="updateRoom">
-		update room set r_s_num=#{rSize},
+		update room set r_s_num=#{rSNum},
 		r_w_price=#{rWPrice},
 		r_h_price=#{rHPrice}, r_status=#{rStatus} where
 		r_num=#{rNum}
