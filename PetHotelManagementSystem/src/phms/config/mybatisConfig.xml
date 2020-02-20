@@ -15,7 +15,7 @@
 		<typeAlias type="phms.dto.PositionDto" alias="position"/>
 		<typeAlias type="phms.dto.ReservationDto" alias="reservation"/>
 		<typeAlias type="phms.dto.RoomDto" alias="room"/>
-		<typeAlias type="phms.dto.SizeDto" alias="sizes"/>
+		<typeAlias type="phms.dto.SizeDto" alias="size"/>
 		<typeAlias type="phms.dto.VisitorDto" alias="visitor"/>
 	</typeAliases>	
 </configuration>

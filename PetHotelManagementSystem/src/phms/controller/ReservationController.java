@@ -55,11 +55,17 @@ public class ReservationController {
 
 	@PostMapping("/insertReserve")
 	public String insertReserve(@RequestParam("uPhone1") String uPhone1, @RequestParam("uPhone2") String uPhone2,
-			@RequestParam("reDateStr") String reDateStr, ReservationDto reservation) {
+			@RequestParam("reCheckInStr") String reCheckInStr, @RequestParam("reCheckOutStr") String reCheckOutStr,
+			ReservationDto reservation) {
+
 		System.out.println(":::insertReserve");
-		reservation.setReDate(LocalDate.parse(reDateStr));
+
+		reservation.setReCheckIn(LocalDate.parse(reCheckInStr));
+		reservation.setReCheckIn(LocalDate.parse(reCheckOutStr));
 		reservation.setRePhone("010-" + uPhone1 + "-" + uPhone2);
+
 		int result = reserveService.insertReservation(reservation);
+
 		if (result == 1) {
 			System.out.println("insertReserve 성공");
 			return "redirect:/reserve/selectAllReserve";
@@ -68,7 +74,7 @@ public class ReservationController {
 			return "redirect:/reserve/insertReserve";
 		}
 	}
-	
+
 	@GetMapping("/updateReserve")
 	public String updateReserve(Model model, @RequestParam("reId") String reId) {
 		System.out.println(":::updateReserve");
@@ -77,13 +83,19 @@ public class ReservationController {
 		model.addAttribute("reserve", reserve);
 		return "updateReserve";
 	}
-	
-	
+
 	@PostMapping("/updateReserve")
-	public String updateReserve(ReservationDto reservation, @RequestParam("reDateStr") String reDateStr) {
+	public String updateReserve(ReservationDto reservation, @RequestParam("reCheckInStr") String reCheckInStr,
+			@RequestParam("reCheckOutStr") String reCheckOutStr) {
+		
 		System.out.println(":::updateReserve");
-		reservation.setReDate(LocalDate.parse(reDateStr));
+
+		reservation.setReCheckIn(LocalDate.parse(reCheckInStr));
+		reservation.setReCheckIn(LocalDate.parse(reCheckOutStr));
+		
+		
 		System.out.println(reservation.toString());
+		
 		int result = reserveService.updateReservation(reservation);
 		if (result == 1) {
 			System.out.println("updateReserve 성공");
@@ -93,7 +105,7 @@ public class ReservationController {
 			return "redirect:/reserve/updateReserve";
 		}
 	}
-	
+
 	@RequestMapping("/deleteReserve")
 	public String deleteReserve(Model model, @RequestParam("reId") String reId) {
 		System.out.println(":::deleteReserve");
