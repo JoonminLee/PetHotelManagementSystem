@@ -8,7 +8,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import phms.dto.ReservationDto;
 import phms.dto.RoomDto;
+import phms.mapper.ReservationMapper;
 import phms.mapper.RoomMapper;
 
 @Service
@@ -17,42 +19,50 @@ public class RoomService {
 	@Autowired
 	RoomMapper roomMapper;
 	
+	@Autowired
+	ReservationMapper reservationMapper;
+	
 	public RoomDto selectOneRoom(int rNum) {
 		return roomMapper.selectOneRoom(rNum);
 	}
 	
+	//아직미완성..
 	public List<RoomDto> selectAllRoom(){
 		
-		SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd");
 		SimpleDateFormat format1 = new SimpleDateFormat("HH");
+		SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd");
+
 		Date now = new Date();
-		
-		//시간
+
+		// 시간
 		String time = format1.format(now);
 		int timeH = Integer.parseInt(time);
-		
-		//날짜
+
+		// 날짜
 		String ToDay = format.format(now);
 		LocalDate reDate = LocalDate.parse(ToDay);
 
-		List<RoomDto> Roomlist = roomMapper.selectAllRoom();
-		
-		//12시~15시는 청소시간이면 status = 2(청소시간) 
-		for (int i = 0; i < Roomlist.size(); i++) {
-			RoomDto room = Roomlist.get(i);
-			if (timeH > 11 && timeH < 14) {
-				room.setrStatus(2);
-				roomMapper.updateRoom(room);
-				System.out.println("청소시간입니다."); // 2
-				}else {
-					
-					//나머지시간은 status = 0 (빈방)
-					room.setrStatus(0);
-					roomMapper.updateRoom(room);
-					System.out.println("빈방입니다.");
-					//사용중일 경우 status = 1 (예약이 안되어있으면 0)
-			}
+		System.out.println("Today: " + reDate);
 
+		// 전체방리스트
+		List<RoomDto> roomList = roomMapper.selectAllRoom();
+
+		// 예약전체사이즈
+		int reAllSize = reservationMapper.selectAllReservation().size();
+
+		// 오늘 체크인 예약리스트
+		List<ReservationDto> TodayCheckInList = reservationMapper.selectCheckInReservation(reDate);
+		for (int i =0; i<TodayCheckInList.size(); i++) {
+			//오늘예약한방 번호추출
+			int ReRNum = TodayCheckInList.get(i).getReRNum();
+			System.out.println(i+"번째  ReRNum : "+ReRNum);
+			//ReRNum이 동일한 room을 select한뒤 상태변경
+			RoomDto ReRNumRoom = roomMapper.selectOneRoom(ReRNum);
+			ReRNumRoom.setrStatus(1);
+			System.out.println(i+"번째  "+ReRNumRoom.toString());
+		
+		// 오늘 체크아웃 예약리스트...
+			
 		}
 		return roomMapper.selectAllRoom();
 	}

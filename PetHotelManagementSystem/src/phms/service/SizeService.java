@@ -3,10 +3,12 @@ package phms.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import phms.dto.SizeDto;
 import phms.mapper.SizeMapper;
 
+@Service
 public class SizeService {
 	
 	@Autowired
