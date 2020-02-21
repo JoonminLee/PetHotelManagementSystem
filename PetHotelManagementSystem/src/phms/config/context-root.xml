@@ -18,7 +18,10 @@
 	<context:component-scan base-package="phms" />
 	<context:component-scan base-package="common"/>
 	
+	<mvc:resources location="/WEB-INF/images/" mapping="/images/**"/>
+	
 	<context:property-placeholder location="classpath:phms/config/dbInfo.properties" />
+	
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
