@@ -18,6 +18,12 @@ public class VisitorController {
 	@Autowired
 	VisitorService visitorService;
 
+	@RequestMapping("/loginNaverCallback")
+	public String loginNaverCallback() {
+		System.out.println(":::loginNaverCallback");
+		return "loginNaverCallback";
+	}
+	
 	@RequestMapping("/selectOneVisitor")
 	public String selectOneVisitor(Model model, @RequestParam("vId") String vId) {
 		System.out.println(":::selectOneVisitor");
@@ -39,6 +45,7 @@ public class VisitorController {
 			@RequestParam("vEmail") String vEmail) {
 		System.out.println(":::insertVisitor");
 		if (visitorService.selectOneVisitor(vId) != null) {
+			System.out.println("로그인을 환영합니다");
 			return "redirect:/visitor/selectAllVisitor";
 		} else {
 			VisitorDto visitor = new VisitorDto();
@@ -46,6 +53,7 @@ public class VisitorController {
 			visitor.setvName(vName);
 			visitor.setvEmail(vEmail);
 			visitorService.insertVisitor(visitor);
+			System.out.println("회원가입을 환영합니다");
 		}
 		return "redirect:/visitor/selectAllVisitor";
 	}
