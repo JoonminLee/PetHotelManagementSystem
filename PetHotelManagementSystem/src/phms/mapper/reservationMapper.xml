@@ -18,6 +18,12 @@
 		reservation where
 		re_id = #{reId}
 	</select>
+	<select id="selectByReRNum" resultType="reservation">
+		select * from
+		reservation where
+		re_r_num = #{reRNum}
+	</select>
+
 	<select id="selectAllReservation" resultType="reservation">
 		select * from
 		reservation

@@ -14,6 +14,8 @@ public interface ReservationMapper {
 	
 	public ReservationDto selectOneReservation(String reId);
 	
+	public ReservationDto selectByReRNum(int reRNum);
+	
 	public List<ReservationDto> selectAllReservation();
 	
 	public int insertReservation(ReservationDto reservation);

@@ -4,7 +4,7 @@ package phms.mapper;
 import java.util.List;
 
 import phms.dto.RoomDto;
- 
+
 public interface RoomMapper {
 
 	public RoomDto selectOneRoom(int rNum);

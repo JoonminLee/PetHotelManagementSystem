@@ -86,10 +86,9 @@ public class ReservationController {
 
 	@PostMapping("/updateReserve")
 	public String updateReserve(ReservationDto reservation, @RequestParam("reCheckInStr") String reCheckInStr,
-			@RequestParam("reCheckOutStr") String reCheckOutStr) {
+			@RequestParam("reCheckOutStr") String reCheckOutStr ) {
 		
 		System.out.println(":::updateReserve");
-
 		reservation.setReCheckIn(LocalDate.parse(reCheckInStr));
 		reservation.setReCheckOut(LocalDate.parse(reCheckOutStr));
 		
