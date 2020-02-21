@@ -61,7 +61,7 @@ public class ReservationController {
 		System.out.println(":::insertReserve");
 
 		reservation.setReCheckIn(LocalDate.parse(reCheckInStr));
-		reservation.setReCheckIn(LocalDate.parse(reCheckOutStr));
+		reservation.setReCheckOut(LocalDate.parse(reCheckOutStr));
 		reservation.setRePhone("010-" + uPhone1 + "-" + uPhone2);
 
 		int result = reserveService.insertReservation(reservation);
@@ -91,7 +91,7 @@ public class ReservationController {
 		System.out.println(":::updateReserve");
 
 		reservation.setReCheckIn(LocalDate.parse(reCheckInStr));
-		reservation.setReCheckIn(LocalDate.parse(reCheckOutStr));
+		reservation.setReCheckOut(LocalDate.parse(reCheckOutStr));
 		
 		
 		System.out.println(reservation.toString());

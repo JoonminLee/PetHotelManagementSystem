@@ -26,7 +26,6 @@ public class RoomService {
 		return roomMapper.selectOneRoom(rNum);
 	}
 	
-	//아직미완성..
 	public List<RoomDto> selectAllRoom(){
 		
 		SimpleDateFormat format1 = new SimpleDateFormat("HH");
@@ -44,26 +43,63 @@ public class RoomService {
 
 		System.out.println("Today: " + reDate);
 
-		// 전체방리스트
-		List<RoomDto> roomList = roomMapper.selectAllRoom();
+		RoomDto ReRNumRoom = new RoomDto();
 
-		// 예약전체사이즈
-		int reAllSize = reservationMapper.selectAllReservation().size();
+		// 전체예약리스트
+		List<ReservationDto> reserveAllList = reservationMapper.selectAllReservation();
+		int ReRNum;
 
-		// 오늘 체크인 예약리스트
-		List<ReservationDto> TodayCheckInList = reservationMapper.selectCheckInReservation(reDate);
-		for (int i =0; i<TodayCheckInList.size(); i++) {
-			//오늘예약한방 번호추출
-			int ReRNum = TodayCheckInList.get(i).getReRNum();
-			System.out.println(i+"번째  ReRNum : "+ReRNum);
-			//ReRNum이 동일한 room을 select한뒤 상태변경
-			RoomDto ReRNumRoom = roomMapper.selectOneRoom(ReRNum);
-			ReRNumRoom.setrStatus(1);
-			System.out.println(i+"번째  "+ReRNumRoom.toString());
-		
-		// 오늘 체크아웃 예약리스트...
-			
+		for (int i = 0; i < reserveAllList.size(); i++) {
+
+			LocalDate CheckIn = reserveAllList.get(i).getReCheckIn();
+			LocalDate CheckOut = reserveAllList.get(i).getReCheckOut();
+
+			// 오늘 체크인일 경우.
+			if (CheckIn.isEqual(reDate)) {
+				System.out.println("----------------CheckIn-----------------------------------------------");
+				System.out.println(i + "번째 : " + reserveAllList.get(i).toString());
+				ReRNum = reserveAllList.get(i).getReRNum();
+				System.out.println(i + "번째  ReRNum : " + ReRNum);
+				ReRNumRoom = roomMapper.selectOneRoom(ReRNum);
+				System.out.println(i + "번째 변경전 : " + ReRNumRoom.toString());
+				ReRNumRoom.setrStatus(1);
+				roomMapper.updateRoom(ReRNumRoom);
+				System.out.println(i + "번째 변경후 : " + ReRNumRoom.toString());
+				System.out.println(timeH);
+				
+				// 3시 이전이면 상태를 0으로처리.
+				if (timeH < 15) {
+					ReRNumRoom.setrStatus(0);
+					roomMapper.updateRoom(ReRNumRoom);
+					System.out.println(i + "번째 변경후 : " + ReRNumRoom.toString());
+				}
+
+				// 오늘 체크아웃인 경우.
+			} else if (CheckOut.isEqual(reDate)) {
+				System.out.println("----------------CheckOut----------------------------------------------");
+				System.out.println(i + "번째 : " + reserveAllList.get(i).toString());
+				ReRNum = reserveAllList.get(i).getReRNum();
+				System.out.println(i + "번째  ReRNum : " + ReRNum);
+				ReRNumRoom = roomMapper.selectOneRoom(ReRNum);
+				System.out.println(i + "번째 변경전 : " + ReRNumRoom.toString());
+				ReRNumRoom.setrStatus(2);
+				roomMapper.updateRoom(ReRNumRoom);
+				System.out.println(i + "번째 변경후 : " + ReRNumRoom.toString());
+
+				// 11시부터 2시까지 청소시간이 끝나면 0으로 상태변경
+				if (!(timeH > 10 && timeH < 15)) {
+					ReRNumRoom.setrStatus(0);
+					roomMapper.updateRoom(ReRNumRoom);
+					System.out.println("청소시간이 끝났습니다."); // 0
+					System.out.println(i + "번째 변경후 : " + ReRNumRoom.toString());
+
+				}
+			} else {
+				System.out.println("----------------나머지---------------------------------------------------");
+				System.out.println(i + "번째 : " + reserveAllList.get(i).toString());
+			}
 		}
+
 		return roomMapper.selectAllRoom();
 	}
 	
