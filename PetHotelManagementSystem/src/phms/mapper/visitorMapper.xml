@@ -10,10 +10,10 @@
 		select * from visitor
 	</select>
 	<insert id="insertVisitor">
-		insert into visitor(v_num, v_id, v_name, v_email) value(0, #{vId}, #{vName}, #{vEmail})
+		insert into visitor(v_num, v_id, v_name, v_email, v_from) value(0, #{vId}, #{vName}, #{vEmail}, #{vFrom})
 	</insert>
 	<update id="updateVisitor">
-		update visitor set v_id=#{vId}, v_name=#{vName}, v_email=#{vEmail}, v_room=#{vRoom} where v_id=#{v_id}
+		update visitor set v_id=#{vId}, v_name=#{vName}, v_email=#{vEmail}, v_from=#{vFrom}, v_room=#{vRoom} where v_id=#{v_id}
 	</update>
 	<delete id="deleteVisitor">
 		delete from visitor where v_id=#{vId}

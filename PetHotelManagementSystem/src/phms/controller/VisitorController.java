@@ -42,7 +42,7 @@ public class VisitorController {
 
 	@RequestMapping("/insertVisitor")
 	public String insertVisitor(@RequestParam("vId") String vId, @RequestParam("vName") String vName,
-			@RequestParam("vEmail") String vEmail) {
+			@RequestParam("vEmail") String vEmail, @RequestParam("vFrom") String vFrom) {
 		System.out.println(":::insertVisitor");
 		if (visitorService.selectOneVisitor(vId) != null) {
 			System.out.println("로그인을 환영합니다");
@@ -52,6 +52,7 @@ public class VisitorController {
 			visitor.setvId(vId);
 			visitor.setvName(vName);
 			visitor.setvEmail(vEmail);
+			visitor.setvFrom(vFrom);
 			visitorService.insertVisitor(visitor);
 			System.out.println("회원가입을 환영합니다");
 		}

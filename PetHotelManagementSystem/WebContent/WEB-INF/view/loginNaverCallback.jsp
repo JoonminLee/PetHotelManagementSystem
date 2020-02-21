@@ -19,7 +19,8 @@
 		var naverProfile = 
 				"?vId=" + naver_id_login.getProfileData('id')
 				+ "&vName="	+ naver_id_login.getProfileData('name')
-				+ "&vEmail=" + naver_id_login.getProfileData('email');
+				+ "&vEmail=" + naver_id_login.getProfileData('email')
+				+ "&vFrom=naver";
 		location.href = "/visitor/insertVisitor" + naverProfile;
 		}
 </script>

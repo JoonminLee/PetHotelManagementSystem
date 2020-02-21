@@ -6,6 +6,7 @@ public class VisitorDto {
 	private String vId;
 	private String vName;
 	private String vEmail;
+	private String vFrom;
 	private int vRoom;
 
 	public int getvNum() {
@@ -40,6 +41,14 @@ public class VisitorDto {
 		this.vEmail = vEmail;
 	}
 
+	public String getvFrom() {
+		return vFrom;
+	}
+
+	public void setvFrom(String vFrom) {
+		this.vFrom = vFrom;
+	}
+
 	public int getvRoom() {
 		return vRoom;
 	}
@@ -48,12 +57,13 @@ public class VisitorDto {
 		this.vRoom = vRoom;
 	}
 
-	public VisitorDto(int vNum, String vId, String vName, String vEmail, int vRoom) {
+	public VisitorDto(int vNum, String vId, String vName, String vEmail, String vFrom, int vRoom) {
 		super();
 		this.vNum = vNum;
 		this.vId = vId;
 		this.vName = vName;
 		this.vEmail = vEmail;
+		this.vFrom = vFrom;
 		this.vRoom = vRoom;
 	}
 
@@ -63,8 +73,8 @@ public class VisitorDto {
 
 	@Override
 	public String toString() {
-		return "VisitorDto [vNum=" + vNum + ", vId=" + vId + ", vName=" + vName + ", vEmail=" + vEmail + ", vRoom="
-				+ vRoom + "]";
+		return "VisitorDto [vNum=" + vNum + ", vId=" + vId + ", vName=" + vName + ", vEmail=" + vEmail + ", vFrom="
+				+ vFrom + ", vRoom=" + vRoom + "]";
 	}
 
 }

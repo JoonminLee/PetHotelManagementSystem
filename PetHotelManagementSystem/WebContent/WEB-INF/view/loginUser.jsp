@@ -45,9 +45,10 @@
 				url : '/v2/user/me',
 				success : function(res) {
 					console.log(res.toString)
-					var kakaoProfile = "?vId=" + res.id + "&vName="
-							+ res.properties.nickname + "&vEmail="
-							+ res.kakao_account.email;
+					var kakaoProfile = "?vId=" + res.id
+							+ "&vName="	+ res.properties.nickname
+							+ "&vEmail=" + res.kakao_account.email
+							+ "&vFrom=kakao";
 					location.href = "/visitor/insertVisitor" + kakaoProfile;
 				},
 				fail : function(error) {
@@ -63,8 +64,10 @@
 	//구글 로그인
 	function onSignIn(googleUser) {
 		var profile = googleUser.getBasicProfile();
-		var googleProfile = "?vId=" + profile.getId() + "&vName="
-				+ profile.getName() + "&vEmail=" + profile.getEmail();
+		var googleProfile = "?vId=" + profile.getId()
+				+ "&vName="	+ profile.getName()
+				+ "&vEmail=" + profile.getEmail()
+				+ "&vFrom=google";
 		location.href = "/visitor/insertVisitor" + googleProfile;
 	}
 
