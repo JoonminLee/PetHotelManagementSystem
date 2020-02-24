@@ -33,7 +33,7 @@ public class RoomController {
 	
 	// selectAllRoom
 	@RequestMapping("/selectAllRoom")
-	public @ResponseBody List<RoomDto> selectAllRoom(Model model) {
+	public @ResponseBody List<RoomDto> selectAllRoom() {
 		System.out.println(":::selectAllRoom");
 		List<RoomDto> listRoom = roomService.selectAllRoom();
 		System.out.println(listRoom.toString());

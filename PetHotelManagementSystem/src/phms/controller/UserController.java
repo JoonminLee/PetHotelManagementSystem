@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import common.loginAuthentication;
 import phms.dto.UserDto;
@@ -36,11 +37,10 @@ public class UserController {
 
 	// selectAllUser
 	@RequestMapping("/selectAllUser")
-	public String selectAllUser(Model model) {
+	public @ResponseBody List<UserDto> selectAllUser() {
 		System.out.println(":::selectAllUser");
 		List<UserDto> listUser = userService.selectAllUser();
-		model.addAttribute("listUser", listUser);
-		return "selectAllUser";
+		return listUser;
 	}
 
 	// insertUser
