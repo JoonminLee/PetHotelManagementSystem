@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import phms.dto.ReservationDto;
 import phms.dto.RoomDto;
@@ -37,12 +38,11 @@ public class ReservationController {
 
 	// selectAllReservation
 	@RequestMapping("/selectAllReserve")
-	public String selectAllReserve(Model model) {
+	public @ResponseBody List<ReservationDto> selectAllReserve() {
 		System.out.println(":::selectAllReserve");
 		List<ReservationDto> listReserve = reserveService.selectAllReservation();
 		System.out.println(listReserve.toString());
-		model.addAttribute("listReserve", listReserve);
-		return "selectAllReserve";
+		return listReserve;
 	}
 
 	// insertReserve

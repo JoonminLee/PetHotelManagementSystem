@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import phms.dto.RoomDto;
 import phms.service.RoomService;
@@ -32,12 +33,11 @@ public class RoomController {
 	
 	// selectAllRoom
 	@RequestMapping("/selectAllRoom")
-	public String selectAllRoom(Model model) {
+	public @ResponseBody List<RoomDto> selectAllRoom(Model model) {
 		System.out.println(":::selectAllRoom");
 		List<RoomDto> listRoom = roomService.selectAllRoom();
 		System.out.println(listRoom.toString());
-		model.addAttribute("listRoom", listRoom);
-		return "selectAllRoom";
+		return listRoom;
 	}
 	
 	//insertRoom
