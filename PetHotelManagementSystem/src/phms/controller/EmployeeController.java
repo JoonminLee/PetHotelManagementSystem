@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import phms.dto.EmployeeDto;
 import phms.service.EmployeeService;
@@ -35,12 +36,11 @@ public class EmployeeController {
 
 	// selectAllEmp
 	@RequestMapping("/selectAllEmp")
-	public String selectAllEmp(Model model) {
+	public @ResponseBody List<EmployeeDto> selectAllEmp() {
 		System.out.println(":::selectAllEmp");
 		List<EmployeeDto> listEmployee = employeeService.selectAllEmp();
 		System.out.println(listEmployee.toString());
-		model.addAttribute("listEmployee", listEmployee);
-		return "selectAllEmp";
+		return listEmployee;
 	}
 
 	// insertEmp

@@ -11,6 +11,9 @@
 	<select id="selectAllRoom" resultType="room">
 		select * from room
 	</select>
+	<select id="selectAllAvailable">
+		select * from room where r_status = #{rStatus}
+	</select>
 	<insert id="insertRoom">
 		insert into room (r_num, r_s_num, r_status)
 		values(0, #{rSNum}, #{rStatus})

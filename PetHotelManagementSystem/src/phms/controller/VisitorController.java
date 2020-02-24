@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import phms.dto.VisitorDto;
 import phms.service.VisitorService;
@@ -33,11 +34,10 @@ public class VisitorController {
 	}
 
 	@RequestMapping("/selectAllVisitor")
-	public String selectAllVisitor(Model model) {
+	public @ResponseBody List<VisitorDto> selectAllVisitor() {
 		System.out.println(":::selectAllVisitor");
 		List<VisitorDto> listVisitor = visitorService.selectAllVisitor();
-		model.addAttribute("listVisitor", listVisitor);
-		return "selectAllVisitor";
+		return listVisitor;
 	}
 
 	@RequestMapping("/insertVisitor")

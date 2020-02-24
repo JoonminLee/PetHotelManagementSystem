@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import phms.dto.PetDto;
 import phms.dto.UserDto;
@@ -34,12 +35,11 @@ public class PetController {
 
 	// selectAllpet
 	@RequestMapping("/selectAllPet")
-	public String selectAllPet(Model model) {
+	public @ResponseBody List<PetDto> selectAllPet() {
 		System.out.println(":::selectAllPet");
 		List<PetDto> listPet = petService.selectAllPet();
 		System.out.println(listPet.toString());
-		model.addAttribute("listPet", listPet);
-		return "selectAllPet";
+		return listPet;
 	}
 	
 	// insertPet

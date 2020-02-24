@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import phms.dto.DepartmentDto;
 import phms.service.DepartmentService;
@@ -30,12 +31,11 @@ public class DepartmentController {
 	}
 	// selectAllDepartment
 	@RequestMapping("/selectAllDepartment")
-	public String selectAllDepartment(Model model) {
+	public @ResponseBody List<DepartmentDto> selectAllDepartment() {
 		System.out.println(":::selectAllDepartment");
 		List<DepartmentDto> listDepartment = departmentService.selectAllDepartment();
 		System.out.println(listDepartment.toString());
-		model.addAttribute("listDepartment", listDepartment);
-		return "selectAllDepartment";
+		return listDepartment;
 	}
 	// insertDepartment
 	@GetMapping("/insertDepartment")

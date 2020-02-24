@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import phms.dto.PositionDto;
 import phms.service.PositionService;
@@ -30,12 +31,11 @@ public class PositionController {
 	}
 	// selectAllPosition
 	@RequestMapping("/selectAllPosition")
-	public String selectAllPosition(Model model) {
+	public @ResponseBody List<PositionDto> selectAllPosition() {
 		System.out.println(":::selectAllPosition");
 		List<PositionDto> listPosition = positionService.selectAllPosition();
 		System.out.println(listPosition.toString());
-		model.addAttribute("listPosition", listPosition);
-		return "selectAllPosition";
+		return listPosition;
 	}
 	// insertPosition
 	@GetMapping("/insertPosition")

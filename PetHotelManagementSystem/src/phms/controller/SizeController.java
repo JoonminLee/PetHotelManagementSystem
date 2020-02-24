@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import phms.dto.SizeDto;
 import phms.service.SizeService;
@@ -33,13 +34,12 @@ public class SizeController {
 
 	// selectAllSize
 	@RequestMapping("/selectAllSize")
-	public String selectAllSize(Model model) {
+	public @ResponseBody List<SizeDto> selectAllSize() {
 		System.out.println(":::selectAllSize");
 
 		List<SizeDto> listSize = sizeService.selectAllSize();
 		System.out.println(listSize.toString());
-		model.addAttribute("listSize", listSize);
-		return "selectAllSize";
+		return listSize;
 	}
 
 	// insertSize

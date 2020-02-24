@@ -11,6 +11,8 @@ public interface RoomMapper {
 	
 	public List<RoomDto> selectAllRoom();
 	
+	public List<RoomDto> selectAllAvailable();
+	
 	public int insertRoom(RoomDto room);
 
 	public int updateRoom(RoomDto room);

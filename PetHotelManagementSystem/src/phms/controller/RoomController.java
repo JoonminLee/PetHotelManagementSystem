@@ -33,11 +33,21 @@ public class RoomController {
 	
 	// selectAllRoom
 	@RequestMapping("/selectAllRoom")
-	public @ResponseBody List<RoomDto> selectAllRoom(Model model) {
+	public @ResponseBody List<RoomDto> selectAllRoom() {
 		System.out.println(":::selectAllRoom");
 		List<RoomDto> listRoom = roomService.selectAllRoom();
 		System.out.println(listRoom.toString());
 		return listRoom;
+	}
+	
+	// selectAllAvailable
+	@RequestMapping("/selectAllAvailable")
+	public String selectAllAvailable(Model model) {
+		System.out.println(":::selectAllAvailable");
+		List<RoomDto> listAvailableRoom = roomService.selectAllAvailable();
+		System.out.println(listAvailableRoom.toString());
+		model.addAttribute("listAvailableRoom", listAvailableRoom);
+		return "selectAllAvailable";
 	}
 	
 	//insertRoom
