@@ -54,6 +54,7 @@ public class PetController {
 	@PostMapping("/insertPet")
 	public String insertPet(PetDto pet) {
 		System.out.println(":::insertPet");
+		System.out.println();
 		int result = petService.insertPet(pet);
 		if (result == 1) {
 			System.out.println("insertPet 성공");

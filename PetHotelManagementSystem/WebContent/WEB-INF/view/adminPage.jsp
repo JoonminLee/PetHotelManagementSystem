@@ -15,6 +15,8 @@ table {
 td{
 	padding : 5px;
 }
+
+input{width: 100px; margin:5px;}
 </style>
 
 <html>
@@ -38,11 +40,9 @@ td{
 	</div>
 	
 	<hr>
-	<div>
-	여기에 수정을 하는거야
-	</div>
+	<div id ="adminInsert"></div>
+	
 	<hr>
-
 	<div id="adminList"></div>
 
 
@@ -56,6 +56,83 @@ td{
 		
 		//user
 		$("#user").click(function() {
+			
+			//input창 추가.
+			var makeInsert = document.createElement('form');
+			$("p").remove();
+			
+			makeInsert.innerHTML = 
+				'<p><input type="text" name="uId" placeholder="아이디 입력" required="required">'+
+				'<input type="password" name="uPwd" placeholder="패스워드 입력">'+
+				'<input type="text" name="uName" placeholder="이름 입력"><br>'+
+				'<label><input type="radio" name="uGender" value="남">남</label>'+
+				'<label><input type="radio" name="uGender" value="여">여</label><br>'+
+				'<input type="text" value="010" readonly> - <input type="text" maxlength="4" name="uPhone1"> - <input type="text" maxlength="4" name="uPhone2"><br>'+
+				'<input type="text" name="uEmail" placeholder="이메일 입력">'+
+				'<input type="date" name="uBirthStr"><br>'+
+				'<input type="button" id="UserAddBtn"value="추가"><p>';
+			
+			console.log(makeInsert);
+			$('#adminInsert').append(makeInsert);
+			
+			//button 클릭시 value값이 담김.
+			$("#UserAddBtn").click(function(){
+				
+				var uId = $("input[name='uId']").val();
+				var uPwd = $("input[name='uPwd']").val();
+				var uName = $("input[name='uName']").val();
+				var uGender = $("input[name='uGender']").val();
+				var uPhone1 = $("input[name='uPhone1']").val();
+				var uPhone2 = $("input[name='uPhone2']").val();
+				var uEmail = $("input[name='uEmail']").val();
+				var uBirthStr = $("input[name='uBirthStr']").val();
+				
+				
+				//ajax로 데이터를 보내줌.
+				//insert
+				$.ajax({
+					url :"${pageContext.request.contextPath}/user/insertUser",
+					data : {"uId" : uId, "uPwd" : uPwd, "uName" : uName, "uGender" :uGender, 
+						"uPhone1" : uPhone1, "uPhone2" : uPhone2, "uEmail" : uEmail, "uBirthStr" :uBirthStr},
+					dataType : "json",
+					type : "post",
+					
+					//성공시 다시 select해줌
+					success :function(){
+						//select
+						$.ajax({
+							url : "${pageContext.request.contextPath}/user/selectAllUser",
+							dataType : "json",
+							type : "post",
+							success : function(result) {
+							console.log(result[0]);
+							
+							$("table").remove();
+							var makeTable = document.createElement('table');
+							makeTable.innerHTML = '<tr><td>uNum</td><td>uId</td><td>uPwd</td><td>uName</td><td>uGender</td><td>uPhone</td><td>uEmail</td><td>uBirth</td><td>관리</td></tr>';
+							
+							console.log(result.length);
+							for(var i=0; i<result.length; i++){
+								makeTable.innerHTML += '<tr><td>'+ result[i].uNum+'</td><td>'+ result[i].uId+'</td><td>'+ result[i].uPwd+'</td><td>'+ result[i].uName+'</td><td>'+ result[i].uGender+'</td><td>'+ result[i].uPhone+'</td><td>'+ result[i].uEmail+'</td><td>'+ 
+								result[i].uBirth.year+'-'+result[i].uBirth.monthValue+'-'+result[i].uBirth.dayOfMonth+'</td><td>관리</td></tr>';
+							}
+							
+						 	console.log(makeTable);
+							$('#adminList').append(makeTable);
+							}
+						});
+						
+						//인풋박스 초기화.
+						$("form")[0].reset();
+					},
+					error : function(e){
+						alert("추가실패");
+					}
+				})
+				
+			})
+			
+			//select
 			$.ajax({
 				url : "${pageContext.request.contextPath}/user/selectAllUser",
 				dataType : "json",
@@ -79,29 +156,98 @@ td{
 			});
 		})
 		
+		
 		//pet
 		$("#pet").click(function() {
-			$.ajax({
-				url : "${pageContext.request.contextPath}/pet/selectAllPet",
-				dataType : "json",
-				type : "post",
-				success : function(result) {
-				console.log(result[0]);
+			
+			//input창 추가.
+			var makeInsert = document.createElement('form');
+			$("input").remove();
+			
+			makeInsert.innerHTML = 
+				'<input type="text" name="pName" placeholder="펫이름">'+
+				'<input type="text" name="pType" placeholder="펫종류">'+
+				'<input type="number" name="pUNum" placeholder="펫주인번호">'+
+				'<input type="number" name="pVNum" placeholder="방문자번호">'+
+				'<input type="button" id="PetAddBtn"value="추가">';
+			
+			console.log(makeInsert);
+			$('#adminInsert').append(makeInsert);
+			
+			//button 클릭시 value값이 담김.
+			$("#PetAddBtn").click(function(){
+				var pName = $("input[name='pName']").val();
+				var pType = $("input[name='pType']").val();
+				var pUNum = $("input[name='pUNum']").val();
+				var pVNum = $("input[name='pVNum']").val();
 				
-				$("table").remove();
-				var makeTable = document.createElement('table');
-				makeTable.innerHTML = '<tr><td>pNum</td><td>pName</td><td>pType</td><td>pUNum</td><td>pVNum</td><td>관리</td></tr>';
 				
-				console.log(result.length);
-				for(var i=0; i<result.length; i++){
-					makeTable.innerHTML += '<tr><td>'+ result[i].pNum+'</td><td>'+ result[i].pName+'</td><td>'+ result[i].pType+'</td><td>'+ result[i].pUNum+'</td><td>'+ result[i].pVNum+'</td><td>관리</td></tr>';
-				}
+				//ajax로 데이터를 보내줌.
+				//insert
+				$.ajax({
+					url :"${pageContext.request.contextPath}/pet/insertPet",
+					data : {"pName" : pName, "pType" : pType, "pUNum" : pUNum, "pVNum" :pVNum},
+					dataType : "json",
+					type : "post",
+					
+					//성공시 다시 select해줌
+					success :function(){
+						/* select  */
+						$.ajax({
+							url : "${pageContext.request.contextPath}/pet/selectAllPet",
+							dataType : "json",
+							type : "post",
+							success : function(result) {
+							console.log(result[0]);
+							
+							$("table").remove();
+							var makeTable = document.createElement('table');
+							makeTable.innerHTML = '<tr><td>pNum</td><td>pName</td><td>pType</td><td>pUNum</td><td>pVNum</td><td>관리</td></tr>';
+							
+							console.log(result.length);
+							for(var i=0; i<result.length; i++){
+								makeTable.innerHTML += '<tr><td>'+ result[i].pNum+'</td><td>'+ result[i].pName+'</td><td>'+ result[i].pType+'</td><td>'+ result[i].pUNum+'</td><td>'+ result[i].pVNum+'</td><td>관리</td></tr>';
+							}
+							
+						 	console.log(makeTable);
+							$('#adminList').append(makeTable);
+							}
+						});
+						
+						//인풋박스 초기화.
+						$("form")[0].reset();
+					},
+					error : function(e){
+						alert("추가실패");
+					}
+				})
 				
-			 	console.log(makeTable);
-				$('#adminList').append(makeTable);
-				}
-			});
-		})
+			})
+			
+			
+		/* select  */
+		$.ajax({
+			url : "${pageContext.request.contextPath}/pet/selectAllPet",
+			dataType : "json",
+			type : "post",
+			success : function(result) {
+			console.log(result[0]);
+			
+			$("table").remove();
+			var makeTable = document.createElement('table');
+			makeTable.innerHTML = '<tr><td>pNum</td><td>pName</td><td>pType</td><td>pUNum</td><td>pVNum</td><td>관리</td></tr>';
+			
+			console.log(result.length);
+			for(var i=0; i<result.length; i++){
+				makeTable.innerHTML += '<tr><td>'+ result[i].pNum+'</td><td>'+ result[i].pName+'</td><td>'+ result[i].pType+'</td><td>'+ result[i].pUNum+'</td><td>'+ result[i].pVNum+'</td><td>관리</td></tr>';
+			}
+			
+		 	console.log(makeTable);
+			$('#adminList').append(makeTable);
+			}
+		});
+	})
+		
 		
 		//position
 		$("#position").click(function() {
