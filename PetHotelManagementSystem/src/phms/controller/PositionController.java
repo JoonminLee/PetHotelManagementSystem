@@ -44,8 +44,9 @@ public class PositionController {
 		return "insertPosition";
 	}
 	@PostMapping("/insertPosition")
-	public String insertPosition(PositionDto position, @RequestParam("poName") String poName) {
+	public String insertPosition(PositionDto position) {
 		System.out.println(":::insertPosition");
+		
 		int result = positionService.insertPosition(position);
 		if (result == 1) {
 			System.out.println("insertPosition 성공");

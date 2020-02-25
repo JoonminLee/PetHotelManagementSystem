@@ -59,10 +59,19 @@ input{width: 100px; margin:5px;}
 			
 			//input창 추가.
 			var makeInsert = document.createElement('form');
-			$("p").remove();
+			$('#userInsert').remove();
+			$('#petInsert').remove();
+			$('#positionInsert').remove();
+			$('#departmentInsert').remove();
+			$('#reservationInsert').remove();
+			$('#roomInsert').remove();
+			$('#sizeInsert').remove();
+			$('#employeeInsert').remove();
+			$('#visitorInsert').remove();
+			
 			
 			makeInsert.innerHTML = 
-				'<p><input type="text" name="uId" placeholder="아이디 입력" required="required">'+
+				'<div id="userInsert"><input type="text" name="uId" placeholder="아이디 입력" required="required">'+
 				'<input type="password" name="uPwd" placeholder="패스워드 입력">'+
 				'<input type="text" name="uName" placeholder="이름 입력"><br>'+
 				'<label><input type="radio" name="uGender" value="남">남</label>'+
@@ -70,7 +79,7 @@ input{width: 100px; margin:5px;}
 				'<input type="text" value="010" readonly> - <input type="text" maxlength="4" name="uPhone1"> - <input type="text" maxlength="4" name="uPhone2"><br>'+
 				'<input type="text" name="uEmail" placeholder="이메일 입력">'+
 				'<input type="date" name="uBirthStr"><br>'+
-				'<input type="button" id="UserAddBtn"value="추가"><p>';
+				'<input type="button" id="UserAddBtn"value="추가"></div>';
 			
 			console.log(makeInsert);
 			$('#adminInsert').append(makeInsert);
@@ -154,7 +163,7 @@ input{width: 100px; margin:5px;}
 				$('#adminList').append(makeTable);
 				}
 			});
-		})
+		});
 		
 		
 		//pet
@@ -162,14 +171,22 @@ input{width: 100px; margin:5px;}
 			
 			//input창 추가.
 			var makeInsert = document.createElement('form');
-			$("input").remove();
+			$('#userInsert').remove();
+			$('#petInsert').remove();
+			$('#positionInsert').remove();
+			$('#departmentInsert').remove();
+			$('#reservationInsert').remove();
+			$('#roomInsert').remove();
+			$('#sizeInsert').remove();
+			$('#employeeInsert').remove();
+			$('#visitorInsert').remove();
 			
 			makeInsert.innerHTML = 
-				'<input type="text" name="pName" placeholder="펫이름">'+
+				'<div id="petInsert"><input type="text" name="pName" placeholder="펫이름">'+
 				'<input type="text" name="pType" placeholder="펫종류">'+
 				'<input type="number" name="pUNum" placeholder="펫주인번호">'+
 				'<input type="number" name="pVNum" placeholder="방문자번호">'+
-				'<input type="button" id="PetAddBtn"value="추가">';
+				'<input type="button" id="PetAddBtn"value="추가"></div>';
 			
 			console.log(makeInsert);
 			$('#adminInsert').append(makeInsert);
@@ -251,6 +268,74 @@ input{width: 100px; margin:5px;}
 		
 		//position
 		$("#position").click(function() {
+			//input창 추가.
+			var makeInsert = document.createElement('form');
+			$('#userInsert').remove();
+			$('#petInsert').remove();
+			$('#positionInsert').remove();
+			$('#departmentInsert').remove();
+			$('#reservationInsert').remove();
+			$('#roomInsert').remove();
+			$('#sizeInsert').remove();
+			$('#employeeInsert').remove();
+			$('#visitorInsert').remove();
+			
+			makeInsert.innerHTML = 
+				'<div id="positionInsert"><input type="text" name="poName" placeholder="poName">'+
+				'<input type="button" id="PositionAddBtn"value="추가"></div>';
+			
+			console.log(makeInsert);
+			$('#adminInsert').append(makeInsert);
+			
+			//button 클릭시 value값이 담김.
+			$("#PositionAddBtn").click(function(){
+				var poName = $("input[name='poName']").val();
+				
+				
+				//ajax로 데이터를 보내줌.
+				//insert
+				$.ajax({
+					url :"${pageContext.request.contextPath}/posi/insertPosition",
+					data : {"poName" : poName},
+					dataType : "json",
+					type : "post",
+					
+					//성공시 다시 select해줌
+					success :function(){
+						/* select  */
+						$.ajax({
+							url : "${pageContext.request.contextPath}/posi/selectAllPosition",
+							dataType : "json",
+							type : "post",
+							success : function(result) {
+							console.log(result[0]);
+							
+							$("table").remove();
+							var makeTable = document.createElement('table');
+							makeTable.innerHTML = '<tr><td>poNum</td><td>poName</td><td>관리</td></tr>';
+							
+							console.log(result.length);
+							for(var i=0; i<result.length; i++){
+								makeTable.innerHTML += '<tr><td>'+ result[i].poNum+'</td><td>'+ result[i].poName+'</td><td>관리</td></tr>';
+							}
+							
+						 	console.log(makeTable);
+							$('#adminList').append(makeTable);
+							}
+						});
+						
+						
+						//인풋박스 초기화.
+						$("form")[0].reset();
+					},
+					error : function(e){
+						alert("추가실패");
+					}
+				})
+				
+			})
+			
+			//select
 			$.ajax({
 				url : "${pageContext.request.contextPath}/posi/selectAllPosition",
 				dataType : "json",
@@ -275,6 +360,74 @@ input{width: 100px; margin:5px;}
 		
 		//department
 		$("#department").click(function() {
+			//input창 추가.
+			var makeInsert = document.createElement('form');
+			$('#userInsert').remove();
+			$('#petInsert').remove();
+			$('#positionInsert').remove();
+			$('#departmentInsert').remove();
+			$('#reservationInsert').remove();
+			$('#roomInsert').remove();
+			$('#sizeInsert').remove();
+			$('#employeeInsert').remove();
+			$('#visitorInsert').remove();
+			
+			makeInsert.innerHTML = 
+				'<div id="departmentInsert"><input type="text" name="dName" placeholder="dName">'+
+				'<input type="button" id="DepartmentAddBtn"value="추가"></div>';
+			
+			console.log(makeInsert);
+			$('#adminInsert').append(makeInsert);
+			
+			//button 클릭시 value값이 담김.
+			$("#DepartmentAddBtn").click(function(){
+				var dName = $("input[name='dName']").val();
+				
+				
+				//ajax로 데이터를 보내줌.
+				//insert
+				$.ajax({
+					url :"${pageContext.request.contextPath}/dep/insertDepartment",
+					data : {"dName" : dName},
+					dataType : "json",
+					type : "post",
+					
+					//성공시 다시 select해줌
+					success :function(){
+						/* select  */
+						$.ajax({
+							url : "${pageContext.request.contextPath}/dep/selectAllDepartment",
+							dataType : "json",
+							type : "post",
+							success : function(result) {
+							console.log(result[0]);
+							
+							$("table").remove();
+							var makeTable = document.createElement('table');
+							makeTable.innerHTML = '<tr><td>dNum</td><td>dName</td><td>관리</td></tr>';
+							
+							console.log(result.length);
+							for(var i=0; i<result.length; i++){
+								makeTable.innerHTML += '<tr><td>'+ result[i].dNum+'</td><td>'+ result[i].dName+'</td><td>관리</td></tr>';
+							}
+							
+						 	console.log(makeTable);
+							$('#adminList').append(makeTable);
+							}
+						});
+						
+						
+						//인풋박스 초기화.
+						$("form")[0].reset();
+					},
+					error : function(e){
+						alert("추가실패");
+					}
+				})
+				
+			})
+			
+			//select
 			$.ajax({
 				url : "${pageContext.request.contextPath}/dep/selectAllDepartment",
 				dataType : "json",
@@ -300,6 +453,18 @@ input{width: 100px; margin:5px;}
 		
 		//reservation
 		$("#reservation").click(function() {
+			
+			$('#userInsert').remove();
+			$('#petInsert').remove();
+			$('#positionInsert').remove();
+			$('#departmentInsert').remove();
+			$('#reservationInsert').remove();
+			$('#roomInsert').remove();
+			$('#sizeInsert').remove();
+			$('#employeeInsert').remove();
+			$('#visitorInsert').remove();
+			
+			//select
 			$.ajax({
 				url : "${pageContext.request.contextPath}/reserve/selectAllReserve",
 				dataType : "json",
@@ -326,6 +491,77 @@ input{width: 100px; margin:5px;}
 		
 		//room
 		$("#room").click(function() {
+			
+			//input창 추가.
+			var makeInsert = document.createElement('form');
+			$('#userInsert').remove();
+			$('#petInsert').remove();
+			$('#positionInsert').remove();
+			$('#departmentInsert').remove();
+			$('#reservationInsert').remove();
+			$('#roomInsert').remove();
+			$('#sizeInsert').remove();
+			$('#employeeInsert').remove();
+			$('#visitorInsert').remove();
+			
+			makeInsert.innerHTML = 
+				'<div id="roomInsert">'+
+				'<input type="number" name="rSNum" min="1" max="7" placeholder="방사이즈">'+
+				'<input type="number" name="rStatus" placeholder="0" readonly>'+
+				'<input type="button" id="roomAddBtn"value="추가"></div>';
+			
+			console.log(makeInsert);	
+			$('#adminInsert').append(makeInsert);
+			
+			//button 클릭시 value값이 담김.
+			$("#roomAddBtn").click(function(){
+				var rSNum = $("input[name='rSNum']").val();
+				var rStatus = 0;
+				
+				
+				//ajax로 데이터를 보내줌.
+				//insert
+				$.ajax({
+					url :"${pageContext.request.contextPath}/room/insertRoom",
+					data : {"rSNum" : rSNum, "rStatus" : rStatus},
+					dataType : "json",
+					type : "post",
+					
+					//성공시 다시 select해줌
+					success :function(){
+						//select
+						$.ajax({
+							url : "${pageContext.request.contextPath}/room/selectAllRoom",
+							dataType : "json",
+							type : "post",
+							success : function(result) {
+							console.log(result[0]);
+							
+							$("table").remove();
+							var makeTable = document.createElement('table');
+							makeTable.innerHTML = '<tr><td>rNum</td><td>rSNum</td><td>rStatus</td><td>관리</td></tr>';
+							
+							console.log(result.length);
+							for(var i=0; i<result.length; i++){
+								makeTable.innerHTML += '<tr><td>'+ result[i].rNum+'</td><td>'+ result[i].rSNum+'</td><td>'+ result[i].rStatus+'</td><td>관리</td></tr>';
+							}
+							
+						 	console.log(makeTable);
+							$('#adminList').append(makeTable);
+							}
+						});
+						
+						//인풋박스 초기화.
+						$("form")[0].reset();
+					},
+					error : function(e){
+						alert("추가실패");
+					}
+				})
+				
+			})
+			
+			//select
 			$.ajax({
 				url : "${pageContext.request.contextPath}/room/selectAllRoom",
 				dataType : "json",
@@ -350,6 +586,77 @@ input{width: 100px; margin:5px;}
 		
 		//size
 		$("#size").click(function() {
+			
+			//input창 추가.
+			var makeInsert = document.createElement('form');
+			$('#userInsert').remove();
+			$('#petInsert').remove();
+			$('#positionInsert').remove();
+			$('#departmentInsert').remove();
+			$('#reservationInsert').remove();
+			$('#roomInsert').remove();
+			$('#sizeInsert').remove();
+			$('#employeeInsert').remove();
+			$('#visitorInsert').remove();
+			
+			makeInsert.innerHTML = 
+				'<div id="sizeInsert">'+
+				'<input type="text" name="sSize" placeholder="방크기">'+
+				'<input type="number" name="sRPrice" placeholder="평일요금">'+
+				'<input type="number" name="sWPrice" placeholder="주말요금">'+
+				'<input type="button" id="sizeAddBtn"value="추가"></div>';
+			
+			console.log(makeInsert);	
+			$('#adminInsert').append(makeInsert);
+			
+			//button 클릭시 value값이 담김.
+			$("#sizeAddBtn").click(function(){
+				var sSize = $("input[name='sSize']").val();
+				var sRPrice = $("input[name='sRPrice']").val();
+				var sWPrice = $("input[name='sWPrice']").val();
+				
+				//insert
+				$.ajax({
+					url :"${pageContext.request.contextPath}/size/insertSize",
+					data : {"sSize" : sSize, "sRPrice" : sRPrice, "sWPrice" : sWPrice},
+					dataType : "json",
+					type : "post",
+					
+					//성공시 다시 select해줌
+					success :function(){
+						//select
+						$.ajax({
+							url : "${pageContext.request.contextPath}/size/selectAllSize",
+							dataType : "json",
+							type : "post",
+							success : function(result) {
+							console.log(result[0]);
+							
+							$("table").remove();
+							var makeTable = document.createElement('table');
+							makeTable.innerHTML = '<tr><td>sNum</td><td>sSize</td><td>sRPrice</td><td>sWPrice</td><td>관리</td></tr>';
+							
+							console.log(result.length);
+							for(var i=0; i<result.length; i++){
+								makeTable.innerHTML += '<tr><td>'+ result[i].sNum+'</td><td>'+ result[i].sSize+'</td><td>'+ result[i].sRPrice+'</td><td>'+ result[i].sWPrice+'</td><td>관리</td></tr>';
+							}
+							
+						 	console.log(makeTable);
+							$('#adminList').append(makeTable);
+							}
+						});
+						
+						//인풋박스 초기화.
+						$("form")[0].reset();
+					},
+					error : function(e){
+						alert("추가실패");
+					}
+				})
+				
+			})
+			
+			//select
 			$.ajax({
 				url : "${pageContext.request.contextPath}/size/selectAllSize",
 				dataType : "json",
@@ -374,6 +681,99 @@ input{width: 100px; margin:5px;}
 		
 		//employee
 		$("#employee").click(function() {
+			
+			//input창 추가.
+			var makeInsert = document.createElement('form');
+			$('#userInsert').remove();
+			$('#petInsert').remove();
+			$('#positionInsert').remove();
+			$('#departmentInsert').remove();
+			$('#reservationInsert').remove();
+			$('#roomInsert').remove();
+			$('#sizeInsert').remove();
+			$('#employeeInsert').remove();
+			$('#visitorInsert').remove();
+			
+			makeInsert.innerHTML = 
+				'<div id="employeeInsert">'+
+				'<input type="text" name="eNum" placeholder="사원번호 입력" readonly>'+
+				'<input type="text" name="eName" placeholder="사원이름 입력">'+
+				'<select name="eDNum">'+
+					'<option value="1">사무관리부</option>'+
+					'<option value="2">객실관리부</option>'+
+				'</select>'+
+				'<select name="ePoNum">'+
+					'<option value="1">영업부</option>'+
+					'<option value="2">총무부</option>'+
+					'<option value="3">리셉션</option>'+
+					'<option value="4">미화부</option>'+
+					'<option value="5">마케팅부</option>'+	
+					'<option value="6">관리자</option>'+
+				'</select><br>'+
+				'<input type="text" value="010" readonly> - <input type="text" maxlength="4" name="ePhone1"> - <input type="text" maxlength="4" name="ePhone2">'+
+				'<input type="date" name="eHireDateStr"><br>'+
+				'<input type="number" name="eSalary" placeholder="월급">'+
+				'<input type="button" id="EmployeeAddBtn"value="추가"></div>';
+			
+			console.log(makeInsert);	
+			$('#adminInsert').append(makeInsert);
+			
+			//button 클릭시 value값이 담김.
+			$("#EmployeeAddBtn").click(function(){
+				//var eNum = $("input[name='eNum']").val(); 사원번호 AI
+				var eNum = 0;
+				var eName = $("input[name='eName']").val();
+				var eDNum = $("select[name='eDNum']").val();	
+				var ePoNum = $("select[name='ePoNum']").val();
+				var ePhone1 = $("input[name='ePhone1']").val();
+				var ePhone2 = $("input[name='ePhone2']").val();
+				var eHireDateStr = $("input[name='eHireDateStr']").val();
+				var eSalary = $("input[name='eSalary']").val();
+				
+				//insert
+				$.ajax({
+					url :"${pageContext.request.contextPath}/emp/insertEmp",
+					data : {"eNum" : eNum, "eName" : eName, "eDNum" : eDNum, "ePoNum" : ePoNum,
+						"ePhone1" : ePhone1, "ePhone2" : ePhone2, "eHireDateStr" : eHireDateStr, "eSalary" : eSalary},
+					dataType : "json", 
+					type : "post",
+					
+					//성공시 다시 select해줌
+					success :function(){
+						//select
+						$.ajax({
+							url : "${pageContext.request.contextPath}/emp/selectAllEmp",
+							dataType : "json",
+							type : "post",
+							success : function(result) {
+							console.log(result[0]);
+							
+							$("table").remove();
+							var makeTable = document.createElement('table');
+							makeTable.innerHTML = '<tr><td>eNum</td><td>eName</td><td>eDNum</td><td>ePoNum</td><td>ePhone</td><td>eHireDate</td><td>eSalary</td><td>관리</td></tr>';
+							
+							console.log(result.length);
+							for(var i=0; i<result.length; i++){
+								makeTable.innerHTML += '<tr><td>'+ result[i].eNum+'</td><td>'+ result[i].eName+'</td><td>'+ result[i].eDNum+'</td><td>'+ result[i].ePoNum+'</td><td>'+ result[i].ePhone+
+								'</td><td>'+ result[i].eHireDate.year+'-'+result[i].eHireDate.monthValue+'-'+result[i].eHireDate.dayOfMonth+'</td><td>'+ result[i].eSalary+'</td><td>관리</td></tr>';
+							}
+							
+						 	console.log(makeTable);
+							$('#adminList').append(makeTable);
+							}
+						});
+						
+						//인풋박스 초기화.
+						$("form")[0].reset();
+					},
+					error : function(e){
+						alert("추가실패");
+					}
+				})
+				
+			})
+			
+			//select
 			$.ajax({
 				url : "${pageContext.request.contextPath}/emp/selectAllEmp",
 				dataType : "json",
@@ -421,6 +821,6 @@ input{width: 100px; margin:5px;}
 			});
 		})
 		
-	})
+	});
 </script>
 </html>

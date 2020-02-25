@@ -53,7 +53,8 @@ public class RoomService {
 
 			LocalDate CheckIn = reserveAllList.get(i).getReCheckIn();
 			LocalDate CheckOut = reserveAllList.get(i).getReCheckOut();
-
+			
+			System.out.println("방상태확인");
 			// 오늘 체크인일 경우.
 			if (CheckIn.isEqual(reDate)) {
 				System.out.println("----------------CheckIn-----------------------------------------------");

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<form action="/room/insertRoom" method="post">
-		<input type="number" name="rSize" min="1" max="7" placeholder="방사이즈">
+		<input type="number" name="rSNum" min="1" max="7" placeholder="방사이즈">
 		<input type="number" name="rStatus" min="0" max="2" placeholder="방상태">
 		<input type="submit" value="방추가">
 	</form>

@@ -10,7 +10,7 @@
    		select * from employee
    </select>
    <insert id="insertEmp">
-   		insert into employee (e_num, e_name, e_d_num, e_po_num, e_phone, e_hire_date) values(0, #{eName}, #{eDNum}, #{ePoNum}, #{ePhone}, #{eHireDate})
+   		insert into employee (e_num, e_name, e_d_num, e_po_num, e_phone, e_hire_date, e_salary) values(0, #{eName}, #{eDNum}, #{ePoNum}, #{ePhone}, #{eHireDate}, #{eSalary})
    </insert>
    <update id="updateEmp">
    		update employee set e_name=#{eName}, e_d_num=#{eDNum}, e_po_Num=#{ePoNum}, e_phone=#{ePhone}, e_salary=#{eSalary} where e_num=#{eNum}

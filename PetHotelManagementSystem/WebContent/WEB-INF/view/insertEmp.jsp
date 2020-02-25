@@ -24,6 +24,7 @@
 		<input type="text" name="eName" placeholder="사원이름 입력">
 		<input type="text" value="010" readonly> - <input type="text" name="ePhone1"> - <input type="text" name="ePhone2">
 		<input type="date" name="eHireDateStr">
+		<input type="number" name="eSalary">
 		<input type="submit" value="사원등록">
 	</form>
 </body>
