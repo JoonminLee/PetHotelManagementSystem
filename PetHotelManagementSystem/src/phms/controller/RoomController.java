@@ -44,7 +44,7 @@ public class RoomController {
 	@RequestMapping("/selectAllAvailable")
 	public String selectAllAvailable(Model model) {
 		System.out.println(":::selectAllAvailable");
-		List<RoomDto> listAvailableRoom = roomService.selectAllAvailable();
+		List<RoomDto> listAvailableRoom = roomService.selectAllAvailable(0);
 		System.out.println(listAvailableRoom.toString());
 		model.addAttribute("listAvailableRoom", listAvailableRoom);
 		return "selectAllAvailable";

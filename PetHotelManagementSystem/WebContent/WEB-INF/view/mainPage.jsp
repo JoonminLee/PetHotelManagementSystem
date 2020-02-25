@@ -17,20 +17,29 @@
 	</form>
 </body>
 <script type="text/javascript">
-	$(function(){
-		
+	$(function() {
+
 		var today = new Date();
 		var year = today.getFullYear();
 		var month = today.getMonth() + 1;
 		var date = today.getDate();
+
+		if (month < 10)	month = "0" + month;
+		if (date < 10) date = "0" + date;
+
+		$("#reCheckInDate").attr('min', year + "-" + month + "-" + date);
+		$("#reCheckInDate").val(year + "-" + month + "-" + date);
+
+		today.setDate(today.getDate() + 1);
+
+		var year = today.getFullYear();
+		var month = today.getMonth() + 1;
+		var date = today.getDate();
 		
-		if(month < 10) month = "0" + month;
-	    if(date < 10) date = "0" + date;
-		
-	$("#reCheckInDate").attr('min', year + "-" + month + "-" + date);
-	$("#reCheckInDate").val(year + "-" + month + "-" + date);
-	
-	$("#reCheckOutDate").attr('min', $("#reCheckInDate").val());
+		if (month < 10)	month = "0" + month;
+		if (date < 10) date = "0" + date;
+
+		$("#reCheckOutDate").attr('min', year + "-" + month + "-" + date);
 	});
 </script>
 </html>
