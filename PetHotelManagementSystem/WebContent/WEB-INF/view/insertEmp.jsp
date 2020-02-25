@@ -18,7 +18,7 @@
 			<option value="2">영업부</option>
 			<option value="3">총무부</option>
 			<option value="4">리셉션</option>
-			<option value="5">미화부</option>
+			<option value="5">미화부</option> 
 			<option value="6">마케팅부</option>	
 		</select>
 		<input type="text" name="eName" placeholder="사원이름 입력">

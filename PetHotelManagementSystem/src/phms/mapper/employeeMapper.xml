@@ -6,7 +6,7 @@
    <select id="selectOneEmp" resultType="employee">
    		select * from employee where e_num = #{eNum}
    </select>
-   <select id="selectAllEmp" resultType="employee">
+   <select id="selectAllEmp" resultType="employee"> 
    		select * from employee
    </select>
    <insert id="insertEmp">

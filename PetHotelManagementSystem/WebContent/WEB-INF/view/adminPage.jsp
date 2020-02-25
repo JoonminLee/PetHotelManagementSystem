@@ -604,7 +604,7 @@ input{width: 100px; margin:5px;}
 				'<input type="text" name="sSize" placeholder="방크기">'+
 				'<input type="number" name="sRPrice" placeholder="평일요금">'+
 				'<input type="number" name="sWPrice" placeholder="주말요금">'+
-				'<input type="button" id="sizeAddBtn"value="추가"></div>';
+				'<input type="button" id="sizeAddBtn"value="추가"></div>'; 
 			
 			console.log(makeInsert);	
 			$('#adminInsert').append(makeInsert);
