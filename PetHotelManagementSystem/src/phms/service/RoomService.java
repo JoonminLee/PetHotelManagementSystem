@@ -103,8 +103,8 @@ public class RoomService {
 		return roomMapper.selectAllRoom();
 	}
 	
-	public List<RoomDto> selectAllAvailable(){
-		return roomMapper.selectAllAvailable();
+	public List<RoomDto> selectAllAvailable(int rStatus){
+		return roomMapper.selectAllAvailable(rStatus);
 	}
 	
 	public int insertRoom(RoomDto room) {

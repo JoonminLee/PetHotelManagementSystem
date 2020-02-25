@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>mainPage</title>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-	<form action="/room/selectAllRoom" method="post">
+	<form action="/room/selectAllAvailable" method="post">
 		<input id="reCheckInDate" type="date" name="reCheckIn">
 		<input id="reCheckOutDate" type="date" name="reCheckOut">
 		<input type="number" min="0" max="9" name="numOfPeople">
