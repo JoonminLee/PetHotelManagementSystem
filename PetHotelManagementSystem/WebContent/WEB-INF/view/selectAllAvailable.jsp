@@ -11,8 +11,7 @@
 	<c:forEach var="i" items="${listAvailableRoom }">
 		${i.toString() } 
 		<br>
-		<a href="/room/updateRoom?rNum=${i.rNum }">수정</a>
-		<a href="/room/deleteRoom?rNum=${i.rNum }">삭제</a>
+		<a href="/reserve/insertReserve?rNum=${i.rNum }">예약</a>
 		<hr>
 	</c:forEach>
 </body>

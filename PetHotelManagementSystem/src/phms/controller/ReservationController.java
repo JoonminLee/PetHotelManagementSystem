@@ -68,7 +68,7 @@ public class ReservationController {
 
 		if (result == 1) {
 			System.out.println("insertReserve 성공");
-			return "redirect:/reserve/selectAllReserve";
+			return "redirect:/reserve/selectOneR";
 		} else {
 			System.out.println("insertReserve 실패");
 			return "redirect:/reserve/insertReserve";
