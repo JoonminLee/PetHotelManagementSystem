@@ -10,6 +10,6 @@
 <body>
 	<%=(String) session.getAttribute("id")%>님 로그아웃 성공
 	<% session.invalidate();%>
-	<a href="/user/selectAllUser">유저목록가기</a>
+	<a href="/main/mainPage">메인</a>
 </body>
 </html>

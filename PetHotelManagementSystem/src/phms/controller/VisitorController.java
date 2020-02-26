@@ -41,12 +41,14 @@ public class VisitorController {
 	}
 
 	@RequestMapping("/insertVisitor")
-	public String insertVisitor(@RequestParam("vId") String vId, @RequestParam("vName") String vName,
+	public String insertVisitor(Model model, @RequestParam("vId") String vId, @RequestParam("vName") String vName,
 			@RequestParam("vEmail") String vEmail, @RequestParam("vFrom") String vFrom) {
 		System.out.println(":::insertVisitor");
 		if (visitorService.selectOneVisitor(vId) != null) {
 			System.out.println("로그인을 환영합니다");
-			return "redirect:/visitor/selectAllVisitor";
+			model.addAttribute("id", vId);
+			model.addAttribute("from", vFrom);
+			return "sessionLogin";
 		} else {
 			VisitorDto visitor = new VisitorDto();
 			visitor.setvId(vId);
@@ -54,8 +56,10 @@ public class VisitorController {
 			visitor.setvEmail(vEmail);
 			visitor.setvFrom(vFrom);
 			visitorService.insertVisitor(visitor);
+			model.addAttribute("id", vId);
+			model.addAttribute("from", vFrom);
 			System.out.println("회원가입을 환영합니다");
 		}
-		return "redirect:/visitor/selectAllVisitor";
+		return "sessionLogin";
 	}
 }

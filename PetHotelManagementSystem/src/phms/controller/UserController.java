@@ -122,7 +122,8 @@ public class UserController {
 		int result = loginAuth.loginIdPwdCheck(uId, uPwd);
 		if (result == 1) {
 			System.out.println("로그인 성공");
-			model.addAttribute("uId", uId);
+			model.addAttribute("id", uId);
+			model.addAttribute("from", "phms");
 			return "sessionLogin";
 		} else {
 			System.out.println("로그인 실패");
