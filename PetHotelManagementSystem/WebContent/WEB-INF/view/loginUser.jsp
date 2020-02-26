@@ -43,6 +43,7 @@
 		Kakao.init('f93055f9d183a780c81d29d70f577730');
 
 		Kakao.Auth.loginForm({
+		Kakao.Auth.login({
 			success : function(authObj) {
 				Kakao.API
 						.request({
