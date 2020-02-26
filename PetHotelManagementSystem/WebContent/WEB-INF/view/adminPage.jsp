@@ -60,7 +60,7 @@ input{width: 100px; margin:5px;}
 			//input창 추가.
 			var makeInsert = document.createElement('form');
 			$('#userInsert').remove();
-			$('#petInsert').remove();
+			$('#petInsert').remove	();
 			$('#positionInsert').remove();
 			$('#departmentInsert').remove();
 			$('#reservationInsert').remove();
@@ -191,7 +191,7 @@ input{width: 100px; margin:5px;}
 			console.log(makeInsert);
 			$('#adminInsert').append(makeInsert);
 			
-			//button 클릭시 value값이 담김.
+			//insert버튼button 클릭시 value값이 담김.
 			$("#PetAddBtn").click(function(){
 				var pName = $("input[name='pName']").val();
 				var pType = $("input[name='pType']").val();
@@ -223,7 +223,8 @@ input{width: 100px; margin:5px;}
 							
 							console.log(result.length);
 							for(var i=0; i<result.length; i++){
-								makeTable.innerHTML += '<tr><td>'+ result[i].pNum+'</td><td>'+ result[i].pName+'</td><td>'+ result[i].pType+'</td><td>'+ result[i].pUNum+'</td><td>'+ result[i].pVNum+'</td><td>관리</td></tr>';
+								makeTable.innerHTML += '<tr><td>'+ result[i].pNum+'</td><td>'+ result[i].pName+'</td><td>'+ result[i].pType+'</td><td>'+ result[i].pUNum+
+								'</td><td>'+ result[i].pVNum+'</td><td><input type="button" id="updateBtn" value="수정">&nbsp;<input type="button" id="deleteBtn" value="삭제"></td></tr>';
 							}
 							
 						 	console.log(makeTable);
@@ -248,21 +249,58 @@ input{width: 100px; margin:5px;}
 			dataType : "json",
 			type : "post",
 			success : function(result) {
-			console.log(result[0]);
-			
-			$("table").remove();
-			var makeTable = document.createElement('table');
-			makeTable.innerHTML = '<tr><td>pNum</td><td>pName</td><td>pType</td><td>pUNum</td><td>pVNum</td><td>관리</td></tr>';
-			
-			console.log(result.length);
-			for(var i=0; i<result.length; i++){
-				makeTable.innerHTML += '<tr><td>'+ result[i].pNum+'</td><td>'+ result[i].pName+'</td><td>'+ result[i].pType+'</td><td>'+ result[i].pUNum+'</td><td>'+ result[i].pVNum+'</td><td>관리</td></tr>';
+				console.log(result[0]);
+				
+				$("table").remove();
+				var makeTable = document.createElement('table');
+				makeTable.innerHTML = '<tr><td>pNum</td><td>pName</td><td>pType</td><td>pUNum</td><td>pVNum</td><td>관리</td></tr>';
+				
+				console.log(result.length);
+				for(var i=0; i<result.length; i++){
+					makeTable.innerHTML += '<tr><td>'+ result[i].pNum+'</td><td>'+ result[i].pName+'</td><td>'+ result[i].pType+
+					'</td><td>'+ result[i].pUNum+'</td><td>'+ result[i].pVNum+'</td><td><input type="button" id="updateBtn" value="수정">&nbsp;<input type="button" id="deleteBtn" value="삭제"></td></tr>';
+				}
+				
+			 	console.log(makeTable);
+				$('#adminList').append(makeTable);	
+				
+				//update
+				$("input[id='updateBtn']").click(function(){
+					
+					//클릭버튼 부모의 부모(tr)을 변수에 담기.
+					var updateBtn = this.parentElement.parentElement;
+					
+					//부모의 자식들의 개수만큼 반복
+					var updateSize = updateBtn.childElementCount-1;
+					 
+					//1은 pk값이므로 변경하지 못하게 막는다.
+					//부모의 자식들의 개수만큼 반복하여 input창을 생성 후 기존 값을 담아 줌.
+					for(var i=1; i<updateSize; i++){
+						
+						//수정버튼을 수정완료버튼으로 변경.
+						//수정버튼을 취소로 변경
+						this.value = "수정완료";
+						this.parentElement.childNodes[2].value = "취소";
+
+						
+						var BeforeText = updateBtn.childNodes[i].innerText;
+						updateBtn.childNodes[i].innerHTML ='<input type="text" value="'+BeforeText+'">';
+						
+						//수정완료버튼클릭시 아이작으로 데이터를 전송 그리고 수정완료를 수정으로 다시변경,취소를 삭제로 다시변경.
+						
+						//성공시 다시 selectAll뿌려줌
+						
+					}
+				})
+				
+				//삭제버튼 클릭
+				$("input[id='deleteBtn']").click(function(){
+					alert("삭제버튼클릭");
+				})
 			}
 			
-		 	console.log(makeTable);
-			$('#adminList').append(makeTable);
-			}
 		});
+		
 	})
 		
 		
