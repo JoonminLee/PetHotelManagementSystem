@@ -42,7 +42,11 @@
 		//카카오 로그인
 		Kakao.init('f93055f9d183a780c81d29d70f577730');
 
+<<<<<<< HEAD
 		Kakao.Auth.loginForm({
+=======
+		Kakao.Auth.login({
+>>>>>>> branch 'master' of https://github.com/JoonminLee/PetHotelManagementSystem.git
 			success : function(authObj) {
 				Kakao.API
 						.request({
