@@ -5,31 +5,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-	content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+<script type="text/javascript"	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
+<meta name="google-signin-client_id" content="676303489666-7vh4op3lmi7j8pb5h2om655eoohkh449.apps.googleusercontent.com">
 <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 
-<script type="text/javascript"
-	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-	charset="utf-8"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>mainPage</title>
-<meta name="viewport"
-	content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-
-<meta name="google-signin-client_id"
-	content="676303489666-7vh4op3lmi7j8pb5h2om655eoohkh449.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/api.js" async defer></script>
-
-<script type="text/javascript"
-	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-	charset="utf-8"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 	<%
@@ -46,23 +31,22 @@
 			case "google":
 	%>
 	<a href="/sess/sessionLogout" onclick="googleOut()">로그아웃</a>
-	<a href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:8080/sess/sessionLogout">로그아웃</a>
 	<%
 		break;
 			case "naver":
 	%><a href="/sess/sessionLogout">로그아웃</a>
-	<a href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:8080/sess/sessionLogout">로그아웃</a>
 	<%
 		break;
 			case "phms":
 	%><a href="/sess/sessionLogout">로그아웃</a>
+	
 	<%
 		break;
-			}
+			}//switch end
 		} else {
 	%><a href="/user/loginUser">로그인</a>
 	<%
-		}
+		}// if end
 	%>
 
 	<form action="/room/selectAllAvailable" method="post">
@@ -111,20 +95,21 @@
 
 	//구글 init
 	function init() {
-		var gauth;
 		gapi.load('auth2', function() {
-				gauth = gapi.auth2.init({
+				gapi.auth2.init({
 				client_id : "676303489666-7vh4op3lmi7j8pb5h2om655eoohkh449.apps.googleusercontent.com"
 				});
 		});
-		return gauth;
 	}
 	
 	//구글 로그아웃
 	function googleOut() {
 		var gauth = gapi.auth2.getAuthInstance();
+		console.log(gauth);
 		gauth.signOut();
 		gauth.disconnect();
+		console.log(gauth);
 	}
+	
 </script>
 </html>
