@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <style type="text/css">
 table, tr, td {
@@ -13,16 +14,20 @@ table {
 }
 
 td{
-	padding : 5px;
+	padding : 5px;	
 }
 
 input{width: 100px; margin:5px;}
+
+.displaynone{display:none;}
 </style>
 
 <html>
 <head>
 <meta charset="UTF-8">
 <title>adminPage.jsp</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="view/admin/petAdminPage.js?"></script>
 </head>
 <body>
 	<h2>관리자페이지</h2>
@@ -47,10 +52,22 @@ input{width: 100px; margin:5px;}
 
 
 </body>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script type="text/javascript">
+	
+	function insertRemove(){
+		
+		$('#userInsert').remove();
+		$('#petInsert').remove	();
+		$('#positionInsert').remove();
+		$('#departmentInsert').remove();
+		$('#reservationInsert').remove();
+		$('#roomInsert').remove();
+		$('#sizeInsert').remove();
+		$('#employeeInsert').remove();
+		$('#visitorInsert').remove();
+		
+	}
 	
 	$(function() {
 		
@@ -59,16 +76,7 @@ input{width: 100px; margin:5px;}
 			
 			//input창 추가.
 			var makeInsert = document.createElement('form');
-			$('#userInsert').remove();
-			$('#petInsert').remove	();
-			$('#positionInsert').remove();
-			$('#departmentInsert').remove();
-			$('#reservationInsert').remove();
-			$('#roomInsert').remove();
-			$('#sizeInsert').remove();
-			$('#employeeInsert').remove();
-			$('#visitorInsert').remove();
-			
+			insertRemove();
 			
 			makeInsert.innerHTML = 
 				'<div id="userInsert"><input type="text" name="uId" placeholder="아이디 입력" required="required">'+
@@ -166,157 +174,11 @@ input{width: 100px; margin:5px;}
 		});
 		
 		
-		//pet
-		$("#pet").click(function() {
-			
-			//input창 추가.
-			var makeInsert = document.createElement('form');
-			$('#userInsert').remove();
-			$('#petInsert').remove();
-			$('#positionInsert').remove();
-			$('#departmentInsert').remove();
-			$('#reservationInsert').remove();
-			$('#roomInsert').remove();
-			$('#sizeInsert').remove();
-			$('#employeeInsert').remove();
-			$('#visitorInsert').remove();
-			
-			makeInsert.innerHTML = 
-				'<div id="petInsert"><input type="text" name="pName" placeholder="펫이름">'+
-				'<input type="text" name="pType" placeholder="펫종류">'+
-				'<input type="number" name="pUNum" placeholder="펫주인번호">'+
-				'<input type="number" name="pVNum" placeholder="방문자번호">'+
-				'<input type="button" id="PetAddBtn"value="추가"></div>';
-			
-			console.log(makeInsert);
-			$('#adminInsert').append(makeInsert);
-			
-			//insert버튼button 클릭시 value값이 담김.
-			$("#PetAddBtn").click(function(){
-				var pName = $("input[name='pName']").val();
-				var pType = $("input[name='pType']").val();
-				var pUNum = $("input[name='pUNum']").val();
-				var pVNum = $("input[name='pVNum']").val();
-				
-				
-				//ajax로 데이터를 보내줌.
-				//insert
-				$.ajax({
-					url :"${pageContext.request.contextPath}/pet/insertPet",
-					data : {"pName" : pName, "pType" : pType, "pUNum" : pUNum, "pVNum" :pVNum},
-					dataType : "json",
-					type : "post",
-					
-					//성공시 다시 select해줌
-					success :function(){
-						/* select  */
-						$.ajax({
-							url : "${pageContext.request.contextPath}/pet/selectAllPet",
-							dataType : "json",
-							type : "post",
-							success : function(result) {
-							console.log(result[0]);
-							
-							$("table").remove();
-							var makeTable = document.createElement('table');
-							makeTable.innerHTML = '<tr><td>pNum</td><td>pName</td><td>pType</td><td>pUNum</td><td>pVNum</td><td>관리</td></tr>';
-							
-							console.log(result.length);
-							for(var i=0; i<result.length; i++){
-								makeTable.innerHTML += '<tr><td>'+ result[i].pNum+'</td><td>'+ result[i].pName+'</td><td>'+ result[i].pType+'</td><td>'+ result[i].pUNum+
-								'</td><td>'+ result[i].pVNum+'</td><td><input type="button" id="updateBtn" value="수정">&nbsp;<input type="button" id="deleteBtn" value="삭제"></td></tr>';
-							}
-							
-						 	console.log(makeTable);
-							$('#adminList').append(makeTable);
-							}
-						});
-						
-						//인풋박스 초기화.
-						$("form")[0].reset();
-					},
-					error : function(e){
-						alert("추가실패");
-					}
-				})
-				
-			})
-			
-			
-		/* select  */
-		$.ajax({
-			url : "${pageContext.request.contextPath}/pet/selectAllPet",
-			dataType : "json",
-			type : "post",
-			success : function(result) {
-				console.log(result[0]);
-				
-				$("table").remove();
-				var makeTable = document.createElement('table');
-				makeTable.innerHTML = '<tr><td>pNum</td><td>pName</td><td>pType</td><td>pUNum</td><td>pVNum</td><td>관리</td></tr>';
-				
-				console.log(result.length);
-				for(var i=0; i<result.length; i++){
-					makeTable.innerHTML += '<tr><td>'+ result[i].pNum+'</td><td>'+ result[i].pName+'</td><td>'+ result[i].pType+
-					'</td><td>'+ result[i].pUNum+'</td><td>'+ result[i].pVNum+'</td><td><input type="button" id="updateBtn" value="수정">&nbsp;<input type="button" id="deleteBtn" value="삭제"></td></tr>';
-				}
-				
-			 	console.log(makeTable);
-				$('#adminList').append(makeTable);	
-				
-				//update
-				$("input[id='updateBtn']").click(function(){
-					
-					//클릭버튼 부모의 부모(tr)을 변수에 담기.
-					var updateBtn = this.parentElement.parentElement;
-					
-					//부모의 자식들의 개수만큼 반복
-					var updateSize = updateBtn.childElementCount-1;
-					 
-					//1은 pk값이므로 변경하지 못하게 막는다.
-					//부모의 자식들의 개수만큼 반복하여 input창을 생성 후 기존 값을 담아 줌.
-					for(var i=1; i<updateSize; i++){
-						
-						//수정버튼을 수정완료버튼으로 변경.
-						//수정버튼을 취소로 변경
-						this.value = "수정완료";
-						this.parentElement.childNodes[2].value = "취소";
-
-						
-						var BeforeText = updateBtn.childNodes[i].innerText;
-						updateBtn.childNodes[i].innerHTML ='<input type="text" value="'+BeforeText+'">';
-						
-						//수정완료버튼클릭시 아이작으로 데이터를 전송 그리고 수정완료를 수정으로 다시변경,취소를 삭제로 다시변경.
-						
-						//성공시 다시 selectAll뿌려줌
-						
-					}
-				})
-				
-				//삭제버튼 클릭
-				$("input[id='deleteBtn']").click(function(){
-					alert("삭제버튼클릭");
-				})
-			}
-			
-		});
-		
-	})
-		
-		
 		//position
 		$("#position").click(function() {
 			//input창 추가.
 			var makeInsert = document.createElement('form');
-			$('#userInsert').remove();
-			$('#petInsert').remove();
-			$('#positionInsert').remove();
-			$('#departmentInsert').remove();
-			$('#reservationInsert').remove();
-			$('#roomInsert').remove();
-			$('#sizeInsert').remove();
-			$('#employeeInsert').remove();
-			$('#visitorInsert').remove();
+			insertRemove();
 			
 			makeInsert.innerHTML = 
 				'<div id="positionInsert"><input type="text" name="poName" placeholder="poName">'+
@@ -400,15 +262,7 @@ input{width: 100px; margin:5px;}
 		$("#department").click(function() {
 			//input창 추가.
 			var makeInsert = document.createElement('form');
-			$('#userInsert').remove();
-			$('#petInsert').remove();
-			$('#positionInsert').remove();
-			$('#departmentInsert').remove();
-			$('#reservationInsert').remove();
-			$('#roomInsert').remove();
-			$('#sizeInsert').remove();
-			$('#employeeInsert').remove();
-			$('#visitorInsert').remove();
+			insertRemove();
 			
 			makeInsert.innerHTML = 
 				'<div id="departmentInsert"><input type="text" name="dName" placeholder="dName">'+
@@ -492,15 +346,7 @@ input{width: 100px; margin:5px;}
 		//reservation
 		$("#reservation").click(function() {
 			
-			$('#userInsert').remove();
-			$('#petInsert').remove();
-			$('#positionInsert').remove();
-			$('#departmentInsert').remove();
-			$('#reservationInsert').remove();
-			$('#roomInsert').remove();
-			$('#sizeInsert').remove();
-			$('#employeeInsert').remove();
-			$('#visitorInsert').remove();
+			insertRemove();
 			
 			//select
 			$.ajax({
@@ -532,15 +378,7 @@ input{width: 100px; margin:5px;}
 			
 			//input창 추가.
 			var makeInsert = document.createElement('form');
-			$('#userInsert').remove();
-			$('#petInsert').remove();
-			$('#positionInsert').remove();
-			$('#departmentInsert').remove();
-			$('#reservationInsert').remove();
-			$('#roomInsert').remove();
-			$('#sizeInsert').remove();
-			$('#employeeInsert').remove();
-			$('#visitorInsert').remove();
+			insertRemove();
 			
 			makeInsert.innerHTML = 
 				'<div id="roomInsert">'+
@@ -627,15 +465,7 @@ input{width: 100px; margin:5px;}
 			
 			//input창 추가.
 			var makeInsert = document.createElement('form');
-			$('#userInsert').remove();
-			$('#petInsert').remove();
-			$('#positionInsert').remove();
-			$('#departmentInsert').remove();
-			$('#reservationInsert').remove();
-			$('#roomInsert').remove();
-			$('#sizeInsert').remove();
-			$('#employeeInsert').remove();
-			$('#visitorInsert').remove();
+			insertRemove();
 			
 			makeInsert.innerHTML = 
 				'<div id="sizeInsert">'+
@@ -722,15 +552,7 @@ input{width: 100px; margin:5px;}
 			
 			//input창 추가.
 			var makeInsert = document.createElement('form');
-			$('#userInsert').remove();
-			$('#petInsert').remove();
-			$('#positionInsert').remove();
-			$('#departmentInsert').remove();
-			$('#reservationInsert').remove();
-			$('#roomInsert').remove();
-			$('#sizeInsert').remove();
-			$('#employeeInsert').remove();
-			$('#visitorInsert').remove();
+			insertRemove();
 			
 			makeInsert.innerHTML = 
 				'<div id="employeeInsert">'+
@@ -858,7 +680,6 @@ input{width: 100px; margin:5px;}
 				}
 			});
 		})
-		
 	});
 </script>
 </html>
