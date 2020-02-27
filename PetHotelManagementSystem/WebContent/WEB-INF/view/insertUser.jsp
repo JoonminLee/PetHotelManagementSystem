@@ -4,6 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- Font Icon -->
+<link rel="stylesheet" href="/css/insert_css/fonts/material-icon/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" href="/css/insert_css/vendor/jquery-ui/jquery-ui.min.css">
+
+<!-- Main css -->
+<link rel="stylesheet" href="/css/insert_css/css/style.css">
+<!-- JS -->
+  <script src="/css/insert_css/vendor/jquery/jquery.min.js"></script>
+  <script src="/css/insert_css/vendor/jquery-ui/jquery-ui.min.js"></script>
+  <script src="/css/insert_css/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+  <script src="/css/insert_css/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+  <script src="/css/insert_css/js/main.js"></script>
 <title>insertUser</title>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -147,23 +162,84 @@ $(function(){
 </script>
 </head>
 <body>
-	<!-- User정보입력 -->
-	<fieldset>
-		<legend>회원가입</legend>
-		<form action="${pageContext.request.contextPath}/user/insertUser"
-			method="post" onsubmit="return check()">
-			<input type="text" name="uId" placeholder="아이디 입력" required> <input id="uIdCheck" type="button" value="중복 확인"><br> 
-			<input type="password" name="uPwd" placeholder="패스워드 입력" required><br>
-			<input type="password" name="uPwd2" placeholder="패스워드 입력" required><br> 
-			<input type="text" name="uName" placeholder="이름 입력" required> <br> 
-			<label><input type="radio" name="uGender" value="남">남</label> 
-			<label><input type="radio" name="uGender" value="여">여</label> <br> 
-			<input type="text" value="010" readonly> - <input type="text" maxlength="4" name="uPhone1" required> - <input type="text" maxlength="4" name="uPhone2" required><br> 
-			<input type="text" name="uEmail" placeholder="이메일 입력" required> <input id="send" type="button" value="인증번호 발송"><br> 
-			<input type="text" name="uEmail2" placeholder="인증번호 확인" required> <input id="sendCheck" type="button" value="인증번호 확인"><br> 
-			<input type="date" name="uBirthStr"> <br> 
-			<input type="submit" id="join" value="회원가입">
-		</form>
-	</fieldset>
+
+  <div class="main">
+    <section class="signup">
+      <div class="container">
+        <div class="signup-content">
+          <form action="${pageContext.request.contextPath}/user/insertUser" method="POST" onsubmit="return check()" id="signup-form" class="signup-form">
+			<div class="form-row">
+              <div class="form-group">
+                <label for="id">id</label>
+                <input type="text" class="form-input" name="uId" id="id" required/>
+              </div>
+              <div class="form-group">
+                <input type="button" name="idsubmit" id="uIdCheck" class="overlap-submit" value="중복검사" />
+              </div>
+            </div>
+			<div class="form-row">
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-input" name="uPwd" id="password" required/>
+              </div>
+              <div class="form-group">
+                <label for="re_password"> password</label>
+                <input type="password" class="form-input" name="uPwd2" id="re_password" required/>
+              </div>
+            </div>
+			<div class="form-group">
+              <label for="first_name">name</label>
+              <input type="text" class="form-input" name="uName" id="name" required/>
+            </div>
+			<div class="form-group">
+              <label for="phone_number">Phone number</label>
+              <input type="text" class="form-phoneinput" value="010" readonly/>
+              <input type="text" class="form-phoneinput" maxlength="4" name="uPhone1" required/>
+              <input type="text" class="form-phoneinput" maxlength="4" name="uPhone2" required/>
+            </div>
+			<div class="form-row">
+            <div class="form-group form-icon">
+                <label for="birth_date">Birth date</label>
+                <input type="date" class="form-input" name="uBirthStr" id="birth_date" placeholder="YYYY-MM-DD" />
+            </div>
+            <div class="form-radio">
+                <label for="gender">Gender</label>
+                <div class="form-flex">
+                    <input type="radio" name="uGender" value="남" id="male" checked="checked" />
+                    <label for="male">남</label>
+
+                    <input type="radio" name="uGender" value="여" id="female" />
+                    <label for="female">여</label>
+                </div>
+            </div>
+            </div>
+			<div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-input" name="uEmail" required/>
+              </div>
+              <div class="form-group">
+                <input type="button" name="emailsubmit" id="send" class="overlap-submit" value="인증번호발송" />
+              </div>
+            </div>
+			<div class="form-row">
+              <div class="form-group">
+                <label for="email">Email인증번호입력</label>
+                <input type="text" class="form-input" name="email" />
+              </div>
+              <div class="form-group">
+                <input type="button" name="uEmail2" id="sendCheck" class="overlap-submit" value="인증번호확인" placeholder="인증번호를 입력하세요"/>
+              </div>
+            </div>
+			<div class="form-group">
+              <input type="submit" name="submit" id="join" class="form-submit" value="Submit" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
 </body>
 </html>

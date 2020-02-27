@@ -5,30 +5,83 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+<meta name="viewport"content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
-<meta name="google-signin-client_id" content="676303489666-7vh4op3lmi7j8pb5h2om655eoohkh449.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id"content="676303489666-7vh4op3lmi7j8pb5h2om655eoohkh449.apps.googleusercontent.com">
+ <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+	charset="utf-8"></script>
 
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--====css===========================================================================================-->
+<link rel="stylesheet" type="text/css" href="/css/login_css/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/login_css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/css/login_css/fonts/iconic/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" type="text/css" href="/css/login_css/vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="/css/login_css/vendor/css-hamburgers/hamburgers.min.css">
+<link rel="stylesheet" type="text/css" href="/css/login_css/vendor/animsition/css/animsition.min.css">
+<link rel="stylesheet" type="text/css" href="/css/login_css/vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="/css/login_css/vendor/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" type="text/css" href="/css/login_css/css/util.css">
+<link rel="stylesheet" type="text/css" href="/css/login_css/css/main.css">
+<!--====폰트===========================================================================================-->
+<!-- <link rel="stylesheet"	href="fonts/material-icon/css/material-design-iconic-font.min.css"> -->
+<!--===js============================================================================================-->
+<script src="/css/login_css/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="/css/login_css/vendor/animsition/js/animsition.min.js"></script>
+<script src="/css/login_css/vendor/bootstrap/js/popper.js"></script>
+<script src="/css/login_css/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/css/login_css/vendor/select2/select2.min.js"></script>
+<script src="/css/login_css/vendor/daterangepicker/moment.min.js"></script>
+<script src="/css/login_css/vendor/daterangepicker/daterangepicker.js"></script>
+<script src="/css/login_css/vendor/countdowntime/countdowntime.js"></script>
+<script src="/css/login_css/js/main.js"></script>
+<!--===============================================================================================-->
 <title>loginUser</title>
 </head>
 <body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				<form action="/user/loginUser" method="post" class="login100-form validate-form">
+					<span class="login100-form-title p-b-49"> Login </span>
 
-	<form action="/user/loginUser" method="post">
-		<input type="text" name="uId" placeholder="아이디"> <input
-			type="password" name="uPwd" placeholder="비밀번호"> <input
-			type="submit" value="로그인">
-	</form>
+					<div class="wrap-input100 validate-input m-b-23" data-validate="ID가 필요합니다">
+						<span class="label-input100">ID</span> 
+						<input class="input100" type="text" name="uId" placeholder="ID를 입력하세요"> 
+						<span class="focus-input100" data-symbol="&#xf206;"></span>
+					</div>
 
-	<a href="#" id="kakao-login-btn" onclick="kakaoLogin()"><img src="/images/kakao_account_login_btn_medium_narrow.png"></a>
+					<div class="wrap-input100 validate-input" data-validate="비밀번호가 필요합니다">
+						<span class="label-input100">Password</span> 
+						<input class="input100" type="password" name="uPwd" placeholder="비밀번호를 입력하세요"> 
+						<span class="focus-input100" data-symbol="&#xf190;"></span>
+					</div>
 
-	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+					<div class="text-right p-t-8 p-b-31">
+						<a href="#"> 비밀번호를 잊으셨나요? </a>
+					</div>
 
-	<div id="naver_id_login"></div>
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">Login</button>
+						</div>
+					</div>
+					<div class="flex-c-m">	
+					<div class="txt1 text-center p-t-54 p-b-20" style="display:inline-block;">
+						<span> <a href="/user/insertUser"> 회원가입 </a></span><br>
+							<a href="#" id="kakao-login-btn" onclick="kakaoLogin()"><img src="/images/kakao_login_btn_medium.png"></a>
+							<div class="g-signin2" style="width:110px;" data-height="40"data-onsuccess="onSignIn"></div>
+							<div id="naver_id_login"></div>
+					</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
 </body>
 <script type='text/javascript'>
@@ -75,7 +128,7 @@
 	var naver_id_login = new naver_id_login("SrZGS8gLnicnLMxetGvW",
 			"http://localhost:8080/visitor/loginNaverCallback");
 	var state = naver_id_login.getUniqState();
-	naver_id_login.setButton("white", 2, 40);
+	naver_id_login.setButton("green", 2, 40);
 	naver_id_login.setDomain("http://localhost:8080/user/loginUser");
 	naver_id_login.setState(state);
 	naver_id_login.init_naver_id_login();
