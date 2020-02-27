@@ -1,10 +1,10 @@
 $(function(){
 	$("#pet").click(function() {
 		
+		//버튼4개만들어서 다시 ㄱㄱ
 		//select&update 메소드 
 		function selectAllpet(){
-			
-			
+
 			$.ajax({
 				url : "pet/selectAllPet",
 				dataType : "json",
@@ -21,28 +21,34 @@ $(function(){
 				
 					for(var i=0; i<result.length; i++){
 						makeTable.innerHTML += '<tr><td>'+ result[i].pNum+'</td><td>'+ result[i].pName+'</td><td>'+ result[i].pType+'</td><td>'+ result[i].pUNum+
-						'</td><td>'+ result[i].pVNum+'</td><td><input type="button" name="updateBtn" id="updateBtn" value="수정">&nbsp;<input type="button" name="deleteBtn" id="deleteBtn" value="삭제"></td></tr>';
+						'</td><td>'+ result[i].pVNum+'</td><td><input type="button" name="updateBtn" value="수정">&nbsp;<input type="button" name="deleteBtn" value="삭제"></td></tr>';
 					}
 				
 					$('#adminList').append(makeTable);
-
+					
+					//자바스크립트로 온클릭을 다바꿔~ 덮어쓸수있게
+					//일단취소부터
+					//delete
+					$("input[name='deleteBtn']").click(function(){
+						console.log("삭제 눌렀다~~");
+					})
 					//update		
 					//수정버튼 클릭 시,
-					$("input[id='updateBtn']").click(function(){
+					$("input[name='updateBtn']").click(function(){
+						console.log("수정눌렀다~~");
 						
-						var updateBtn = $("input[name='updateBtn']").val();
 						//클릭버튼 부모의 부모(tr)을 변수에 담기.
 						var updateTr = this.parentElement.parentElement;
 						var updateTdSize = updateTr.childElementCount-1; //6-1
 						
 						//수정버튼 클릭시 헤당 레이어 수정완료 버튼으로 변경x
 						var updateBtn = this;
-						updateBtn.setAttribute("id", "updateOkBtn");
+						updateBtn.setAttribute("name", "updateOkBtn");
 						updateBtn.setAttribute("value", "수정완료")
 						
-						//삭제버튼 클릭시 헤당 레이어 취소버튼으로 변경
+						//수정버튼 클릭시 헤당 레이어 취소버튼으로 변경
 						var deleteBtn = this.parentElement.childNodes[2];
-						deleteBtn.setAttribute("id", "cencelBtn");
+						deleteBtn.setAttribute("name", "cencelBtn");
 						deleteBtn.setAttribute("value", "취소");
 
 						//1은 pk값이므로 변경하지 못하게 막는다.
@@ -51,47 +57,49 @@ $(function(){
 							
 							//부모의 자식들의 개수만큼 반복하여 input창을 생성 후 기존 값을 담아 줌.
 							var BeforeText = updateTr.childNodes[i].innerText;
-							updateTr.childNodes[i].innerHTML ='<input type="text" id ="inputBox" value="'+BeforeText+'">';
-							
-							//미완성
-							//수정완료버튼 클릭시 ajax으로 데이터 전송 후 다시 select
-							$("#updateOkBtn").click(function(){
-				
-								//수정버튼 클릭시 헤당 레이어 수정완료 버튼으로 변경
-								var updateBtn = this;
-								updateBtn.setAttribute("id", "updateBtn");
-								updateBtn.setAttribute("value", "수정")
-								
-								//삭제버튼 클릭시 헤당 레이어 취소버튼으로 변경
-								var deleteBtn = this.parentElement.childNodes[2];
-								deleteBtn.setAttribute("id", "deleteBtn");
-								deleteBtn.setAttribute("value", "삭제");
-								
-								selectPet();
-							})
-							
-							//취소버튼 클릭시 input창 사라짐.
-							$("#cencelBtn").click(function(){
-								
-								//수정버튼 클릭시 헤당 레이어 수정완료 버튼으로 변경
-								var deleteBtn = this;
-								deleteBtn.setAttribute("id", "deleteBtn");
-								deleteBtn.setAttribute("value", "삭제")
-								
-								//삭제버튼 클릭시 헤당 레이어 취소버튼으로 변경
-								var updateBtn = this.parentElement.childNodes[0];
-								updateBtn.setAttribute("id", "updateBtn");
-								updateBtn.setAttribute("value", "수정");
-								
-								selectAllpet();
-								
-								
-							})
-							
+							updateTr.childNodes[i].innerHTML ='<input type="text" name ="inputBox" value="'+BeforeText+'">';
 							
 						}
+						//미완성
+						//수정완료버튼 클릭시 ajax으로 데이터 전송 후 다시 select
+						
+						$("input[name='updateOkBtn']").click(function(){
+							console.log("수정완료버튼 눌렀다~~");
+							
+							//수정버튼 클릭시 헤당 레이어 수정완료 버튼으로 변경
+							var updateBtn = this;
+							updateBtn.setAttribute("name", "updateBtn");
+							updateBtn.setAttribute("value", "수정")
+							
+							//수정버튼 클릭시 헤당 레이어 취소버튼으로 변경
+							var deleteBtn = this.parentElement.childNodes[2];
+							deleteBtn.setAttribute("name", "deleteBtn");
+							deleteBtn.setAttribute("value", "삭제");
+							
+						})
+							
+						
+						//취소버튼 클릭시 input창 사라짐.
+						$("input[name='cencelBtn']").click(function(){
+							console.log("취소눌렀다~~");
+							
+							//취소버튼 클릭시 헤당 레이어 수정완료 버튼으로 변경
+							var deleteBtn = this;
+							deleteBtn.setAttribute("name", "deleteBtn");
+							deleteBtn.setAttribute("value", "삭제")
+							
+							//삭제버튼 클릭시 헤당 레이어 취소버튼으로 변경
+							var updateBtn = this.parentElement.childNodes[0];
+							updateBtn.setAttribute("name", "updateBtn");
+							updateBtn.setAttribute("value", "수정");
+							
+							selectAllpet();
+							
+						})
+						
 						
 					})
+					
 				}
 				
 			});
@@ -136,13 +144,11 @@ $(function(){
 				error : function(e){
 					alert("추가실패");
 				}
-			})
+			});
 			
-		})
+		});
 		
-		
-		/* select  */
 		selectAllpet();
 		
-	})
+	});
 });
