@@ -35,8 +35,13 @@ $(function(){
   			dataType : "text",
   			type : "post",
   			success : function(result){
-  				alert(result);
-  				 $("input[name='uId']").prop('readonly', true);
+  				console.log(result);
+  				if(result == "아이디를 사용할 수 있습니다."){
+  					alert(result);
+				 $("input[name='uId']").prop('readonly', true);
+  				}else{
+  					alert(result);
+  				}
   				return false;
   			},
   			error : function(e){
@@ -219,16 +224,16 @@ $(function(){
                 <input type="email" class="form-input" name="uEmail" required/>
               </div>
               <div class="form-group">
-                <input type="button" name="emailsubmit" id="send" class="overlap-submit" value="인증번호발송" />
+                <input type="button" id="send" class="overlap-submit" value="인증번호발송" />
               </div>
             </div>
 			<div class="form-row">
               <div class="form-group">
                 <label for="email">Email인증번호입력</label>
-                <input type="text" class="form-input" name="email" />
+                <input type="text" class="form-input" name="uEmail2" />
               </div>
               <div class="form-group">
-                <input type="button" name="uEmail2" id="sendCheck" class="overlap-submit" value="인증번호확인" placeholder="인증번호를 입력하세요"/>
+                <input type="button" id="sendCheck" class="overlap-submit" value="인증번호확인" placeholder="인증번호를 입력하세요"/>
               </div>
             </div>
 			<div class="form-group">
