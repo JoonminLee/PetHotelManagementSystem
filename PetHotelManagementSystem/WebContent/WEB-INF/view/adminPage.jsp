@@ -19,7 +19,10 @@ td{
 
 input{width: 100px; margin:5px;}
 
-.displaynone{display:none;}
+.visibility{
+	visibility:hidden;
+	width: 0px;
+	}
 </style>
 
 <html>

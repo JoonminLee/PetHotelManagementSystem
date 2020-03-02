@@ -1,102 +1,200 @@
 $(function(){
 	$("#pet").click(function() {
 		
-		//버튼4개만들어서 다시 ㄱㄱ
-		//select&update 메소드 
-		function selectAllpet(){
-
+		//메소드 실행.
+		petAdmin();
+		
+		//petSelect메소드
+		function selectPet(result){
+			
+			$("table").remove();
+			var makeTable = document.createElement('table');
+			
+			//tr의 갯수
+			var makeTableSize = makeTable.childElementCount; //8
+			
+			makeTable.innerHTML = '<tr><td>pNum</td><td>pName</td><td>pType</td><td>pUNum</td><td>pVNum</td><td>관리</td></tr>';
+		
+			for(var i=0; i<result.length; i++){
+				makeTable.innerHTML += '<tr><td>'+ result[i].pNum+'</td><td>'+ result[i].pName+'</td><td>'+ result[i].pType+'</td><td>'+ result[i].pUNum+
+				'</td><td>'+ result[i].pVNum+'</td><td><input type="button" name="updateBtn" value="수정"><input type="button" name="deleteBtn" value="삭제">'+
+				'<input type="button" class="visibility" name="updateOkBtn" value="수정완료"><input type="button" class="visibility" name="cencleBtn" value="취소"></td></tr>';
+			}
+		
+			$('#adminList').append(makeTable);
+		}
+		
+		//pet CRUD메소드
+		function petAdmin(){
+			
+			//insert창 생성.
+			var makeInsert = document.createElement('form');
+			insertRemove();
+			
+			makeInsert.innerHTML = 
+				'<div id="petInsert"><input type="text" name="pName" placeholder="펫이름">'+
+				'<input type="text" name="pType" placeholder="펫종류">'+
+				'<input type="number" name="pUNum" placeholder="펫주인번호">'+
+				'<input type="number" name="pVNum" placeholder="방문자번호">'+
+				'<input type="button" id="PetAddBtn"value="추가"></div>';
+			
+			$('#adminInsert').append(makeInsert);
+			
+			//insert버튼button 클릭시 value값이 담김.
+			$("#PetAddBtn").click(function(){
+				var pName = $("input[name='pName']").val();
+				var pType = $("input[name='pType']").val();
+				var pUNum = $("input[name='pUNum']").val();
+				var pVNum = $("input[name='pVNum']").val();
+				
+				//insert
+				$.ajax({
+					url :"pet/insertPet",
+					data : {"pName" : pName, "pType" : pType, "pUNum" : pUNum, "pVNum" :pVNum},
+					dataType : "json",
+					type : "post",
+					
+					//성공시 다시 select해줌
+					success :function(result){
+						alert("추가성공");
+						
+						selectPet(result);
+						petAdmin();
+						
+						//인풋박스 초기화.
+						$("form")[0].reset();
+					},
+					error : function(e){
+						alert("추가실패");
+					}
+				});
+				
+			});
+			
+			
+			//select
 			$.ajax({
 				url : "pet/selectAllPet",
 				dataType : "json",
 				type : "post",
 				success : function(result) {
 				
-					$("table").remove();
-					var makeTable = document.createElement('table');
+					selectPet(result);
 					
-					//tr의 갯수
-					var makeTableSize = makeTable.childElementCount; //8
+					//버튼 정의.
+					var updateBtn = $("input[name='updateBtn']");
+					var deleteBtn = $("input[name='deleteBtn']");
+					var updateOkBtn = $("input[name='updateOkBtn']");
+					var cencleBtn = $("input[name='cencleBtn']");
 					
-					makeTable.innerHTML = '<tr><td>pNum</td><td>pName</td><td>pType</td><td>pUNum</td><td>pVNum</td><td>관리</td></tr>';
-				
-					for(var i=0; i<result.length; i++){
-						makeTable.innerHTML += '<tr><td>'+ result[i].pNum+'</td><td>'+ result[i].pName+'</td><td>'+ result[i].pType+'</td><td>'+ result[i].pUNum+
-						'</td><td>'+ result[i].pVNum+'</td><td><input type="button" name="updateBtn" value="수정">&nbsp;<input type="button" name="deleteBtn" value="삭제"></td></tr>';
-					}
-				
-					$('#adminList').append(makeTable);
-					
-					//자바스크립트로 온클릭을 다바꿔~ 덮어쓸수있게
-					//일단취소부터
-					//delete
-					$("input[name='deleteBtn']").click(function(){
-						console.log("삭제 눌렀다~~");
-					})
-					//update		
 					//수정버튼 클릭 시,
 					$("input[name='updateBtn']").click(function(){
-						console.log("수정눌렀다~~");
 						
+						//해당 레이어를 제외한 나머지 버튼은 이벤트 제거.
+						var thisNotUpdateBtn = $("input[name='updateBtn']").not($(this));
+						var thisNotDeleteBtn = $("input[name='deleteBtn']").not($(this));
+						thisNotUpdateBtn.off();
+						thisNotDeleteBtn.off();
+						
+						this.classList.add('visibility'); //수정버튼 안보이게
+						this.parentElement.childNodes[1].classList.add('visibility'); //삭제버튼 안보이게
+						
+						this.parentElement.childNodes[2].classList.remove('visibility'); //수정완료버튼 보이게
+						this.parentElement.childNodes[3].classList.remove('visibility'); //취소버튼 보이게
 						//클릭버튼 부모의 부모(tr)을 변수에 담기.
-						var updateTr = this.parentElement.parentElement;
-						var updateTdSize = updateTr.childElementCount-1; //6-1
-						
-						//수정버튼 클릭시 헤당 레이어 수정완료 버튼으로 변경x
-						var updateBtn = this;
-						updateBtn.setAttribute("name", "updateOkBtn");
-						updateBtn.setAttribute("value", "수정완료")
-						
-						//수정버튼 클릭시 헤당 레이어 취소버튼으로 변경
-						var deleteBtn = this.parentElement.childNodes[2];
-						deleteBtn.setAttribute("name", "cencelBtn");
-						deleteBtn.setAttribute("value", "취소");
+						var Tr = this.parentElement.parentElement;
+						var updateTdSize = Tr.childElementCount-1; //6-1
 
-						//1은 pk값이므로 변경하지 못하게 막는다.
-						//부모의 자식들의 개수만큼 반복
-						for(var i=1; i<updateTdSize; i++){
-							
-							//부모의 자식들의 개수만큼 반복하여 input창을 생성 후 기존 값을 담아 줌.
-							var BeforeText = updateTr.childNodes[i].innerText;
-							updateTr.childNodes[i].innerHTML ='<input type="text" name ="inputBox" value="'+BeforeText+'">';
-							
-						}
-						//미완성
-						//수정완료버튼 클릭시 ajax으로 데이터 전송 후 다시 select
+						//아이작을 이용해 기존값을 가져온다.
+						var pNum = Tr.childNodes[0].innerHTML;
 						
+						$.ajax({
+							url :"pet/updatePet",
+							data : {"pNum" : pNum},
+							dataType : "json",
+							type : "get",
+							
+							//성공시 다시 select해줌
+							success :function(result){
+								Tr.childNodes[1].innerHTML ='<input type="text" id ="pName" value="'+result.pName+'">';
+								Tr.childNodes[2].innerHTML ='<input type="text" id ="pType" value="'+result.pType+'">';
+								Tr.childNodes[3].innerHTML ='<input type="number" id ="pUNum" value="'+result.pUNum+'">';
+								Tr.childNodes[4].innerHTML ='<input type="number" id ="pVNum" value="'+result.pVNum+'">';
+							}
+						});
+						
+						//수정완료버튼 클릭시 ajax으로 데이터 전송 후 select
 						$("input[name='updateOkBtn']").click(function(){
-							console.log("수정완료버튼 눌렀다~~");
 							
-							//수정버튼 클릭시 헤당 레이어 수정완료 버튼으로 변경
-							var updateBtn = this;
-							updateBtn.setAttribute("name", "updateBtn");
-							updateBtn.setAttribute("value", "수정")
+							var pNum = Tr.childNodes[0].innerHTML;
+							var pName = $("#pName").val();
+							var pType = $("#pType").val();
+							var pUNum = $("#pUNum").val();
+							var pVNum = $("#pVNum").val();
 							
-							//수정버튼 클릭시 헤당 레이어 취소버튼으로 변경
-							var deleteBtn = this.parentElement.childNodes[2];
-							deleteBtn.setAttribute("name", "deleteBtn");
-							deleteBtn.setAttribute("value", "삭제");
+							console.log("pNum ::: ",pNum);
+							console.log("pName ::: ",pName);
+							console.log("pType ::: ",pType);
+							console.log("pUNum ::: ",pUNum);
+							console.log("pVNum ::: ",pVNum);
 							
+							$.ajax({
+								url :"pet/updatePet",
+								data : {"pNum" : pNum, "pName" : pName, "pType" : pType, "pUNum" : pUNum, "pVNum" :pVNum},
+								dataType : "json",
+								type : "post",
+								
+								//성공시 다시 select해줌
+								success :function(result){
+									alert("수정성공");
+									
+									selectPet(result);
+									petAdmin();
+									
+								},
+								error : function(e){
+									alert("수정실패");
+								}
+							});
 						})
 							
 						
 						//취소버튼 클릭시 input창 사라짐.
-						$("input[name='cencelBtn']").click(function(){
-							console.log("취소눌렀다~~");
-							
-							//취소버튼 클릭시 헤당 레이어 수정완료 버튼으로 변경
-							var deleteBtn = this;
-							deleteBtn.setAttribute("name", "deleteBtn");
-							deleteBtn.setAttribute("value", "삭제")
-							
-							//삭제버튼 클릭시 헤당 레이어 취소버튼으로 변경
-							var updateBtn = this.parentElement.childNodes[0];
-							updateBtn.setAttribute("name", "updateBtn");
-							updateBtn.setAttribute("value", "수정");
-							
-							selectAllpet();
-							
+						$("input[name='cencleBtn']").click(function(){
+							$.ajax({
+								url : "pet/selectAllPet",
+								dataType : "json",
+								type : "post",
+								success : function(result) {
+									alert("취소성공");
+									
+									selectPet(result);
+									petAdmin();
+								}
+							})
 						})
 						
+					})
+					
+					//삭제버튼 클릭 시,
+					$("input[name='deleteBtn']").click(function(){
+						
+						var Tr = this.parentElement.parentElement;
+						var pNum = Tr.childNodes[0].innerHTML;
+						$.ajax({
+							url :"pet/deletePet",
+							data : {"pNum" : pNum},
+							dataType : "json",
+							type : "get",
+							
+							//성공시 다시 select해줌
+							success :function(result){
+								alert("삭제성공");
+								
+								selectPet(result);
+								petAdmin();
+							}
+						})
 						
 					})
 					
@@ -104,51 +202,6 @@ $(function(){
 				
 			});
 		}
-		
-		//input창 추가.
-		var makeInsert = document.createElement('form');
-		insertRemove();
-		
-		makeInsert.innerHTML = 
-			'<div id="petInsert"><input type="text" name="pName" placeholder="펫이름">'+
-			'<input type="text" name="pType" placeholder="펫종류">'+
-			'<input type="number" name="pUNum" placeholder="펫주인번호">'+
-			'<input type="number" name="pVNum" placeholder="방문자번호">'+
-			'<input type="button" id="PetAddBtn"value="추가"></div>';
-		
-		$('#adminInsert').append(makeInsert);
-		
-		//insert버튼button 클릭시 value값이 담김.
-		$("#PetAddBtn").click(function(){
-			var pName = $("input[name='pName']").val();
-			var pType = $("input[name='pType']").val();
-			var pUNum = $("input[name='pUNum']").val();
-			var pVNum = $("input[name='pVNum']").val();
-			
-			
-			//ajax로 데이터를 보내줌.
-			//insert
-			$.ajax({
-				url :"pet/insertPet",
-				data : {"pName" : pName, "pType" : pType, "pUNum" : pUNum, "pVNum" :pVNum},
-				dataType : "json",
-				type : "post",
-				
-				//성공시 다시 select해줌
-				success :function(){
-					selectAllpet();
-					
-					//인풋박스 초기화.
-					$("form")[0].reset();
-				},
-				error : function(e){
-					alert("추가실패");
-				}
-			});
-			
-		});
-		
-		selectAllpet();
-		
+		//여기까지 메소드
 	});
 });
