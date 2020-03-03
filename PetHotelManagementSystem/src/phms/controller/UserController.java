@@ -77,35 +77,31 @@ public class UserController {
 		model.addAttribute("user", user);
 		return "updateUser";
 	}
+	
+	//userAdminpage
+	@GetMapping("/updateUserAdmin")
+	public @ResponseBody UserDto updateUser(@RequestParam("uId") String uId) {
+		System.out.println(":::updateUser");
+		UserDto user = userService.selectOneUser(uId);
+		return user;
+	}
 
 	@PostMapping("/updateUser")
-	public String updateUser(UserDto user, @RequestParam("uBirthStr") String uBirthStr) {
+	public @ResponseBody List<UserDto> updateUser(UserDto user, @RequestParam("uBirthStr") String uBirthStr) {
 		System.out.println(":::updateUser");
 		user.setuBirth(LocalDate.parse(uBirthStr));
-		int result = userService.updateUser(user);
-		if (result == 1) {
-			System.out.println("updateUser 성공");
-			return "redirect:/user/selectAllUser";
-		} else {
-			System.out.println("updateUser 실패");
-			return "redirect:/user/updateUser";
-		}
+		userService.updateUser(user);
+		List<UserDto> listUser = userService.selectAllUser();
+		return listUser;
 	}
 
 	// deleteUser
 	@RequestMapping("/deleteUser")
-	public String deleteUser(Model model, @RequestParam("uId") String uId) {
+	public @ResponseBody List<UserDto> deleteUser(@RequestParam("uId") String uId) {
 		System.out.println(":::deleteUser");
-		int result = userService.deleteUser(uId);
-		if (result == 1) {
-			System.out.println("deleteUser 성공");
-			model.addAttribute("result", "삭제 성공");
-			return "redirect:/user/selectAllUser";
-		} else {
-			System.out.println("deleteUser 실패");
-			model.addAttribute("result", "삭제 실패 : 고객센터에 문의해주세요");
-			return "redirect:/user/selectAllUser";
-		}
+		userService.deleteUser(uId);
+		List<UserDto> listUser = userService.selectAllUser();
+		return listUser;
 	}
 
 	// loginUser

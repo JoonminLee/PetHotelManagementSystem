@@ -10,9 +10,6 @@ $(function(){
 			$("table").remove();
 			var makeTable = document.createElement('table');
 			
-			//tr의 갯수
-			var makeTableSize = makeTable.childElementCount; //8
-			
 			makeTable.innerHTML = '<tr><td>pNum</td><td>pName</td><td>pType</td><td>pUNum</td><td>pVNum</td><td>관리</td></tr>';
 		
 			for(var i=0; i<result.length; i++){

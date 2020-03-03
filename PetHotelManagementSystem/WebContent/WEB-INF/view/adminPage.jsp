@@ -31,6 +31,7 @@ input{width: 100px; margin:5px;}
 <title>adminPage.jsp</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="view/admin/petAdminPage.js?"></script>
+<script type="text/javascript" src="view/admin/userAdminPage.js?"></script>
 </head>
 <body>
 	<h2>관리자페이지</h2>
@@ -73,109 +74,6 @@ input{width: 100px; margin:5px;}
 	}
 	
 	$(function() {
-		
-		//user
-		$("#user").click(function() {
-			
-			//input창 추가.
-			var makeInsert = document.createElement('form');
-			insertRemove();
-			
-			makeInsert.innerHTML = 
-				'<div id="userInsert"><input type="text" name="uId" placeholder="아이디 입력" required="required">'+
-				'<input type="password" name="uPwd" placeholder="패스워드 입력">'+
-				'<input type="text" name="uName" placeholder="이름 입력"><br>'+
-				'<label><input type="radio" name="uGender" value="남">남</label>'+
-				'<label><input type="radio" name="uGender" value="여">여</label><br>'+
-				'<input type="text" value="010" readonly> - <input type="text" maxlength="4" name="uPhone1"> - <input type="text" maxlength="4" name="uPhone2"><br>'+
-				'<input type="text" name="uEmail" placeholder="이메일 입력">'+
-				'<input type="date" name="uBirthStr"><br>'+
-				'<input type="button" id="UserAddBtn"value="추가"></div>';
-			
-			console.log(makeInsert);
-			$('#adminInsert').append(makeInsert);
-			
-			//button 클릭시 value값이 담김.
-			$("#UserAddBtn").click(function(){
-				
-				var uId = $("input[name='uId']").val();
-				var uPwd = $("input[name='uPwd']").val();
-				var uName = $("input[name='uName']").val();
-				var uGender = $("input[name='uGender']").val();
-				var uPhone1 = $("input[name='uPhone1']").val();
-				var uPhone2 = $("input[name='uPhone2']").val();
-				var uEmail = $("input[name='uEmail']").val();
-				var uBirthStr = $("input[name='uBirthStr']").val();
-				
-				
-				//ajax로 데이터를 보내줌.
-				//insert
-				$.ajax({
-					url :"${pageContext.request.contextPath}/user/insertUser",
-					data : {"uId" : uId, "uPwd" : uPwd, "uName" : uName, "uGender" :uGender, 
-						"uPhone1" : uPhone1, "uPhone2" : uPhone2, "uEmail" : uEmail, "uBirthStr" :uBirthStr},
-					dataType : "json",
-					type : "post",
-					
-					//성공시 다시 select해줌
-					success :function(){
-						//select
-						$.ajax({
-							url : "${pageContext.request.contextPath}/user/selectAllUser",
-							dataType : "json",
-							type : "post",
-							success : function(result) {
-							console.log(result[0]);
-							
-							$("table").remove();
-							var makeTable = document.createElement('table');
-							makeTable.innerHTML = '<tr><td>uNum</td><td>uId</td><td>uPwd</td><td>uName</td><td>uGender</td><td>uPhone</td><td>uEmail</td><td>uBirth</td><td>관리</td></tr>';
-							
-							console.log(result.length);
-							for(var i=0; i<result.length; i++){
-								makeTable.innerHTML += '<tr><td>'+ result[i].uNum+'</td><td>'+ result[i].uId+'</td><td>'+ result[i].uPwd+'</td><td>'+ result[i].uName+'</td><td>'+ result[i].uGender+'</td><td>'+ result[i].uPhone+'</td><td>'+ result[i].uEmail+'</td><td>'+ 
-								result[i].uBirth.year+'-'+result[i].uBirth.monthValue+'-'+result[i].uBirth.dayOfMonth+'</td><td>관리</td></tr>';
-							}
-							
-						 	console.log(makeTable);
-							$('#adminList').append(makeTable);
-							}
-						});
-						
-						//인풋박스 초기화.
-						$("form")[0].reset();
-					},
-					error : function(e){
-						alert("추가실패");
-					}
-				})
-				
-			})
-			
-			//select
-			$.ajax({
-				url : "${pageContext.request.contextPath}/user/selectAllUser",
-				dataType : "json",
-				type : "post",
-				success : function(result) {
-				console.log(result[0]);
-				
-				$("table").remove();
-				var makeTable = document.createElement('table');
-				makeTable.innerHTML = '<tr><td>uNum</td><td>uId</td><td>uPwd</td><td>uName</td><td>uGender</td><td>uPhone</td><td>uEmail</td><td>uBirth</td><td>관리</td></tr>';
-				
-				console.log(result.length);
-				for(var i=0; i<result.length; i++){
-					makeTable.innerHTML += '<tr><td>'+ result[i].uNum+'</td><td>'+ result[i].uId+'</td><td>'+ result[i].uPwd+'</td><td>'+ result[i].uName+'</td><td>'+ result[i].uGender+'</td><td>'+ result[i].uPhone+'</td><td>'+ result[i].uEmail+'</td><td>'+ 
-					result[i].uBirth.year+'-'+result[i].uBirth.monthValue+'-'+result[i].uBirth.dayOfMonth+'</td><td>관리</td></tr>';
-				}
-				
-			 	console.log(makeTable);
-				$('#adminList').append(makeTable);
-				}
-			});
-		});
-		
 		
 		//position
 		$("#position").click(function() {
