@@ -12,8 +12,8 @@ public class DepartmentService {
 	@Autowired
 	DepartmentMapper departmentMapper;
 	
-	public DepartmentDto selectOneDepartment(String dName) {
-		return departmentMapper.selectOneDepartment(dName);
+	public DepartmentDto selectOneDepartment(int dNum) {
+		return departmentMapper.selectOneDepartment(dNum);
 	}
 	public List<DepartmentDto> selectAllDepartment() {
 		return departmentMapper.selectAllDepartment();
@@ -27,7 +27,7 @@ public class DepartmentService {
 		return departmentMapper.updateDepartment(department);
 	}
 
-	public int deleteDepartment(String dName) {
-		return departmentMapper.deleteDepartment(dName);
+	public int deleteDepartment(int dNum) {
+		return departmentMapper.deleteDepartment(dNum);
 	}
 }

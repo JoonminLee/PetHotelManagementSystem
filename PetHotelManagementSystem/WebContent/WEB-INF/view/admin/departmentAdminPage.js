@@ -1,56 +1,55 @@
 $(function(){
-	$("#position").click(function() {
+	$("#department").click(function() {
 		
 		//메소드 실행.
-		positionAdmin();
+		departmentAdmin();
 		
-		//petSelect메소드
-		function selectPosition(result){
+		//departmentSelect메소드
+		function selectDepartment(result){
 			
 			$("table").remove();
 			var makeTable = document.createElement('table');
-			makeTable.innerHTML = '<tr><td>poNum</td><td>poName</td><td>관리</td></tr>';
+			makeTable.innerHTML = '<tr><td>dNum</td><td>dName</td><td>관리</td></tr>';
 			
-			console.log(result.length);
 			for(var i=0; i<result.length; i++){
-				makeTable.innerHTML += '<tr><td>'+ result[i].poNum+'</td><td>'+ result[i].poName+'</td><td><input type="button" name="updateBtn" value="수정"><input type="button" name="deleteBtn" value="삭제">'+
+				makeTable.innerHTML += '<tr><td>'+ result[i].dNum+'</td><td>'+ result[i].dName+'</td><td><input type="button" name="updateBtn" value="수정"><input type="button" name="deleteBtn" value="삭제">'+
 				'<input type="button" class="visibility" name="updateOkBtn" value="수정완료"><input type="button" class="visibility" name="cencleBtn" value="취소"></td></tr>';
 			}
 			
-		 	console.log(makeTable);
 			$('#adminList').append(makeTable);
 		}
 		
-		// Position CRUD메소드
-		function positionAdmin(){
+		// department CRUD메소드
+		function departmentAdmin(){
 			
 			//insert창 생성.
 			var makeInsert = document.createElement('form');
 			insertRemove();
 			
 			makeInsert.innerHTML = 
-				'<div id="positionInsert"><input type="text" name="poName" placeholder="poName">'+
-				'<input type="button" id="PositionAddBtn"value="추가"></div>';
+				'<div id="departmentInsert"><input type="text" name="dName" placeholder="dName">'+
+				'<input type="button" id="DepartmentAddBtn"value="추가"></div>';
 			
 			$('#adminInsert').append(makeInsert);
 			
 			//insert버튼button 클릭시 value값이 담김.
-			$("#PositionAddBtn").click(function(){
-				var poName = $("input[name='poName']").val();
+			$("#DepartmentAddBtn").click(function(){
+				var dName = $("input[name='dName']").val();
 				
+				//ajax로 데이터를 보내줌.
 				//insert
 				$.ajax({
-					url :"posi/insertPosition",
-					data : {"poName" : poName},
+					url :"dep/insertDepartment",
+					data : {"dName" : dName},
 					dataType : "json",
 					type : "post",
 					
 					//성공시 다시 select해줌
-					success :function(){
+					success :function(result){
 						alert("추가성공");
 						
-						selectPosition(result);
-						positionAdmin();
+						selectDepartment(result);
+						departmentAdmin();
 						
 						//인풋박스 초기화.
 						$("form")[0].reset();
@@ -65,12 +64,12 @@ $(function(){
 			
 			//select
 			$.ajax({
-				url : "posi/selectAllPosition",
+				url : "dep/selectAllDepartment",
 				dataType : "json",
 				type : "post",
 				success : function(result) {
 				
-					selectPosition(result);
+					selectDepartment(result);
 					
 					//버튼 정의.
 					var updateBtn = $("input[name='updateBtn']");
@@ -97,32 +96,32 @@ $(function(){
 						var updateTdSize = Tr.childElementCount-1; //6-1
 
 						//아이작을 이용해 기존값을 가져온다.
-						var poNum = Tr.childNodes[0].innerHTML;
+						var dNum = Tr.childNodes[0].innerHTML;
 						
 						$.ajax({
-							url :"posi/updatePosition",
-							data : {"poNum" : poNum},
+							url :"dep/updateDepartment",
+							data : {"dNum" : dNum},
 							dataType : "json",
 							type : "get",
 							
 							//성공시 다시 select해줌
 							success :function(result){
-								Tr.childNodes[1].innerHTML ='<input type="text" id ="poName" value="'+result.poName+'">';
+								Tr.childNodes[1].innerHTML ='<input type="text" id ="dName" value="'+result.dName+'">';
 							}
 						});
 						
 						//수정완료버튼 클릭시 ajax으로 데이터 전송 후 select
 						$("input[name='updateOkBtn']").click(function(){
 							
-							var poNum = Tr.childNodes[0].innerHTML;
-							var poName = $("#poName").val();
+							var dNum = Tr.childNodes[0].innerHTML;
+							var dName = $("#dName").val();
 							
-							console.log("poNum ::: ",poNum);
-							console.log("poName ::: ",poName);
+							console.log("dNum ::: ",dNum);
+							console.log("dName ::: ",dName);
 							
 							$.ajax({
-								url :"posi/updatePosition",
-								data : {"poNum" : poNum, "poName" : poName},
+								url :"dep/updateDepartment",
+								data : {"dNum" : dNum, "dName" : dName},
 								dataType : "json",
 								type : "post",
 								
@@ -130,8 +129,8 @@ $(function(){
 								success :function(result){
 									alert("수정성공");
 									
-									selectPosition(result);
-									positionAdmin();
+									selectDepartment(result);
+									departmentAdmin();
 									
 								},
 								error : function(e){
@@ -144,14 +143,14 @@ $(function(){
 						//취소버튼 클릭시 input창 사라짐.
 						$("input[name='cencleBtn']").click(function(){
 							$.ajax({
-								url : "posi/selectAllPosition",
+								url : "dep/selectAllDepartment",
 								dataType : "json",
 								type : "post",
 								success : function(result) {
 									alert("취소성공");
 									
-									selectPosition(result);
-									positionAdmin();
+									selectDepartment(result);
+									departmentAdmin();
 								}
 							})
 						})
@@ -162,10 +161,10 @@ $(function(){
 					$("input[name='deleteBtn']").click(function(){
 						
 						var Tr = this.parentElement.parentElement;
-						var poNum = Tr.childNodes[0].innerHTML;
+						var dNum = Tr.childNodes[0].innerHTML;
 						$.ajax({
-							url :"posi/deletePosition",
-							data : {"poNum" : poNum},
+							url :"dep/deleteDepartment",
+							data : {"dNum" : dNum},
 							dataType : "json",
 							type : "get",
 							
@@ -173,8 +172,8 @@ $(function(){
 							success :function(result){
 								alert("삭제성공");
 								
-								selectPosition(result);
-								positionAdmin();
+								selectDepartment(result);
+								departmentAdmin();
 							}
 						})
 						

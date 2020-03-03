@@ -5,7 +5,7 @@ import java.util.List;
 import phms.dto.DepartmentDto;
 
 public interface DepartmentMapper {
-	public DepartmentDto selectOneDepartment(String dName);
+	public DepartmentDto selectOneDepartment(int dNum);
 
 	public List<DepartmentDto> selectAllDepartment();
 
@@ -13,5 +13,5 @@ public interface DepartmentMapper {
 
 	public int updateDepartment(DepartmentDto department);
 
-	public int deleteDepartment(String dName);
+	public int deleteDepartment(int dNum);
 }

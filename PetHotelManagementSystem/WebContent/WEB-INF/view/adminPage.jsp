@@ -33,6 +33,7 @@ input{width: 100px; margin:5px;}
 <script type="text/javascript" src="view/admin/petAdminPage.js?"></script>
 <script type="text/javascript" src="view/admin/userAdminPage.js?"></script>
 <script type="text/javascript" src="view/admin/positionAdminPage.js?"></script>
+<script type="text/javascript" src="view/admin/departmentAdminPage.js?"></script>
 </head>
 <body>
 	<h2>관리자페이지</h2>
@@ -63,7 +64,7 @@ input{width: 100px; margin:5px;}
 	function insertRemove(){
 		
 		$('#userInsert').remove();
-		$('#petInsert').remove	();
+		$('#petInsert').remove();
 		$('#positionInsert').remove();
 		$('#departmentInsert').remove();
 		$('#reservationInsert').remove();
@@ -75,91 +76,6 @@ input{width: 100px; margin:5px;}
 	}
 	
 	$(function() {
-		
-		//department
-		$("#department").click(function() {
-			//input창 추가.
-			var makeInsert = document.createElement('form');
-			insertRemove();
-			
-			makeInsert.innerHTML = 
-				'<div id="departmentInsert"><input type="text" name="dName" placeholder="dName">'+
-				'<input type="button" id="DepartmentAddBtn"value="추가"></div>';
-			
-			console.log(makeInsert);
-			$('#adminInsert').append(makeInsert);
-			
-			//button 클릭시 value값이 담김.
-			$("#DepartmentAddBtn").click(function(){
-				var dName = $("input[name='dName']").val();
-				
-				
-				//ajax로 데이터를 보내줌.
-				//insert
-				$.ajax({
-					url :"${pageContext.request.contextPath}/dep/insertDepartment",
-					data : {"dName" : dName},
-					dataType : "json",
-					type : "post",
-					
-					//성공시 다시 select해줌
-					success :function(){
-						/* select  */
-						$.ajax({
-							url : "${pageContext.request.contextPath}/dep/selectAllDepartment",
-							dataType : "json",
-							type : "post",
-							success : function(result) {
-							console.log(result[0]);
-							
-							$("table").remove();
-							var makeTable = document.createElement('table');
-							makeTable.innerHTML = '<tr><td>dNum</td><td>dName</td><td>관리</td></tr>';
-							
-							console.log(result.length);
-							for(var i=0; i<result.length; i++){
-								makeTable.innerHTML += '<tr><td>'+ result[i].dNum+'</td><td>'+ result[i].dName+'</td><td>관리</td></tr>';
-							}
-							
-						 	console.log(makeTable);
-							$('#adminList').append(makeTable);
-							}
-						});
-						
-						
-						//인풋박스 초기화.
-						$("form")[0].reset();
-					},
-					error : function(e){
-						alert("추가실패");
-					}
-				})
-				
-			})
-			
-			//select
-			$.ajax({
-				url : "${pageContext.request.contextPath}/dep/selectAllDepartment",
-				dataType : "json",
-				type : "post",
-				success : function(result) {
-				console.log(result[0]);
-				
-				$("table").remove();
-				var makeTable = document.createElement('table');
-				makeTable.innerHTML = '<tr><td>dNum</td><td>dName</td><td>관리</td></tr>';
-				
-				console.log(result.length);
-				for(var i=0; i<result.length; i++){
-					makeTable.innerHTML += '<tr><td>'+ result[i].dNum+'</td><td>'+ result[i].dName+'</td><td>관리</td></tr>';
-				}
-				
-			 	console.log(makeTable);
-				$('#adminList').append(makeTable);
-				}
-			});
-		})
-		
 		
 		//reservation
 		$("#reservation").click(function() {

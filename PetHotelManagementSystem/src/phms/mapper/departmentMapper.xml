@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="phms.mapper.DepartmentMapper">
  	<select id="selectOneDepartment" resultType="department">
-		select * from department where d_name = #{dName}
+		select * from department where d_num = #{dNum}
 	</select>
 	<select id="selectAllDepartment" resultType="department">
 		select * from department;
@@ -16,6 +16,6 @@
 		update department set d_name=#{dName} where d_num=#{dNum};
 	</update>
 	<delete id="deleteDepartment">
-		delete from department where d_name=#{dName}
+		delete from department where d_num=#{dNum}
 	</delete>
 	</mapper>

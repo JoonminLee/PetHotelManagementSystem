@@ -22,12 +22,11 @@ public class DepartmentController {
 
 	// selectOneDepartment
 	@RequestMapping("/selectOneDepartment")
-	public String selectOneDepartment(Model model) {
+	public @ResponseBody DepartmentDto selectOneDepartment(@RequestParam("dNum") int dNum) {
 		System.out.println(":::selectOneDepartment");
-		DepartmentDto department = departmentService.selectOneDepartment("사무관리부");
+		DepartmentDto department = departmentService.selectOneDepartment(dNum);
 		System.out.println(department.toString());
-		model.addAttribute("department", department);
-		return "selectOneDepartment";
+		return department;
 	}
 	// selectAllDepartment
 	@RequestMapping("/selectAllDepartment")
@@ -44,57 +43,37 @@ public class DepartmentController {
 		return "insertDepartment";
 	}
 	@PostMapping("/insertDepartment")
-	public String insertDepartment(DepartmentDto department, @RequestParam("dName") String dName) {
+	public String insertDepartment(DepartmentDto department) {
 		System.out.println(":::insertDepartmen");
-		int result = departmentService.insertDepartment(department);
-		if (result == 1) {
-			System.out.println("insertDepartment 성공");
-			return "redirect:/dep/selectAllDepartment";
-		} else {
-			System.out.println("insertDepartment 실패");
-			return "redirect:/dep/insertDepartment";
-		}
+		departmentService.insertDepartment(department);
+		return "redirect:/dep/selectAllDepartment";
 	}
-	
 
 	// updateDepartment
 	@GetMapping("/updateDepartment")
-	public String updateDepartment(Model model, @RequestParam("dName") String dName) {
+	public @ResponseBody DepartmentDto updateDepartment(@RequestParam("dNum") int dNum) {
 		System.out.println(":::updateDepartment");
-		DepartmentDto department = departmentService.selectOneDepartment(dName);
+		DepartmentDto department = departmentService.selectOneDepartment(dNum);
 		System.out.println(department.toString());
-		model.addAttribute("department", department);
-		return "updateDepartment";
+		return department;
 	}
+	
 	@PostMapping("/updateDepartment")
-	public String updateUser(DepartmentDto department) {
+	public @ResponseBody List<DepartmentDto> DepartmentDtoupdateUser(DepartmentDto department) {
 		System.out.println(":::updateDepartment");
 		System.out.println(department.toString());
-		int result = departmentService.updateDepartment(department);
-		if (result == 1) {
-			System.out.println("updateDepartment 성공");
-			return "redirect:/dep/selectAllDepartment";
-		} else {
-			System.out.println("updateDepartment 실패");
-			return "redirect:/dep/updateDepartment";
-		}
+		departmentService.updateDepartment(department);
+		List<DepartmentDto> listDepartment = departmentService.selectAllDepartment();
+		return listDepartment;
 	}
 
 	// deleteDepartment
 	@RequestMapping("/deleteDepartment")
-	public String deleteDepartment(Model model, @RequestParam("dName") String dName) {
+	public @ResponseBody List<DepartmentDto> deleteDepartment(@RequestParam("dNum") int dNum) {
 		System.out.println(":::deleteDepartment");
-		int result = departmentService.deleteDepartment(dName);
-		if (result == 1) {
-			System.out.println("deleteDepartment 성공");
-			model.addAttribute("result", "삭제 성공");
-			return "redirect:/dep/selectAllDepartment";
-		} else {
-			System.out.println("deleteDepartment 실패");
-			model.addAttribute("result", "삭제 실패");
-			System.out.println("testest");
-			return "redirect:/dep/selectAllDepartment";
-		}
+		departmentService.deleteDepartment(dNum);
+		List<DepartmentDto> listDepartment = departmentService.selectAllDepartment();
+		return listDepartment;
 	}
 
 }
