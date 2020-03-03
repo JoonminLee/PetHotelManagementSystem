@@ -34,6 +34,7 @@ input{width: 100px; margin:5px;}
 <script type="text/javascript" src="view/admin/userAdminPage.js?"></script>
 <script type="text/javascript" src="view/admin/positionAdminPage.js?"></script>
 <script type="text/javascript" src="view/admin/departmentAdminPage.js?"></script>
+<script type="text/javascript" src="view/admin/reservationAdminPage.js?"></script>
 </head>
 <body>
 	<h2>관리자페이지</h2>
@@ -76,36 +77,6 @@ input{width: 100px; margin:5px;}
 	}
 	
 	$(function() {
-		
-		//reservation
-		$("#reservation").click(function() {
-			
-			insertRemove();
-			
-			//select
-			$.ajax({
-				url : "${pageContext.request.contextPath}/reserve/selectAllReserve",
-				dataType : "json",
-				type : "post",
-				success : function(result) {
-				console.log(result[0]);
-				
-				$("table").remove();
-				var makeTable = document.createElement('table');
-				makeTable.innerHTML = '<tr><td>reNum</td><td>reId</td><td>rePhone</td><td>reSNum</td><td>reRNum</td><td>reCheckIn</td><td>reCheckOut</td><td>관리</td></tr>';
-				
-				console.log(result.length);
-				for(var i=0; i<result.length; i++){
-					makeTable.innerHTML += '<tr><td>'+ result[i].reNum+'</td><td>'+ result[i].reId+'</td><td>'+ result[i].rePhone+'</td><td>'+ result[i].reSNum+'</td><td>'+ result[i].reRNum+
-											'</td><td>'+ result[i].reCheckIn.year+'-'+result[i].reCheckIn.monthValue+'-'+result[i].reCheckIn.dayOfMonth+'</td><td>'+ 
-											result[i].reCheckOut.year+'-'+result[i].reCheckOut.monthValue+'-'+result[i].reCheckOut.dayOfMonth+'</td><td>관리</td></tr>';
-				}
-				
-			 	console.log(makeTable);
-				$('#adminList').append(makeTable);
-				}
-			});
-		})
 		
 		//room
 		$("#room").click(function() {
@@ -153,10 +124,10 @@ input{width: 100px; margin:5px;}
 							
 							console.log(result.length);
 							for(var i=0; i<result.length; i++){
-								makeTable.innerHTML += '<tr><td>'+ result[i].rNum+'</td><td>'+ result[i].rSNum+'</td><td>'+ result[i].rStatus+'</td><td>관리</td></tr>';
+								makeTable.innerHTML += '<tr><td>'+ result[i].rNum+'</td><td>'+ result[i].rSNum+'</td><td>'+ result[i].rStatus+'</td><td><input type="button" name="updateBtn" value="수정"><input type="button" name="deleteBtn" value="삭제">'+
+								'<input type="button" class="visibility" name="updateOkBtn" value="수정완료"><input type="button" class="visibility" name="cencleBtn" value="취소"></td></tr>';
 							}
 							
-						 	console.log(makeTable);
 							$('#adminList').append(makeTable);
 							}
 						});

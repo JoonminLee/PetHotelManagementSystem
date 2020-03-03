@@ -131,7 +131,7 @@ $(function(){
 								Tr.childNodes[4].innerHTML ='<input type="text" id ="uGender" value="'+result.uGender+'" readonly>';
 								Tr.childNodes[5].innerHTML ='<input type="text" id ="uPhone" value="'+result.uPhone+'">';
 								Tr.childNodes[6].innerHTML ='<input type="text" id ="uEmail" value="'+result.uEmail+'">';
-								Tr.childNodes[7].innerHTML ='<input type="date" id ="uBirth" value="'+result.uBirth+'">';
+								Tr.childNodes[7].innerHTML ='<input type="date" id ="uBirth" value="'+result.uBirth+'" readonly>';
 							}
 						});
 						

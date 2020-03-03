@@ -75,6 +75,7 @@ public class ReservationController {
 		}
 	}
 
+	//마이페이지(예약수정)
 	@GetMapping("/updateReserve")
 	public String updateReserve(Model model, @RequestParam("reId") String reId) {
 		System.out.println(":::updateReserve");
@@ -83,7 +84,8 @@ public class ReservationController {
 		model.addAttribute("reserve", reserve);
 		return "updateReserve";
 	}
-
+	
+	//마이페이지(예약수정)
 	@PostMapping("/updateReserve")
 	public String updateReserve(ReservationDto reservation, @RequestParam("reCheckInStr") String reCheckInStr,
 			@RequestParam("reCheckOutStr") String reCheckOutStr ) {
@@ -105,6 +107,32 @@ public class ReservationController {
 		}
 	}
 
+	//관리자페이지
+	@GetMapping("/updateReserveAdmin")
+	public @ResponseBody ReservationDto updateReserveAdmin(@RequestParam("reId") String reId) {
+		System.out.println(":::updateReserve");
+		ReservationDto reserve = reserveService.selectOneReservation(reId);
+		System.out.println(reserve.toString());
+		return reserve;
+	}
+	
+	//관리자페이지
+	@PostMapping("/updateReserveAdmin")
+	public @ResponseBody List<ReservationDto> updateReserveAdmin(ReservationDto reservation, @RequestParam("reCheckInStr") String reCheckInStr,
+			@RequestParam("reCheckOutStr") String reCheckOutStr ) {
+		
+		System.out.println(":::updateReserve");
+		reservation.setReCheckIn(LocalDate.parse(reCheckInStr));
+		reservation.setReCheckOut(LocalDate.parse(reCheckOutStr));
+		
+		System.out.println(reservation.toString());
+		
+		reserveService.updateReservation(reservation);
+		List<ReservationDto> listReserve = reserveService.selectAllReservation();
+		return listReserve;
+	}
+
+	//마이페이지(예약삭제)
 	@RequestMapping("/deleteReserve")
 	public String deleteReserve(Model model, @RequestParam("reId") String reId) {
 		System.out.println(":::deleteReserve");
@@ -119,4 +147,14 @@ public class ReservationController {
 			return "redirect:/reserve/selectAllReserve";
 		}
 	}
+	
+	//관리자페이지
+	@RequestMapping("/deleteReserveAdmin")
+	public @ResponseBody List<ReservationDto> deleteReserveAdmin(@RequestParam("reId") String reId) {
+		System.out.println(":::deleteReserve");
+		reserveService.deleteReservation(reId);
+		List<ReservationDto> listReserve = reserveService.selectAllReservation();
+		return listReserve;
+	}
+	
 }
