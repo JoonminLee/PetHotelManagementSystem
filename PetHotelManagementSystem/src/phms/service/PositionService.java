@@ -12,8 +12,8 @@ public class PositionService {
 	@Autowired
 	PositionMapper positionMapper;
 	
-	public PositionDto selectOnePosition(String poName) {
-		return positionMapper.selectOnePosition(poName);
+	public PositionDto selectOnePosition(int poNum) {
+		return positionMapper.selectOnePosition(poNum);
 	}
 	public List<PositionDto> selectAllPosition() {
 		return positionMapper.selectAllPosition();
@@ -27,7 +27,7 @@ public class PositionService {
 		return positionMapper.updatePosition(position);
 	}
 
-	public int deletePosition(String poName) {
-		return positionMapper.deletePosition(poName);
+	public int deletePosition(int poNum) {
+		return positionMapper.deletePosition(poNum);
 	}
 }

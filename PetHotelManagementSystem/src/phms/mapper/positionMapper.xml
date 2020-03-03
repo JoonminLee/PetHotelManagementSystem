@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
    <mapper namespace="phms.mapper.PositionMapper">
    <select id="selectOnePosition" resultType="position">
-		select * from position where po_name = #{poName}
+		select * from position where po_num = #{poNum}
 	</select>
 	<select id="selectAllPosition" resultType="position">
 		select * from position;
@@ -16,6 +16,6 @@
 		update position set po_name=#{poName} where po_num=#{poNum};
 	</update>
 	<delete id="deletePosition">
-		delete from position where po_name=#{poName}
+		delete from position where po_num=#{poNum}
 	</delete>
    </mapper>

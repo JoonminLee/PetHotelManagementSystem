@@ -5,7 +5,7 @@ import java.util.List;
 import phms.dto.PositionDto;
 
 public interface PositionMapper {
-public PositionDto selectOnePosition(String poName);
+public PositionDto selectOnePosition(int poNum);
 	
 	public List<PositionDto> selectAllPosition();
 	
@@ -13,5 +13,5 @@ public PositionDto selectOnePosition(String poName);
 	
 	public int updatePosition(PositionDto position);
 	
-	public int deletePosition(String poName);
+	public int deletePosition(int poNum);
 }

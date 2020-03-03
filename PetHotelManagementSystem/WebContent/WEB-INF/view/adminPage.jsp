@@ -32,6 +32,7 @@ input{width: 100px; margin:5px;}
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="view/admin/petAdminPage.js?"></script>
 <script type="text/javascript" src="view/admin/userAdminPage.js?"></script>
+<script type="text/javascript" src="view/admin/positionAdminPage.js?"></script>
 </head>
 <body>
 	<h2>관리자페이지</h2>
@@ -74,90 +75,6 @@ input{width: 100px; margin:5px;}
 	}
 	
 	$(function() {
-		
-		//position
-		$("#position").click(function() {
-			//input창 추가.
-			var makeInsert = document.createElement('form');
-			insertRemove();
-			
-			makeInsert.innerHTML = 
-				'<div id="positionInsert"><input type="text" name="poName" placeholder="poName">'+
-				'<input type="button" id="PositionAddBtn"value="추가"></div>';
-			
-			console.log(makeInsert);
-			$('#adminInsert').append(makeInsert);
-			
-			//button 클릭시 value값이 담김.
-			$("#PositionAddBtn").click(function(){
-				var poName = $("input[name='poName']").val();
-				
-				
-				//ajax로 데이터를 보내줌.
-				//insert
-				$.ajax({
-					url :"${pageContext.request.contextPath}/posi/insertPosition",
-					data : {"poName" : poName},
-					dataType : "json",
-					type : "post",
-					
-					//성공시 다시 select해줌
-					success :function(){
-						/* select  */
-						$.ajax({
-							url : "${pageContext.request.contextPath}/posi/selectAllPosition",
-							dataType : "json",
-							type : "post",
-							success : function(result) {
-							console.log(result[0]);
-							
-							$("table").remove();
-							var makeTable = document.createElement('table');
-							makeTable.innerHTML = '<tr><td>poNum</td><td>poName</td><td>관리</td></tr>';
-							
-							console.log(result.length);
-							for(var i=0; i<result.length; i++){
-								makeTable.innerHTML += '<tr><td>'+ result[i].poNum+'</td><td>'+ result[i].poName+'</td><td>관리</td></tr>';
-							}
-							
-						 	console.log(makeTable);
-							$('#adminList').append(makeTable);
-							}
-						});
-						
-						
-						//인풋박스 초기화.
-						$("form")[0].reset();
-					},
-					error : function(e){
-						alert("추가실패");
-					}
-				})
-				
-			})
-			
-			//select
-			$.ajax({
-				url : "${pageContext.request.contextPath}/posi/selectAllPosition",
-				dataType : "json",
-				type : "post",
-				success : function(result) {
-				console.log(result[0]);
-				
-				$("table").remove();
-				var makeTable = document.createElement('table');
-				makeTable.innerHTML = '<tr><td>poNum</td><td>poName</td><td>관리</td></tr>';
-				
-				console.log(result.length);
-				for(var i=0; i<result.length; i++){
-					makeTable.innerHTML += '<tr><td>'+ result[i].poNum+'</td><td>'+ result[i].poName+'</td><td>관리</td></tr>';
-				}
-				
-			 	console.log(makeTable);
-				$('#adminList').append(makeTable);
-				}
-			});
-		})
 		
 		//department
 		$("#department").click(function() {

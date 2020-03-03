@@ -22,9 +22,9 @@ public class PositionController {
 
 	// selectOnePosition
 	@RequestMapping("/selectOnePosition")
-	public String selectOnePosition(Model model) {
+	public String selectOnePosition(Model model, @RequestParam("poNum") int poNum) {
 		System.out.println(":::selectOnePosition");
-		PositionDto position = positionService.selectOnePosition("관리자");
+		PositionDto position = positionService.selectOnePosition(poNum);
 		System.out.println(position.toString());
 		model.addAttribute("position", position);
 		return "selectOnePosition";
@@ -60,41 +60,27 @@ public class PositionController {
 
 	// updatePosition
 	@GetMapping("/updatePosition")
-	public String updatePosition(Model model, @RequestParam("poName") String poName) {
+	public @ResponseBody PositionDto updatePosition(@RequestParam("poNum") int poNum) {
 		System.out.println(":::updatePosition");
-		PositionDto position = positionService.selectOnePosition(poName);
+		PositionDto position = positionService.selectOnePosition(poNum);
 		System.out.println(position.toString());
-		model.addAttribute("position", position);
-		return "updatePosition";
+		return position;
 	}
 	@PostMapping("/updatePosition")
-	public String updateUser(PositionDto position) {
+	public @ResponseBody List<PositionDto> updateUser(PositionDto position) {
 		System.out.println(":::updatePosition");
 		System.out.println(position.toString());
-		int result = positionService.updatePosition(position);
-		if (result == 1) {
-			System.out.println("updatePosition 성공");
-			return "redirect:/posi/selectAllPosition";
-		} else {
-			System.out.println("updatePosition 실패");
-			return "redirect:/posi/updatePosition";
-		}
+		positionService.updatePosition(position);
+		List<PositionDto> listPosition = positionService.selectAllPosition();
+		return listPosition;
 	}
 	
 	// deletePosition
 	@RequestMapping("/deletePosition")
-	public String deletePosition(Model model, @RequestParam("poName") String poName) {
+	public @ResponseBody List<PositionDto> deletePosition(@RequestParam("poNum") int poNum) {
 		System.out.println(":::deletePosition");
-		int result = positionService.deletePosition(poName);
-		if (result == 1) {
-			System.out.println("deletePosition 성공");
-			model.addAttribute("result", "삭제 성공");
-			return "redirect:/posi/selectAllPosition";
-		} else {
-			System.out.println("deletePosition 실패");
-			model.addAttribute("result", "삭제 실패");
-			System.out.println("testest");
-			return "redirect:/posi/selectAllPosition";
-		}
+		positionService.deletePosition(poNum);
+		List<PositionDto> listPosition = positionService.selectAllPosition();
+		return listPosition;
 	}
 }
