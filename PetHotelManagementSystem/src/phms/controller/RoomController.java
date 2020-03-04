@@ -71,41 +71,30 @@ public class RoomController {
 	}
 	
 	//updateRoom
+	//관리자페이지
 	@GetMapping("/updateRoom")
-	public String updateRoom(Model model, @RequestParam("rNum") int rNum) {
+	public @ResponseBody RoomDto updateRoom(@RequestParam("rNum") int rNum) {
 		System.out.println(":::updateRoom");
 		RoomDto room = roomService.selectOneRoom(rNum);
 		System.out.println(room.toString());
-		model.addAttribute("room", room);
-		return "updateRoom";
+		return room;
 	}
 	
+	//관리자페이지
 	@PostMapping("/updateRoom")
-	public String updateRoom(RoomDto room) {
+	public @ResponseBody List<RoomDto> updateRoom(RoomDto room) {
 		System.out.println(":::updateRoom");
 		System.out.println(room.toString());
-		int result = roomService.updateRoom(room);
-		if (result == 1) {
-			System.out.println("updateRoom 성공");
-			return "redirect:/room/selectAllRoom";
-		} else {
-			System.out.println("updateRoom 실패");
-			return "redirect:/room/updateRoom";
-		}
+		roomService.updateRoom(room);
+		List<RoomDto> listRoom = roomService.selectAllRoom();
+		return listRoom;
 	}
 	
 	@RequestMapping("/deleteRoom")
-	public String deleteUser(Model model, @RequestParam("rNum") int rNum) {
+	public @ResponseBody List<RoomDto> deleteUser(@RequestParam("rNum") int rNum) {
 		System.out.println(":::deleteRoom");
-		int result = roomService.deleteRoom(rNum);
-		if (result == 1) {
-			System.out.println("deleteRoom 성공");
-			model.addAttribute("result", "삭제 성공");
-			return "redirect:/room/selectAllRoom";
-		} else {
-			System.out.println("deleteRoom 실패");
-			model.addAttribute("result", "삭제 실패 : 고객센터에 문의해주세요");
-			return "redirect:/room/selectAllRoom";
-		}
+		roomService.deleteRoom(rNum);
+		List<RoomDto> listRoom = roomService.selectAllRoom();
+		return listRoom;
 	}
 }

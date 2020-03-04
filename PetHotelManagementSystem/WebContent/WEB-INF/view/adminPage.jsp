@@ -35,6 +35,8 @@ input{width: 100px; margin:5px;}
 <script type="text/javascript" src="view/admin/positionAdminPage.js?"></script>
 <script type="text/javascript" src="view/admin/departmentAdminPage.js?"></script>
 <script type="text/javascript" src="view/admin/reservationAdminPage.js?"></script>
+<script type="text/javascript" src="view/admin/roomAdminPage.js?"></script>
+
 </head>
 <body>
 	<h2>관리자페이지</h2>
@@ -77,93 +79,6 @@ input{width: 100px; margin:5px;}
 	}
 	
 	$(function() {
-		
-		//room
-		$("#room").click(function() {
-			
-			//input창 추가.
-			var makeInsert = document.createElement('form');
-			insertRemove();
-			
-			makeInsert.innerHTML = 
-				'<div id="roomInsert">'+
-				'<input type="number" name="rSNum" min="1" max="7" placeholder="방사이즈">'+
-				'<input type="number" name="rStatus" placeholder="0" readonly>'+
-				'<input type="button" id="roomAddBtn"value="추가"></div>';
-			
-			console.log(makeInsert);	
-			$('#adminInsert').append(makeInsert);
-			
-			//button 클릭시 value값이 담김.
-			$("#roomAddBtn").click(function(){
-				var rSNum = $("input[name='rSNum']").val();
-				var rStatus = 0;
-				
-				
-				//ajax로 데이터를 보내줌.
-				//insert
-				$.ajax({
-					url :"${pageContext.request.contextPath}/room/insertRoom",
-					data : {"rSNum" : rSNum, "rStatus" : rStatus},
-					dataType : "json",
-					type : "post",
-					
-					//성공시 다시 select해줌
-					success :function(){
-						//select
-						$.ajax({
-							url : "${pageContext.request.contextPath}/room/selectAllRoom",
-							dataType : "json",
-							type : "post",
-							success : function(result) {
-							console.log(result[0]);
-							
-							$("table").remove();
-							var makeTable = document.createElement('table');
-							makeTable.innerHTML = '<tr><td>rNum</td><td>rSNum</td><td>rStatus</td><td>관리</td></tr>';
-							
-							console.log(result.length);
-							for(var i=0; i<result.length; i++){
-								makeTable.innerHTML += '<tr><td>'+ result[i].rNum+'</td><td>'+ result[i].rSNum+'</td><td>'+ result[i].rStatus+'</td><td><input type="button" name="updateBtn" value="수정"><input type="button" name="deleteBtn" value="삭제">'+
-								'<input type="button" class="visibility" name="updateOkBtn" value="수정완료"><input type="button" class="visibility" name="cencleBtn" value="취소"></td></tr>';
-							}
-							
-							$('#adminList').append(makeTable);
-							}
-						});
-						
-						//인풋박스 초기화.
-						$("form")[0].reset();
-					},
-					error : function(e){
-						alert("추가실패");
-					}
-				})
-				
-			})
-			
-			//select
-			$.ajax({
-				url : "${pageContext.request.contextPath}/room/selectAllRoom",
-				dataType : "json",
-				type : "post",
-				success : function(result) {
-				console.log(result[0]);
-				
-				$("table").remove();
-				var makeTable = document.createElement('table');
-				makeTable.innerHTML = '<tr><td>rNum</td><td>rSNum</td><td>rStatus</td><td>관리</td></tr>';
-				
-				console.log(result.length);
-				for(var i=0; i<result.length; i++){
-					makeTable.innerHTML += '<tr><td>'+ result[i].rNum+'</td><td>'+ result[i].rSNum+'</td><td>'+ result[i].rStatus+'</td><td>관리</td></tr>';
-				}
-				
-			 	console.log(makeTable);
-				$('#adminList').append(makeTable);
-				}
-			});
-		})
 		
 		//size
 		$("#size").click(function() {
