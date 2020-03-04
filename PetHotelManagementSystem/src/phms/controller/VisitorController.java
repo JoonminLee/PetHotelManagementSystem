@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -61,5 +63,26 @@ public class VisitorController {
 			System.out.println("회원가입을 환영합니다");
 		}
 		return "sessionLogin";
+	}
+	
+	//관리자페이지
+	@GetMapping("/updateVisitor")
+	public @ResponseBody VisitorDto updateVisitor(VisitorDto visitor, @RequestParam("vId") String vId) {
+		visitor = visitorService.selectOneVisitor(vId);
+		return visitor;
+	}
+	
+	@PostMapping("/updateVisitor")
+	public @ResponseBody List<VisitorDto> updateVisitor(VisitorDto visitor) {
+		visitorService.updateVisitor(visitor);
+		List<VisitorDto> listVisitor = visitorService.selectAllVisitor();
+		return listVisitor;
+	}
+	
+	@RequestMapping("/deleteVisitor")
+	public @ResponseBody List<VisitorDto> deleteVisitor(@RequestParam("vId") String vId) {
+		visitorService.deleteVisitor(vId);
+		List<VisitorDto> listVisitor = visitorService.selectAllVisitor();
+		return listVisitor;
 	}
 }

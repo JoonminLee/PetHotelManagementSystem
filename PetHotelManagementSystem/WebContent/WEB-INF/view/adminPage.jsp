@@ -38,6 +38,7 @@ input{width: 100px; margin:5px;}
 <script type="text/javascript" src="view/admin/roomAdminPage.js"></script>
 <script type="text/javascript" src="view/admin/sizeAdminPage.js"></script>
 <script type="text/javascript" src="view/admin/employeeAdminPage.js"></script>
+<script type="text/javascript" src="view/admin/visitorAdminPage.js"></script>
 
 </head>
 <body>
@@ -79,32 +80,5 @@ input{width: 100px; margin:5px;}
 		$('#visitorInsert').remove();
 		
 	}
-	
-	$(function() {
-		
-		//visitor
-		$("#visitor").click(function() {
-			$.ajax({
-				url : "${pageContext.request.contextPath}/visitor/selectAllVisitor",
-				dataType : "json",
-				type : "post",
-				success : function(result) {
-				console.log(result[0]);
-				
-				$("table").remove();
-				var makeTable = document.createElement('table');
-				makeTable.innerHTML = '<tr><td>vNum</td><td>vId</td><td>vEmail</td><td>vFrom</td><td>vRoom</td><td>관리</td></tr>';
-				
-				console.log(result.length);
-				for(var i=0; i<result.length; i++){
-					makeTable.innerHTML += '<tr><td>'+ result[i].vNum+'</td><td>'+ result[i].vId+'</td><td>'+ result[i].vEmail+'</td><td>'+ result[i].vFrom+'</td><td>'+ result[i].vRoom+'</td><td>관리</td></tr>';
-				}
-				
-			 	console.log(makeTable);
-				$('#adminList').append(makeTable);
-				}
-			});
-		})
-	});
 </script>
 </html>
