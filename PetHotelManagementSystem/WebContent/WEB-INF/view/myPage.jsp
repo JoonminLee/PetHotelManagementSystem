@@ -101,6 +101,8 @@ $(function(){
 											console.log("여기까지옴?");
 							
 												}
+										$("#but2").attr('style','display: none');
+										$("#but").removeAttr("style");
 										},
 									error : function(e){
 										console.log(e);
@@ -110,31 +112,47 @@ $(function(){
 							}	
 						}
 							else{
-								
-									console.log("여기까지옴?");
+								if(a == 1){
+									console.log("여기까지옴2?");
 									makeTable.remove();
-									makeTable = document.createElement('table');
-									makeTable.innerHTML += '<tr><td>회원 아이디</td><td>'+result.vId+'</td></tr>';
-									makeTable.innerHTML += '<tr><td>회원 닉네임</td><td><input type="text" name="vName"></td></tr>';
-									makeTable.innerHTML += '<tr><td>회원 이메일</td><td>'+result.vEmail+'</td></tr>';
-									makeTable.innerHTML += '<tr><td>회원 경로</td><td>'+result.vFrom+'</td></tr>';
-									$("show").append(makeTable);
-							
-									var vName = $("input[name='vName']").val();
-									$.ajax({
-										url : "${pageContext.request.contextPath}/my/changeVisitor",
-										dataType : "json",
-										type : "post",
-										data : {"vId" : "<%=(String) session.getAttribute("id")%>", 
-												"vName" : vName},
-									success : function(result){
-										alert(result);	
-										},
-									error : function(e){
-										console.log(e);
-										}
+									var makeTable2 = document.createElement('table');
+									makeTable2.innerHTML += '<tr><td>회원 아이디</td><td>'+result.vId+'</td></tr>';
+									makeTable2.innerHTML += '<tr><td>회원 닉네임</td><td><input type="text" name="vName"></td></tr>';
+									makeTable2.innerHTML += '<tr><td>회원 이메일</td><td>'+result.vEmail+'</td></tr>';
+									makeTable2.innerHTML += '<tr><td>회원 경로</td><td>'+result.vFrom+'</td></tr>';
+									$("#show").append(makeTable2);
+									console.log(makeTable2);
+									a = 0;	
+									$("#but").attr('style','display: none');
+									$("#but2").removeAttr("style");
+									$("#but2").click(function(){
+										var vName = $("input[name='vName']").val();
+										$.ajax({
+											url : "${pageContext.request.contextPath}/my/changeVisitor",
+											dataType : "json",
+											type : "post",
+											data : {"vId" : "<%=(String) session.getAttribute("id")%>", 
+													"vName" : vName},
+										success : function(result){
+											alert("수정완료");	
+											if(a == 0){												
+												makeTable2.remove();
+												makeTable2 = document.createElement('table');
+												makeTable2.innerHTML += '<tr><td>회원 아이디</td><td>'+result.vId+'</td></tr>';
+												makeTable2.innerHTML += '<tr><td>회원 닉네임</td><td>'+result.vName+'</td></tr>';
+												makeTable2.innerHTML += '<tr><td>회원 이메일</td><td>'+result.vEmail+'</td></tr>';
+												makeTable2.innerHTML += '<tr><td>회원 경로</td><td>'+result.vFrom+'</td></tr>';
+												$("#show").append(makeTable2);	
+												}
+											$("#but2").attr('style','display: none');
+											$("#but").removeAttr("style");
+											},
+										error : function(e){
+											console.log(e);
+											}
+										})
 									})
-								
+								}
 							}
 						})						
 				},
