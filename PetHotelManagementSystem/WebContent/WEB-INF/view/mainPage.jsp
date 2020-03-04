@@ -83,7 +83,7 @@
 					<!-- END section -->
 					<div class="container">
 						<div class="block-32" data-aos="fade-up" data-aos-offset="-200">
-							<form action="/room/selectAllAvailable" method="post">
+							<form action="/room/selectAvailableRoom" method="post">
 								<div class="row">
 									<div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
 										<label for="checkin_date" class="font-weight-bold-text-black">Check In</label>
