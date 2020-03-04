@@ -22,15 +22,15 @@ p {
 			<div class="col">
 				<p>사용가능한 방</p>
 				<ul class="nav nav-tabs">
-					<li class="nav-item"><a class="nav-link"	data-toggle="tab" href="#personOnly">사람만</a></li>
 					<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#bothOk">사람+반려동물</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#personOnly">사람만</a></li>
 					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#petOnly">동물만</a></li>
 				</ul>
 				<div class="tab-content">
-					<div class="tab-pane fade" id="personOnly">
+					<div class="tab-pane fade show active" id="bothOk">
+							사람과 반려동물이 사용할 수 있는 방 리스트
 						<p>
-							사람만 사용할 수 있는 방 리스트
-							<c:forEach var="i" items="${listAvailableRoom }">
+							<c:forEach var="i" items="${listBothOkRoom }">
 								${i.toString() }
 								<br>
 								<a href="/reserve/insertReserve?rNum=${i.rNum }">예약</a>
@@ -38,14 +38,26 @@ p {
 							</c:forEach>
 						</p>
 					</div>
-					<div class="tab-pane fade show active" id="bothOk">
+					<div class="tab-pane fade" id="personOnly">
+							사람만 사용할 수 있는 방 리스트
 						<p>
-							사람과 반려동물이 사용할 수 있는 방 리스트
+							<c:forEach var="i" items="${listPersonOnlyRoom }">
+								${i.toString() }
+								<br>
+								<a href="/reserve/insertReserve?rNum=${i.rNum }">예약</a>
+								<hr>
+							</c:forEach>
 						</p>
 					</div>
 					<div class="tab-pane fade" id="petOnly">
-						<p>
 							케이지 방 리스트
+						<p>
+							<c:forEach var="i" items="${listPetOnlyRoom }">
+								${i.toString() }
+								<br>
+								<a href="/reserve/insertReserve?rNum=${i.rNum }">예약</a>
+								<hr>
+							</c:forEach>
 						</p>
 					</div>
 				</div>

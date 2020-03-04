@@ -42,13 +42,16 @@ public class RoomController {
 	}
 	
 	// selectAllAvailable
-	@RequestMapping("/selectAllAvailable")
-	public String selectAllAvailable(Model model) {
-		System.out.println(":::selectAllAvailable");
-		List<RoomSizeDto> listAvailableRoom = roomService.selectAllAvailable(0);
-		System.out.println(listAvailableRoom.toString());
-		model.addAttribute("listAvailableRoom", listAvailableRoom);
-		return "selectAllAvailable";
+	@RequestMapping("/selectAvailableRoom")
+	public String selectAvailableRoom(Model model) {
+		System.out.println(":::selectAvailableRoom");
+		List<RoomSizeDto> listBothOkRoom = roomService.selectBothOkRoom();
+		List<RoomSizeDto> listPersonOnlyRoom = roomService.selectPersonOnlyRoom();
+		List<RoomSizeDto> listPetOnlyRoom = roomService.selectPetOnlyRoom();
+		model.addAttribute("listBothOkRoom", listBothOkRoom);
+		model.addAttribute("listPersonOnlyRoom", listPersonOnlyRoom);
+		model.addAttribute("listPetOnlyRoom", listPetOnlyRoom);
+		return "selectAvailableRoom";
 	}
 	
 	//insertRoom
