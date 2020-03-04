@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import phms.dto.ReservationDto;
 import phms.dto.RoomDto;
+import phms.dto.RoomSizeDto;
 import phms.mapper.ReservationMapper;
 import phms.mapper.RoomMapper;
 
@@ -104,7 +105,7 @@ public class RoomService {
 		return roomMapper.selectAllRoom();
 	}
 	
-	public List<RoomDto> selectAllAvailable(int rStatus){
+	public List<RoomSizeDto> selectAllAvailable(int rStatus){
 		return roomMapper.selectAllAvailable(rStatus);
 	}
 	

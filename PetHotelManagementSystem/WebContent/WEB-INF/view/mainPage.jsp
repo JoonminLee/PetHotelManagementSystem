@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,15 +23,6 @@
 <!-- JqueryCDN -->
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<!-- JS, Bootstrap, 라이브러리 -->
-<script src="/css/main/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="/css/main/js/owl.carousel.min.js"></script>
-<script src="/css/main/js/jquery.stellar.min.js"></script>
-<script src="/css/main/js/aos.js"></script>
-<script src="/css/main/js/bootstrap-datepicker.js"></script>
-<!-- <script src="/css/main/js/main.js"></script> -->
-
-
 <title>mainPage</title>
 </head>
 <body class="is-preload">
@@ -42,7 +32,7 @@
 		<div id="main">
 			<!-- header -->
 			<header id="header">
-				<h2><img src="/css/main/assets/css/images/main_images/logo.png" width="70" height="70"></h2>
+				<h2><a href="/main/mainPage"><img src="/css/main/assets/css/images/main_images/logo.png" width="70" height="70"></a></h2>
 				<nav>
 					<ul>
 						<%
@@ -76,7 +66,7 @@
 							}//if end
 						%>
 						<li><a href="/user/insertUser">회원가입</a></li>
-						<li><a href="#work">서비스소개</a></li>
+						<li><a href="/main/servicePage">서비스소개</a></li>
 						<li><a href="#contact">예약</a>
 							<ul>
 								<li><a href="#">확인</a></li>
@@ -166,6 +156,14 @@
 	</div>
 
 </body>
+
+<!-- JS, Bootstrap, 라이브러리 -->
+<script src="/css/main/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="/css/main/js/owl.carousel.min.js"></script>
+<script src="/css/main/js/jquery.stellar.min.js"></script>
+<script src="/css/main/js/aos.js"></script>
+<script src="/css/main/js/bootstrap-datepicker.js"></script>
+<!-- <script src="/css/main/js/main.js"></script> -->
 <script type="text/javascript">
 	$(function() {
 

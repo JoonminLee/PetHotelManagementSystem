@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import phms.dto.RoomDto;
+import phms.dto.RoomSizeDto;
 import phms.service.RoomService;
  
 @Controller
@@ -44,7 +45,7 @@ public class RoomController {
 	@RequestMapping("/selectAllAvailable")
 	public String selectAllAvailable(Model model) {
 		System.out.println(":::selectAllAvailable");
-		List<RoomDto> listAvailableRoom = roomService.selectAllAvailable(0);
+		List<RoomSizeDto> listAvailableRoom = roomService.selectAllAvailable(0);
 		System.out.println(listAvailableRoom.toString());
 		model.addAttribute("listAvailableRoom", listAvailableRoom);
 		return "selectAllAvailable";
