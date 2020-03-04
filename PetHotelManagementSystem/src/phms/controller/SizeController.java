@@ -65,43 +65,31 @@ public class SizeController {
 	}
 
 	// updateSize
+	// 관리자페이지
 	@GetMapping("/updateSize")
-	public String updateSize(Model model, @RequestParam("sNum") int sNum) {
+	public @ResponseBody SizeDto updateSize(@RequestParam("sNum") int sNum) {
 		System.out.println(":::updateSize");
-		
 		SizeDto size = sizeService.selectOneSize(sNum);
-		
 		System.out.println(size.toString());
-		model.addAttribute("room", size);
-		return "updateSize";
-	}
-
-	@PostMapping("/updateSize")
-	public String updateSize(SizeDto size) {
-		System.out.println(":::updateSize");
-		System.out.println(size.toString());
-		int result = sizeService.updateSize(size);
-		if (result == 1) {
-			System.out.println("updateSize 성공");
-			return "redirect:/size/selectAllSize";
-		} else {
-			System.out.println("updateRoom 실패");
-			return "redirect:/size/updateSize";
-		}
+		return size;
 	}
 	
+	//관리자페이지
+	@PostMapping("/updateSize")
+	public @ResponseBody List<SizeDto> updateSize(SizeDto size) {
+		System.out.println(":::updateSize");
+		System.out.println(size.toString());
+		sizeService.updateSize(size);
+		List<SizeDto> listSize = sizeService.selectAllSize();
+		return listSize;
+	}
+	
+	//관리자페이지
 	@RequestMapping("/deleteSize")
-	public String deleteSize(Model model, @RequestParam("sNum") int sNum) {
+	public @ResponseBody List<SizeDto> deleteSize(@RequestParam("sNum") int sNum) {
 		System.out.println(":::deleteSize");
-		int result = sizeService.deleteSize(sNum);
-		if (result == 1) {
-			System.out.println("deleteSize 성공");
-			model.addAttribute("result", "삭제 성공");
-			return "redirect:/size/selectAllSize";
-		} else {
-			System.out.println("deleteSize 실패");
-			model.addAttribute("result", "삭제 실패 : 고객센터에 문의해주세요");
-			return "redirect:/size/selectAllSize";
-		}
+		sizeService.deleteSize(sNum);
+		List<SizeDto> listSize = sizeService.selectAllSize();
+		return listSize;
 	}
 }

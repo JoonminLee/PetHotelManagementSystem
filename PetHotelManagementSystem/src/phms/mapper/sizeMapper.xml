@@ -17,11 +17,11 @@
 		#{sSize}, #{sRPrice}, #{sWPrice})
 	</insert>
 	<update id="updateSize">
-		update room set s_size=#{sSize}, s_r_price=#{sRPrice}, s_w_price=#{sWPrice}
+		update size set s_size=#{sSize}, s_r_price=#{sRPrice}, s_w_price=#{sWPrice}
 		where
 		s_num=#{sNum}
 	</update>
 	<delete id="deleteSize">
-		delete from room where s_num=#{sNum}
+		delete from size where s_num=#{sNum}
 	</delete>
 </mapper>

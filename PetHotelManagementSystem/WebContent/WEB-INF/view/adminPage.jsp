@@ -36,6 +36,7 @@ input{width: 100px; margin:5px;}
 <script type="text/javascript" src="view/admin/departmentAdminPage.js?"></script>
 <script type="text/javascript" src="view/admin/reservationAdminPage.js?"></script>
 <script type="text/javascript" src="view/admin/roomAdminPage.js?"></script>
+<script type="text/javascript" src="view/admin/sizeAdminPage.js?"></script>
 
 </head>
 <body>
@@ -79,94 +80,6 @@ input{width: 100px; margin:5px;}
 	}
 	
 	$(function() {
-		
-		//size
-		$("#size").click(function() {
-			
-			//input창 추가.
-			var makeInsert = document.createElement('form');
-			insertRemove();
-			
-			makeInsert.innerHTML = 
-				'<div id="sizeInsert">'+
-				'<input type="text" name="sSize" placeholder="방크기">'+
-				'<input type="number" name="sRPrice" placeholder="평일요금">'+
-				'<input type="number" name="sWPrice" placeholder="주말요금">'+
-				'<input type="button" id="sizeAddBtn"value="추가"></div>'; 
-			
-			console.log(makeInsert);	
-			$('#adminInsert').append(makeInsert);
-			
-			//button 클릭시 value값이 담김.
-			$("#sizeAddBtn").click(function(){
-				var sSize = $("input[name='sSize']").val();
-				var sRPrice = $("input[name='sRPrice']").val();
-				var sWPrice = $("input[name='sWPrice']").val();
-				
-				//insert
-				$.ajax({
-					url :"${pageContext.request.contextPath}/size/insertSize",
-					data : {"sSize" : sSize, "sRPrice" : sRPrice, "sWPrice" : sWPrice},
-					dataType : "json",
-					type : "post",
-					
-					//성공시 다시 select해줌
-					success :function(){
-						//select
-						$.ajax({
-							url : "${pageContext.request.contextPath}/size/selectAllSize",
-							dataType : "json",
-							type : "post",
-							success : function(result) {
-							console.log(result[0]);
-							
-							$("table").remove();
-							var makeTable = document.createElement('table');
-							makeTable.innerHTML = '<tr><td>sNum</td><td>sSize</td><td>sRPrice</td><td>sWPrice</td><td>관리</td></tr>';
-							
-							console.log(result.length);
-							for(var i=0; i<result.length; i++){
-								makeTable.innerHTML += '<tr><td>'+ result[i].sNum+'</td><td>'+ result[i].sSize+'</td><td>'+ result[i].sRPrice+'</td><td>'+ result[i].sWPrice+'</td><td>관리</td></tr>';
-							}
-							
-						 	console.log(makeTable);
-							$('#adminList').append(makeTable);
-							}
-						});
-						
-						//인풋박스 초기화.
-						$("form")[0].reset();
-					},
-					error : function(e){
-						alert("추가실패");
-					}
-				})
-				
-			})
-			
-			//select
-			$.ajax({
-				url : "${pageContext.request.contextPath}/size/selectAllSize",
-				dataType : "json",
-				type : "post",
-				success : function(result) {
-				console.log(result[0]);
-				
-				$("table").remove();
-				var makeTable = document.createElement('table');
-				makeTable.innerHTML = '<tr><td>sNum</td><td>sSize</td><td>sRPrice</td><td>sWPrice</td><td>관리</td></tr>';
-				
-				console.log(result.length);
-				for(var i=0; i<result.length; i++){
-					makeTable.innerHTML += '<tr><td>'+ result[i].sNum+'</td><td>'+ result[i].sSize+'</td><td>'+ result[i].sRPrice+'</td><td>'+ result[i].sWPrice+'</td><td>관리</td></tr>';
-				}
-				
-			 	console.log(makeTable);
-				$('#adminList').append(makeTable);
-				}
-			});
-		})
-		
 		//employee
 		$("#employee").click(function() {
 			
