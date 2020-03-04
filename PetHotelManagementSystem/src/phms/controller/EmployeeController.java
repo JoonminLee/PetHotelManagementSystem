@@ -68,41 +68,31 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/updateEmp")
-	public String updateEmp(Model model, @RequestParam("eNum") String eNum) {
+	public @ResponseBody EmployeeDto updateEmp(@RequestParam("eNum") int eNum) {
 		System.out.println(":::updateEmp");
-		EmployeeDto employee = employeeService.selectOneEmp(Integer.parseInt(eNum));
+		EmployeeDto employee = employeeService.selectOneEmp(eNum);
 		System.out.println(employee.toString());
-		model.addAttribute("employee", employee);
-		return "updateEmp";
+		return employee;
 	}
-
+	
+	//관리자 페이지
 	@PostMapping("/updateEmp")
-	public String updateEmp(EmployeeDto employee) {
+	public @ResponseBody List<EmployeeDto> updateEmp(EmployeeDto employee, @RequestParam("eHireDateStr") String eHireDateStr) {
 		System.out.println(":::updateEmp");
+		employee.seteHireDate(LocalDate.parse(eHireDateStr));
+		employeeService.updateEmp(employee);
 		System.out.println(employee.toString());
-		int result = employeeService.updateEmp(employee);
-		if (result == 1) {
-			System.out.println("updateEmp 성공");
-			return "redirect:/emp/selectAllEmp";
-		} else {
-			System.out.println("updateEmp 실패");
-			return "redirect:/emp/updateEmp";
-		}
+		List<EmployeeDto> listEmp = employeeService.selectAllEmp();
+		return listEmp;
 	}
 
 	@RequestMapping("/deleteEmp")
-	public String deleteEmp(Model model, @RequestParam("eNum") String eNum) {
+	public @ResponseBody List<EmployeeDto> deleteEmp(@RequestParam("eNum") int eNum) {
 		System.out.println(":::deleteUser");
-		int result = employeeService.deleteEmp(Integer.parseInt(eNum));
-		if (result == 1) {
-			System.out.println("deleteEmp 성공");
-			model.addAttribute("result", "삭제 성공");
-			return "redirect:/emp/selectAllEmp";
-		} else {
-			System.out.println("deleteEmp 실패");
-			model.addAttribute("result", "삭제 실패 : 고객센터에 문의해주세요");
-			return "redirect:/emp/selectAllEmp";
-		}
+		employeeService.deleteEmp(eNum);
+		List<EmployeeDto> listEmp = employeeService.selectAllEmp();
+		return listEmp;
+		
 	}
 
 }

@@ -75,38 +75,6 @@ public class ReservationController {
 		}
 	}
 
-	//마이페이지(예약수정)
-	@GetMapping("/updateReserve")
-	public String updateReserve(Model model, @RequestParam("reId") String reId) {
-		System.out.println(":::updateReserve");
-		ReservationDto reserve = reserveService.selectOneReservation(reId);
-		System.out.println(reserve.toString());
-		model.addAttribute("reserve", reserve);
-		return "updateReserve";
-	}
-	
-	//마이페이지(예약수정)
-	@PostMapping("/updateReserve")
-	public String updateReserve(ReservationDto reservation, @RequestParam("reCheckInStr") String reCheckInStr,
-			@RequestParam("reCheckOutStr") String reCheckOutStr ) {
-		
-		System.out.println(":::updateReserve");
-		reservation.setReCheckIn(LocalDate.parse(reCheckInStr));
-		reservation.setReCheckOut(LocalDate.parse(reCheckOutStr));
-		
-		
-		System.out.println(reservation.toString());
-		
-		int result = reserveService.updateReservation(reservation);
-		if (result == 1) {
-			System.out.println("updateReserve 성공");
-			return "redirect:/reserve/selectAllReserve";
-		} else {
-			System.out.println("updateReserve 실패");
-			return "redirect:/reserve/updateReserve";
-		}
-	}
-
 	//관리자페이지
 	@GetMapping("/updateReserveAdmin")
 	public @ResponseBody ReservationDto updateReserveAdmin(@RequestParam("reId") String reId) {
@@ -132,22 +100,6 @@ public class ReservationController {
 		return listReserve;
 	}
 
-	//마이페이지(예약삭제)
-	@RequestMapping("/deleteReserve")
-	public String deleteReserve(Model model, @RequestParam("reId") String reId) {
-		System.out.println(":::deleteReserve");
-		int result = reserveService.deleteReservation(reId);
-		if (result == 1) {
-			System.out.println("deleteReserve 성공");
-			model.addAttribute("result", "삭제 성공");
-			return "redirect:/reserve/selectAllReserve";
-		} else {
-			System.out.println("deleteReserve 실패");
-			model.addAttribute("result", "삭제 실패 : 고객센터에 문의해주세요");
-			return "redirect:/reserve/selectAllReserve";
-		}
-	}
-	
 	//관리자페이지
 	@RequestMapping("/deleteReserveAdmin")
 	public @ResponseBody List<ReservationDto> deleteReserveAdmin(@RequestParam("reId") String reId) {

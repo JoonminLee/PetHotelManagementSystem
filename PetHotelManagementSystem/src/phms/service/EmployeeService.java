@@ -29,7 +29,7 @@ public class EmployeeService {
 	public int updateEmp(EmployeeDto employee) {
 		return employeeMapper.updateEmp(employee);
 	}
-
+	
 	public int deleteEmp(int eNum) {
 		return employeeMapper.deleteEmp(eNum);
 	}

@@ -30,13 +30,14 @@ input{width: 100px; margin:5px;}
 <meta charset="UTF-8">
 <title>adminPage.jsp</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="view/admin/petAdminPage.js?"></script>
-<script type="text/javascript" src="view/admin/userAdminPage.js?"></script>
-<script type="text/javascript" src="view/admin/positionAdminPage.js?"></script>
-<script type="text/javascript" src="view/admin/departmentAdminPage.js?"></script>
-<script type="text/javascript" src="view/admin/reservationAdminPage.js?"></script>
-<script type="text/javascript" src="view/admin/roomAdminPage.js?"></script>
-<script type="text/javascript" src="view/admin/sizeAdminPage.js?"></script>
+<script type="text/javascript" src="view/admin/petAdminPage.js"></script>
+<script type="text/javascript" src="view/admin/userAdminPage.js"></script>
+<script type="text/javascript" src="view/admin/positionAdminPage.js"></script>
+<script type="text/javascript" src="view/admin/departmentAdminPage.js"></script>
+<script type="text/javascript" src="view/admin/reservationAdminPage.js"></script>
+<script type="text/javascript" src="view/admin/roomAdminPage.js"></script>
+<script type="text/javascript" src="view/admin/sizeAdminPage.js"></script>
+<script type="text/javascript" src="view/admin/employeeAdminPage.js"></script>
 
 </head>
 <body>
@@ -80,115 +81,6 @@ input{width: 100px; margin:5px;}
 	}
 	
 	$(function() {
-		//employee
-		$("#employee").click(function() {
-			
-			//input창 추가.
-			var makeInsert = document.createElement('form');
-			insertRemove();
-			
-			makeInsert.innerHTML = 
-				'<div id="employeeInsert">'+
-				'<input type="text" name="eNum" placeholder="사원번호 입력" readonly>'+
-				'<input type="text" name="eName" placeholder="사원이름 입력">'+
-				'<select name="eDNum">'+
-					'<option value="1">사무관리부</option>'+
-					'<option value="2">객실관리부</option>'+
-				'</select>'+
-				'<select name="ePoNum">'+
-					'<option value="1">영업부</option>'+
-					'<option value="2">총무부</option>'+
-					'<option value="3">리셉션</option>'+
-					'<option value="4">미화부</option>'+
-					'<option value="5">마케팅부</option>'+	
-					'<option value="6">관리자</option>'+
-				'</select><br>'+
-				'<input type="text" value="010" readonly> - <input type="text" maxlength="4" name="ePhone1"> - <input type="text" maxlength="4" name="ePhone2">'+
-				'<input type="date" name="eHireDateStr"><br>'+
-				'<input type="number" name="eSalary" placeholder="월급">'+
-				'<input type="button" id="EmployeeAddBtn"value="추가"></div>';
-			
-			console.log(makeInsert);	
-			$('#adminInsert').append(makeInsert);
-			
-			//button 클릭시 value값이 담김.
-			$("#EmployeeAddBtn").click(function(){
-				//var eNum = $("input[name='eNum']").val(); 사원번호 AI
-				var eNum = 0;
-				var eName = $("input[name='eName']").val();
-				var eDNum = $("select[name='eDNum']").val();	
-				var ePoNum = $("select[name='ePoNum']").val();
-				var ePhone1 = $("input[name='ePhone1']").val();
-				var ePhone2 = $("input[name='ePhone2']").val();
-				var eHireDateStr = $("input[name='eHireDateStr']").val();
-				var eSalary = $("input[name='eSalary']").val();
-				
-				//insert
-				$.ajax({
-					url :"${pageContext.request.contextPath}/emp/insertEmp",
-					data : {"eNum" : eNum, "eName" : eName, "eDNum" : eDNum, "ePoNum" : ePoNum,
-						"ePhone1" : ePhone1, "ePhone2" : ePhone2, "eHireDateStr" : eHireDateStr, "eSalary" : eSalary},
-					dataType : "json", 
-					type : "post",
-					
-					//성공시 다시 select해줌
-					success :function(){
-						//select
-						$.ajax({
-							url : "${pageContext.request.contextPath}/emp/selectAllEmp",
-							dataType : "json",
-							type : "post",
-							success : function(result) {
-							console.log(result[0]);
-							
-							$("table").remove();
-							var makeTable = document.createElement('table');
-							makeTable.innerHTML = '<tr><td>eNum</td><td>eName</td><td>eDNum</td><td>ePoNum</td><td>ePhone</td><td>eHireDate</td><td>eSalary</td><td>관리</td></tr>';
-							
-							console.log(result.length);
-							for(var i=0; i<result.length; i++){
-								makeTable.innerHTML += '<tr><td>'+ result[i].eNum+'</td><td>'+ result[i].eName+'</td><td>'+ result[i].eDNum+'</td><td>'+ result[i].ePoNum+'</td><td>'+ result[i].ePhone+
-								'</td><td>'+ result[i].eHireDate.year+'-'+result[i].eHireDate.monthValue+'-'+result[i].eHireDate.dayOfMonth+'</td><td>'+ result[i].eSalary+'</td><td>관리</td></tr>';
-							}
-							
-						 	console.log(makeTable);
-							$('#adminList').append(makeTable);
-							}
-						});
-						
-						//인풋박스 초기화.
-						$("form")[0].reset();
-					},
-					error : function(e){
-						alert("추가실패");
-					}
-				})
-				
-			})
-			
-			//select
-			$.ajax({
-				url : "${pageContext.request.contextPath}/emp/selectAllEmp",
-				dataType : "json",
-				type : "post",
-				success : function(result) {
-				console.log(result[0]);
-				
-				$("table").remove();
-				var makeTable = document.createElement('table');
-				makeTable.innerHTML = '<tr><td>eNum</td><td>eName</td><td>eDNum</td><td>ePoNum</td><td>ePhone</td><td>eHireDate</td><td>eSalary</td><td>관리</td></tr>';
-				
-				console.log(result.length);
-				for(var i=0; i<result.length; i++){
-					makeTable.innerHTML += '<tr><td>'+ result[i].eNum+'</td><td>'+ result[i].eName+'</td><td>'+ result[i].eDNum+'</td><td>'+ result[i].ePoNum+'</td><td>'+ result[i].ePhone+
-					'</td><td>'+ result[i].eHireDate.year+'-'+result[i].eHireDate.monthValue+'-'+result[i].eHireDate.dayOfMonth+'</td><td>'+ result[i].eSalary+'</td><td>관리</td></tr>';
-				}
-				
-			 	console.log(makeTable);
-				$('#adminList').append(makeTable);
-				}
-			});
-		})
 		
 		//visitor
 		$("#visitor").click(function() {
