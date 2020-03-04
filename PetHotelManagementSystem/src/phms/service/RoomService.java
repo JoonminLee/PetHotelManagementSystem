@@ -16,19 +16,19 @@ import phms.mapper.RoomMapper;
 
 @Service
 public class RoomService {
-	
+
 	@Autowired
 	RoomMapper roomMapper;
-	
+
 	@Autowired
 	ReservationMapper reservationMapper;
-	
+
 	public RoomDto selectOneRoom(int rNum) {
 		return roomMapper.selectOneRoom(rNum);
 	}
-	
-	public List<RoomDto> selectAllRoom(){
-		
+
+	public List<RoomDto> selectAllRoom() {
+
 		SimpleDateFormat format1 = new SimpleDateFormat("HH");
 		SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd");
 
@@ -54,7 +54,7 @@ public class RoomService {
 
 			LocalDate CheckIn = reserveAllList.get(i).getReCheckIn();
 			LocalDate CheckOut = reserveAllList.get(i).getReCheckOut();
-			
+
 			System.out.println("방상태확인");
 			// 오늘 체크인일 경우.
 			if (CheckIn.isEqual(reDate)) {
@@ -68,7 +68,7 @@ public class RoomService {
 				roomMapper.updateRoom(ReRNumRoom);
 				System.out.println(i + "번째 변경후 : " + ReRNumRoom.toString());
 				System.out.println(timeH);
-				
+
 				// 3시 이전이면 상태를 0으로처리.
 				if (timeH < 15) {
 					ReRNumRoom.setrStatus(0);
@@ -104,11 +104,23 @@ public class RoomService {
 
 		return roomMapper.selectAllRoom();
 	}
-	
-	public List<RoomSizeDto> selectAllAvailable(int rStatus){
-		return roomMapper.selectAllAvailable(rStatus);
+
+	public List<RoomSizeDto> selectAllAvailable() {
+		return roomMapper.selectAllAvailable();
 	}
-	
+
+	public List<RoomSizeDto> selectPersonOnlyRoom() {
+		return roomMapper.selectPersonOnlyRoom();
+	}
+
+	public List<RoomSizeDto> selectBothOkRoom() {
+		return roomMapper.selectBothOkRoom();
+	}
+
+	public List<RoomSizeDto> selectPetOnlyRoom() {
+		return roomMapper.selectPetOnlyRoom();
+	}
+
 	public int insertRoom(RoomDto room) {
 		return roomMapper.insertRoom(room);
 	}

@@ -12,7 +12,16 @@
 		select * from room
 	</select>
 	<select id="selectAllAvailable" resultType="roomsize">
-		select * from room join size where r_status = #{rStatus} and room.r_s_num = size.s_num
+		select * from roomsizedto
+	</select>
+	<select id="selectPersonOnlyRoom" resultType="roomsize">
+		select * from roomsizedto where s_num between 4 and 6 order by s_num asc
+	</select>
+	<select id="selectBothOkRoom" resultType="roomsize">
+		select * from roomsizedto where s_num between 1 and 3 order by s_num asc
+	</select>
+	<select id="selectPetOnlyRoom" resultType="roomsize">
+		select * from roomsizedto where s_num between 7 and 9 order by s_num asc
 	</select>
 	<insert id="insertRoom">
 		insert into room (r_num, r_s_num, r_status)
