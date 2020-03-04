@@ -3,7 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <style type="text/css">
 table, tr, td {
 	border: 1px solid black;

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import phms.dto.RoomDto;
 import phms.service.RoomService;
-
+ 
 @Controller
 @RequestMapping("/room")
 public class RoomController {

@@ -5,7 +5,7 @@ $(function(){
 		roomAdmin();
 		
 		//roomSelect메소드
-		function selectRoom(result){
+		function selectRoom(result){ 
 			
 			$("table").remove();
 			var makeTable = document.createElement('table');
