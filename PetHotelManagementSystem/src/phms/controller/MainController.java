@@ -12,4 +12,10 @@ public class MainController {
 		System.out.println(":::mainPage");
 		return "mainPage";
 	}
+	
+	@RequestMapping("/servicePage")
+	public String servicePage() {
+		System.out.println(":::servicePage");
+		return "servicePage";
+	}
 }

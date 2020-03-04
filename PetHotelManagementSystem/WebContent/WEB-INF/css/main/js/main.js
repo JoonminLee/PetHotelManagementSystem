@@ -18,7 +18,6 @@
       'format': 'yyyy-MM-dd ',
       'autoclose': true
     });
-    $('#m_time').timepicker();
   };
   dateAndTime();
 
