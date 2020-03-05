@@ -71,7 +71,8 @@
 							<ul>
 								<li><a href="#">확인</a></li>
 								<li><a href="#">취소</a></li>
-							</ul></li>
+							</ul>
+					</li>
 						<li><a href="#two">고객센터</a></li>
 					</ul>
 				</nav>
@@ -82,7 +83,7 @@
 				<nav>
 					<!-- END section -->
 					<div class="container">
-						<div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+						<div class="block-32" data-aos="fade-in" data-aos-offset="-200">
 							<form action="/room/selectAvailableRoom" method="post">
 								<div class="row">
 									<div class="col-md-6 mb-3 mb-lg-0 col-lg-3">

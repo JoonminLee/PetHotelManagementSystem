@@ -11,37 +11,22 @@ p {	margin: 20px 0px;}
 </style>
 <title>selectAllAvailable</title>
 <!-- StyleSheet -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
-    <link rel="stylesheet" href="/css/roomList/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="/css/roomList/css/animate.css">
-    <link rel="stylesheet" href="/css/roomList/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/css/roomList/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/css/roomList/css/magnific-popup.css">
-    <link rel="stylesheet" href="/css/roomList/css/aos.css">
-    <link rel="stylesheet" href="/css/roomList/css/ionicons.min.css">
-    <link rel="stylesheet" href="/css/roomList/css/flaticon.css">
-    <link rel="stylesheet" href="/css/roomList/css/icomoon.css">
-    <link rel="stylesheet" href="/css/roomList/css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" href="/css/roomList/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="/css/roomList/css/animate.css">
+<link rel="stylesheet" href="/css/roomList/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/css/roomList/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/css/roomList/css/magnific-popup.css">
+<link rel="stylesheet" href="/css/roomList/css/aos.css">
+<link rel="stylesheet" href="/css/roomList/css/ionicons.min.css">
+<link rel="stylesheet" href="/css/roomList/css/flaticon.css">
+<link rel="stylesheet" href="/css/roomList/css/icomoon.css">
+<link rel="stylesheet" href="/css/roomList/css/style.css">
 
-<script type="text/javascript">
-	var i;
-	function changeBg(i){
-		console.log(i);
-		switch (i) {
-		case 'bg1':
-				document.getElementById("headerBg").style.backgroundImage = "url('/css/roomList/images/bg1.jpg')"
-			break;
-		case 'bg2':
-			document.getElementById("headerBg").style.backgroundImage = "url('/css/roomList/images/bg2.jfif')"
-			break;
-		case 'bg3':
-			document.getElementById("headerBg").style.backgroundImage = "url('/css/roomList/images/bg3.jpg')"
-			break;
-		default:
-			break;
-		}
-	}
-</script>
+<!-- Jquery/CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -65,7 +50,7 @@ p {	margin: 20px 0px;}
 	  </nav> 
     <!-- END nav -->
 
-    <div class="hero-wrap" style="background-image: url(/css/roomList/images/bg1.jpg);">
+    <div id="headerBg" class="hero-wrap" style="background-image: url(/css/roomList/images/bg1.jpg);">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
@@ -80,11 +65,10 @@ p {	margin: 20px 0px;}
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<p>사용가능한 방</p>
 				<ul class="nav nav-tabs">
-					<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#bothOk" onclick="changeBg('bg1')">사람+반려동물</a></li>
-					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#personOnly"  onclick="changeBg('bg2')">사람만</a></li>
-					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#petOnly"  onclick="changeBg('bg3')">동물만</a></li>
+					<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#bothOk" onclick="$.changeBg('bg1')">Together</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#personOnly"  onclick="$.changeBg('bg2')">WithoutPet</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#petOnly"  onclick="$.changeBg('bg3')">PetOnly</a></li>
 				</ul>
 				<div class="tab-content">
 					<div class="tab-pane fade show active" id="bothOk">
@@ -333,8 +317,26 @@ p {	margin: 20px 0px;}
 <script src="/css/roomList/js/bootstrap-datepicker.js"></script>
 <script src="/css/roomList/js/scrollax.min.js"></script>
 <script src="/css/roomList/js/main.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var i;
+	$.changeBg = function(i){
+		$("#headerBg").fadeOut(function(){
+			switch (i) {
+			case 'bg1':
+				$("#headerBg").css({"background-image":"url('/css/roomList/images/bg1.jpg')"}).fadeIn();
+				break;
+			case 'bg2':
+				$("#headerBg").css({"background-image":"url('/css/roomList/images/bg2.jfif')"}).fadeIn();
+				break;
+			case 'bg3':
+				$("#headerBg").css({"background-image":"url('/css/roomList/images/bg3.jpg')"}).fadeIn();
+				break;
+			default:
+				break;
+			}
+		});
+	};
+});
+</script>
 </html>
