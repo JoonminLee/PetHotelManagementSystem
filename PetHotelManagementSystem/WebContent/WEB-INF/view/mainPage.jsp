@@ -67,7 +67,7 @@
 						%>
 						<li><a href="/user/insertUser">회원가입</a></li>
 						<li><a href="/main/servicePage">서비스소개</a></li>
-						<li><a href="#contact">예약</a>
+						<li><a href="/room/selectAvailableRoom">예약</a>
 							<ul>
 								<li><a href="#">확인</a></li>
 								<li><a href="#">취소</a></li>
