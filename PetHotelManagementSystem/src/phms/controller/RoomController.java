@@ -54,6 +54,16 @@ public class RoomController {
 		return "selectAvailableRoom";
 	}
 	
+	//roomTogether
+	@RequestMapping("/roomTogether01")
+	public String roomTogether01(Model model) {
+		System.out.println(":::roomTogether01");
+		return "roomTogether01";
+	}
+	
+	//roomWithoutPet
+	//roomPetOnly
+	
 	//insertRoom
 	@GetMapping("/insertRoom")
 	public String insertRoom() {
