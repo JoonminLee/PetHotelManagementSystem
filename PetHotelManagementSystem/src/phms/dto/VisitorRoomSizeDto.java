@@ -2,17 +2,14 @@ package phms.dto;
 
 import java.time.LocalDate;
 
-public class UserRoomSizeDto {
+public class VisitorRoomSizeDto {
 
-	private int uNum;
-	private String uId;
-	private String uPwd;
-	private String uName;
-	private String uGender;
-	private String uPhone;
-	private String uEmail;
-	private LocalDate uBirth;
-	private int uRNum;
+	private int vNum;
+	private String vId;
+	private String vName;
+	private String vEmail;
+	private String vFrom;
+	private int vRoom;
 	private int rNum;
 	private int rSNum;
 	private int rStatus;
@@ -28,59 +25,41 @@ public class UserRoomSizeDto {
 	private LocalDate reCheckIn;
 	private LocalDate reCheckOut;
 	
-	public int getuNum() {
-		return uNum;
+	public int getvNum() {
+		return vNum;
 	}
-	public void setuNum(int uNum) {
-		this.uNum = uNum;
+	public void setvNum(int vNum) {
+		this.vNum = vNum;
 	}
-	public String getuId() {
-		return uId;
+	public String getvId() {
+		return vId;
 	}
-	public void setuId(String uId) {
-		this.uId = uId;
+	public void setvId(String vId) {
+		this.vId = vId;
 	}
-	public String getuPwd() {
-		return uPwd;
+	public String getvName() {
+		return vName;
 	}
-	public void setuPwd(String uPwd) {
-		this.uPwd = uPwd;
+	public void setvName(String vName) {
+		this.vName = vName;
 	}
-	public String getuName() {
-		return uName;
+	public String getvEmail() {
+		return vEmail;
 	}
-	public void setuName(String uName) {
-		this.uName = uName;
+	public void setvEmail(String vEmail) {
+		this.vEmail = vEmail;
 	}
-	public String getuGender() {
-		return uGender;
+	public String getvFrom() {
+		return vFrom;
 	}
-	public void setuGender(String uGender) {
-		this.uGender = uGender;
+	public void setvFrom(String vFrom) {
+		this.vFrom = vFrom;
 	}
-	public String getuPhone() {
-		return uPhone;
+	public int getvRoom() {
+		return vRoom;
 	}
-	public void setuPhone(String uPhone) {
-		this.uPhone = uPhone;
-	}
-	public String getuEmail() {
-		return uEmail;
-	}
-	public void setuEmail(String uEmail) {
-		this.uEmail = uEmail;
-	}
-	public LocalDate getuBirth() {
-		return uBirth;
-	}
-	public void setuBirth(LocalDate uBirth) {
-		this.uBirth = uBirth;
-	}
-	public int getuRNum() {
-		return uRNum;
-	}
-	public void setuRNum(int uRNum) {
-		this.uRNum = uRNum;
+	public void setvRoom(int vRoom) {
+		this.vRoom = vRoom;
 	}
 	public int getrNum() {
 		return rNum;
@@ -166,20 +145,16 @@ public class UserRoomSizeDto {
 	public void setReCheckOut(LocalDate reCheckOut) {
 		this.reCheckOut = reCheckOut;
 	}
-	public UserRoomSizeDto(int uNum, String uId, String uPwd, String uName, String uGender, String uPhone,
-			String uEmail, LocalDate uBirth, int uRNum, int rNum, int rSNum, int rStatus, int sNum, String sSize,
-			int sRPrice, int sWPrice, int reNum, String reId, String rePhone, int reSNum, int reRNum,
-			LocalDate reCheckIn, LocalDate reCheckOut) {
+	public VisitorRoomSizeDto(int vNum, String vId, String vName, String vEmail, String vFrom, int vRoom, int rNum,
+			int rSNum, int rStatus, int sNum, String sSize, int sRPrice, int sWPrice, int reNum, String reId,
+			String rePhone, int reSNum, int reRNum, LocalDate reCheckIn, LocalDate reCheckOut) {
 		super();
-		this.uNum = uNum;
-		this.uId = uId;
-		this.uPwd = uPwd;
-		this.uName = uName;
-		this.uGender = uGender;
-		this.uPhone = uPhone;
-		this.uEmail = uEmail;
-		this.uBirth = uBirth;
-		this.uRNum = uRNum;
+		this.vNum = vNum;
+		this.vId = vId;
+		this.vName = vName;
+		this.vEmail = vEmail;
+		this.vFrom = vFrom;
+		this.vRoom = vRoom;
 		this.rNum = rNum;
 		this.rSNum = rSNum;
 		this.rStatus = rStatus;
@@ -195,19 +170,17 @@ public class UserRoomSizeDto {
 		this.reCheckIn = reCheckIn;
 		this.reCheckOut = reCheckOut;
 	}
-	public UserRoomSizeDto() {
+	public VisitorRoomSizeDto() {
 		super();
 	}
 	@Override
 	public String toString() {
-		return "UserRoomSizeDto [uNum=" + uNum + ", uId=" + uId + ", uPwd=" + uPwd + ", uName=" + uName + ", uGender="
-				+ uGender + ", uPhone=" + uPhone + ", uEmail=" + uEmail + ", uBirth=" + uBirth + ", uRNum=" + uRNum
-				+ ", rNum=" + rNum + ", rSNum=" + rSNum + ", rStatus=" + rStatus + ", sNum=" + sNum + ", sSize=" + sSize
-				+ ", sRPrice=" + sRPrice + ", sWPrice=" + sWPrice + ", reNum=" + reNum + ", reId=" + reId + ", rePhone="
-				+ rePhone + ", reSNum=" + reSNum + ", reRNum=" + reRNum + ", reCheckIn=" + reCheckIn + ", reCheckOut="
-				+ reCheckOut + "]";
+		return "VisitorRoomSizeDto [vNum=" + vNum + ", vId=" + vId + ", vName=" + vName + ", vEmail=" + vEmail
+				+ ", vFrom=" + vFrom + ", vRoom=" + vRoom + ", rNum=" + rNum + ", rSNum=" + rSNum + ", rStatus="
+				+ rStatus + ", sNum=" + sNum + ", sSize=" + sSize + ", sRPrice=" + sRPrice + ", sWPrice=" + sWPrice
+				+ ", reNum=" + reNum + ", reId=" + reId + ", rePhone=" + rePhone + ", reSNum=" + reSNum + ", reRNum="
+				+ reRNum + ", reCheckIn=" + reCheckIn + ", reCheckOut=" + reCheckOut + "]";
 	}
-	
 	
 	
 }

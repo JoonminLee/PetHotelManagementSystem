@@ -3,6 +3,7 @@ package phms.mapper;
 import java.util.List;
 
 import phms.dto.VisitorDto;
+import phms.dto.VisitorRoomSizeDto;
 
 public interface VisitorMapper {
 	public VisitorDto selectOneVisitor(String vId);
@@ -14,4 +15,10 @@ public interface VisitorMapper {
 	public int updateVisitor(VisitorDto visitor);
 
 	public int deleteVisitor(String vId);
+	
+	public VisitorRoomSizeDto selectVisitorRoom(String vId);
+	
+	public List<VisitorRoomSizeDto> selectVisitorRoomAll();
+	
+	public int deleteVisitorRoom(String vId);
 }

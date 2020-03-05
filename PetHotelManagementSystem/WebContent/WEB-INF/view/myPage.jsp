@@ -219,6 +219,14 @@ $(function(){
 			<%
 		}else{
 		%>
+			<table>
+				<tr><td>예약자</td><td>${visitorRoom.vName }</td></tr>
+				<tr><td>예약자 전화번호</td><td>${visitorRoom.rePhone }</td></tr>
+				<tr><td>예약자 방번호</td><td>${visitorRoom.vRoom }번방</td></tr>
+				<tr><td>예약자 방이름</td><td>${visitorRoom.sSize }</td></tr>
+				<tr><td>예약자 입실날짜</td><td>${visitorRoom.reCheckIn }</td></tr>
+				<tr><td>예약자 퇴실날짜</td><td>${visitorRoom.reCheckOut }</td></tr>
+			</table>
 		<%
 		}%>
 	</div>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import phms.dto.VisitorDto;
+import phms.dto.VisitorRoomSizeDto;
 import phms.mapper.VisitorMapper;
 
 @Service
@@ -32,5 +33,17 @@ public class VisitorService {
 
 	public int deleteVisitor(String vId) {
 		return visitorMapper.deleteVisitor(vId);
+	}
+	
+	public VisitorRoomSizeDto selectVisitorRoom(String vId) {
+		return visitorMapper.selectVisitorRoom(vId);
+	}
+	
+	public List<VisitorRoomSizeDto> selectVisitorRoomAll(){
+		return visitorMapper.selectVisitorRoomAll();
+	}
+	
+	public int deleteVisitorRoom(String vId) {
+		return visitorMapper.deleteVisitorRoom(vId);
 	}
 }

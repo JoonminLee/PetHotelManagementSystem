@@ -18,6 +18,7 @@ import phms.dto.RoomSizeDto;
 import phms.dto.UserDto;
 import phms.dto.UserRoomSizeDto;
 import phms.dto.VisitorDto;
+import phms.dto.VisitorRoomSizeDto;
 import phms.service.ReservationService;
 import phms.service.UserService;
 import phms.service.VisitorService;
@@ -43,6 +44,7 @@ public class MyPageController {
 		ReservationDto reservation = reserveService.selectOneReservation(uId);
 		VisitorDto visitor = visitorService.selectOneVisitor(uId);
 		UserRoomSizeDto userRoom = userService.selectUserRoom(uId);
+		VisitorRoomSizeDto visitorRoom = visitorService.selectVisitorRoom(uId);
 		System.out.println(visitor);
 		System.out.println(user);
 		System.out.println(reservation);
@@ -51,6 +53,7 @@ public class MyPageController {
 		model.addAttribute("user",user);
 		model.addAttribute("reservation",reservation);
 		model.addAttribute("visitor",visitor);
+		model.addAttribute("visitorRoom",visitorRoom);
 		return "myPage";
 	}
 	//ajax 회원정보 부분
@@ -106,12 +109,20 @@ public class MyPageController {
 			return visitor;
 		}
 	}
-	// 예약정보 삭제 부분
-	@RequestMapping("/deleteRoom")
+	// 회원 예약정보 삭제 부분
+	@RequestMapping("/deleteUserRoom")
 	public @ResponseBody List<UserRoomSizeDto> deleteUserRoom(String uId){
 		System.out.println(":::deleteUserRoom");
 		userService.deleteUserRoom(uId);
 		List<UserRoomSizeDto> listUserRoom = userService.selectUserRoomAll();
 		return listUserRoom;
+	}
+	// 비회원 예약정보 삭제 부분
+	@RequestMapping("/deleteVisitorRoom")
+	public @ResponseBody List<VisitorRoomSizeDto> deleteVisitorRoom(String vId){
+		System.out.println(":::deleteVisitorRoom");
+		visitorService.deleteVisitorRoom(vId);
+		List<VisitorRoomSizeDto> listVisitorRoom = visitorService.selectVisitorRoomAll();
+		return listVisitorRoom;
 	}
 }
