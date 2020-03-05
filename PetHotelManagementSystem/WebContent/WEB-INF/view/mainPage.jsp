@@ -5,17 +5,17 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- OAuth2.0 -->
-<script type="text/javascript"	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<meta name="google-signin-client_id" content="676303489666-7vh4op3lmi7j8pb5h2om655eoohkh449.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-
 <!-- CSS -->
 <link rel="stylesheet" href="/css/main/assets/css/main.css" />
 <link rel="stylesheet" href="/css/main/assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/main/assets/css/bootstrap-datepicker.css">
+
+<!-- OAuth2.0 -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<meta name="google-signin-client_id" content="676303489666-7vh4op3lmi7j8pb5h2om655eoohkh449.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 <!-- Theme Style -->
 <link rel="stylesheet" href="/css/main/assets/css/style.css">
@@ -43,37 +43,75 @@
 						<%
 							switch (vFrom) {
 								case "kakao":
-						%><li><a href="/sess/sessionLogout" onclick="kakaoOut()">로그아웃</a></li>
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li id="set_7_text"><a href="/sess/sessionLogout" onclick="kakaoOut()">로그아웃</a></li>
+						</div>
 						<%
 							break;
 								case "google":
-						%><li><a href="/sess/sessionLogout" onclick="googleOut()">로그아웃</a></li>
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li><a href="/sess/sessionLogout" onclick="googleOut()">로그아웃</a></li>
+						</div>
 						<%
 							break;
 								case "naver":
-						%><li><a href="/sess/sessionLogout">로그아웃</a></li>
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li><a href="/sess/sessionLogout">로그아웃</a></li>
+						</div>
 						<%
 							break;
 								case "phms":
-						%><li><a href="/sess/sessionLogout">로그아웃</a></li>
-
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li><a href="/sess/sessionLogout">로그아웃</a></li>
+						</div>
 						<%
 							break;
 								}//switch end
 							} else {
-						%><li><a href="/user/loginUser">로그인</a></li>
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li id="set_7_text"><a href="/user/loginUser">로그인</a></li>
+						</div>
 						<%
 							}//if end
 						%>
-						<li><a href="/user/insertUser">회원가입</a></li>
-						<li><a href="/main/servicePage">서비스소개</a></li>
-						<li><a href="/room/selectAvailableRoom">예약</a>
-							<ul>
-								<li><a href="#">확인</a></li>
-								<li><a href="#">취소</a></li>
-							</ul>
-					</li>
-						<li><a href="#two">고객센터</a></li>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button2" height="50" width="120"></rect>
+		                </svg>
+		                <li id="set_7_text"><a href="/user/insertUser">회원가입</a></li>
+		              	</div>
+		              	
+		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button3" height="50" width="120"></rect>
+		                </svg>
+		                <li id="set_7_text"><a href="/main/servicePage">서비스소개</a></li>
+		              	</div>
+		              	
+		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button4" height="50" width="120"></rect>
+		                </svg>
+		                <li id="set_7_text"><a href="/my/myPage">마이페이지</a>
+		            	</div>
+		            	
+		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button5" height="50" width="120"></rect>
+		                </svg>
+		                <li id="set_7_text"><a href="/main/contactPage">고객센터</a></li>
+		              	</div>
 					</ul>
 				</nav>
 			</header>
@@ -112,7 +150,7 @@
 													<div class="icon">
 														<span class="ion-ios-arrow-down"></span>
 													</div>
-													<select type="number" name="numOfPeople" id="adults" class="form-control">
+													<select name="numOfPeople" id="adults" class="form-control">
 														<option value="0">0</option>
 														<option value="1">1</option>
 														<option value="2">2</option>
@@ -126,7 +164,7 @@
 													<div class="icon">
 														<span class="ion-ios-arrow-down"></span>
 													</div>
-													<select type="number" name="numOfPets" id="children" class="form-control">
+													<select name="numOfPets" id="children" class="form-control">
 														<option value="0">0</option>
 														<option value="1">1</option>
 														<option value="2">2</option>

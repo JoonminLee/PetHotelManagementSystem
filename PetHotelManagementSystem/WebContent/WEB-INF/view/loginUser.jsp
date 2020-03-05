@@ -1,20 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+
+<!-- OAuth2.0 -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<meta name="google-signin-client_id" content="676303489666-7vh4op3lmi7j8pb5h2om655eoohkh449.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 
-<meta name="google-signin-client_id"content="676303489666-7vh4op3lmi7j8pb5h2om655eoohkh449.apps.googleusercontent.com">
- <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-	charset="utf-8"></script>
-
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!--====css===========================================================================================-->
 <link rel="stylesheet" type="text/css" href="/css/login_css/vendor/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/css/login_css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -26,8 +23,10 @@
 <link rel="stylesheet" type="text/css" href="/css/login_css/vendor/daterangepicker/daterangepicker.css">
 <link rel="stylesheet" type="text/css" href="/css/login_css/css/util.css">
 <link rel="stylesheet" type="text/css" href="/css/login_css/css/main.css">
+
 <!--====폰트===========================================================================================-->
 <!-- <link rel="stylesheet"	href="fonts/material-icon/css/material-design-iconic-font.min.css"> -->
+
 <!--===js============================================================================================-->
 <script src="/css/login_css/vendor/jquery/jquery-3.2.1.min.js"></script>
 <script src="/css/login_css/vendor/animsition/js/animsition.min.js"></script>
@@ -38,7 +37,9 @@
 <script src="/css/login_css/vendor/daterangepicker/daterangepicker.js"></script>
 <script src="/css/login_css/vendor/countdowntime/countdowntime.js"></script>
 <script src="/css/login_css/js/main.js"></script>
-<!--===============================================================================================-->
+
+<!-- JqueryCDN -->
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>loginUser</title>
 </head>
 <body>
