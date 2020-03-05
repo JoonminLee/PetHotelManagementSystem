@@ -74,6 +74,12 @@ public class ReservationController {
 			return "redirect:/reserve/insertReserve";
 		}
 	}
+	
+	@RequestMapping("/reservationResult")
+	public String reservationResult() {
+		System.out.println(":::reservationResult");
+		return "reservationResult";
+	}
 
 	//관리자페이지
 	@GetMapping("/updateReserveAdmin")
