@@ -18,4 +18,10 @@ public class MainController {
 		System.out.println(":::servicePage");
 		return "servicePage";
 	}
+	
+	@RequestMapping("/contactPage")
+	public String contactPage() {
+		System.out.println(":::contactPage");
+		return "contactPage";
+	}
 }
