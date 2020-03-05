@@ -18,4 +18,13 @@
 	<delete id="deleteVisitor">
 		delete from visitor where v_id=#{vId}
 	</delete>
+	<select id="selectVisitorRoom" resultType="visitorroomsize">
+		select * from visitorroomsize where v_id = #{vId}
+	</select>
+	<select id="selectVisitorRoomAll" resultType="visitorroomsize">
+		select * from visitorroomsize
+	</select>
+	<delete id="deleteVisitorRoom">
+		delete from visitorroomsize where v_id = #{vId}
+	</delete>
 </mapper>

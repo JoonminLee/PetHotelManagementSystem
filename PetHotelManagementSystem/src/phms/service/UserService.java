@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import phms.dto.UserDto;
+import phms.dto.UserRoomSizeDto;
 import phms.mapper.UserMapper;
 
 @Service
@@ -32,6 +33,18 @@ public class UserService {
 
 	public int deleteUser(String uId) {
 		return userMapper.deleteUser(uId);
+	}
+	
+	public UserRoomSizeDto selectUserRoom(String uId) {
+		return userMapper.selectUserRoom(uId);
+	}
+	
+	public List<UserRoomSizeDto> selectUserRoomAll(){
+		return userMapper.selectUserRoomAll();
+	}
+	
+	public int deleteUserRoom(String uId) {
+		return userMapper.deleteUserRoom(uId);
 	}
 
 }

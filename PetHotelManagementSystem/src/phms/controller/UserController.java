@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import common.loginAuthentication;
 import phms.dto.UserDto;
+import phms.dto.UserRoomSizeDto;
 import phms.service.UserService;
 
 @Controller
@@ -34,7 +35,7 @@ public class UserController {
 		model.addAttribute("user", user);
 		return "selectOneUser";
 	}
-
+	
 	// selectAllUser
 	@RequestMapping("/selectAllUser")
 	public @ResponseBody List<UserDto> selectAllUser() {

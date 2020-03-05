@@ -9,6 +9,7 @@
 	</settings>
 	<typeAliases>
 		<typeAlias type="phms.dto.UserDto" alias="user"/>
+		<typeAlias type="phms.dto.UserRoomSizeDto" alias="userroomsize"/>
 		<typeAlias type="phms.dto.DepartmentDto" alias="department"/>
 		<typeAlias type="phms.dto.EmployeeDto" alias="employee"/>
 		<typeAlias type="phms.dto.PetDto" alias="pet"/>
@@ -18,5 +19,6 @@
 		<typeAlias type="phms.dto.RoomSizeDto" alias="roomsize"/>
 		<typeAlias type="phms.dto.SizeDto" alias="size"/>
 		<typeAlias type="phms.dto.VisitorDto" alias="visitor"/>
+		<typeAlias type="phms.dto.VisitorRoomSizeDto" alias="visitorroomsize"/>
 	</typeAliases>	
 </configuration>
