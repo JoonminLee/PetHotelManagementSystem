@@ -19,16 +19,16 @@
 <link rel="stylesheet" href="/css/roomList/css/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Deluxe</a>
+	      <a class="navbar-brand" href="/main/mainPage">petHotel</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="/main/mainPage" class="nav-link">Home</a></li>
 	          <li class="nav-item active"><a href="rooms.html" class="nav-link">Rooms</a></li>
 	          <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
@@ -37,24 +37,22 @@
 	        </ul>
 	      </div>
 	    </div>
-	  </nav>
+	  </nav> 
     <!-- END nav -->
 
-    <div class="hero-wrap" style="background-image: url('/css/roomList/images/roombg1.jpg');">
+    <div id="headerBg" class="hero-wrap" style="background-image: url(/css/roomList/images/bg1.jpg);">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
           <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
           	<div class="text">
-	            <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a href="rooms.html">Room</a></span> <span>Room Single</span></p>
-	            <h1 class="mb-4 bread">Room Single</h1>
+	            <h1 class="mb-4 bread">Rooms</h1>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-
+     </div>
+     
     <section class="ftco-section">
       <div class="container">
         <div class="row">

@@ -1,6 +1,4 @@
 <%@page import="org.springframework.ui.Model"%>
-<%@page import="phms.dto.VisitorDto"%>
-<%@page import="phms.dto.UserDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -18,8 +16,7 @@ table {
 	border-collapse: collapse;
 }
 </style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	var makeTable = document.createElement('table');
@@ -27,7 +24,7 @@ $(function(){
 	
 	$("#userUpdate").click(function(){
 		if(a == 0){
-			$.ajax({			
+			$.ajax({		
 				url : "${pageContext.request.contextPath}/my/selectOneVisitor",
 				dataType : "json",
 				type : "post",
