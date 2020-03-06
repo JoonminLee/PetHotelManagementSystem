@@ -98,10 +98,10 @@
 	      			<form action="#">
 	      				<div class="fields">
 		              <div class="form-group">
-		                <input type="text" id="checkin_date" class="form-control checkin_date" placeholder="Check In Date">
+		                <input type="date" id="checkin_date" class="form-control checkin_date">
 		              </div>
 		              <div class="form-group">
-		                <input type="text" id="checkin_date" class="form-control checkout_date" placeholder="Check Out Date">
+		                <input type="date" id="checkin_date" class="form-control checkout_date">
 		              </div>
 		              <div class="form-group">
 		                <div class="select-wrap one-third">
