@@ -15,10 +15,29 @@ import phms.service.ReservationService;
 @Controller
 public class AdminController {
 	
-	@GetMapping("/admin")
-	public String selectAllReserve(Model model) {
-		System.out.println(":::adminPage로 고고");
-		return "adminPage";
+	@GetMapping("/adminHome")
+	public String adminHome() {
+		System.out.println(":::adminHome로 고고");
+		return "adminHome";
 	}
+	
+	@GetMapping("/userAdmin")
+	public String userAdmin() {
+		System.out.println(":::userAdmin로 고고");
+		return "userAdmin";
+	}
+	
+	@GetMapping("/empAdmin")
+	public String empAdmin() {
+		System.out.println(":::empAdmin로 고고");
+		return "empAdmin";
+	}
+	
+	@GetMapping("/reserveAdmin")
+	public String reserveAdmin() {
+		System.out.println(":::reserveAdmin로 고고");
+		return "reserveAdmin";
+	}
+	
 
 }

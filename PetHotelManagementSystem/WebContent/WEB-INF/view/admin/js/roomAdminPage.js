@@ -83,7 +83,7 @@ $(function(){
 					
 					//수정버튼 클릭 시,
 					$("input[name='updateBtn']").click(function(){
-						
+						console.log("updateBtn :::",updateBtn);
 						//해당 레이어를 제외한 나머지 버튼은 이벤트 제거.
 						var thisNotUpdateBtn = $("input[name='updateBtn']").not($(this));
 						var thisNotDeleteBtn = $("input[name='deleteBtn']").not($(this));
