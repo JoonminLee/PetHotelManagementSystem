@@ -87,10 +87,10 @@
 </body>
 <script type='text/javascript'>
 
-	function kakaoLogin() {
-
-		//카카오 로그인
 		Kakao.init('f93055f9d183a780c81d29d70f577730');
+		
+		//카카오 로그인
+	function kakaoLogin() {
 
 		Kakao.Auth.loginForm({
 			success : function(authObj) {
