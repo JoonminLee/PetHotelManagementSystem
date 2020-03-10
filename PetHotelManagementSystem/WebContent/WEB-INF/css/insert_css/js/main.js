@@ -1,6 +1,6 @@
 (function($) {
 
-    $( "#birth_date" ).datepicker({
+    $( "#uBirthStr" ).datepicker({
         dateFormat: "yy - mm - dd",
         showOn: "both",
         buttonText : '<i class="zmdi zmdi-calendar-alt"></i>',

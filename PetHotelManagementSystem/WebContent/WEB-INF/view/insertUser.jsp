@@ -13,16 +13,11 @@
 
 <!-- Main css -->
 <link rel="stylesheet" href="/css/insert_css/css/style.css">
-<!-- JS -->
-  <script src="/css/insert_css/vendor/jquery/jquery.min.js"></script>
-  <script src="/css/insert_css/vendor/jquery-ui/jquery-ui.min.js"></script>
-  <script src="/css/insert_css/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-  <script src="/css/insert_css/vendor/jquery-validation/dist/additional-methods.min.js"></script>
-  <script src="/css/insert_css/js/main.js"></script>
+
 <title>insertUser</title>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">
-$(function(){
+ <!-- <script type="text/javascript">
+	$(function(){
 		var idCheckNum = 0; 
 		var emailSendNum = 0;
 		var emailCheckNum = 0;
@@ -162,17 +157,43 @@ $(function(){
 				emailCheckNum = 1;
 			});		
 		
-});  	
-
-</script>
+});  
+</script>  -->
 </head>
 <body>
-
-  <div class="main">
+    <header id="header">
+    <h2>pethotel</h2>
+    <nav>
+      <ul>
+        <div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+            <rect id="set_7_button1" height="50" width="120"></rect>
+          </svg>
+          <li id="set_7_text"><a href="#intro">LOGIN</a></li>
+        </div>
+        <div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+            <rect id="set_7_button3" height="50" width="120"></rect>
+          </svg>
+          <li id="set_7_text"><a href="#work">SERVICE</a></li>
+        </div>
+        <div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+            <rect id="set_7_button4" height="50" width="120"></rect>
+          </svg>
+          <li id="set_7_text"><a href="#contact">MY PAGE</a></li>
+        </div>
+        <div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+            <rect id="set_7_button5" height="50" width="120"></rect>
+          </svg>
+          <li id="set_7_text"><a href="#two">고객센터</a></li>
+        </div>
+      </ul>
+    </nav>
+  </header>
+  
+   <div class="main">
     <section class="signup">
       <div class="container">
         <div class="signup-content">
-          <form action="${pageContext.request.contextPath}/user/insertUser" method="POST" onsubmit="return check()" id="signup-form" class="signup-form">
+          <form action="/user/insertUser" method="POST" onsubmit="return check()" id="signup-form" class="signup-form">
 			<div class="form-row">
               <div class="form-group">
                 <label for="id">id</label>
@@ -212,8 +233,8 @@ $(function(){
             </div>
 			<div class="form-row">
             <div class="form-group form-icon">
-                <label for="birth_date">Birth date</label>
-                <input type="text" class="form-input" name="uBirthStr" id="birth_date" placeholder="YYYY-MM-DD" />
+                <label for="uBirthStr">Birth date</label>
+                <input type="text" class="form-input" name="uBirthStr" id="uBirthStr" placeholder="YYYY-MM-DD" />
             </div>
             <div class="form-radio">
                 <label for="gender">Gender</label>
@@ -253,6 +274,12 @@ $(function(){
     </section>
 
 
-  </div>
+  </div> 
+  <!-- JS -->
+  <script src="/css/insert_css/vendor/jquery/jquery.min.js"></script>
+  <script src="/css/insert_css/vendor/jquery-ui/jquery-ui.min.js"></script>
+  <script src="/css/insert_css/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+  <script src="/css/insert_css/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+  <script src="/css/insert_css/js/main.js"></script>  
 </body>
 </html>

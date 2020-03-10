@@ -593,7 +593,7 @@ $.extend( $.validator, {
 		},
 
 		hideThese: function( errors ) {
-			errors.not( this.containers ).text( "" );
+			errors.not( this.containers ).text( "입력해주세요" );
 			this.addWrapper( errors ).hide();
 		},
 

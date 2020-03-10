@@ -20,10 +20,10 @@
 		<h2><a href="/main/mainPage"><img src="/css/main/assets/css/images/main_images/logo.png" width="70" height="70"></a></h2>
 		<nav>
 			<ul>
-				<li><a href="/user/loginUser">로그인</a></li>
-				<li><a href="/user/insertUser">회원가입</a></li>
-				<li><a href="#two">고객센터</a></li>
-				<li><a href="#work">예약</a></li>
+				<li><a href="/user/loginUser">Login</a></li>
+				<li><a href="/user/insertUser">Sign Up</a></li>
+				<li><a href="/my/myPage">Mypage</a></li>
+				<li><a href="/main/contactPage">Contact</a></li>
 			</ul>
 		</nav>
 	</header>
