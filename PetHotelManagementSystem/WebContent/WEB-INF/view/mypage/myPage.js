@@ -1,7 +1,6 @@
 $(function(){
 	//메소드 실행.
-	selectInfo();
-	//myPage();
+	myInfoUpdate();
 	
 	function selectInfo(){
 		
@@ -43,16 +42,21 @@ $(function(){
 						success : function(result) {
 							console.log("result :::", result);
 							
-							var makeReserveTable = document.createElement('table');
 							
-							makeReserveTable.innerHTML = '<tr><td>예약자</td><td>'+result.uId+'</td></tr>'+
-														'<tr><td>전화번호</td><td>'+ result.uPhone+'</td></tr>'+
-														'<tr><td>방번호</td><td>'+ result.uRNum+'</td></tr>'+
-														'<tr><td>방이름</td><td>'+ result.sSize+'</td></tr>'+
-														'<tr><td>입실일</td><td>'+result.reCheckIn.year+'-'+result.reCheckIn.monthValue+'-'+result.reCheckIn.dayOfMonth+'</td></tr>'+
-														'<tr><td>퇴실일</td><td>'+result.reCheckOut.year+'-'+result.reCheckOut.monthValue+'-'+result.reCheckOut.dayOfMonth+'</td></tr>';
+							for(var i=0; i<result.length; i++){
+
+								var makeReserveTable = document.createElement('table');
+								makeReserveTable.innerHTML = '<tr><td>예약자</td><td>'+result[i].uId+'</td></tr>'+
+								'<tr><td>전화번호</td><td>'+ result[i].uPhone+'</td></tr>'+
+								'<tr><td>방번호</td><td>'+ result[i].uRNum+'</td></tr>'+
+								'<tr><td>방이름</td><td>'+ result[i].sSize+'</td></tr>'+
+								'<tr><td>입실일</td><td>'+result[i].reCheckIn.year+'-'+result[i].reCheckIn.monthValue+'-'+result[i].reCheckIn.dayOfMonth+'</td></tr>'+
+								'<tr><td>퇴실일</td><td>'+result[i].reCheckOut.year+'-'+result[i].reCheckOut.monthValue+'-'+result[i].reCheckOut.dayOfMonth+'</td></tr>';
+								
+								$('#userReserve').append(makeReserveTable);
+								
+							}
 							
-							$('#userReserve').append(makeReserveTable);
 						}
 					})
 				
@@ -87,74 +91,84 @@ $(function(){
 						success : function(result) {
 							console.log("result :::", result);
 							
-							var makeReserveTable = document.createElement('table');
-							/*
-							makeReserveTable.innerHTML = '<tr><td>예약자</td><td>'+result.uId+'</td></tr>'+
-														'<tr><td>전화번호</td><td>'+result.uPhone+'</td></tr>'+
-														'<tr><td>방번호</td><td>'+result.uRNum+'</td></tr>'+
-														'<tr><td>방이름</td><td>'+result.sSize+'</td></tr>'+
-														'<tr><td>입실일</td><td>'+result.reCheckIn+'</td></tr>'+
-														'<tr><td>퇴실일</td><td>'+result.reCheckOut+'</td></tr>';
-							
-							$('#userReserve').append(makeReserveTable); */
+							for(var i=0; i<result.length; i++){
+
+								var makeReserveTable = document.createElement('table');
+								makeReserveTable.innerHTML = '<tr><td>예약자</td><td>'+result[i].vId+'</td></tr>'+
+								'<tr><td>전화번호</td><td>'+ result[i].vPhone+'</td></tr>'+
+								'<tr><td>방번호</td><td>'+ result[i].vRoom+'</td></tr>'+
+								'<tr><td>방이름</td><td>'+ result[i].sSize+'</td></tr>'+
+								'<tr><td>입실일</td><td>'+result[i].reCheckIn.year+'-'+result[i].reCheckIn.monthValue+'-'+result[i].reCheckIn.dayOfMonth+'</td></tr>'+
+								'<tr><td>퇴실일</td><td>'+result[i].reCheckOut.year+'-'+result[i].reCheckOut.monthValue+'-'+result[i].reCheckOut.dayOfMonth+'</td></tr>';
+								
+								$('#userReserve').append(makeReserveTable);
+								
+							}
 						}
 					})
+					
 				}
 			}
 		});
 	}
+	//여기까지select 메소드
+	
 	
 	//회원정보 수정
 	function myInfoUpdate(){
 		
 		selectInfo();
 		
-		$("#")
+		//회원정보수정 버튼 클릭 시,
+		$("input[name='userUpdate']").click(function(){
+			
+			//예약관리
+			var reserveUpdate =$("input[name='reserveUpdate']");
+			//회원정보수정 
+			var userUpdate = $("input[name='userUpdate']");
+			//돌아가기
+			var returnMypage = $("input[name='returnMypage']");
+			//수정완료
+			var updateOkBtn = $("input[name='updateOkBtn']");
+			
+			//예약정보 삭제
+			$("#userReserve").remove();
+			
+			//회원정보 수정 -> 수정완료
+			$("input[name='userUpdate']").addClass('visibility');
+			$("input[name='updateOkBtn']").removeClass('visibility');
+			
+			//예약관리 -> 돌아가기
+			$("input[name='reserveUpdate']").addClass('visibility');
+			$("input[name='returnMypage']").removeClass('visibility');
+			
+			var userInfo = document.getElementsByTagName('tr');
+			
+			console.log("form :::",from);
+			//user일경우 visitor일 경우
+			for(var i=0; i<userInfo.length; i++){
+				
+				//userInfo[i].childNodes[1].innerHTML =
+				//console.log(userInfo[i].childNodes[1].innerHTML);
+				
+			}
+//			userInfo.childNodes[1];
+			
+			
+			//돌아가기 버튼 클릭 시,
+			$("input[name='returnMypage']").click(function(){
+				location.href="/my/myPage";
+			});
+			
+		})
+		
+		//예약수정 버튼 클릭시
+		$("#reserveUpdate").click(function(){
+			alert("reserve");
+			
+		})
 	}
-//		
-//		//insert창 생성.
-//		var makeInsert = document.createElement('form');
-//		insertRemove();
-//		
-//		makeInsert.innerHTML = 
-//			'<div id="petInsert"><input type="text" name="pName" placeholder="펫이름">'+
-//			'<input type="text" name="pType" placeholder="펫종류">'+
-//			'<input type="number" name="pUNum" placeholder="펫주인번호">'+
-//			'<input type="number" name="pVNum" placeholder="방문자번호">'+
-//			'<input type="button" id="PetAddBtn"value="추가"></div>';
-//		
-//		$('#adminInsert').append(makeInsert);
-//		
-//		//insert버튼button 클릭시 value값이 담김.
-//		$("#PetAddBtn").click(function(){
-//			var pName = $("input[name='pName']").val();
-//			var pType = $("input[name='pType']").val();
-//			var pUNum = $("input[name='pUNum']").val();
-//			var pVNum = $("input[name='pVNum']").val();
-//			
-//			//insert
-//			$.ajax({
-//				url :"pet/insertPet",
-//				data : {"pName" : pName, "pType" : pType, "pUNum" : pUNum, "pVNum" :pVNum},
-//				dataType : "json",
-//				type : "post",
-//				
-//				//성공시 다시 select해줌
-//				success :function(result){
-//					alert("추가성공");
-//					
-//					selectPet(result);
-//					petAdmin();
-//					
-//					//인풋박스 초기화.
-//					$("form")[0].reset();
-//				},
-//				error : function(e){
-//					alert("추가실패");
-//				}
-//			});
-//			
-//		});
+
 //		
 //		
 //		//select
