@@ -16,7 +16,7 @@ public interface UserMapper {
 
 	public int deleteUser(String uId);
 	
-	public UserRoomSizeDto selectUserRoom(String uId);
+	public List<UserRoomSizeDto> selectUserRoom(String uId);
 	
 	public List<UserRoomSizeDto> selectUserRoomAll();
 	

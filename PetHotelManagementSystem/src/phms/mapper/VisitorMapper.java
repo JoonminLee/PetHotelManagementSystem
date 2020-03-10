@@ -16,7 +16,7 @@ public interface VisitorMapper {
 
 	public int deleteVisitor(String vId);
 	
-	public VisitorRoomSizeDto selectVisitorRoom(String vId);
+	public List<VisitorRoomSizeDto> selectVisitorRoom(String vId);
 	
 	public List<VisitorRoomSizeDto> selectVisitorRoomAll();
 	

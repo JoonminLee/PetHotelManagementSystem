@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,50 +37,72 @@ public class MyPageController {
 	@Autowired
 	VisitorService visitorService;
 	
-	//myPage 초기화면
-	@RequestMapping(value = "/myPage", produces = "application/text; charset=utf8")	
-	public String myPage(Model model, HttpSession session) {
+	//myPage 화면으로 이동.
+	@GetMapping("/myPage")	
+	public String myPage() {
+		return "myPageCopy";
+	}
+	
+	//ID로 회원정보 조회
+	@PostMapping("/myPage")
+	public @ResponseBody String myPage(HttpSession session) {
+		System.out.println("myPage :::");
+		String uId = (String)session.getAttribute("id");
+		String from = (String)session.getAttribute("from");
+		System.out.println("uid :::"+uId);
+		System.out.println("from :::" +from);
+		
+		return from;
+
+	}
+	
+	//User 회원정보 부분
+	@PostMapping("/selectOneUser")
+	public @ResponseBody UserDto selectOneUser(HttpSession session) {
+		System.out.println("selectOneUser :::");
 		String uId = (String)session.getAttribute("id");
 		UserDto user = userService.selectOneUser(uId);
-		ReservationDto reservation = reserveService.selectOneReservation(uId);
+		return user;
+	}
+	
+	//Visitor 회원정보 부분
+	@PostMapping("/selectOneVisitor")
+	public @ResponseBody VisitorDto selectOneVisitor(HttpSession session) {
+		System.out.println("selectOneVisitor :::");
+		String uId = (String)session.getAttribute("id");
 		VisitorDto visitor = visitorService.selectOneVisitor(uId);
-		UserRoomSizeDto userRoom = userService.selectUserRoom(uId);
-		VisitorRoomSizeDto visitorRoom = visitorService.selectVisitorRoom(uId);
-		System.out.println(visitor);
-		System.out.println(user);
-		System.out.println(reservation);
-		System.out.println(userRoom);
-		model.addAttribute("userRoom", userRoom);
-		model.addAttribute("user",user);
-		model.addAttribute("reservation",reservation);
-		model.addAttribute("visitor",visitor);
-		model.addAttribute("visitorRoom",visitorRoom);
-		return "myPage";
+		return visitor;
 	}
-	//ajax 회원정보 부분
-	@RequestMapping(value = "/selectOneVisitor")
-	public @ResponseBody Object selectOneVisitor(String id, String from) {
-		System.out.println(id);
-		System.out.println(from);
-		System.out.println(":::selectOneVisitor");
-		if (from.equals("phms")) {
-			UserDto user = userService.selectOneUser(id);
-			return user;
-		}else {
-			VisitorDto visitor = visitorService.selectOneVisitor(id);
-			return visitor;
-		}
-	}		
-	//ajax 회원정보 수정부분
-	@RequestMapping(value = "/selectOneUser")
-	public @ResponseBody Object selectOneUser(String uId, String uEmail, String uPhone, String uPhone1, String uPhone2) {
-	System.out.println(":::selectOneUser");
-	UserDto user = userService.selectOneUser(uId);
-	user.setuEmail(uEmail);
-	user.setuPhone(uPhone+"-"+uPhone1+"-"+uPhone2);
-	userService.updateUser(user);
-	return user;
+	
+	//User 예약정보
+	@PostMapping("/selectUserReserveList")
+	public @ResponseBody List<UserRoomSizeDto> selectUserReserveList(HttpSession session) {
+		System.out.println("selectUserReserveList :::");
+		String uId = (String)session.getAttribute("id");
+		System.out.println("uID :::"+uId);
+		List<UserRoomSizeDto> userReserveList = userService.selectUserRoom(uId);
+		System.out.println("userReserveList :::"+userReserveList);
+		return userReserveList;
 	}
+	
+	//Visitor 예약정보
+	@PostMapping("/selectVisitorReserveList")
+	public @ResponseBody List<VisitorRoomSizeDto> selectVisitorReserveList(HttpSession session) {
+		String vId = (String)session.getAttribute("id");
+		List<VisitorRoomSizeDto> visitorReserveList = visitorService.selectVisitorRoom(vId);
+		return visitorReserveList;
+	}
+	
+//	//ajax 회원정보 수정부분
+//	@RequestMapping(value = "/selectOneUser")
+//	public @ResponseBody Object selectOneUser(String uId, String uEmail, String uPhone, String uPhone1, String uPhone2) {
+//	System.out.println(":::selectOneUser");
+//	UserDto user = userService.selectOneUser(uId);
+//	user.setuEmail(uEmail);
+//	user.setuPhone(uPhone+"-"+uPhone1+"-"+uPhone2);
+//	userService.updateUser(user);
+//	return user;
+//	}
 	
 	//ajax 비회원정보 수정부분
 	@RequestMapping(value = "/changeVisitor")

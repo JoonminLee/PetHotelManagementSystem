@@ -35,7 +35,7 @@ public class VisitorService {
 		return visitorMapper.deleteVisitor(vId);
 	}
 	
-	public VisitorRoomSizeDto selectVisitorRoom(String vId) {
+	public List<VisitorRoomSizeDto> selectVisitorRoom(String vId) {
 		return visitorMapper.selectVisitorRoom(vId);
 	}
 	

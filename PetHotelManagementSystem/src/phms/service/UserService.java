@@ -35,7 +35,7 @@ public class UserService {
 		return userMapper.deleteUser(uId);
 	}
 	
-	public UserRoomSizeDto selectUserRoom(String uId) {
+	public List<UserRoomSizeDto> selectUserRoom(String uId) {
 		return userMapper.selectUserRoom(uId);
 	}
 	
