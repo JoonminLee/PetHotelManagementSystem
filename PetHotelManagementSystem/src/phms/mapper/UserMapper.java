@@ -13,6 +13,8 @@ public interface UserMapper {
 	public int insertUser(UserDto user);
 
 	public int updateUser(UserDto user);
+	
+	public int myPageUpdateUser(UserDto user);
 
 	public int deleteUser(String uId);
 	

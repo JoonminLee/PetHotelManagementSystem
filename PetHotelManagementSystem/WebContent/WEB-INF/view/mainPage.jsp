@@ -104,7 +104,7 @@
 		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
 		                <rect id="set_7_button4" height="50" width="120"></rect>
 		                </svg>
-		                <li id="set_7_text"><a href="/my/myPage">마이페이지</a>
+		                <li id="set_7_text"><a href="/my/myPage01">마이페이지</a>
 		            	</div>
 		            	
 		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">

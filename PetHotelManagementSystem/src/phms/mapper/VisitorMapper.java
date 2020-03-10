@@ -13,6 +13,8 @@ public interface VisitorMapper {
 	public int insertVisitor(VisitorDto visitor);
 
 	public int updateVisitor(VisitorDto visitor);
+	
+	public int myPageUpdateVisitor(VisitorDto visitor);
 
 	public int deleteVisitor(String vId);
 	

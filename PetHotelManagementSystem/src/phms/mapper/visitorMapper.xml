@@ -15,6 +15,9 @@
 	<update id="updateVisitor">
 		update visitor set v_id=#{vId}, v_name=#{vName}, v_email=#{vEmail}, v_from=#{vFrom}, v_room=#{vRoom} where v_id=#{vId}
 	</update>
+	<update id="myPageUpdateVisitor">
+		update visitor set v_name=#{vName}, v_email=#{vEmail} where v_id=#{vId}		
+	</update>
 	<delete id="deleteVisitor">
 		delete from visitor where v_id=#{vId}
 	</delete>

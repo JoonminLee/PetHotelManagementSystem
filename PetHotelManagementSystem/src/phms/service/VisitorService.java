@@ -30,6 +30,10 @@ public class VisitorService {
 	public int updateVisitor(VisitorDto visitor) {
 		return visitorMapper.updateVisitor(visitor);
 	}
+	
+	public int myPageUpdateVisitor(VisitorDto visitor) {
+		return visitorMapper.myPageUpdateVisitor(visitor);
+	}
 
 	public int deleteVisitor(String vId) {
 		return visitorMapper.deleteVisitor(vId);

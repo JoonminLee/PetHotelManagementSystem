@@ -30,6 +30,10 @@ public class UserService {
 	public int updateUser(UserDto user) {
 		return userMapper.updateUser(user);
 	}
+	
+	public int myPageUpdateUser(UserDto user) {
+		return userMapper.myPageUpdateUser(user);
+	}
 
 	public int deleteUser(String uId) {
 		return userMapper.deleteUser(uId);

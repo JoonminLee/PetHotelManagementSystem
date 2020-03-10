@@ -15,6 +15,9 @@
 	<update id="updateUser">
 		update user set u_pwd=#{uPwd}, u_gender=#{uGender}, u_phone=#{uPhone}, u_email=#{uEmail}, u_birth=#{uBirth}, u_r_num=#{uRNum} where u_id=#{uId}
 	</update>
+	<update id="myPageUpdateUser">
+		update user set u_name=#{uName}, u_pwd=#{uPwd}, u_gender=#{uGender}, u_phone=#{uPhone}, u_email=#{uEmail}, u_birth=#{uBirth} where u_id=#{uId}
+	</update>
 	<delete id="deleteUser">
 		delete from user where u_id=#{uId}
 	</delete>
