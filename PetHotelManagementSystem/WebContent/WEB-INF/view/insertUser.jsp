@@ -196,16 +196,24 @@ $(function(){
               <label for="first_name">name</label>
               <input type="text" class="form-input" name="uName" id="name" required/>
             </div>
-			<div class="form-group">
-              <label for="phone_number">Phone number</label>
-              <input type="text" class="form-phoneinput" value="010" readonly/>
-              <input type="text" class="form-phoneinput" maxlength="4" name="uPhone1" required/>
-              <input type="text" class="form-phoneinput" maxlength="4" name="uPhone2" required/>
+			<div class="form-row">
+              <div class="form-group">
+                <label for="phone_number" class="phonenum">Phone number</label>
+                <input type="text" class="form-phoneinput" value="010" readonly />
+              </div>
+              <div class="form-group">
+                <br>
+                <input type="text" class="form-phoneinput" maxlength="4" name="uPhone1" required />
+              </div>
+              <div class="form-group">
+                <br>
+                <input type="text" class="form-phoneinput" maxlength="4" name="uPhone2" required />
+              </div>
             </div>
 			<div class="form-row">
             <div class="form-group form-icon">
                 <label for="birth_date">Birth date</label>
-                <input type="date" class="form-input" name="uBirthStr" id="birth_date" placeholder="YYYY-MM-DD" />
+                <input type="text" class="form-input" name="uBirthStr" id="birth_date" placeholder="YYYY-MM-DD" />
             </div>
             <div class="form-radio">
                 <label for="gender">Gender</label>

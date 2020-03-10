@@ -70,14 +70,14 @@
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn">Login</button>
 						</div>
-					</div>
-					<div class="flex-c-m">	
 					<div class="txt1 text-center p-t-54 p-b-20" style="display:inline-block;">
 						<span> <a href="/user/insertUser"> 회원가입 </a></span><br>
+					</div>
+					</div>
+					<div class="flex-c-m">	
 							<a href="#" id="kakao-login-btn" onclick="kakaoLogin()"><img src="/images/kakao_login_btn_medium.png"></a>
 							<div class="g-signin2" style="width:110px;" data-height="40"data-onsuccess="onSignIn"></div>
 							<div id="naver_id_login"></div>
-					</div>
 					</div>
 				</form>
 			</div>
