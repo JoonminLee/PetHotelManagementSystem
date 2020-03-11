@@ -41,13 +41,16 @@ public class JoinController{
 	@RequestMapping(value = "/idCheck", produces = "application/text; charset=utf8")
 	public @ResponseBody String checkId(String uId) {
 		System.out.println("ddd????");
-		System.out.println(uId);
 		List<UserDto> userList = userService.selectAllUser();
 		for (UserDto userDto : userList) {
 			System.out.println(userDto.getuId().equals(uId));
 			if(userDto.getuId().equals(uId)) {
 				
-				return "아이디가 중복되었습니다.";						
+				return "아이디가 중복되었습니다.";			
+			}else if(uId.equals("")) {
+				
+				return "아이디를 입력해 주세요.";
+				
 			}
 		}		
 		return "아이디를 사용할 수 있습니다.";
