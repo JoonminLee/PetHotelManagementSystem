@@ -1,5 +1,6 @@
 package phms.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,15 @@ import phms.service.ReservationService;
 @Controller
 public class AdminController {
 	
+	@Autowired
+	ReservationService reservationService;
+	
 	@GetMapping("/adminHome")
-	public String adminHome() {
+	public String adminHome(Model model, LocalDate today) {
+		today = LocalDate.now();
+		
+		int result = reservationService.todayReserveCnt(today);
+		System.out.println("today:::"+result);
 		System.out.println(":::adminHome로 고고");
 		return "adminHome";
 	}

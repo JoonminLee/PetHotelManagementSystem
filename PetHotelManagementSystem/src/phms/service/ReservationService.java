@@ -1,5 +1,6 @@
 package phms.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,11 @@ public class ReservationService {
 
 	public ReservationDto selectByReRNum(int reRNum) {
 		return reservationMapper.selectByReRNum(reRNum);
+	}
+	
+	//오늘날짜 카운
+	public int todayReserveCnt(LocalDate today) {
+		return reservationMapper.todayReserveCnt(today);
 	}
 
 	public List<ReservationDto> selectAllReservation() {

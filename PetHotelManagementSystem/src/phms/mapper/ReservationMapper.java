@@ -12,6 +12,8 @@ public interface ReservationMapper {
 	
 	public List<ReservationDto> selectCheckOutReservation(LocalDate reDate);
 	
+	public int todayReserveCnt(LocalDate today);
+	
 	public ReservationDto selectOneReservation(String reId);
 	
 	public ReservationDto selectByReRNum(int reRNum);

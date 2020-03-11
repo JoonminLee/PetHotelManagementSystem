@@ -12,6 +12,7 @@ public class ReservationDto {
 	private LocalDate reCheckIn;
 	private LocalDate reCheckOut;
 	private LocalDate reDay;
+	private LocalDate today;
 	
 	public ReservationDto() {
 		super();
