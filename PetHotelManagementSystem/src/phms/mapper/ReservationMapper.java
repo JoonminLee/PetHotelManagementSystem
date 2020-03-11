@@ -22,6 +22,8 @@ public interface ReservationMapper {
 
 	public int updateReservation(ReservationDto reservation);
 
+	public int deleteReservation(int reNum);
+	
 	public int deleteReservation(String reId);
 
 }

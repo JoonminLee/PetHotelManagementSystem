@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import phms.dto.ReservationDto;
+import phms.dto.RoomDto;
 import phms.dto.UserDto;
 import phms.dto.UserRoomSizeDto;
 import phms.dto.VisitorDto;
 import phms.dto.VisitorRoomSizeDto;
 import phms.service.ReservationService;
+import phms.service.RoomService;
 import phms.service.UserService;
 import phms.service.VisitorService;
 
@@ -34,8 +37,12 @@ public class MyPageController {
 
 	@Autowired
 	VisitorService visitorService;
+	
+	@Autowired
+	RoomService roomService;
+	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// ID로 회원정보 조회
+	// 세션 아이디 값 가져와서 마이페이지에 정보 넘겨주기
 	@RequestMapping("/myPage01")
 	public String myPage01(Model model, HttpSession session) {
 		System.out.println(":::myPage");
@@ -56,6 +63,7 @@ public class MyPageController {
 
 	}
 
+	//마이페이지 회원정보 업데이트 - user, visitor 분간해서 해당하는 jsp호출
 	@GetMapping("/myPageUpdate")
 	public String myPageUpdate(Model model, HttpSession session) {
 		System.out.println(":::myPageUpdate");
@@ -72,6 +80,7 @@ public class MyPageController {
 		}
 	}
 
+	//회원정보 업데이트 및 마이페이지로 redirect
 	@PostMapping("/myPageUpdate")
 	public String myPageUpdate(UserDto user, @RequestParam("uBirthStr") String uBirthStr, VisitorDto visitor, HttpSession session) {
 		System.out.println(":::myPageUpdate");
@@ -82,6 +91,47 @@ public class MyPageController {
 			userService.myPageUpdateUser(user);
 		} else {
 			visitorService.myPageUpdateVisitor(visitor);
+		}
+		return "redirect:/my/myPage01";
+	}
+	
+	@RequestMapping("/myPageReserveCancle")
+	public String myPageReserveCancle(HttpSession session) {
+		System.out.println(":::myPageReserveCancle");
+		String id = (String) session.getAttribute("id");
+		String from = (String) session.getAttribute("from");
+		if (from == "phms") {
+			ReservationDto reservationDto = reserveService.selectOneReservation(id);
+			
+			RoomDto roomDto = roomService.selectOneRoom(reservationDto.getReRNum());
+			System.out.println(roomDto.toString());
+			roomDto.setrStatus(0);
+			System.out.println(roomDto.toString());
+			roomService.updateRoom(roomDto);
+			
+			UserDto userDto = userService.selectOneUser(id);
+			System.out.println(userDto.toString());
+			userDto.setuRNum(0);
+			System.out.println(userDto.toString());
+			userService.updateUser(userDto);
+			
+			reserveService.deleteReservation(reservationDto.getReNum());
+		}else {
+			ReservationDto reservationDto = reserveService.selectOneReservation(id);
+			
+			RoomDto roomDto = roomService.selectOneRoom(reservationDto.getReRNum());
+			System.out.println(roomDto.toString());
+			roomDto.setrStatus(0);
+			System.out.println(roomDto.toString());
+			roomService.updateRoom(roomDto);
+			
+			VisitorDto visitorDto = visitorService.selectOneVisitor(id);
+			System.out.println(visitorDto.toString());
+			visitorDto.setvRoom(0);
+			System.out.println(visitorDto.toString());
+			visitorService.updateVisitor(visitorDto);
+			
+			reserveService.deleteReservation(reservationDto.getReNum());
 		}
 		return "redirect:/my/myPage01";
 	}

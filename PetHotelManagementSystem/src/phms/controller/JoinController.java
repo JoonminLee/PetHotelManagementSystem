@@ -40,7 +40,7 @@ public class JoinController{
 	//아이디 중복
 	@RequestMapping(value = "/idCheck", produces = "application/text; charset=utf8")
 	public @ResponseBody String checkId(String uId) {
-		System.out.println("ddd????");
+		System.out.println(":::checkId");
 		List<UserDto> userList = userService.selectAllUser();
 		for (UserDto userDto : userList) {
 			System.out.println(userDto.getuId().equals(uId));
@@ -59,6 +59,7 @@ public class JoinController{
 	//메일 부분
 	@RequestMapping(value = "/sendMail", produces = "application/text; charset=utf8")
 	public @ResponseBody String sendMail(String uEmail) {
+		System.out.println(":::sendMail");
 		
 		String regExp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"; 
 		System.out.println("여기1");

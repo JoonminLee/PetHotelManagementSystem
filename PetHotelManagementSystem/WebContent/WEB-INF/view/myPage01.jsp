@@ -36,7 +36,7 @@
 	예약 방종류 : ${i.sSize }<br>
 	체크인 : ${i.reCheckIn }<br>
 	체크아웃 : ${i.reCheckOut }<br>
-	<a href="#">예약취소</a>
+	<a href="/my/myPageReserveCancle" onclick="return confirm('정말로 예약을 취소하시겠습니까? 환불관련은 고객센터로 문의해주세요');">예약취소</a>
 	
 	<hr>
 	</c:forEach>
@@ -55,13 +55,13 @@
 	
 	<h1>예약 정보</h1><br>
 	<c:forEach var="i" items="${visitorReserve }">
-	예약자 : ${i.vId }<br>
+	예약자 : ${i.vName }<br>
 	예약자 전화번호 : ${i.rePhone }<br>
 	예약자 방번호 : ${i.vRoom }<br>
 	예약자 방종류 : ${i.sSize }<br>
 	체크인 : ${i.reCheckIn }<br>
 	체크아웃 : ${i.reCheckOut }<br>
-	<a href="#">예약취소</a>
+	<a href="/my/myPageReserveCancle" onclick="return confirm('정말로 예약을 취소하시겠습니까? 환불관련은 고객센터로 문의해주세요');">예약취소</a>
 	
 	<hr>
 	</c:forEach>

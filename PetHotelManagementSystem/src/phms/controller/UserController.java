@@ -57,6 +57,8 @@ public class UserController {
 	public String insertUser(@RequestParam("uPhone1") String uPhone1, @RequestParam("uPhone2") String uPhone2,
 			@RequestParam("uBirthStr") String uBirthStr, UserDto user) {
 		System.out.println(":::insertUser");
+		uBirthStr = uBirthStr.replaceAll(" ", "");
+		System.out.println(uBirthStr);
 		user.setuBirth(LocalDate.parse(uBirthStr));
 		user.setuPhone("010-" + uPhone1 + "-" + uPhone2);
 		int result = userService.insertUser(user);

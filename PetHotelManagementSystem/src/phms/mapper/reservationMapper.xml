@@ -41,6 +41,9 @@
 		re_id=#{reId}
 	</update>
 	<delete id="deleteReservation">
+		delete from reservation where re_num=#{reNum}
+	</delete>
+	<delete id="deleteReservation">
 		delete from reservation where re_id=#{reId}
 	</delete>
 </mapper>
