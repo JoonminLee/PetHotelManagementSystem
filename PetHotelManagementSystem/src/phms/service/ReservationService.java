@@ -62,9 +62,5 @@ public class ReservationService {
 	public int deleteReservation(int reNum) {
 		return reservationMapper.deleteReservation(reNum);
 	}
-	
-	public int deleteReservation(String reId) {
-		return reservationMapper.deleteReservation(reId);
-	}
 
 }

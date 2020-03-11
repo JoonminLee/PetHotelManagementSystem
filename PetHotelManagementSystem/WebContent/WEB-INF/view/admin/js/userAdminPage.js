@@ -6,10 +6,13 @@ $(function(){
 
 		//userSelect메소드
 		function selectUser(result){
-
+			
 			$("table").remove();
+			
+			var tableName = document.getElementById('tableName');
+			tableName.innerHTML = '<h3 class="h4">Basic Table</h3>';
+			
 			var makeTable = document.createElement('table');
-
 			makeTable.innerHTML = '<tr><td>uNum</td><td>uId</td><td>uPwd</td><td>uName</td><td>uGender</td><td>uPhone</td><td>uEmail</td><td>uBirth</td><td>관리</td></tr>';
 
 			for(var i=0; i<result.length; i++){
@@ -17,7 +20,8 @@ $(function(){
 				result[i].uBirth.year+'-'+result[i].uBirth.monthValue+'-'+result[i].uBirth.dayOfMonth+'</td><td><input type="button" name="updateBtn" value="수정"><input type="button" name="deleteBtn" value="삭제">'+
 				'<input type="button" class="visibility" name="updateOkBtn" value="수정완료"><input type="button" class="visibility" name="cencleBtn" value="취소"></td></tr>';
 			}
-
+			
+			
 			$('#adminList').append(makeTable);
 
 		}

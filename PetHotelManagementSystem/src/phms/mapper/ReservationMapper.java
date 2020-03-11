@@ -24,6 +24,4 @@ public interface ReservationMapper {
 
 	public int deleteReservation(int reNum);
 	
-	public int deleteReservation(String reId);
-
 }

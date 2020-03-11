@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="view/admin/css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="view/admin/img/favicon.ico">
+    <link rel="stylesheet" href="/css/admin_css/admin.css" />
 
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>

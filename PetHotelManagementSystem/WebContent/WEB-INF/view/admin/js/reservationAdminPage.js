@@ -140,10 +140,10 @@ $(function(){
 					$("input[name='deleteBtn']").click(function(){
 						
 						var Tr = this.parentElement.parentElement;
-						var reId = Tr.childNodes[1].innerHTML;
+						var reNum = Tr.childNodes[0].innerHTML;
 						$.ajax({
 							url :"reserve/deleteReserveAdmin",
-							data : {"reId" : reId},
+							data : {"reNum" : reNum},
 							dataType : "json",
 							type : "get",
 							

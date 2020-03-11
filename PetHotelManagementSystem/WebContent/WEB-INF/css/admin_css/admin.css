@@ -48,6 +48,14 @@ nav span{
     top: 333%;
 }
 
+#adminListBody{
+	width: 1000px;
+}
+
+#adminList{
+	position:absolute;
+}
+
 /* table */
 table, tr, td {
 	border: 1px solid black;

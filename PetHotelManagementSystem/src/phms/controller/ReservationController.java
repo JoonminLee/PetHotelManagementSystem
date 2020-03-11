@@ -108,9 +108,9 @@ public class ReservationController {
 
 	//관리자페이지
 	@RequestMapping("/deleteReserveAdmin")
-	public @ResponseBody List<ReservationDto> deleteReserveAdmin(@RequestParam("reId") String reId) {
+	public @ResponseBody List<ReservationDto> deleteReserveAdmin(@RequestParam("reNum") int reNum) {
 		System.out.println(":::deleteReserve");
-		reserveService.deleteReservation(reId);
+		reserveService.deleteReservation(reNum);
 		List<ReservationDto> listReserve = reserveService.selectAllReservation();
 		return listReserve;
 	}

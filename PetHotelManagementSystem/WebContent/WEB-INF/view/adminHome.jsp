@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="view/admin/css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="view/admin/img/favicon.ico">
+    <link rel="stylesheet" href="/css/admin_css/admin.css" />
+    
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -50,28 +52,6 @@
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-
-                <!-- Messages -->
-                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange badge-corner">10</span></a>
-                  <ul aria-labelledby="notifications" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                        <div class="msg-profile"> <img src="view/admin/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="msg-body">
-                          <h3 class="h5">Jason Doe</h3><span>Sent You Message</span>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                        <div class="msg-profile"> <img src="view/admin/img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="msg-body">
-                          <h3 class="h5">Frank Williams</h3><span>Sent You Message</span>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                        <div class="msg-profile"> <img src="view/admin/img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
-                        <div class="msg-body">
-                          <h3 class="h5">Ashley Wood</h3><span>Sent You Message</span>
-                        </div></a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>Read all messages   </strong></a></li>
-                  </ul>
-                </li>
 
                 <!-- Logout -->
                 <!-- 메인페이지로 이동 -->
@@ -227,6 +207,7 @@
     </div>
 
     <!-- JavaScript files-->
+    
     <script src="view/admin/vendor/jquery/jquery.min.js"></script>
     <script src="view/admin/vendor/popper.js/umd/popper.min.js"> </script>
     <script src="view/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -234,7 +215,6 @@
     <script src="view/admin/vendor/chart.js/Chart.min.js"></script>
     <script src="view/admin/vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="view/admin/js/charts-home.js"></script>
-    <!-- JavaScript files-->
     <script src="view/admin/js/charts-custom.js"></script>
     <!-- Main File-->
     <script src="view/admin/js/front.js"></script>
