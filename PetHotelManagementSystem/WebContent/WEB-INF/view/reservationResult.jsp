@@ -7,121 +7,137 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-p {	margin: 20px 0px;}
+p {
+	margin: 20px 0px;
+}
 </style>
 <title>reservationResult</title>
 <!-- StyleSheet -->
-<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i"
+	rel="stylesheet">
 <link rel="stylesheet" href="/css/reserveResult/css/animate.css">
 <link rel="stylesheet" href="/css/rooms,contact/css/style.css">
 <!-- Font-->
-<link rel="stylesheet" type="text/css" href="/css/reserveResult/form/css/muli-font.css">
+<link rel="stylesheet" type="text/css"
+	href="/css/reserveResult/form/css/muli-font.css">
 <!-- datepicker -->
-<link rel="stylesheet" type="text/css" href="/css/reserveResult/form/css/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/css/reserveResult/form/css/jquery-ui.min.css">
 <!-- Main Style Css -->
-<link rel="stylesheet" href="/css/reserveResult/form/css/style.css"/>
+<link rel="stylesheet" href="/css/reserveResult/form/css/style.css" />
 <!-- Jquery/CDN -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="/main/mainPage">petHotel</a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+	<nav
+		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+		id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="/main/mainPage">petHotel</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#ftco-nav" aria-controls="ftco-nav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="/main/mainPage" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="/room/selectAvailableRoom" class="nav-link">Rooms</a></li>
-	          <li class="nav-item"><a href="/main/servicePage" class="nav-link">Service</a></li>
-	          <li class="nav-item"><a href="/my/myPage" class="nav-link">My page</a></li>
-	          <li class="nav-item active"><a href="/main/contactPage" class="nav-link">고객센터</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav> 
-    <!-- END nav -->
-
-    <div id="headerBg" class="hero-wrap" style="background-image: url(/css/reserveResult/css/images/photo.jfif);">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
-          <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
-          	<div class="text">
-	            <h1 class="mb-4 bread">Reservation</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-     </div>
-	<div class="container-fluid">
-	<div class="row ">
-		<div class="col-md-4">
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a href="/main/mainPage" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="/room/selectAvailableRoom" class="nav-link">Rooms</a></li>
+					<li class="nav-item"><a href="/main/servicePage" class="nav-link">Service</a></li>
+					<li class="nav-item"><a href="/my/myPage" class="nav-link">My page</a></li>
+					<li class="nav-item active"><a href="/main/contactPage" class="nav-link">고객센터</a></li>
+				</ul>
+			</div>
 		</div>
-    <div class="page-content">
-      <div class="wizard-v2-content">
-        <div class="wizard-image">
-        </div>
-        <div class="wizard-form">
-          <div class="wizard-header">
-            <h3>Reservation Check</h3>
-            <p>예약정보를 확인하세요.</p>
-          </div>
-              <form class="form-register" action="#" method="post">
-                <div id="form-total">
+	</nav>
+	<!-- END nav -->
 
+	<div id="headerBg" class="hero-wrap"
+		style="background-image: url(/css/reserveResult/css/images/photo.jfif);">
+		<div class="overlay"></div>
+		<div class="container">
+			<div
+				class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
+				<div
+					class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+					<div class="text">
+						<h1 class="mb-4 bread">Reservation</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row ">
+			<div class="col-md-4"></div>
+			<div class="page-content">
+				<div class="wizard-v2-content">
+					<div class="wizard-image"></div>
+					<div class="wizard-form">
+						<div class="wizard-header">
+							<h3>Reservation Check</h3>
+							<p>예약정보를 확인하세요.</p>
+						</div>
+						<form class="form-register" action="/reserve/reservationResult" method="post">
+							<div id="form-total">
+								<section>
+									<div class="inner">
+										<div class="form-row table-responsive">
+											<table class="table">
+												<tbody>
+													<tr class="space-row">
+														<th>Check-In-Date :</th>
+														<td><input type="date" name="reCheckIn" value="${reCheckInStr }"></td>
+													</tr>
+													<tr class="space-row">
+														<th>Check-Out-Date :</th>
+														<td><input type="date" name="reCheckOut" value="${reCheckOutStr }"></td>
+													</tr>
+													<tr class="space-row">
+														<th>Room Type:</th>
+														<td><input type="hidden" name="rSNum" value="${rSNum }">
+														<input type="text" name="rSNumStr" value="${rSNumStr }"></td>
+													</tr>
+													<tr class="space-row">
+														<th>Number Of Person :</th>
+														<td><input type="text" name="numberOfPerson" value="${numberOfPerson }"></td>
+													</tr>
+													<tr class="space-row">
+														<th>Number Of Pet :</th>
+														<td><input type="text" name="numberOfPet" value="${numberOfPet }"></td>
+													</tr>
+													<tr class="space-row">
+														<th>Phone Number :</th>
+														<td><input type="tel" value="" placeholder="연락처를 입력해주세요" required></td>
+													</tr>
+													<tr class="space-row">
+														<th>Total :</th>
+														<td>120,000원</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</section>
 
+								<div class="form-group">
+									<input type="submit" value="결제" class="btn btn-primary py-3 px-5">
+								</div>
 
-                    <section>
-                        <div class="inner">
-                  <div class="form-row table-responsive">
-                    <table class="table">
-                      <tbody>
-
-                        <tr class="space-row">
-                          <th>Check-In-Date:</th>
-                          <td id="fullname-val">2020-03-05</td>
-                        </tr>
-                        <tr class="space-row">
-                          <th>Check-Out-Date:</th>
-                          <td id="phone-val">2020-03-08</td>
-                        </tr>
-                        <tr class="space-row">
-                          <th>Room Type:</th>
-                          <td id="email-val">아담</td>
-                        </tr>
-                        <tr class="space-row">
-                          <th>Number Of Person:</th>
-                          <td id="location-val">2</td>
-                        </tr>
-                        <tr class="space-row">
-                          <th>Number Of Pet:</th>
-                          <td id="date-val">1</td>
-                        </tr>
-                        <tr class="space-row">
-                          <th>Total:</th>
-                          <td id="date-val">120,000원</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                    </section>
-
-                    <div class="form-group">
-                      <input type="submit" value="결제" class="btn btn-primary py-3 px-5">
-                    </div>
-
-                </div>
-              </form>
-        </div>
-      </div>
-    </div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 <!-- Javascript -->
