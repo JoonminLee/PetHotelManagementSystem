@@ -234,7 +234,7 @@
 			<div class="form-row">
             <div class="form-group form-icon">
                 <label for="uBirthStr">Birth date</label>
-                <input type="text" class="form-input" data-date-format="yyyy-mm-dd" name="uBirthStr" id="uBirthStr" placeholder="YYYY-MM-DD" />
+                <input type="text" class="form-input" data-date-format="mm-dd" name="uBirthStr" id="uBirthStr" placeholder="YYYY-MM-DD" />
             </div>
             <div class="form-radio">
                 <label for="gender">Gender</label>
