@@ -4,9 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="phms.mapper.RoomMapper">
 	<select id="selectOneRoom" resultType="room">
-		select * from
-		room where
-		r_num = #{rNum}
+		select * from room where r_num = #{rNum}
+	</select>
+	<select id="selectOneRoomBySize" resultType="room">
+		select r_num from room where r_s_num = #{rSNum} and r_status = 0 order by rand() limit 1
 	</select>
 	<select id="selectAllRoom" resultType="room">
 		select * from room
@@ -24,13 +25,10 @@
 		select * from roomsizedto where s_num between 7 and 9 order by s_num asc
 	</select>
 	<insert id="insertRoom">
-		insert into room (r_num, r_s_num, r_status)
-		values(0, #{rSNum}, #{rStatus})
+		insert into room (r_num, r_s_num, r_status)	values(0, #{rSNum}, #{rStatus})
 	</insert>
 	<update id="updateRoom">
-		update room set r_s_num=#{rSNum}, r_status=#{rStatus}
-		where
-		r_num=#{rNum}
+		update room set r_s_num=#{rSNum}, r_status=#{rStatus} where	r_num=#{rNum}
 	</update>
 	<delete id="deleteRoom">
 		delete from room where r_num=#{rNum}

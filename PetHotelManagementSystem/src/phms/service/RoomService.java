@@ -26,6 +26,10 @@ public class RoomService {
 	public RoomDto selectOneRoom(int rNum) {
 		return roomMapper.selectOneRoom(rNum);
 	}
+	
+	public int selectOneRoomBySize(int rSNum) {
+		return roomMapper.selectOneRoomBySize(rSNum);
+	}
 
 	public List<RoomDto> selectAllRoom() {
 

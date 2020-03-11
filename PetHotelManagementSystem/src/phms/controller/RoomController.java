@@ -56,7 +56,7 @@ public class RoomController {
 	
 	//roomTogether
 	@RequestMapping("/roomTogether01")
-	public String roomTogether01(Model model) {
+	public String roomTogether01() {
 		System.out.println(":::roomTogether01");
 		return "roomTogether01";
 	}

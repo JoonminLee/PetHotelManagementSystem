@@ -134,61 +134,61 @@
 				<div class="col-lg-3 sidebar">
 	      		<div class="sidebar-wrap bg-light ftco-animate">
 	      			<h3 class="heading mb-4">Room selection</h3>
-	      			<form action="#">
-	      				<div class="fields">
+	      			<form action="/reserve/reservationResult" method="get">
+	      			  <div class="fields">
 		              <div class="form-group">
-		                <input type="text" id="checkin_date" class="form-control checkin_date" placeholder="Check In Date">
+		                <input type="text" name="reCheckInStr" id="checkin_date" class="form-control checkin_date" placeholder="Check In Date">
 		              </div>
 		              <div class="form-group">
-		                <input type="text" id="checkin_date" class="form-control checkout_date" placeholder="Check Out Date">
+		                <input type="text" name="reCheckOutStr" id="checkin_date" class="form-control checkout_date" placeholder="Check Out Date">
 		              </div>
 		              <div class="form-group">
 		                <div class="select-wrap one-third">
 	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                    <select name="" id="" class="form-control">
-	                    	<option value="">Room Type</option>
-	                    	<option value="">아담</option>
-	                      <option value="">넉넉</option>
-	                      <option value="">푸짐</option>
-	                      <option value="">싱글</option>
-	                      <option value="">더블</option>
-	                      <option value="">디럭스</option>
-                        <option value="">소형</option>
-	                      <option value="">중형</option>
-	                      <option value="">대형</option>
+	                    <select name="rSNum" id="" class="form-control">
+	                      <option value="0">Room Type</option>
+	                      <option value="1">아담</option>
+	                      <option value="2">넉넉</option>
+	                      <option value="3">푸짐</option>
+	                      <option value="4">싱글</option>
+	                      <option value="5">더블</option>
+	                      <option value="6">디럭스</option>
+                          <option value="7">소형</option>
+	                      <option value="8">중형</option>
+	                      <option value="9">대형</option>
 	                    </select>
 	                  </div>
 		              </div>
 		              <div class="form-group">
 		                <div class="select-wrap one-third">
 	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                    <select name="" id="" class="form-control">
-	                    	<option value="">0 명</option>
-	                    	<option value="">1 명</option>
-	                      <option value="">2 명</option>
-	                      <option value="">3 명</option>
-	                      <option value="">4 명</option>
-	                      <option value="">5 명</option>
-	                      <option value="">6 명</option>
+	                    <select name="numberOfPerson" id="" class="form-control">
+	                      <option value="0">0 명</option>
+	                      <option value="1">1 명</option>
+	                      <option value="2">2 명</option>
+	                      <option value="3">3 명</option>
+	                      <option value="4">4 명</option>
+	                      <option value="5">5 명</option>
+	                      <option value="6">6 명</option>
 	                    </select>
 	                  </div>
 		              </div>
 		              <div class="form-group">
 		                <div class="select-wrap one-third">
 	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                    <select name="" id="" class="form-control">
-	                    	<option value="">0 마리</option>
-	                    	<option value="">1 마리</option>
-	                      <option value="">2 마리</option>
-	                      <option value="">3 마리</option>
-	                      <option value="">4 마리</option>
-	                      <option value="">5 마리</option>
-	                      <option value="">6 마리</option>
+	                    <select name="numberOfPet" id="" class="form-control">
+	                      <option value="0">0 마리</option>
+	                      <option value="1">1 마리</option>
+	                      <option value="2">2 마리</option>
+	                      <option value="3">3 마리</option>
+	                      <option value="4">4 마리</option>
+	                      <option value="5">5 마리</option>
+	                      <option value="6">6 마리</option>
 	                    </select>
 	                  </div>
 		              </div>
 		              <div class="form-group">
-		                <input type="submit" value="결제하기" class="btn btn-primary py-3 px-5">
+		                <input type="submit" value="예약확인 및 결제" class="btn btn-primary py-3 px-5">
 		              </div>
 		            </div>
 	            </form>

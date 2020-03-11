@@ -10,6 +10,8 @@ public interface RoomMapper {
 
 	public RoomDto selectOneRoom(int rNum);
 	
+	public int selectOneRoomBySize(int rSNum);
+	
 	public List<RoomDto> selectAllRoom();
 	
 	public List<RoomSizeDto> selectAllAvailable();
