@@ -7,6 +7,11 @@ $(function(){
 		//empSelect메소드
 		function selectEmployee(result){ 
 			
+			var tableName = document.getElementById('tableName');
+
+			tableName.innerHTML ="";	
+			tableName.innerHTML = '<h3 class="h4">Employee</h3>';
+			
 			$("table").remove();
 			var makeTable = document.createElement('table');
 			makeTable.innerHTML = '<tr><td>eNum</td><td>eName</td><td>eDNum</td><td>ePoNum</td><td>ePhone</td><td>eHireDate</td><td>eSalary</td><td>관리</td></tr>';

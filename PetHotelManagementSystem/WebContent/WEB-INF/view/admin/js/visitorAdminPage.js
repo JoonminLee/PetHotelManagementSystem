@@ -7,6 +7,11 @@ $(function(){
 		//visitor select메소드
 		function selectVisitor(result){
 			
+			var tableName = document.getElementById('tableName');	
+
+			tableName.innerHTML ="";	
+			tableName.innerHTML = '<h3 class="h4">Visitor</h3>';
+			
 			$("table").remove();
 			var makeTable = document.createElement('table');
 			makeTable.innerHTML = '<tr><td>vNum</td><td>vId</td><td>vName</td><td>vEmail</td><td>vFrom</td><td>vRoom</td><td>관리</td></tr>';

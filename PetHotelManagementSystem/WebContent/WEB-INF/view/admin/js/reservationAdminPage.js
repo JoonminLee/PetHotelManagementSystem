@@ -6,6 +6,11 @@ $(function(){
 		
 		//reservationSelect메소드
 		function selectReserve(result){
+			var tableName = document.getElementById('tableName');
+
+			tableName.innerHTML ="";	
+			tableName.innerHTML = '<h3 class="h4">Reservation</h3>';
+			
 			
 			$("table").remove();
 			var makeTable = document.createElement('table');

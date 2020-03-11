@@ -55,7 +55,7 @@
 
                 <!-- Logout -->
                 <!-- 메인페이지로 이동 -->
-                <li class="nav-item"><a href="/main/mainPage" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="/user/loginUser" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -75,9 +75,8 @@
           </div>
           <ul class="list-unstyled">
             <li class="active"><a href="/adminHome"> <i class="icon-home"></i>Home </a></li>
-            <li><a href="/userAdmin"> - 회원관리 </a></li>
-            <li><a href="/empAdmin"> - 직원관리 </a></li>
-            <li><a href="/reserveAdmin"> - 예약관리 </a></li>
+            <li><a href="/updateDeleteAdmin"> - 관리 </a></li>
+            <li><a href="/insertAdmin"> - 추가 </a></li>
           </ul>
         </nav>
         <div class="content-inner">

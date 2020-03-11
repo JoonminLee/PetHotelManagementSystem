@@ -7,6 +7,11 @@ $(function(){
 		//petSelect메소드
 		function selectPosition(result){
 			
+			var tableName = document.getElementById('tableName');
+
+			tableName.innerHTML ="";	
+			tableName.innerHTML = '<h3 class="h4">Position</h3>';
+			
 			$("table").remove();
 			var makeTable = document.createElement('table');
 			makeTable.innerHTML = '<tr><td>poNum</td><td>poName</td><td>관리</td></tr>';

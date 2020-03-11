@@ -21,22 +21,16 @@ public class AdminController {
 		return "adminHome";
 	}
 	
-	@GetMapping("/userAdmin")
+	@GetMapping("/updateDeleteAdmin")
 	public String userAdmin() {
-		System.out.println(":::userAdmin로 고고");
-		return "userAdmin";
+		System.out.println(":::updateDeleteAdmin로 고고");
+		return "updateDeleteAdmin";
 	}
 	
-	@GetMapping("/empAdmin")
-	public String empAdmin() {
-		System.out.println(":::empAdmin로 고고");
-		return "empAdmin";
-	}
-	
-	@GetMapping("/reserveAdmin")
+	@GetMapping("/insertAdmin")
 	public String reserveAdmin() {
-		System.out.println(":::reserveAdmin로 고고");
-		return "reserveAdmin";
+		System.out.println(":::insertAdmin로 고고");
+		return "insertAdmin";
 	}
 	
 

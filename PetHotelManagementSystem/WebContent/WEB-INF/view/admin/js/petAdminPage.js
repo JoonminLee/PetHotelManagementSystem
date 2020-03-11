@@ -7,6 +7,12 @@ $(function(){
 		//petSelect메소드
 		function selectPet(result){
 			
+			var tableName = document.getElementById('tableName');
+
+			tableName.innerHTML ="";	
+			tableName.innerHTML = '<h3 class="h4">Pet</h3>';
+			
+			
 			$("table").remove();
 			var makeTable = document.createElement('table');
 			

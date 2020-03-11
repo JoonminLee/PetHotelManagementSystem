@@ -7,6 +7,11 @@ $(function(){
 		//roomSelect메소드
 		function selectRoom(result){ 
 			
+			var tableName = document.getElementById('tableName');
+
+			tableName.innerHTML ="";	
+			tableName.innerHTML = '<h3 class="h4">Room</h3>';
+			
 			$("table").remove();
 			var makeTable = document.createElement('table');
 			makeTable.innerHTML = '<tr><td>rNum</td><td>rSNum</td><td>rStatus</td><td>관리</td></tr>';

@@ -14,7 +14,7 @@
     
     <!-- Bootstrap CSS-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    
+    <link rel="stylesheet" href="/css/admin_css/admin.css" />
     <link rel="stylesheet" href="view/admin/vendor/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="view/admin/vendor/font-awesome/css/font-awesome.min.css">
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="view/admin/css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="view/admin/img/favicon.ico">
-
+	
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -56,8 +56,8 @@
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
 
                 <!-- Logout -->
-                <!-- 메인페이지로 이동 -->
-                <li class="nav-item"><a href="/main/mainPage" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                <!-- 로그인페이지로 이동 -->
+                <li class="nav-item"><a href="/user/loginUser" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -77,20 +77,19 @@
           </div>
           <ul class="list-unstyled">
             <li><a href="/adminHome"> <i class="icon-home"></i>Home </a></li>
-            <li class="active"><a href="/userAdmin"> - 회원관리 </a></li>
-            <li><a href="/empAdmin"> - 직원관리 </a></li>
-            <li><a href="/reserveAdmin"> - 예약관리 </a></li>
+            <li><a href="/updateDeleteAdmin"> - 관리 </a></li>
+            <li class="active"><a href="/insertAdmin"> - 추가 </a></li>
           </ul>
         </nav>
           <div class="content-inner">
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">Tables</h2>
+              <h2 class="no-margin-bottom">추가</h2>
             </div>
           </header>
           <!-- Breadcrumb-->
-          <div>
+          <div class ="tabList">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item">
                 <p class="nav-link" id="user" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">User</p>
@@ -98,6 +97,21 @@
               <li class="nav-item">
                 <p class="nav-link" id="pet" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">Pet</p>
               </li>
+			  <li class="nav-item">
+			    <p class="nav-link" id="employee" data-toggle="tab" role="tab" aria-controls="contact" aria-selected="false">Employee</p>
+			  </li>
+			  <li class="nav-item">
+			    <p class="nav-link" id="department" data-toggle="tab" role="tab" aria-controls="contact" aria-selected="false">Department</p>
+			  </li>
+			  <li class="nav-item">
+			    <p class="nav-link" id="position" data-toggle="tab" role="tab" aria-controls="contact" aria-selected="false">Position</p>
+			  </li>
+			  <li class="nav-item">
+			    <p class="nav-link" id="room" data-toggle="tab" role="tab" aria-controls="contact" aria-selected="false">Room</p>
+			  </li>
+			  <li class="nav-item">
+			    <p class="nav-link" id="size" data-toggle="tab" role="tab" aria-controls="contact" aria-selected="false">Size</p>
+			  </li>
             </ul>
           </div>
 
@@ -106,19 +120,11 @@
               <div class="row">
                 <div class="col-lg-6">
                   <div class="card">
-                    <div class="card-close">
-                      <div class="dropdown">
-                        <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                        <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                      </div>
-                    </div>
-                    <div class="card-header d-flex align-items-center" id="">
-                      <h3 class="h4">Basic Table</h3>
-                    </div>
+                  
+                    <div class="card-header d-flex align-items-center" id="tableName"></div>
+                    
                     <div class="card-body">
-                      <div class="table-responsive" id="adminList">
-                          
-                      </div>
+                      <div class="table-responsive" id="adminInsert"></div>
                     </div>
                   </div>
                 </div>
@@ -149,19 +155,25 @@
     		$('#employeeInsert').remove();
     		$('#visitorInsert').remove();
     	}
+    	
     </script>
     <!-- JavaScript files-->
     <script src="view/admin/vendor/popper.js/umd/popper.min.js"> </script>
     <script src="view/admin/vendor/chart.js/Chart.min.js"></script>
-    <script type="text/javascript" src="view/admin/js/userAdminPage.js"></script>
-    <script type="text/javascript" src="view/admin/js/petAdminPage.js"></script>
-    <!-- Main File-->
-    <!-- JavaScript files-->
     <script src="view/admin/vendor/jquery/jquery.min.js"></script>
     <script src="view/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="view/admin/vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <!-- Main File-->
     <script src="view/admin/js/front.js"></script>
-
+	
+	<!-- 관리자 js files -->
+	<script type="text/javascript" src="view/admin/js/userAdminPage.js"></script>
+    <script type="text/javascript" src="view/admin/js/petAdminPage.js"></script>
+    <script type="text/javascript" src="view/admin/js/positionAdminPage.js"></script>
+	<script type="text/javascript" src="view/admin/js/departmentAdminPage.js"></script>
+	<script type="text/javascript" src="view/admin/js/reservationAdminPage.js"></script>
+	<script type="text/javascript" src="view/admin/js/roomAdminPage.js"></script>
+	<script type="text/javascript" src="view/admin/js/sizeAdminPage.js"></script>
+	<script type="text/javascript" src="view/admin/js/employeeAdminPage.js"></script>
+	<script type="text/javascript" src="view/admin/js/visitorAdminPage.js"></script>
   </body>
 </html>

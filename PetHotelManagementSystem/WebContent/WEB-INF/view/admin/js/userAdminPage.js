@@ -7,10 +7,12 @@ $(function(){
 		//userSelect메소드
 		function selectUser(result){
 			
+			var tableName = document.getElementById('tableName');
+			
+			tableName.innerHTML ="";			
 			$("table").remove();
 			
-			var tableName = document.getElementById('tableName');
-			tableName.innerHTML = '<h3 class="h4">Basic Table</h3>';
+			tableName.innerHTML = '<h3 class="h4">User</h3>';
 			
 			var makeTable = document.createElement('table');
 			makeTable.innerHTML = '<tr><td>uNum</td><td>uId</td><td>uPwd</td><td>uName</td><td>uGender</td><td>uPhone</td><td>uEmail</td><td>uBirth</td><td>관리</td></tr>';

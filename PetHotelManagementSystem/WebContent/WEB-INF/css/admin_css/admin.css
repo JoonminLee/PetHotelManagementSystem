@@ -1,80 +1,17 @@
-/*wrapper*/
-.wrapper{
-	position: relative;
-}
-
-/* navbar */
-nav span{
-	font-size: x-large;
-	color: white;
-}
-
-/*admin*/
-#admin{
-	position:absolute;
-	width: 247px;    
-	height: 600px;
-	padding: 0 10px;
-	border-right: 1px solid gray;
-	text-align:center
-}
-#infor{
-	background-color: yellow;
-	height: 280px;
-}
-#admin div{
-	line-height: 1.42857143;
-    border-radius: 4px 4px 0 0;
-    font-size: small;
-}
-
-/*adminTabs*/
-.adminTabs{
-	position: absolute;
-    left: 25%;
-    font-size: initial;
-}
-
-/*adminInsert*/
-#adminInsert{
-    position: absolute;
-    left: 25%;
-    top: 153%;
-}
-
-#adminList{
-	position: absolute;
-    left: 25%;
-    top: 333%;
-}
-
-#adminListBody{
-	width: 1000px;
-}
-
-#adminList{
-	position:absolute;
-}
-
-/* table */
-table, tr, td {
-	border: 1px solid black;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-td{
-	padding : 5px;	
-}
-
-input{width: 100px; margin:5px;}
-
 .visibility{
 	visibility:hidden;
 	width: 0px;
 }
 
+td{
+	border: 1px solid black;
+	padding: 5px;
+	text-align: center;
+}
+
+.tabList{
+	padding-top: 50px;
+    padding-left: 33px;
+}
 /* tab */
 

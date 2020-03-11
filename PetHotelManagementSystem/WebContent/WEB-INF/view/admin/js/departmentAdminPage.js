@@ -7,6 +7,11 @@ $(function(){
 		//departmentSelect메소드
 		function selectDepartment(result){
 			
+			var tableName = document.getElementById('tableName');
+
+			tableName.innerHTML ="";	
+			tableName.innerHTML = '<h3 class="h4">Department</h3>';
+			
 			$("table").remove();
 			var makeTable = document.createElement('table');
 			makeTable.innerHTML = '<tr><td>dNum</td><td>dName</td><td>관리</td></tr>';
