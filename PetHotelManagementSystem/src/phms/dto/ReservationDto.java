@@ -11,13 +11,14 @@ public class ReservationDto {
 	private int reRNum;
 	private LocalDate reCheckIn;
 	private LocalDate reCheckOut;
+	private LocalDate reDay;
 	
 	public ReservationDto() {
 		super();
 	}
 
 	public ReservationDto(int reNum, String reId, String rePhone, int reSNum, int reRNum, LocalDate reCheckIn,
-			LocalDate reCheckOut) {
+			LocalDate reCheckOut, LocalDate reDay) {
 		super();
 		this.reNum = reNum;
 		this.reId = reId;
@@ -26,6 +27,7 @@ public class ReservationDto {
 		this.reRNum = reRNum;
 		this.reCheckIn = reCheckIn;
 		this.reCheckOut = reCheckOut;
+		this.reDay = reDay;
 	}
 
 	public int getReNum() {
@@ -84,10 +86,19 @@ public class ReservationDto {
 		this.reCheckOut = reCheckOut;
 	}
 
+	public LocalDate getReDay() {
+		return reDay;
+	}
+
+	public void setReDay(LocalDate reDay) {
+		this.reDay = reDay;
+	}
+
 	@Override
 	public String toString() {
 		return "ReservationDto [reNum=" + reNum + ", reId=" + reId + ", rePhone=" + rePhone + ", reSNum=" + reSNum
-				+ ", reRNum=" + reRNum + ", reCheckIn=" + reCheckIn + ", reCheckOut=" + reCheckOut + "]";
+				+ ", reRNum=" + reRNum + ", reCheckIn=" + reCheckIn + ", reCheckOut=" + reCheckOut + ", reDay=" + reDay
+				+ "]";
 	}
 	
 }

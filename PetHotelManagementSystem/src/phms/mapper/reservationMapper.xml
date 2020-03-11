@@ -30,8 +30,8 @@
 	</select>
 	<insert id="insertReservation">
 		insert into reservation (re_num, re_id, re_phone,
-		re_s_num, re_r_num, re_check_in, re_check_out) values(0, #{reId},
-		#{rePhone}, #{reSNum}, #{reRNum}, #{reCheckIn}, #{reCheckOut})
+		re_s_num, re_r_num, re_check_in, re_check_out, re_day) values(0, #{reId},
+		#{rePhone}, #{reSNum}, #{reRNum}, #{reCheckIn}, #{reCheckOut}, #{reDay})
 	</insert>
 	<update id="updateReservation">
 		update reservation set re_id=#{reId},

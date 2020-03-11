@@ -94,8 +94,9 @@ public class ReservationController {
 
 		reCheckInStr = reCheckInStr.replaceAll(" ", "");
 		reCheckOutStr = reCheckOutStr.replaceAll(" ", "");
-
+		
 		reservation.setReId(id);
+		reservation.setReDay(LocalDate.now());
 		reservation.setRePhone("010-" + uPhone1 + "-" + uPhone2);
 		reservation.setReSNum(Integer.parseInt(rSNum));
 		reservation.setReNum(rNum);
