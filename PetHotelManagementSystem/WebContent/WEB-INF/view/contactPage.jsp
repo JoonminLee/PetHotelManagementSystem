@@ -7,50 +7,48 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f93055f9d183a780c81d29d70f577730&libraries=services,clusterer,drawing"></script>
 
 <!-- CSS -->
-<link rel="stylesheet" href="/css/contact/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="/css/contact/css/animate.css">
-<link rel="stylesheet" href="/css/contact/css/owl.carousel.min.css">
-<link rel="stylesheet" href="/css/contact/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="/css/contact/css/magnific-popup.css">
-<link rel="stylesheet" href="/css/contact/css/aos.css">
-<link rel="stylesheet" href="/css/contact/css/ionicons.min.css">
-<link rel="stylesheet" href="/css/contact/css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="/css/contact/css/jquery.timepicker.css">
-<link rel="stylesheet" href="/css/contact/css/flaticon.css">
-<link rel="stylesheet" href="/css/contact/css/icomoon.css">
-<link rel="stylesheet" href="/css/contact/css/style.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/animate.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/magnific-popup.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/aos.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/ionicons.min.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/jquery.timepicker.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/flaticon.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/icomoon.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/style.css">
 
 <title>contactPage</title>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Deluxe</a>
+	      <a class="navbar-brand" href="/main/mainPage">PETHOTEL</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="rooms.html" class="nav-link">Rooms</a></li>
-	          <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item active"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="/main/mainPage" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="/room/selectAvailableRoom" class="nav-link">Rooms</a></li>
+	          <li class="nav-item"><a href="/main/servicePage" class="nav-link">Service</a></li>
+	          <li class="nav-item"><a href="/my/myPage" class="nav-link">My page</a></li>
+	          <li class="nav-item active"><a href="/main/contactPage" class="nav-link">고객센터</a></li>
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap" style="background-image: url('/css/contact/images/bg_1.jpg');">
+    <div class="hero-wrap" style="background-image: url('/css/rooms,contact/images/contact.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
           <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
           	<div class="text">
-	            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home</a></span> <span>Contact</span></p>
 	            <h1 class="mb-4 bread">Contact Us</h1>
             </div>
           </div>
@@ -118,21 +116,21 @@
 
 </body>
 <!-- JS, Bootstrap, 라이브러리 -->
-<script src="/css/contact/js/jquery.min.js"></script>
-<script src="/css/contact/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="/css/contact/js/popper.min.js"></script>
-<script src="/css/contact/js/bootstrap.min.js"></script>
-<script src="/css/contact/js/jquery.easing.1.3.js"></script>
-<script src="/css/contact/js/jquery.waypoints.min.js"></script>
-<script src="/css/contact/js/jquery.stellar.min.js"></script>
-<script src="/css/contact/js/owl.carousel.min.js"></script>
-<script src="/css/contact/js/jquery.magnific-popup.min.js"></script>
-<script src="/css/contact/js/aos.js"></script>
-<script src="/css/contact/js/jquery.animateNumber.min.js"></script>
-<script src="/css/contact/js/bootstrap-datepicker.js"></script>
-<script src="/css/contact/js/jquery.timepicker.min.js"></script>
-<script src="/css/contact/js/scrollax.min.js"></script>
-<script src="/css/contact/js/main.js"></script>
+<script src="/css/rooms,contact/js/jquery.min.js"></script>
+<script src="/css/rooms,contact/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="/css/rooms,contact/js/popper.min.js"></script>
+<script src="/css/rooms,contact/js/bootstrap.min.js"></script>
+<script src="/css/rooms,contact/js/jquery.easing.1.3.js"></script>
+<script src="/css/rooms,contact/js/jquery.waypoints.min.js"></script>
+<script src="/css/rooms,contact/js/jquery.stellar.min.js"></script>
+<script src="/css/rooms,contact/js/owl.carousel.min.js"></script>
+<script src="/css/rooms,contact/js/jquery.magnific-popup.min.js"></script>
+<script src="/css/rooms,contact/js/aos.js"></script>
+<script src="/css/rooms,contact/js/jquery.animateNumber.min.js"></script>
+<script src="/css/rooms,contact/js/bootstrap-datepicker.js"></script>
+<script src="/css/rooms,contact/js/jquery.timepicker.min.js"></script>
+<script src="/css/rooms,contact/js/scrollax.min.js"></script>
+<script src="/css/rooms,contact/js/main.js"></script>
 <script>
 	var mapContainer = document.getElementById('map'),
 	mapOption = { 

@@ -12,16 +12,16 @@ p {	margin: 20px 0px;}
 <title>selectAllAvailable</title>
 <!-- StyleSheet -->
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
-<link rel="stylesheet" href="/css/roomList/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="/css/roomList/css/animate.css">
-<link rel="stylesheet" href="/css/roomList/css/owl.carousel.min.css">
-<link rel="stylesheet" href="/css/roomList/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="/css/roomList/css/magnific-popup.css">
-<link rel="stylesheet" href="/css/roomList/css/aos.css">
-<link rel="stylesheet" href="/css/roomList/css/ionicons.min.css">
-<link rel="stylesheet" href="/css/roomList/css/flaticon.css">
-<link rel="stylesheet" href="/css/roomList/css/icomoon.css">
-<link rel="stylesheet" href="/css/roomList/css/style.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/animate.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/magnific-popup.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/aos.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/ionicons.min.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/flaticon.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/icomoon.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/style.css">
 
 <!-- Jquery/CDN -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -39,18 +39,17 @@ p {	margin: 20px 0px;}
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="/main/mainPage" class="nav-link">Home</a></li>
-	          <li class="nav-item active"><a href="rooms.html" class="nav-link">Rooms</a></li>
-	          <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="/room/selectAvailableRoom" class="nav-link">Rooms</a></li>
+	          <li class="nav-item"><a href="/main/servicePage" class="nav-link">Service</a></li>
+	          <li class="nav-item"><a href="/my/myPage" class="nav-link">My page</a></li>
+	          <li class="nav-item active"><a href="/main/contactPage" class="nav-link">고객센터</a></li>
 	        </ul>
 	      </div>
 	    </div>
 	  </nav> 
     <!-- END nav -->
 
-    <div id="headerBg" class="hero-wrap" style="background-image: url(/css/roomList/images/bg1.jpg);">
+    <div id="headerBg" class="hero-wrap" style="background-image: url(/css/rooms,contact/images/bg1.jpg);">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
@@ -76,13 +75,13 @@ p {	margin: 20px 0px;}
 					<div class="row">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether01" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/roomList/images/room-1.jpg);">
+		    					<a href="/room/roomTogether01" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="/room/roomTogether01">Suite Room</a></h3>
+		    						<h3 class="mb-3"><a href="/room/roomTogether01">아담</a></h3>
 		    						<p><span class="price mr-2">$120.00</span> <span class="per">per night</span></p>
 		    						<ul class="list">
 		    							<li><span>Max:</span> 3 Persons</li>
@@ -97,13 +96,13 @@ p {	margin: 20px 0px;}
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/roomList/images/room-2.jpg);">
+		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-2.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">Family Room</a></h3>
+		    						<h3 class="mb-3"><a href="rooms-single.html">넉넉</a></h3>
 		    						<p><span class="price mr-2">$20.00</span> <span class="per">per night</span></p>
 		    						<ul class="list">
 		    							<li><span>Max:</span> 3 Persons</li>
@@ -118,13 +117,13 @@ p {	margin: 20px 0px;}
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/roomList/images/room-3.jpg);">
+		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-3.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">Deluxe Room</a></h3>
+		    						<h3 class="mb-3"><a href="rooms-single.html">푸짐</a></h3>
 		    						<p><span class="price mr-2">$150.00</span> <span class="per">per night</span></p>
 		    						<ul class="list">
 		    							<li><span>Max:</span> 5 Persons</li>
@@ -151,13 +150,13 @@ p {	margin: 20px 0px;}
 							<div class="row">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/roomList/images/room-4.jpg);">
+		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-4.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">Suite Room</a></h3>
+		    						<h3 class="mb-3"><a href="rooms-single.html">싱글</a></h3>
 		    						<p><span class="price mr-2">$120.00</span> <span class="per">per night</span></p>
 		    						<ul class="list">
 		    							<li><span>Max:</span> 3 Persons</li>
@@ -172,13 +171,13 @@ p {	margin: 20px 0px;}
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/roomList/images/room-5.jpg);">
+		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-5.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">Family Room</a></h3>
+		    						<h3 class="mb-3"><a href="rooms-single.html">더블</a></h3>
 		    						<p><span class="price mr-2">$20.00</span> <span class="per">per night</span></p>
 		    						<ul class="list">
 		    							<li><span>Max:</span> 3 Persons</li>
@@ -193,13 +192,13 @@ p {	margin: 20px 0px;}
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/roomList/images/room-6.jpg);">
+		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-6.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">Deluxe Room</a></h3>
+		    						<h3 class="mb-3"><a href="rooms-single.html">디럭스</a></h3>
 		    						<p><span class="price mr-2">$150.00</span> <span class="per">per night</span></p>
 		    						<ul class="list">
 		    							<li><span>Max:</span> 5 Persons</li>
@@ -226,13 +225,13 @@ p {	margin: 20px 0px;}
 						<div class="row">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/roomList/images/room-1.jpg);">
+		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">Suite Room</a></h3>
+		    						<h3 class="mb-3"><a href="rooms-single.html">소형</a></h3>
 		    						<p><span class="price mr-2">$120.00</span> <span class="per">per night</span></p>
 		    						<ul class="list">
 		    							<li><span>Max:</span> 3 Persons</li>
@@ -247,13 +246,13 @@ p {	margin: 20px 0px;}
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/roomList/images/room-2.jpg);">
+		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-2.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">Family Room</a></h3>
+		    						<h3 class="mb-3"><a href="rooms-single.html">중형</a></h3>
 		    						<p><span class="price mr-2">$20.00</span> <span class="per">per night</span></p>
 		    						<ul class="list">
 		    							<li><span>Max:</span> 3 Persons</li>
@@ -268,13 +267,13 @@ p {	margin: 20px 0px;}
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/roomList/images/room-3.jpg);">
+		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-3.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">Deluxe Room</a></h3>
+		    						<h3 class="mb-3"><a href="rooms-single.html">대형</a></h3>
 		    						<p><span class="price mr-2">$150.00</span> <span class="per">per night</span></p>
 		    						<ul class="list">
 		    							<li><span>Max:</span> 5 Persons</li>
@@ -304,20 +303,20 @@ p {	margin: 20px 0px;}
 </body>
 
 <!-- Javascript -->
-<script src="/css/roomList/js/jquery.min.js"></script>
-<script src="/css/roomList/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="/css/roomList/js/popper.min.js"></script>
-<script src="/css/roomList/js/bootstrap.min.js"></script>
-<script src="/css/roomList/js/jquery.easing.1.3.js"></script>
-<script src="/css/roomList/js/jquery.waypoints.min.js"></script>
-<script src="/css/roomList/js/jquery.stellar.min.js"></script>
-<script src="/css/roomList/js/owl.carousel.min.js"></script>
-<script src="/css/roomList/js/jquery.magnific-popup.min.js"></script>
-<script src="/css/roomList/js/aos.js"></script>
-<script src="/css/roomList/js/jquery.animateNumber.min.js"></script>
-<script src="/css/roomList/js/bootstrap-datepicker.js"></script>
-<script src="/css/roomList/js/scrollax.min.js"></script>
-<script src="/css/roomList/js/main.js"></script>
+<script src="/css/rooms,contact/js/jquery.min.js"></script>
+<script src="/css/rooms,contact/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="/css/rooms,contact/js/popper.min.js"></script>
+<script src="/css/rooms,contact/js/bootstrap.min.js"></script>
+<script src="/css/rooms,contact/js/jquery.easing.1.3.js"></script>
+<script src="/css/rooms,contact/js/jquery.waypoints.min.js"></script>
+<script src="/css/rooms,contact/js/jquery.stellar.min.js"></script>
+<script src="/css/rooms,contact/js/owl.carousel.min.js"></script>
+<script src="/css/rooms,contact/js/jquery.magnific-popup.min.js"></script>
+<script src="/css/rooms,contact/js/aos.js"></script>
+<script src="/css/rooms,contact/js/jquery.animateNumber.min.js"></script>
+<script src="/css/rooms,contact/js/bootstrap-datepicker.js"></script>
+<script src="/css/rooms,contact/js/scrollax.min.js"></script>
+<script src="/css/rooms,contact/js/main.js"></script>
 <script type="text/javascript">
 $(function(){
 	var i;
@@ -325,13 +324,13 @@ $(function(){
 		$("#headerBg").fadeOut(function(){
 			switch (i) {
 			case 'bg1':
-				$("#headerBg").css({"background-image":"url('/css/roomList/images/bg1.jpg')"}).fadeIn();
+				$("#headerBg").css({"background-image":"url('/css/rooms,contact/images/bg1.jpg')"}).fadeIn();
 				break;
 			case 'bg2':
-				$("#headerBg").css({"background-image":"url('/css/roomList/images/bg2.jfif')"}).fadeIn();
+				$("#headerBg").css({"background-image":"url('/css/rooms,contact/images/bg2.jfif')"}).fadeIn();
 				break;
 			case 'bg3':
-				$("#headerBg").css({"background-image":"url('/css/roomList/images/bg3.jpg')"}).fadeIn();
+				$("#headerBg").css({"background-image":"url('/css/rooms,contact/images/bg3.jpg')"}).fadeIn();
 				break;
 			default:
 				break;
