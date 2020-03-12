@@ -55,6 +55,7 @@
 				<value>classpath:phms/mapper/sizeMapper.xml</value>
 				<value>classpath:phms/mapper/userMapper.xml</value>
 				<value>classpath:phms/mapper/visitorMapper.xml</value>
+				<value>classpath:phms/mapper/guestMapper.xml</value>			
 			</list>
 		</property>
 	</bean>

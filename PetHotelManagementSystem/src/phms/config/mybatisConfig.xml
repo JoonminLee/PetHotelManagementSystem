@@ -20,5 +20,6 @@
 		<typeAlias type="phms.dto.SizeDto" alias="size"/>
 		<typeAlias type="phms.dto.VisitorDto" alias="visitor"/>
 		<typeAlias type="phms.dto.VisitorRoomSizeDto" alias="visitorroomsize"/>
+		<typeAlias type="phms.dto.GuestDto" alias="guest"/>
 	</typeAliases>	
 </configuration>

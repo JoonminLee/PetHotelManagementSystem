@@ -1,5 +1,6 @@
 package phms.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import phms.dto.GuestDto;
 import phms.dto.VisitorDto;
+import phms.service.GuestService;
 import phms.service.VisitorService;
 
 @Controller
@@ -20,6 +23,9 @@ public class VisitorController {
 
 	@Autowired
 	VisitorService visitorService;
+	
+	@Autowired
+	GuestService guestService;
 
 	@RequestMapping("/loginNaverCallback")
 	public String loginNaverCallback() {
@@ -47,6 +53,11 @@ public class VisitorController {
 			@RequestParam("vEmail") String vEmail, @RequestParam("vFrom") String vFrom) {
 		System.out.println(":::insertVisitor");
 		if (visitorService.selectOneVisitor(vId) != null) {
+			//방문리스트 추가.
+			LocalDate today = LocalDate.now();
+			GuestDto guest = new GuestDto(0, vId, vName, today, vFrom);
+			guestService.insertGuest(guest);
+			System.out.println("guest :::"+guest);
 			System.out.println("로그인을 환영합니다");
 			model.addAttribute("id", vId);
 			model.addAttribute("from", vFrom);
@@ -58,6 +69,12 @@ public class VisitorController {
 			visitor.setvEmail(vEmail);
 			visitor.setvFrom(vFrom);
 			visitorService.insertVisitor(visitor);
+			
+			LocalDate today = LocalDate.now();
+			GuestDto guest = new GuestDto(0, vId, vName, today, vFrom);
+			guestService.insertGuest(guest);
+			System.out.println("guest :::"+guest);
+			
 			model.addAttribute("id", vId);
 			model.addAttribute("from", vFrom);
 			System.out.println("회원가입을 환영합니다");

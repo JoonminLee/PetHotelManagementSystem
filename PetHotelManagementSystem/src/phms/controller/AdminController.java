@@ -26,6 +26,8 @@ public class AdminController {
 		//오늘 예약한 사람
 		int todayReserveCnt = reservationService.todayReserveCnt(today);
 		model.addAttribute("todayReserveCnt", todayReserveCnt);
+		
+		//오늘 방문자(회원)
 		System.out.println(":::adminHome로 고고");
 		return "adminHome";
 	}

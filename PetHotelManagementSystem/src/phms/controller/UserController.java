@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import common.loginAuthentication;
+import phms.dto.GuestDto;
 import phms.dto.UserDto;
 import phms.dto.UserRoomSizeDto;
+import phms.service.GuestService;
 import phms.service.UserService;
 
 @Controller
@@ -26,6 +28,9 @@ public class UserController {
 
 	@Autowired
 	loginAuthentication loginAuth;
+	
+	@Autowired
+	GuestService guestService;
 
 	// selectOneUser
 	@RequestMapping("/selectOneUser")
@@ -119,10 +124,18 @@ public class UserController {
 	public String loginUser(Model model, @RequestParam("uId") String uId, @RequestParam("uPwd") String uPwd) {
 		System.out.println(":::loginUser");
 		int result = loginAuth.loginIdPwdCheck(uId, uPwd);
+		UserDto user = userService.selectOneUser(uId);
+		String uName = user.getuName();
+		String uFrom = "phms";
+		
 		if (result == 1) {
 			System.out.println("로그인 성공");
 			model.addAttribute("id", uId);
 			model.addAttribute("from", "phms");
+			LocalDate today = LocalDate.now();
+			GuestDto guest = new GuestDto(0, uId, uName, today, uFrom);
+			guestService.insertGuest(guest);
+			System.out.println("guest :::"+guest);
 			return "sessionLogin";
 		} else {
 			System.out.println("로그인 실패");
