@@ -63,7 +63,7 @@ public class ReservationController {
 		return listReserve;
 	}
 
-	// 예약확인 페이지
+	// 예약확인 페이지11
 	@GetMapping("/reservationResult")
 	public String reservationResult(@RequestParam("rSNum") String rSNum,
 			@RequestParam("reCheckInStr") String reCheckInStr, @RequestParam("reCheckOutStr") String reCheckOutStr,
