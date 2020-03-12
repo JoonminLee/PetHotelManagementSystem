@@ -142,7 +142,7 @@ input{
 													</tr>
 													<tr class="space-row">
 														<th>Total :</th>
-														<td><input type="text" name="totalPrice" value="${numberOfPet }" readonly></td>
+														<td><input type="text"  name="totalPrice" value="${totalPrice } KRW" readonly></td>
 													</tr>
 												</tbody>
 											</table>

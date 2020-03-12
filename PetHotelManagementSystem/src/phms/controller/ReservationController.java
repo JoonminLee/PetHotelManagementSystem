@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import common.priceCalculator;
 import phms.dto.ReservationDto;
 import phms.dto.RoomDto;
 import phms.dto.SizeDto;
@@ -43,6 +44,9 @@ public class ReservationController {
 
 	@Autowired
 	SizeService sizeService;
+	
+	@Autowired
+	priceCalculator priceCalc;
 
 	// selectOneReserve
 	@RequestMapping("/selectOneReserve")
@@ -82,13 +86,16 @@ public class ReservationController {
 		}
 		SizeDto sizeDto = sizeService.selectOneSize(Integer.parseInt(rSNum));
 
+		String totalPrice = priceCalc.getTotalPrice(reCheckInStr, reCheckOutStr, rSNum);
+		
 		model.addAttribute("rSNum", rSNum);
 		model.addAttribute("rSNumStr", sizeDto.getsSize());
 		model.addAttribute("numberOfPerson", numberOfPerson);
 		model.addAttribute("numberOfPet", numberOfPet);
 		model.addAttribute("reCheckInStr", reCheckInStr);
 		model.addAttribute("reCheckOutStr", reCheckOutStr);
-
+		model.addAttribute("totalPrice", totalPrice);
+		
 		return "reservationResult";
 	}
 
