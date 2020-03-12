@@ -63,7 +63,7 @@ public class ReservationController {
 		return listReserve;
 	}
 
-	// 예약확인 페이지11
+	// 예약확인 페이지
 	@GetMapping("/reservationResult")
 	public String reservationResult(@RequestParam("rSNum") String rSNum,
 			@RequestParam("reCheckInStr") String reCheckInStr, @RequestParam("reCheckOutStr") String reCheckOutStr,
@@ -72,6 +72,7 @@ public class ReservationController {
 		System.out.println(":::reservationResult");
 		String id = (String) session.getAttribute("id");
 		String from = (String) session.getAttribute("from");
+
 		if (from == "phms") {
 			UserDto user = userService.selectOneUser(id);
 			model.addAttribute("user", user);
@@ -98,6 +99,7 @@ public class ReservationController {
 			ReservationDto reservationDto, HttpSession session) {
 		System.out.println(":::reservationResult");
 		String id = (String) session.getAttribute("id");
+		String from = (String) session.getAttribute("from");
 
 		RoomDto roomDto = roomService.selectOneRoomBySize(reservationDto.getReSNum());
 		int rNum = roomDto.getrNum();
@@ -108,10 +110,16 @@ public class ReservationController {
 		reservationDto.setReCheckIn(LocalDate.parse(reCheckInStr));
 		reservationDto.setReCheckOut(LocalDate.parse(reCheckOutStr));
 		reservationDto.setReDay(LocalDate.now());
-
-		UserDto user = userService.selectOneUser(id);
-		user.setuRNum(rNum);
-		userService.updateUserRoom(user);
+		
+		if (from == "phms") {
+			UserDto user = userService.selectOneUser(id);
+			user.setuRNum(rNum);
+			userService.updateUserRoom(user);
+		} else {
+			VisitorDto visitor = visitorService.selectOneVisitor(id);
+			visitor.setvRoom(rNum);
+			visitorService.updateVisitorRoom(visitor);
+		}
 
 		roomDto.setrStatus(1);
 		roomService.updateRoomStatus(roomDto);

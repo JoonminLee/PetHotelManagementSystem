@@ -31,6 +31,10 @@ public class VisitorService {
 		return visitorMapper.updateVisitor(visitor);
 	}
 	
+	public int updateVisitorRoom(VisitorDto visitor) {
+		return visitorMapper.updateVisitorRoom(visitor);
+	}
+	
 	public int myPageUpdateVisitor(VisitorDto visitor) {
 		return visitorMapper.myPageUpdateVisitor(visitor);
 	}
