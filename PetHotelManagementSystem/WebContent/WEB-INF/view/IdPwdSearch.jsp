@@ -30,7 +30,7 @@ $(function(){
 		$.ajax({
 			url : "/idpwd/idSearch",
 			data : {"name" : name, "eMail" : eMail},
-			dataType : "json",
+			dataType : "text",
 			type : "post",
 			success : function(result){
 				alert(result);
