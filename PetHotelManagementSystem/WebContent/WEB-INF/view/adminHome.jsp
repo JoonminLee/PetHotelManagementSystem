@@ -98,7 +98,7 @@
                     <!-- 오늘 예약 건 수 -->
                     <div class="title"><span>Today<br>Reserve</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
+                        <div role="progressbar" style="width: ${todayReserveCnt }%; height: 4px;" aria-valuenow="${todayReserveCnt }" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
                       </div>
                     </div>
                     <div class="number"><strong>${todayReserveCnt }</strong></div>
@@ -110,34 +110,34 @@
                     <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
                     <div class="title"><span>Today<br>Visitor</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
+                        <div role="progressbar" style="width: ${todayGuestCnt }%; height: 4px;" aria-valuenow="${todayGuestCnt }" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>70</strong></div>
+                    <div class="number"><strong>${todayGuestCnt }</strong></div>
                   </div>
                 </div>
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-green"><i class="fa fa-paper-plane-o"></i></div>
-                    <div class="title"><span>Today<br>Register</span>
+                    <div class="title"><span>This Month's<br>Reserve</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 40%; height: 4px;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
+                        <div role="progressbar" style="width: ${thisMonthReserveCnt }%; height: 4px;" aria-valuenow="${thisMonthReserveCnt }" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>40</strong></div>
+                    <div class="number"><strong>${thisMonthReserveCnt }</strong></div>
                   </div>
                 </div>
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-orange"><i class="fa fa-calendar-o"></i></div>
-                    <div class="title"><span>All visitor <br>Of month</span>
+                    <div class="title"><span>This Month's <br>Visitor</span>
                       <div class="progress">
-                        <div role="progressbar" style="width: 50%; height: 4px;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
+                        <div role="progressbar" style="width: ${thisMonthGuestCnt }%; height: 4px;" aria-valuenow="${thisMonthGuestCnt }" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>50</strong></div>
+                    <div class="number"><strong>${thisMonthGuestCnt }</strong></div>
                   </div>
                 </div>
               </div>
@@ -148,31 +148,24 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-lg-4">
-                  <div class="line-chart-example card no-margin-bottom">
-                    <div class="card-close">
-                      <div class="dropdown">
-                        <button type="button" id="closeCard2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                        <div aria-labelledby="closeCard2" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                      </div>
-                    </div>
+                  <div class="line-chart-example card no-margin-bottom" style="width:300px">
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Line Chart Example</h3>
+                      <h3 class="h4">Room Status</h3>
                     </div>
                     <div class="card-body">
-                      <canvas id="lineChartExample1"></canvas>
+	                    <div class="status-bar">
+                    		<p class="bar1" style="background: #2ECC71; border-radius: 50%">빈방</p>
+                    		<p class="bar2" style="background: #F4D03F; border-radius: 50%">청소중</p>
+                    		<p class="bar3" style="background: #ff7676; border-radius: 50%">사용중</p>
+                    	</div>
+                    	<div id="roomList"></div>
                     </div>
                   </div>
-                  <div class="line-chart-example card">
-                    <div class="card-close">
-                      <div class="dropdown">
-                        <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                        <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                      </div>
-                    </div>
+                  <%-- <div class="line-chart-example card">
                     <div class="card-body">
                       <canvas id="lineChartExample2"></canvas>
                     </div>
-                  </div>
+                  </div> --%>
                 </div>
                 <!-- Line Chart            -->
                 <div class="col-lg-8">
@@ -217,5 +210,6 @@
     <script src="view/admin/js/charts-custom.js"></script>
     <!-- Main File-->
     <script src="view/admin/js/front.js"></script>
+    <script type="text/javascript" src="view/admin/js/adminHome.js"></script>
   </body>
 </html>

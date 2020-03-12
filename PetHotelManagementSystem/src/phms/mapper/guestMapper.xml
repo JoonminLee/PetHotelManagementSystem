@@ -3,6 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="phms.mapper.GuestMapper">
+	
 	<select id="selectTodayGuest" resultType="guest">
 		select * from 
 		guest where
@@ -10,7 +11,7 @@
 	</select>
 	
 	<select id="todayGuestCnt" resultType="int">
-		select * from
+		select count(g_day) from
 		guest where
 		g_day = current_date() 
 	</select>
