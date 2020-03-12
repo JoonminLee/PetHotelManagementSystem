@@ -112,7 +112,6 @@ public class ReservationController {
 		int rNum = roomDto.getrNum();
 
 		reservationDto.setReId(id);
-		reservationDto.setRePhone("010-" + uPhone1 + "-" + uPhone2);
 		reservationDto.setReRNum(rNum);
 		reservationDto.setReCheckIn(LocalDate.parse(reCheckInStr));
 		reservationDto.setReCheckOut(LocalDate.parse(reCheckOutStr));
@@ -123,6 +122,7 @@ public class ReservationController {
 			user.setuRNum(rNum);
 			userService.updateUserRoom(user);
 		} else {
+			reservationDto.setRePhone("010-" + uPhone1 + "-" + uPhone2);
 			VisitorDto visitor = visitorService.selectOneVisitor(id);
 			visitor.setvRoom(rNum);
 			visitorService.updateVisitorRoom(visitor);

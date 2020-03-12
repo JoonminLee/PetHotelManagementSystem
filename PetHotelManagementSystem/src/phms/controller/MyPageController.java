@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import phms.dto.ReRoomSizeDto;
 import phms.dto.ReservationDto;
 import phms.dto.RoomDto;
 import phms.dto.UserDto;
@@ -50,12 +51,14 @@ public class MyPageController {
 		String from = (String) session.getAttribute("from");
 		if (from == "phms") {
 			UserDto user = userService.selectOneUser(id);
-			List<UserRoomSizeDto> userReserve = userService.selectUserRoom(id);
+			List<ReRoomSizeDto> userReserve = reserveService.selectAllReRoomSizeDto(id);
+			System.out.println(userReserve.toString());
 			model.addAttribute("user", user);
 			model.addAttribute("userReserve", userReserve);
 		} else {
 			VisitorDto visitor = visitorService.selectOneVisitor(id);
-			List<VisitorRoomSizeDto> visitorReserve = visitorService.selectVisitorRoom(id);
+			List<ReRoomSizeDto> visitorReserve = reserveService.selectAllReRoomSizeDto(id);
+			System.out.println(visitorReserve.toString());
 			model.addAttribute("visitor", visitor);
 			model.addAttribute("visitorReserve", visitorReserve);
 		}

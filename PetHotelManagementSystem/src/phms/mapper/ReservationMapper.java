@@ -3,6 +3,7 @@ package phms.mapper;
 import java.time.LocalDate;
 import java.util.List;
 
+import phms.dto.ReRoomSizeDto;
 import phms.dto.ReservationDto;
 
 public interface ReservationMapper {
@@ -25,5 +26,7 @@ public interface ReservationMapper {
 	public int updateReservation(ReservationDto reservation);
 
 	public int deleteReservation(int reNum);
+	
+	public List<ReRoomSizeDto> selectAllReRoomSizeDto(String id);
 	
 }

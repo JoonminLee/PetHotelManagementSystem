@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import phms.dto.ReRoomSizeDto;
 import phms.dto.ReservationDto;
 import phms.dto.RoomDto;
 import phms.mapper.ReservationMapper;
@@ -27,6 +28,7 @@ public class ReservationService {
 	public ReservationDto selectByReRNum(int reRNum) {
 		return reservationMapper.selectByReRNum(reRNum);
 	}
+	
 	
 	//오늘날짜 카운
 	public int todayReserveCnt(LocalDate today) {
@@ -67,6 +69,10 @@ public class ReservationService {
 
 	public int deleteReservation(int reNum) {
 		return reservationMapper.deleteReservation(reNum);
+	}
+
+	public List<ReRoomSizeDto> selectAllReRoomSizeDto(String id) {
+		return reservationMapper.selectAllReRoomSizeDto(id);
 	}
 
 }

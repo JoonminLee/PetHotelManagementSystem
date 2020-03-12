@@ -129,6 +129,8 @@ input{
 																if (vFrom == "phms") {
 															%> 
 															<input type="text" name="uPhone" value="${user.uPhone }" readonly />
+															<input type="hidden" name="uPhone1"/>
+															<input type="hidden" name="uPhone2"/>																														
 															<%
 															} else {
  															%>

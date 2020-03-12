@@ -18,7 +18,9 @@
 		reservation where
 		re_id = #{reId}
 	</select>
-	
+	<select id="selectAllReRoomSizeDto" resultType="reroomsize">
+		select * from reroomsize where re_id = #{reId}
+	</select>
 	<!-- 오늘 예약날짜로 카운트 -->
 	<select id="todayReserveCnt" resultType="int">
 		select count(re_day) from reservation where re_day = current_date()
