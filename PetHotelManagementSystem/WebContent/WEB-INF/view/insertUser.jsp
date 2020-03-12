@@ -162,28 +162,28 @@
 </head>
 <body>
     <header id="header">
-    <h2>pethotel</h2>
+    <h2><a href="/main/mainPage">pethotel</a></h2>
     <nav>
       <ul>
         <div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
             <rect id="set_7_button1" height="50" width="120"></rect>
           </svg>
-          <li id="set_7_text"><a href="#intro">LOGIN</a></li>
+          <li id="set_7_text"><a href="/user/loginUser">LOGIN</a></li>
         </div>
         <div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
             <rect id="set_7_button3" height="50" width="120"></rect>
           </svg>
-          <li id="set_7_text"><a href="#work">SERVICE</a></li>
+          <li id="set_7_text"><a href="/main/servicePage">SERVICE</a></li>
         </div>
         <div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
             <rect id="set_7_button4" height="50" width="120"></rect>
           </svg>
-          <li id="set_7_text"><a href="#contact">MY PAGE</a></li>
+          <li id="set_7_text"><a href="/my/myPage01">MY PAGE</a></li>
         </div>
         <div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
             <rect id="set_7_button5" height="50" width="120"></rect>
           </svg>
-          <li id="set_7_text"><a href="#two">고객센터</a></li>
+          <li id="set_7_text"><a href="/main/contactPage">고객센터</a></li>
         </div>
       </ul>
     </nav>

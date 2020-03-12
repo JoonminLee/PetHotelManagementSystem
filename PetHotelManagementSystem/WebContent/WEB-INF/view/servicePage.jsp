@@ -22,7 +22,7 @@
 			<ul>
 				<li><a href="/user/loginUser">Login</a></li>
 				<li><a href="/user/insertUser">Sign Up</a></li>
-				<li><a href="/my/myPage">Mypage</a></li>
+				<li><a href="/my/myPage01">Mypage</a></li>
 				<li><a href="/main/contactPage">Contact</a></li>
 			</ul>
 		</nav>

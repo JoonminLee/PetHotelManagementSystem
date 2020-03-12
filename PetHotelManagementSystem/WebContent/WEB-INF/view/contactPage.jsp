@@ -35,7 +35,7 @@
 	          <li class="nav-item"><a href="/main/mainPage" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="/room/selectAvailableRoom" class="nav-link">Rooms</a></li>
 	          <li class="nav-item"><a href="/main/servicePage" class="nav-link">Service</a></li>
-	          <li class="nav-item"><a href="/my/myPage" class="nav-link">My page</a></li>
+	          <li class="nav-item"><a href="/my/myPage01" class="nav-link">My page</a></li>
 	          <li class="nav-item active"><a href="/main/contactPage" class="nav-link">고객센터</a></li>
 	        </ul>
 	      </div>

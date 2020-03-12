@@ -92,24 +92,8 @@ $(function(){
 </script>
 </head>
 <body>
-<!--    <div>
-   <h2>아이디 찾기</h2>
-      <input type="text" id="name" placeholder="이름을 입력해주세요"><br>
-      <input type="text" id="eMail" placeholder="이메일을 입력해주세요"><br><br>
-      <input type="button" id="idSearch" value="이메일 전송">
-   </div>
-   <br>
-   <hr>
-   <div>
-   <h2>비밀번호 찾기</h2>
-      <input type="text" id="id" placeholder="아이디를 입력해주세요"><br>
-      <input type="text" id="eMail" placeholder="이메일을 입력해주세요"><br><br>
-      <input type="button" id="pwdSearch" value="임시 인증번호 전송">
-   </div> -->
-   
      <div class="cont">
     <div class="form sign-in">
-
       <span class="login100-form-title p-b-49">
         아이디 찾기
       </span>
