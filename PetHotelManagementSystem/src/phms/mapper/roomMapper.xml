@@ -30,6 +30,9 @@
 	<update id="updateRoom">
 		update room set r_s_num=#{rSNum}, r_status=#{rStatus} where	r_num=#{rNum}
 	</update>
+	<update id="updateRoomStatus">
+		update room set r_status=#{rStatus} where r_num=#{rNum}
+	</update>
 	<delete id="deleteRoom">
 		delete from room where r_num=#{rNum}
 	</delete>

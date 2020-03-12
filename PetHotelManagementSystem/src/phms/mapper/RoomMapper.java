@@ -10,7 +10,7 @@ public interface RoomMapper {
 
 	public RoomDto selectOneRoom(int rNum);
 	
-	public int selectOneRoomBySize(int rSNum);
+	public RoomDto selectOneRoomBySize(int rSNum);
 	
 	public List<RoomDto> selectAllRoom();
 	
@@ -25,6 +25,8 @@ public interface RoomMapper {
 	public int insertRoom(RoomDto room);
 
 	public int updateRoom(RoomDto room);
+	
+	public int updateRoomStatus(RoomDto room);
 
 	public int deleteRoom(int rNum);
 

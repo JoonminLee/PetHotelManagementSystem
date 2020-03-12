@@ -21,7 +21,7 @@
 	
 	<!-- 오늘 예약날짜로 카운트 -->
 	<select id="todayReserveCnt" resultType="int">
-		select count(re_day) from reservation where re_day = #{today} 
+		select count(re_day) from reservation where re_day = current_date()
 	</select> 
 	
 	<select id="selectByReRNum" resultType="reservation">

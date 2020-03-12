@@ -31,6 +31,10 @@ public class UserService {
 		return userMapper.updateUser(user);
 	}
 	
+	public int updateUserRoom(UserDto user) {
+		return userMapper.updateUserRoom(user);
+	}
+	
 	public int myPageUpdateUser(UserDto user) {
 		return userMapper.myPageUpdateUser(user);
 	}

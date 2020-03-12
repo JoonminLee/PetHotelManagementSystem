@@ -27,7 +27,7 @@ public class RoomService {
 		return roomMapper.selectOneRoom(rNum);
 	}
 	
-	public int selectOneRoomBySize(int rSNum) {
+	public RoomDto selectOneRoomBySize(int rSNum) {
 		return roomMapper.selectOneRoomBySize(rSNum);
 	}
 
@@ -131,6 +131,10 @@ public class RoomService {
 
 	public int updateRoom(RoomDto room) {
 		return roomMapper.updateRoom(room);
+	}
+	
+	public int updateRoomStatus(RoomDto room) {
+		return roomMapper.updateRoomStatus(room);
 	}
 
 	public int deleteRoom(int rNum) {

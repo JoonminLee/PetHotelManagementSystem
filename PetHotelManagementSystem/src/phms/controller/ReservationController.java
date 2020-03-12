@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import phms.dto.ReservationDto;
+import phms.dto.RoomDto;
 import phms.dto.SizeDto;
 import phms.dto.UserDto;
 import phms.dto.VisitorDto;
@@ -42,7 +43,7 @@ public class ReservationController {
 
 	@Autowired
 	SizeService sizeService;
-	
+
 	// selectOneReserve
 	@RequestMapping("/selectOneReserve")
 	public String selectOneReserve(Model model, @RequestParam("reId") String reId) {
@@ -62,6 +63,7 @@ public class ReservationController {
 		return listReserve;
 	}
 
+	// 예약확인 페이지
 	@GetMapping("/reservationResult")
 	public String reservationResult(@RequestParam("rSNum") String rSNum,
 			@RequestParam("reCheckInStr") String reCheckInStr, @RequestParam("reCheckOutStr") String reCheckOutStr,
@@ -78,29 +80,41 @@ public class ReservationController {
 			model.addAttribute("visitor", visitor);
 		}
 		SizeDto sizeDto = sizeService.selectOneSize(Integer.parseInt(rSNum));
-		
+
 		model.addAttribute("rSNum", rSNum);
 		model.addAttribute("rSNumStr", sizeDto.getsSize());
 		model.addAttribute("numberOfPerson", numberOfPerson);
 		model.addAttribute("numberOfPet", numberOfPet);
 		model.addAttribute("reCheckInStr", reCheckInStr);
 		model.addAttribute("reCheckOutStr", reCheckOutStr);
-		
+
 		return "reservationResult";
 	}
 
+	// 예약확인 후 결제 모듈 실행
 	@PostMapping("/reservationResult")
 	public String reservationResult(@RequestParam("uPhone1") String uPhone1, @RequestParam("uPhone2") String uPhone2,
+			@RequestParam("reCheckInStr") String reCheckInStr, @RequestParam("reCheckOutStr") String reCheckOutStr,
 			ReservationDto reservationDto, HttpSession session) {
 		System.out.println(":::reservationResult");
 		String id = (String) session.getAttribute("id");
-		System.out.println(reservationDto.toString());
-		int rNum = roomService.selectOneRoomBySize(reservationDto.getReSNum());
-		System.out.println(rNum);
+
+		RoomDto roomDto = roomService.selectOneRoomBySize(reservationDto.getReSNum());
+		int rNum = roomDto.getrNum();
 
 		reservationDto.setReId(id);
-		reservationDto.setReDay(LocalDate.now());
 		reservationDto.setRePhone("010-" + uPhone1 + "-" + uPhone2);
+		reservationDto.setReRNum(rNum);
+		reservationDto.setReCheckIn(LocalDate.parse(reCheckInStr));
+		reservationDto.setReCheckOut(LocalDate.parse(reCheckOutStr));
+		reservationDto.setReDay(LocalDate.now());
+
+		UserDto user = userService.selectOneUser(id);
+		user.setuRNum(rNum);
+		userService.updateUserRoom(user);
+
+		roomDto.setrStatus(1);
+		roomService.updateRoomStatus(roomDto);
 
 		int result = reserveService.insertReservation(reservationDto);
 

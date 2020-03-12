@@ -14,6 +14,8 @@ public interface UserMapper {
 
 	public int updateUser(UserDto user);
 	
+	public int updateUserRoom(UserDto user);
+	
 	public int myPageUpdateUser(UserDto user);
 
 	public int deleteUser(String uId);

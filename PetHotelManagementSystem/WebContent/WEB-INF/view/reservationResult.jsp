@@ -94,15 +94,15 @@ p {
 												<tbody>
 													<tr class="space-row">
 														<th>Check-In-Date :</th>
-														<td><input type="date" name="reCheckIn" value="${reCheckInStr }"></td>
+														<td><input type="date" name="reCheckInStr" value="${reCheckInStr }"></td>
 													</tr>
 													<tr class="space-row">
 														<th>Check-Out-Date :</th>
-														<td><input type="date" name="reCheckOut" value="${reCheckOutStr }"></td>
+														<td><input type="date" name="reCheckOutStr" value="${reCheckOutStr }"></td>
 													</tr>
 													<tr class="space-row">
 														<th>Room Type:</th>
-														<td><input type="hidden" name="rSNum" value="${rSNum }">
+														<td><input type="hidden" name="reSNum" value="${rSNum }">
 														<input type="text" name="rSNumStr" value="${rSNumStr }"></td>
 													</tr>
 													<tr class="space-row">
@@ -115,7 +115,10 @@ p {
 													</tr>
 													<tr class="space-row">
 														<th>Phone Number :</th>
-														<td><input type="tel" value="" placeholder="연락처를 입력해주세요" required></td>
+														<td><input type="text" value="010">
+														<input type="text" maxlength="4" name="uPhone1" required />
+														<input type="text" maxlength="4" name="uPhone2" required />
+														</td>
 													</tr>
 													<tr class="space-row">
 														<th>Total :</th>
