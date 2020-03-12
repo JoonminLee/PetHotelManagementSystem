@@ -37,7 +37,7 @@ public class GuestDto {
 
 	public void setgId(String gId) {
 		this.gId = gId;
-	}
+	} 
 
 	public String getgName() {
 		return gName;
