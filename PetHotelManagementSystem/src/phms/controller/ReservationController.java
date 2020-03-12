@@ -62,6 +62,7 @@ public class ReservationController {
 		return listReserve;
 	}
 
+	// 예약확인 페이지
 	@GetMapping("/reservationResult")
 	public String reservationResult(@RequestParam("rSNum") String rSNum,
 			@RequestParam("reCheckInStr") String reCheckInStr, @RequestParam("reCheckOutStr") String reCheckOutStr,
@@ -89,6 +90,7 @@ public class ReservationController {
 		return "reservationResult";
 	}
 
+	//예약확인 후 결제 모듈 실행
 	@PostMapping("/reservationResult")
 	public String reservationResult(@RequestParam("uPhone1") String uPhone1, @RequestParam("uPhone2") String uPhone2,
 			ReservationDto reservationDto, HttpSession session) {
