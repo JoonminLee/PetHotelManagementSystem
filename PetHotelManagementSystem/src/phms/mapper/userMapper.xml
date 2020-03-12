@@ -33,4 +33,7 @@
 	<delete id="deleteUserRoom">
 		delete from userroomsize where u_id = #{uId}
 	</delete>
+	<select id="selectSearchUser" resultType="user">
+		select * from user where u_name = #{uName}
+	</select>
 </mapper>

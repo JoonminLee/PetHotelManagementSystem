@@ -26,4 +26,6 @@ public interface UserMapper {
 	
 	public int deleteUserRoom(String uId);
 	
+	public UserDto selectSearchUser(String uName);
+	
 }

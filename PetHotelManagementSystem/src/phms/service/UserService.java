@@ -55,4 +55,8 @@ public class UserService {
 		return userMapper.deleteUserRoom(uId);
 	}
 
+	public UserDto selectSearchUser(String uName) {
+		return userMapper.selectSearchUser(uName);
+	}
+
 }
