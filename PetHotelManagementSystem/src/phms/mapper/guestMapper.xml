@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="phms.mapper.GuestMapper">
 	<select id="selectTodayGuest" resultType="guest">
-		select * from
+		select * from 
 		guest where
 		g_day = current_date() 
 	</select>

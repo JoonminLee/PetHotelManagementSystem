@@ -127,7 +127,7 @@ public class UserController {
 		UserDto user = userService.selectOneUser(uId);
 		String uName = user.getuName();
 		String uFrom = "phms";
-		
+		 
 		if (result == 1) {
 			System.out.println("로그인 성공");
 			model.addAttribute("id", uId);

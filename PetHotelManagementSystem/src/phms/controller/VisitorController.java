@@ -63,7 +63,7 @@ public class VisitorController {
 			model.addAttribute("from", vFrom);
 			return "sessionLogin";
 		} else {
-			VisitorDto visitor = new VisitorDto();
+			VisitorDto visitor = new VisitorDto(); 
 			visitor.setvId(vId);
 			visitor.setvName(vName);
 			visitor.setvEmail(vEmail);

@@ -6,7 +6,7 @@ import java.util.List;
 import phms.dto.GuestDto;
 import phms.dto.PetDto;
 
-public interface GuestMapper {
+public interface GuestMapper { 
 	
 	public List<GuestDto> selectTodayGuest(LocalDate today);
 	
