@@ -42,6 +42,7 @@ public class IdPwdController {
 			
 			String uName = userList.get(i).getuName();
 			String uEmail = userList.get(i).getuEmail();
+			
 			if(uName.equals(name) && uEmail.equals(eMail)) {
 				
 				final String username = "com2181@gmail.com";
@@ -76,11 +77,74 @@ public class IdPwdController {
 				}
 				
 				return "아이디 전송완료";
-			}else if((!uEmail.equals(eMail))) {
-				System.out.println((!uEmail.equals(eMail)));
+			
+			}else if(uName.equals(name) && (!uEmail.equals(eMail))){
 				return "등록된 이메일이 다릅니다";
 			}
 		}
 		return "실패";	
+	}
+	
+	String authKey = ((int)((Math.random()*999999)*1))+""; 
+	String copykey = authKey;
+	
+	@RequestMapping(value = "/pwdSearch", produces = "application/text; charset=utf8")
+	public @ResponseBody String pwdSearch(String id, String eMail) {
+		System.out.println(id);
+		System.out.println(eMail);
+		System.out.println(authKey);
+		System.out.println(copykey);
+		List<UserDto> userList = userService.selectAllUser();
+		for (int i = 0; i < userList.size(); i++) {	
+			
+			String uId = userList.get(i).getuId();
+			String uEmail = userList.get(i).getuEmail();
+						
+			if(uId.equals(id) && uEmail.equals(eMail)) {
+				
+				final String username = "com2181@gmail.com";
+				final String password = "Worhkd12!@";
+				
+				System.out.println(uEmail);		
+				Properties props = new Properties();
+				props.put("mail.smtp.auth", true);
+				props.put("mail.smtp.starttls.enable", true);
+				props.put("mail.smtp.host", "smtp.gmail.com");
+				props.put("mail.smtp.port", "587");
+				props.put("mail.smtp.ssl.trust", "*");
+
+				Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+					protected PasswordAuthentication getPasswordAuthentication() {
+						return new PasswordAuthentication(username, password);
+					}
+				});	
+				
+				UserDto user = userService.selectOneUser(id);
+				
+				user.setuPwd(copykey);
+				
+				userService.updateUser(user);
+						
+				try {
+
+					Message message = new MimeMessage(session);
+					message.setFrom(new InternetAddress(username));
+					message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(eMail));
+					message.setSubject("PHMS 귀하의 임시비밀번호 입니다");
+					message.setText("인증 번호"+copykey+"입니다");
+
+					Transport.send(message);
+
+				} catch (MessagingException e) {
+					throw new RuntimeException(e);
+				}
+				
+				return "임시비밀번호 전송완료";
+			
+			}else if(uId.equals(id) && (!uEmail.equals(eMail))){
+				return "등록된 이메일이 다릅니다";
+			}
+		}
+		return "실패";
 	}
 }
