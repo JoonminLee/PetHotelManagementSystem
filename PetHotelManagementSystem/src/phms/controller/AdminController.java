@@ -23,8 +23,9 @@ public class AdminController {
 	public String adminHome(Model model, LocalDate today) {
 		today = LocalDate.now();
 		
-		int result = reservationService.todayReserveCnt(today);
-		System.out.println("today:::"+result);
+		//오늘 예약한 사람
+		int todayReserveCnt = reservationService.todayReserveCnt(today);
+		model.addAttribute("todayReserveCnt", todayReserveCnt);
 		System.out.println(":::adminHome로 고고");
 		return "adminHome";
 	}

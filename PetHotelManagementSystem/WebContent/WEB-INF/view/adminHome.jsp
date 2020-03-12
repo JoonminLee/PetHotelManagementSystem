@@ -101,7 +101,7 @@
                         <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>25</strong></div>
+                    <div class="number"><strong>${todayReserveCnt }</strong></div>
                   </div>
                 </div>
                 <!-- Item -->
