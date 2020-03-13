@@ -39,12 +39,11 @@
 	<h1>사용 대기중인 예약 정보</h1><br>
 	<c:forEach var="i" items="${userReserve }">
 			<div class="card bg-light mb-3" style="max-width: 18rem;">
-				<div class="card-header">Header</div>
 				<div class="card-body">
 					<h5 class="card-title text-primary">${i.sSize }방</h5>
 					<p class="card-text">
 					예약자 : ${i.reId }<br>
-					예약자 전화번호 : ${i.rePhone }<br> 
+					예약자 전화번호 : ${i.rePhone }<br>
 					예약 방번호 : ${i.reRNum }번방<br>
 					체크인 : ${i.reCheckIn }<br>
 					체크아웃 : ${i.reCheckOut }<br>
@@ -57,28 +56,33 @@
 	<%
 		} else {
 	%>
-
-		
-	<h1>회원 정보</h1><br>
-	회원 아이디 : ${visitor.vId }<br>
-	회원 이름 : ${visitor.vName }<br>
-	회원 이메일 : ${visitor.vEmail }<br>
-	회원 경로 : ${visitor.vFrom }<br>
-	<a href="/my/myPageUpdate">회원정보 수정</a>
 	
+		<header id="header">
+			<span class="avatar"><img src="/css/mypage/images/노창옥.JPG"	alt="" /></span>
+				<h1>회원 정보</h1><br>
+				회원 아이디 : ${visitor.vId }<br>
+				회원 이름 : ${visitor.vName }<br>
+				회원 이메일 : ${visitor.vEmail }<br>
+				회원 경로 : ${visitor.vFrom }<br>
+				<a href="/my/myPageUpdate">회원정보 수정</a>
+		</header>
 	<hr>
 	
 	<h1>예약 정보</h1><br>
 	<c:forEach var="i" items="${visitorReserve }">
-	예약자 : ${i.vName }<br>
-	예약자 전화번호 : ${i.rePhone }<br>
-	예약자 방번호 : ${i.vRoom }<br>
-	예약자 방종류 : ${i.sSize }<br>
-	체크인 : ${i.reCheckIn }<br>
-	체크아웃 : ${i.reCheckOut }<br>
-	<a href="/my/myPageReserveCancle" onclick="return confirm('정말로 예약을 취소하시겠습니까? 환불관련은 고객센터로 문의해주세요');">예약취소</a>
-	
-	<hr>
+	<div class="card bg-light mb-3" style="max-width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title text-primary">${i.sSize }방</h5>
+					<p class="card-text">
+					예약자 : ${i.reId }<br>
+					예약자 전화번호 : ${i.rePhone }<br>
+					예약 방번호 : ${i.reRNum }번방<br>
+					체크인 : ${i.reCheckIn }<br>
+					체크아웃 : ${i.reCheckOut }<br>
+					</p>
+					<a href="/my/myPageReserveCancle" class="btn btn-primary" onclick="return confirm('정말로 예약을 취소하시겠습니까? 환불관련은 고객센터로 문의해주세요');">예약취소</a>
+				</div>
+			</div>
 	</c:forEach>
 	<%
 		}

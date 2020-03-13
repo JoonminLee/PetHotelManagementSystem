@@ -12,7 +12,7 @@
 		<input type="text" name="vId" value="${visitor.vId }" readonly>
 		<input type="text" name="vName" value="${visitor.vName }">
 		<input type="text" name="vEmail" value="${visitor.vEmail }" readonly>
-		<input type="date" name="uBirthStr" value="2020-01-01" readonly >
+		<input type="hidden" name="uBirthStr" value="2020-01-01">
 		<input type="submit" value="수정">
 	</form></body>
 </html>

@@ -52,13 +52,11 @@ public class MyPageController {
 		if (from == "phms") {
 			UserDto user = userService.selectOneUser(id);
 			List<ReRoomSizeDto> userReserve = reserveService.selectAllReRoomSizeDto(id);
-			System.out.println(userReserve.toString());
 			model.addAttribute("user", user);
 			model.addAttribute("userReserve", userReserve);
 		} else {
 			VisitorDto visitor = visitorService.selectOneVisitor(id);
 			List<ReRoomSizeDto> visitorReserve = reserveService.selectAllReRoomSizeDto(id);
-			System.out.println(visitorReserve.toString());
 			model.addAttribute("visitor", visitor);
 			model.addAttribute("visitorReserve", visitorReserve);
 		}
@@ -87,7 +85,6 @@ public class MyPageController {
 	@PostMapping("/myPageUpdate")
 	public String myPageUpdate(UserDto user, @RequestParam("uBirthStr") String uBirthStr, VisitorDto visitor, HttpSession session) {
 		System.out.println(":::myPageUpdate");
-		System.out.println(uBirthStr);
 		String from = (String) session.getAttribute("from");
 		if (from == "phms") {
 			user.setuBirth(LocalDate.parse(uBirthStr));
@@ -107,15 +104,11 @@ public class MyPageController {
 			ReservationDto reservationDto = reserveService.selectOneReservation(id);
 			
 			RoomDto roomDto = roomService.selectOneRoom(reservationDto.getReRNum());
-			System.out.println(roomDto.toString());
 			roomDto.setrStatus(0);
-			System.out.println(roomDto.toString());
 			roomService.updateRoom(roomDto);
 			
 			UserDto userDto = userService.selectOneUser(id);
-			System.out.println(userDto.toString());
 			userDto.setuRNum(0);
-			System.out.println(userDto.toString());
 			userService.updateUser(userDto);
 			
 			reserveService.deleteReservation(reservationDto.getReNum());
@@ -123,15 +116,11 @@ public class MyPageController {
 			ReservationDto reservationDto = reserveService.selectOneReservation(id);
 			
 			RoomDto roomDto = roomService.selectOneRoom(reservationDto.getReRNum());
-			System.out.println(roomDto.toString());
 			roomDto.setrStatus(0);
-			System.out.println(roomDto.toString());
 			roomService.updateRoom(roomDto);
 			
 			VisitorDto visitorDto = visitorService.selectOneVisitor(id);
-			System.out.println(visitorDto.toString());
 			visitorDto.setvRoom(0);
-			System.out.println(visitorDto.toString());
 			visitorService.updateVisitor(visitorDto);
 			
 			reserveService.deleteReservation(reservationDto.getReNum());
