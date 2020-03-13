@@ -1,7 +1,7 @@
 $(function(){
 	$("#roomList").ready(function() {
 		
-		//roomSelect메소드	
+		// roomSelect메소드
 		$.ajax({
 			url : "room/selectAllRoom",
 			dataType : "json",
@@ -28,5 +28,25 @@ $(function(){
 		
 		})
 		
+	});
+	
+		$("#fileUploadBtn").on("click", function() {
+		var files = $("input[name='filezData']")[0].files;
+		var formData = new FormData();
+		for (var i = 0; i < files.length; i++) {
+			formData.append("filezData", files[i]);
+		}
+		$.ajax({
+			url : "/adminHome",
+			processData : false,
+			contentType : false,
+			data : formData,
+			type : "post",
+			dataType : "text",
+			success : function(result) {
+				alert("업로드 성공");
+				location.href="/adminHome";
+			}
+		});
 	});
 });

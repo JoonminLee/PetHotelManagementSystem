@@ -66,7 +66,7 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="view/admin/img/노창옥.JPG" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img id="profilePicture" src="${empPhoto }" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4">노창옥</h1>
               <p>관리부</p>
@@ -192,6 +192,11 @@
           <footer class="main-footer">
             <div class="container-fluid col-sm-6">
               <p>Pet Hotel &copy; Admin</p>
+               <!-- 사진 업로드 시험중 -->
+            <div>
+				<input type="file" name="filezData" multiple>
+			</div>
+			<button id="fileUploadBtn">Upload</button>
             </div>
           </footer>
         </div>

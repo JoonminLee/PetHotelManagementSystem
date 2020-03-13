@@ -13,6 +13,12 @@
 			
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		
+		<multipart-config>
+			<location>C:\Users\jay\git\PetHotelManagementSystem\PetHotelManagementSystem\WebContent\WEB-INF\images</location>
+			<max-file-size>10000000</max-file-size>
+			<max-request-size>40000000</max-request-size>
+		</multipart-config>
 	</servlet>
 
 	<!-- Map all requests to the DispatcherServlet for handling -->
