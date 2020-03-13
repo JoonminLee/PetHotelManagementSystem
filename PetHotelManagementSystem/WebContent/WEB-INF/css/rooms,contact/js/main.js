@@ -51,7 +51,7 @@
 
 	// loader
 	var loader = function() {
-		setTimeout(function() { 
+		setTimeout(function() {
 			if($('#ftco-loader').length > 0) {
 				$('#ftco-loader').removeClass('show');
 			}
@@ -168,19 +168,19 @@
 
 			if (st > 150) {
 				if ( !navbar.hasClass('scrolled') ) {
-					navbar.addClass('scrolled');	
+					navbar.addClass('scrolled');
 				}
-			} 
+			}
 			if (st < 150) {
 				if ( navbar.hasClass('scrolled') ) {
 					navbar.removeClass('scrolled sleep');
 				}
-			} 
+			}
 			if ( st > 350 ) {
 				if ( !navbar.hasClass('awake') ) {
-					navbar.addClass('awake');	
+					navbar.addClass('awake');
 				}
-				
+
 				if(sd.length > 0) {
 					sd.addClass('sleep');
 				}
@@ -219,9 +219,9 @@
 		}
 	};
 
-	
+
 	var counter = function() {
-		
+
 		$('#section-counter').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
@@ -238,7 +238,7 @@
 					  }, 7000
 					);
 				});
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -251,7 +251,7 @@
 		$('.ftco-animate').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
-				
+
 				i++;
 
 				$(this.element).addClass('item-animate');
@@ -273,9 +273,9 @@
 							el.removeClass('item-animate');
 						},  k * 50, 'easeInOutExpo' );
 					});
-					
+
 				}, 100);
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -340,41 +340,38 @@
   });
 
 
-  $('.checkin_date, .checkout_date').datepicker({
-	  'format': 'yyyy-mm-dd',
-	  'autoclose': true
-	});
-  $('#checkin_date').datepicker({
-	    format: "yyyy-mm-dd",
-	    language: "kr",
-	    autoclose: true,
-	    todayHighlight: true,
-	    constrainInput: false
-	}).datepicker(
-	        "setDate", new Date(new Date())
-	).on("changeDate", function (e) {
-	    if($('#checkin_date').val() >= $('#checkout_date').val()){
-	        alert("출발일 보다 이전 날짜를 선택해 주세요");
-	        $('#checkin_date').datepicker("setDate", today);
-	    }
-	});
 
-	$('#checkout_date').datepicker({
-	    format: "yyyy-mm-dd",
-	    language: "kr",
-	    autoclose: true,
-	    todayHighlight: true,
-	    constrainInput: false
-	}).datepicker(
-	        "setDate", new Date(new Date())
-	).on("changeDate", function (e) {
-	    if($('#checkin_date').val() >= $('#checkout_date').val()){
-	        alert("도착일 보다 나중 날짜를 선택해 주세요");
-	        $('#checkin_date').datepicker("setDate", today);
-	    }
-	});
+
+  $('#checkin_date').datepicker({
+    format: "yyyy-mm-dd",
+    language: "kr",
+    autoclose: true,
+    todayHighlight: true,
+    constrainInput: false
+}).datepicker(
+        "setDate", new Date(new Date())
+).on("changeDate", function (e) {
+    if($('#checkin_date').val() >= $('#checkout_date').val()){
+        alert("퇴실날짜 보다 이전 날짜를 선택해 주세요");
+        $('#checkin_date').datepicker("setDate", today);
+    }
+});
+
+$('#checkout_date').datepicker({
+    format: "yyyy-mm-dd",
+    language: "kr",
+    autoclose: true,
+    todayHighlight: true,
+    constrainInput: false
+}).datepicker(
+        "setDate", new Date(new Date(+1))
+).on("changeDate", function (e) {
+    if($('#checkin_date').val() >= $('#checkout_date').val()){
+        alert("입실날짜 보다 나중 날짜를 선택해 주세요");
+        $('#checkin_date').datepicker("setDate", today);
+    }
+});
 
 
 
 })(jQuery);
-

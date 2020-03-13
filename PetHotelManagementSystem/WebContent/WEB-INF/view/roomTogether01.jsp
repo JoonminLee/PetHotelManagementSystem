@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="/css/rooms,contact/css/magnific-popup.css">
 <link rel="stylesheet" href="/css/rooms,contact/css/aos.css">
 <link rel="stylesheet" href="/css/rooms,contact/css/ionicons.min.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="/css/rooms,contact/css/jquery.timepicker.css">
 <link rel="stylesheet" href="/css/rooms,contact/css/flaticon.css">
 <link rel="stylesheet" href="/css/rooms,contact/css/icomoon.css">
 <link rel="stylesheet" href="/css/rooms,contact/css/style.css">
@@ -140,7 +142,7 @@
 		                <input type="text" name="reCheckInStr" id="checkin_date" class="form-control checkin_date" placeholder="Check In Date">
 		              </div>
 		              <div class="form-group">
-		                <input type="text" name="reCheckOutStr" id="checkin_date" class="form-control checkout_date" placeholder="Check Out Date">
+		                <input type="text" name="reCheckOutStr" id="checkout_date" class="form-control checkout_date" placeholder="Check Out Date">
 		              </div>
 		              <div class="form-group">
 		                <div class="select-wrap one-third">
