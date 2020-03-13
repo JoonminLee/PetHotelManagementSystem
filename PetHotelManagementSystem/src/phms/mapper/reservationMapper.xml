@@ -36,6 +36,12 @@
 		select * from
 		reservation
 	</select>
+	
+	<select id="selectReservationByRoomSize" resultType="reservation">
+		select * from
+		reservation
+		where re_s_num = #{reSNum}
+	</select>
 	<insert id="insertReservation">
 		insert into reservation (re_num, re_id, re_phone,
 		re_s_num, re_r_num, re_check_in, re_check_out, re_day) values(0, #{reId},

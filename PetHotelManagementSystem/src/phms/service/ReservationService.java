@@ -29,6 +29,9 @@ public class ReservationService {
 		return reservationMapper.selectByReRNum(reRNum);
 	}
 	
+	public List<ReservationDto> selectReservationByRoomSize(int reSNum){
+		return reservationMapper.selectReservationByRoomSize(reSNum);
+	}
 	
 	//오늘날짜 카운
 	public int todayReserveCnt(LocalDate today) {

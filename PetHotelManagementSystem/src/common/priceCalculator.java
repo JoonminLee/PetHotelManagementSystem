@@ -75,4 +75,34 @@ public class priceCalculator {
 		return totalPriceList;
 	}
 
+	//체크인~체크아웃 사이의 날짜 값을 불러오는 메소드.
+	public static ArrayList<String> checkIOBetweenSelectDate(String checkInDate, String checkOutDate) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar cal = Calendar.getInstance();
+		ArrayList<String> checkList = new ArrayList<String>();
+
+		// 종료날짜 : -1 해주어야 마지막날은 계산하지 않는다
+		String[] endDate = checkOutDate.split("-");
+		cal.set(Integer.parseInt(endDate[0]), Integer.parseInt(endDate[1]) - 1, Integer.parseInt(endDate[2]));
+		cal.add(Calendar.DATE, -1);
+		checkOutDate = dateFormat.format(cal.getTime());
+
+		// 시작날짜
+		String[] startDate = checkInDate.split("-");	
+		cal.set(Integer.parseInt(startDate[0]), Integer.parseInt(startDate[1]) - 1, Integer.parseInt(startDate[2]));
+		
+		//1박2일
+		if(checkOutDate.equals(checkInDate)) {
+			checkList.add(checkInDate);
+		}
+		// 체크인 날짜와 체크아웃 날짜가 같지 않다면 그 사이의 날짜들의 요일과 일수를 구한다
+		while (!checkInDate.equals(checkOutDate)) {
+			checkInDate = dateFormat.format(cal.getTime());
+			checkList.add(checkInDate);
+			//날짜를 1씩 증가
+			cal.add(Calendar.DATE, 1);
+		}
+		
+		return checkList;
+	}
 }

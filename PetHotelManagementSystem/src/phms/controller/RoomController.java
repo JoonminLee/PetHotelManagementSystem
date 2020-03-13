@@ -1,6 +1,11 @@
 package phms.controller;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import common.priceCalculator;
+import phms.dto.ReservationDto;
 import phms.dto.RoomDto;
 import phms.dto.RoomSizeDto;
+import phms.service.ReservationService;
 import phms.service.RoomService;
  
 @Controller
@@ -21,6 +29,12 @@ public class RoomController {
 	
 	@Autowired
 	RoomService roomService;
+	
+	@Autowired
+	ReservationService reservationService;
+	
+	@Autowired
+	priceCalculator checkIO;
 	
 	//selectOneRoom
 	@RequestMapping("/selectOneRoom")
@@ -55,8 +69,66 @@ public class RoomController {
 	}
 	
 	//roomTogether
-	@RequestMapping("/roomTogether01")
-	public String roomTogether01() {
+	@GetMapping("/roomTogether01")
+	public String roomTogether01(HttpSession session, @RequestParam("reSNum") int reSNum, Model model) {
+		
+		//session에서 checkIO값과 size값을 가져온다.
+		String checkIn = (String)session.getAttribute("reCheckIn");
+		String checkOut =(String)session.getAttribute("reCheckOut");
+		
+		//체크인~체크아웃 날짜를 불러온다.
+		ArrayList<String> checkIODate = checkIO.checkIOBetweenSelectDate(checkIn, checkOut);
+		
+		//size(아담)기준으로 예약리스트를 불러온다.
+		List<ReservationDto> reSNumList = reservationService.selectReservationByRoomSize(reSNum);
+		
+		//아담방 체크인-체크아웃 날짜를 담았던 리스트를 담는 전체리스트를 만듬.
+		ArrayList<String> allDate = new ArrayList<String>();
+		
+		//reSNumList 사이즈만큼 반복한다.
+		for(int i=0; i<reSNumList.size(); i++) {
+			
+			
+			//예약리스트의 체크인날짜와 체크아웃 날짜를 가져온다.
+			String reCheckIn = reSNumList.get(i).getReCheckIn().toString();	
+			String reCheckOut = reSNumList.get(i).getReCheckOut().toString();
+			
+			//아담방으로 예약한 예약리스트에서 체크인-체크아웃 사이 날짜를 불러와 arraylist에 담음.
+			ArrayList<String> reCheckIODate = checkIO.checkIOBetweenSelectDate(reCheckIn, reCheckOut);
+			
+			System.out.println("reCheckIODate:::"+reCheckIODate);
+			
+			//체크인-쳌아웃으로 불러온리스트를 전체리스트에 담음.
+			allDate.addAll(reCheckIODate);
+		}
+		
+		//중복값 제거한 후 리스트에 담기
+		List allDateSet = new ArrayList(new HashSet(allDate));
+		
+		//중복이 3번된 값을 찾아서 list 담기
+		ArrayList<String> resultList = new ArrayList<String>();
+		//중복값을 제거하지 않은 리스트와 비교
+		for(int i=0; i<allDateSet.size(); i++) {
+			int result = 0;
+			
+			for(int j=0; j<allDate.size(); j++) {
+				
+				//만약 중복을 제거한 후 list의 값과 제거하지 않은 인덱스 값이 같을 경우
+				if(allDateSet.get(i).equals(allDate.get(j))) {
+					result += 1;
+				}
+				
+			}
+			
+			//중복이 3번 되었을 경우 list에 담기
+			if(result==3) {
+				resultList.add((String) allDateSet.get(i));
+			}
+			
+		}
+		System.out.println("중복된 날짜:::"+resultList);
+		model.addAttribute("resultList",resultList);
+		
 		System.out.println(":::roomTogether01");
 		return "roomTogether01";
 	}

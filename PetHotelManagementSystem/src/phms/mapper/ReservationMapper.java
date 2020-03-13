@@ -13,6 +13,8 @@ public interface ReservationMapper {
 	
 	public List<ReservationDto> selectCheckOutReservation(LocalDate reDate);
 	
+	public List<ReservationDto> selectReservationByRoomSize(int reSNum);
+	
 	public int todayReserveCnt(LocalDate today);
 	
 	public ReservationDto selectOneReservation(String reId);
