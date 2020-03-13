@@ -2,6 +2,7 @@ package common;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,12 @@ public class priceCalculator {
 	@Autowired
 	SizeService sizeService;
 
-	public String getTotalPrice(String checkInDate, String checkOutDate, String rSNum) {
+	public ArrayList<Object> getTotalPrice(String checkInDate, String checkOutDate, String rSNum) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar cal = Calendar.getInstance();
 		SizeDto sizeDto = sizeService.selectOneSize(Integer.parseInt(rSNum));
         DecimalFormat df = new DecimalFormat("#,##0");
+        ArrayList<Object> totalPriceList = new ArrayList<Object>();
         int regularPrice = sizeDto.getsRPrice();
 		int holidayPrice = sizeDto.getsWPrice();
 		int totalRegularDay = 0;
@@ -68,10 +70,10 @@ public class priceCalculator {
 		regularPrice *= totalRegularDay;
 		holidayPrice *= totalHoliday;
 		totalPrice = regularPrice + holidayPrice;
-
+		totalPriceList.add(totalPrice);
+		totalPriceList.add(df.format(totalPrice));		
 		
-		
-		return df.format(totalPrice);
+		return totalPriceList;
 	}
 
 }

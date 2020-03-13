@@ -1,6 +1,7 @@
 package phms.controller;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -86,7 +87,7 @@ public class ReservationController {
 		}
 		SizeDto sizeDto = sizeService.selectOneSize(Integer.parseInt(rSNum));
 
-		String totalPrice = priceCalc.getTotalPrice(reCheckInStr, reCheckOutStr, rSNum);
+		ArrayList<Object> totalPriceList = priceCalc.getTotalPrice(reCheckInStr, reCheckOutStr, rSNum);
 		
 		model.addAttribute("rSNum", rSNum);
 		model.addAttribute("rSNumStr", sizeDto.getsSize());
@@ -94,8 +95,9 @@ public class ReservationController {
 		model.addAttribute("numberOfPet", numberOfPet);
 		model.addAttribute("reCheckInStr", reCheckInStr);
 		model.addAttribute("reCheckOutStr", reCheckOutStr);
-		model.addAttribute("totalPrice", totalPrice);
-		
+		model.addAttribute("totalPrice", totalPriceList.get(0));
+		model.addAttribute("totalPriceforShow", totalPriceList.get(1));
+
 		return "reservationResult";
 	}
 

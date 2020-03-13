@@ -225,7 +225,10 @@ $(function(){
 													</tr>
 													<tr class="space-row">
 														<th>Total :</th>
-														<td><input type="text"  name="totalPrice" value="${totalPrice }" style= "text-align:right;" readonly> KRW</td>
+														<td>
+														<input type="text"  name="totalPriceforShow" value="${totalPriceforShow }" style= "text-align:right;" readonly> KRW
+														<input type="hidden"  name="totalPrice" value="${totalPrice }">
+														</td>
 													</tr>
 												</tbody>
 											</table>
