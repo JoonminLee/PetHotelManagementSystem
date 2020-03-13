@@ -6,6 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- 메인페이지에서 체크인 체크아웃 값을 불러와 세션에 저장.  -->
+<% 
+request.setCharacterEncoding("utf-8");
+
+String reCheckIn = request.getParameter("reCheckIn");
+String reCheckOut = request.getParameter("reCheckOut");
+
+session.setAttribute("reCheckIn", reCheckIn);
+session.setAttribute("reCheckOut", reCheckOut);
+
+%>
 <style>
 p {	margin: 20px 0px;}
 </style>
