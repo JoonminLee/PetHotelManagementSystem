@@ -45,7 +45,7 @@ public class priceCalculator {
 		if (checkInDate.equals(checkOutDate)) {
 			dayOfweek = cal.get(Calendar.DAY_OF_WEEK);
 
-			if (dayOfweek == 1 || dayOfweek == 6 || dayOfweek == 7) {
+			if (dayOfweek == 6 || dayOfweek == 7) {
 				totalHoliday++;
 			} else {
 				totalRegularDay++;
@@ -57,7 +57,7 @@ public class priceCalculator {
 			checkInDate = dateFormat.format(cal.getTime());
 			dayOfweek = cal.get(Calendar.DAY_OF_WEEK);
 
-			if (dayOfweek == 1 || dayOfweek == 6 || dayOfweek == 7) {
+			if (dayOfweek == 6 || dayOfweek == 7) {
 				totalHoliday++;
 			} else {
 				totalRegularDay++;
@@ -65,7 +65,6 @@ public class priceCalculator {
 
 			cal.add(Calendar.DATE, 1);
 		}
-
 
 		regularPrice *= totalRegularDay;
 		holidayPrice *= totalHoliday;
