@@ -58,6 +58,7 @@
 				return false;
 			}else {
 				alert("인증코드 발송 완료");
+				 $("input[name='uEmail']").prop('readonly', true);
 				return false;
 			}
 		},			
@@ -77,6 +78,7 @@
 			success : function(result){
 				if(result == "실패"){
 					alert("인증코드를 확인해주세요!");	
+					$("input[name='uEmail']").prop('readonly', false);
 					return false;
 				}else {
 					alert("이메일 확인 완료");
@@ -143,7 +145,14 @@
 	});
 		    //아이디 중복
 	 		$("#uIdCheck").click(function(){
-	 			$.idCheck();
+	 			var uId = $("input[name='uId']").val();
+	 			if(uId.length < 6 || uId.length >= 15){
+	 				alert("아이디는 6글자 이상 15글자 미만으로 적어주세요");
+	 		        $("input[name='uId']").focus();
+	 		        return false;
+	 		    }else if(uId.length >= 6){
+	 				$.idCheck();	 	     	  	
+	 		    }		    	 
 	 			idCheckNum = 1;
 	 		});
 		//이메일	
