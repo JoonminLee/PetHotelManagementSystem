@@ -38,15 +38,17 @@ input{
 <script type="text/javascript">
 $(function(){
 	$("#pay").click(function(){
+		var uPhone = $("input[name='uPhone']").val();
 		var uPhone1 = $("input[name='uPhone1']").val();
 		var uPhone2 = $("input[name='uPhone2']").val();
-		var rSNumStr = $("input[name='rSNumStr']").val();
+		var rSNumStr = $("input[name='rSNumStr']").val();		
 		var price = parseInt($("input[name='totalPrice']").val());
 		console.log(rSNumStr);
 		console.log(price);
-		if(uPhone1 == null || uPhone2 == null){
+		if(uPhone1 == "" || uPhone2 == ""){
 			alert("전화번호를 입력해주세요");
-		}else{
+		}
+		if(uPhone1 != "" && uPhone2 != ""){
 			var IMP = window.IMP; // 생략가능
 			IMP.init('imp16403775');
 			// 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
@@ -82,13 +84,9 @@ $(function(){
 			*/
 			name: rSNumStr+"",
 			//결제창에서 보여질 이름
-			amount: 1000,
+			amount: price,
 			//가격
-			buyer_email: 'iamport@siot.do',
-			buyer_name: '구매자이름',
-			buyer_tel: '010-1234-5678',
-			buyer_addr: '서울특별시 강남구 삼성동',
-			buyer_postcode: '123-456',
+			buyer_tel: uPhone+uPhone1+uPhone2,
 			m_redirect_url: 'https://www.yourdomain.com/payments/complete'
 			/*
 			모바일 결제시,
@@ -98,16 +96,14 @@ $(function(){
 			}, function (rsp) {
 				console.log(rsp);
 				if (rsp.success) {
-					var msg = '결제가 완료되었습니다.';
-					msg += '고유ID : ' + rsp.imp_uid;
-					msg += '상점 거래ID : ' + rsp.merchant_uid;
-					msg += '결제 금액 : ' + rsp.paid_amount;
-					msg += '카드 승인번호 : ' + rsp.apply_num;
+					var msg = '결제가 완료되었습니다.';		
+					alert(msg);
+					location.href="/my/myPage01";
 				} else {
 					var msg = '결제에 실패하였습니다.';
 					msg += '에러내용 : ' + rsp.error_msg;
-				}
-				alert(msg);
+					alert(msg);
+				}				
 			});			
 		}		
 	})	
@@ -180,15 +176,15 @@ $(function(){
 											<table class="table">
 												<tbody>
 													<tr class="space-row">
-														<th>Check-In-Date :</th>
+														<th>Check-In :</th>
 														<td><input type="date" name="reCheckInStr" value="${reCheckInStr }" readonly></td>
 													</tr>
 													<tr class="space-row">
-														<th>Check-Out-Date :</th>
+														<th>Check-Out :</th>
 														<td><input type="date" name="reCheckOutStr" value="${reCheckOutStr }" readonly></td>
 													</tr>
 													<tr class="space-row">
-														<th>Room Type:</th>
+														<th>Room Type :</th>
 														<td>
 														<input type="hidden" name="reSNum" value="${rSNum }"> 
 														<input type="text" name="rSNumStr" value="${rSNumStr }" readonly>

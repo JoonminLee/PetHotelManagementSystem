@@ -62,7 +62,7 @@
 					</div>
 
 					<div class="text-right p-t-8 p-b-31">
-						<a href="/idpwd/search">id 또는 비밀번호를 잊으셨나요? </a>
+						<a href="/idpwd/search">ID 또는 비밀번호를 잊으셨나요? </a>
 					</div>
 
 					<div class="container-login100-form-btn">
