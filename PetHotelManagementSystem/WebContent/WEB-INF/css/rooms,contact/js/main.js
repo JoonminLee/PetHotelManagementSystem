@@ -342,7 +342,7 @@
 
 
 
-  $('#checkin_date').datepicker({
+$('#checkin_date').datepicker({
     format: "yyyy-mm-dd",
     language: "kr",
     autoclose: true,
@@ -372,6 +372,30 @@ $('#checkout_date').datepicker({
     }
 });
 
+//특정날짜 설정
+$.ajax({
+  url :"roomTogether01",
+  dataType : "json",
+  type : "post",
+  
+  success :function(result){ 
+  var disabledDays = ["2020-3-25","2020-3-31"];
+  }
+})
+
+//var disabledDays = ["2020-3-20","2020-3-31"];  
+//특정일 선택 막기
+//function disableAllTheseDays(date){
+//	var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+//	console.log("disabledDays:::",disabledDays);
+//
+//	for(var i = 0; i<disabledDays.length; i++){
+//		if($.inArray(y + '-' +(m+1) + '-' + d,disabledDays) != -1){
+//			return false;
+//		}
+//	}
+//	return true;
+//}
 
 
 })(jQuery);

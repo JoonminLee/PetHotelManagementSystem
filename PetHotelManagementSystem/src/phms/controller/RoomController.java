@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -70,12 +71,21 @@ public class RoomController {
 	
 	//roomTogether
 	@GetMapping("/roomTogether01")
-	public String roomTogether01(HttpSession session, @RequestParam("reSNum") int reSNum, Model model) {
+	public String roomTogether01() {
 		
+		System.out.println(":::roomTogether01");
+		return "roomTogether01";
+	}
+	
+	//roomTogether
+	@PostMapping("/roomTogether01")
+	public @ResponseBody ArrayList<String> roomTogether01(HttpSession session) {
+		//아담은 reSNum=1이다.
+		int reSNum = 1;
 		//session에서 checkIO값과 size값을 가져온다.
 		String checkIn = (String)session.getAttribute("reCheckIn");
 		String checkOut =(String)session.getAttribute("reCheckOut");
-		
+		 
 		//체크인~체크아웃 날짜를 불러온다.
 		ArrayList<String> checkIODate = checkIO.checkIOBetweenSelectDate(checkIn, checkOut);
 		
@@ -119,7 +129,6 @@ public class RoomController {
 				}
 				
 			}
-			
 			//중복이 3번 되었을 경우 list에 담기
 			if(result==3) {
 				resultList.add((String) allDateSet.get(i));
@@ -127,10 +136,8 @@ public class RoomController {
 			
 		}
 		System.out.println("중복된 날짜:::"+resultList);
-		model.addAttribute("resultList",resultList);
 		
-		System.out.println(":::roomTogether01");
-		return "roomTogether01";
+		return resultList;
 	}
 	
 	//roomWithoutPet

@@ -87,13 +87,13 @@ p {	margin: 20px 0px;}
 					<div class="row">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether01?reSNum=1" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
+		    					<a href="/room/roomTogether01" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="/room/roomTogether01?reSNum=1">아담</a></h3>
+		    						<h3 class="mb-3"><a href="/room/roomTogether01">아담</a></h3>
 		    						<p><span class="price mr-2">$120.00</span> <span class="per">per night</span></p>
 		    						<ul class="list">
 		    							<li><span>Max:</span> 3 Persons</li>
@@ -102,7 +102,7 @@ p {	margin: 20px 0px;}
 		    							<li><span>Bed:</span> 1</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="/room/roomTogether01?reSNum=1" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether01" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>
