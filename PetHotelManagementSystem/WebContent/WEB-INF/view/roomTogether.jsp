@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <!-- StyleSheet -->
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 <link rel="stylesheet" href="/css/rooms,contact/css/open-iconic-bootstrap.min.css">
@@ -18,6 +19,9 @@
 <link rel="stylesheet" href="/css/rooms,contact/css/flaticon.css">
 <link rel="stylesheet" href="/css/rooms,contact/css/icomoon.css">
 <link rel="stylesheet" href="/css/rooms,contact/css/style.css">
+
+<!-- JqueryCDN -->
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>PHMS : 룸 상세정보</title>
 </head>
 <body>
@@ -224,6 +228,86 @@
     </section> <!-- .section -->
 
 </body>
+<script type="text/javascript">
+$(function(){
+	$("#RoomType option[value='${size.sNum}'").attr("selected", true);
+	
+	  var disabledDays = new Array();
+	  var reSNum=$("#RoomType option:selected").val();
+	  
+	  $.ajax({
+		  url :"roomTogether",
+		  data : {"reSNum" : reSNum},
+		  dataType : "json",
+		  type : "post",
+		  
+		  success :function(result){
+			  for(var i=0; i<result.length; i++){
+				  disabledDays[i] = result[i];
+			  }
+			  console.log("disabledDays:::",disabledDays);
+			  
+			//특정일 선택 막기
+			function disableAllTheseDays(date){
+				var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+				
+				if(m+1<10){
+					m = "0"+(m+1);
+					if(d<10){
+						d ="0"+d;
+					}
+				}else if(d<10){
+					d = "0"+d;
+				}
+			
+				for(var i = 0; i<disabledDays.length; i++){
+					
+					if($.inArray(y + '-' +m + '-' + d,disabledDays) != -1){
+					
+						return false;
+					}
+				}
+				return true;
+			}
+			
+			$('#checkin_date').datepicker({
+			    format: "yyyy-mm-dd",
+			    language: "kr",
+			    autoclose: true,
+			    todayHighlight: true,
+			    constrainInput: false,
+			    beforeShowDay : disableAllTheseDays
+			}).datepicker(
+			        "setDate", new Date(new Date())
+			).on("changeDate", function (e) {
+			    if($('#checkin_date').val() >= $('#checkout_date').val()){
+			        alert("퇴실날짜 보다 이전 날짜를 선택해 주세요");
+			        $('#checkin_date').datepicker("setDate", today);
+			    }
+			});
+			
+			$('#checkout_date').datepicker({
+			    format: "yyyy-mm-dd",
+			    language: "kr",
+			    autoclose: true,
+			    todayHighlight: true,
+			    constrainInput: false,
+			    beforeShowDay : disableAllTheseDays
+			}).datepicker(
+			        "setDate", new Date(new Date(+1))
+			).on("changeDate", function (e) {
+			    if($('#checkin_date').val() >= $('#checkout_date').val()){
+			        alert("입실날짜 보다 나중 날짜를 선택해 주세요");
+			        $('#checkin_date').datepicker("setDate", today);
+			    }
+			});
+			
+		  }
+	  });
+
+});
+</script>
+
 <!-- Javascript -->
 <script src="/css/rooms,contact/js/jquery.min.js"></script>
 <script src="/css/rooms,contact/js/jquery-migrate-3.0.1.min.js"></script>
@@ -239,10 +323,5 @@
 <script src="/css/rooms,contact/js/bootstrap-datepicker.js"></script>
 <script src="/css/rooms,contact/js/scrollax.min.js"></script>
 <script src="/css/rooms,contact/js/main.js"></script>
-<script type="text/javascript">
-$(function(){
-	$("#RoomType option[value='${size.sNum}'").attr("selected", true);
-});
-</script>
 
 </html>

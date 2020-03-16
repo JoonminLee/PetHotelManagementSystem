@@ -21,7 +21,7 @@ session.setAttribute("reCheckOut", reCheckOut);
 <style>
 p {	margin: 20px 0px;}
 </style>
-<title>PHMS : 룸 정보</title>
+<title>PHMS : 룸 리스트</title>
 <!-- StyleSheet -->
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 <link rel="stylesheet" href="/css/rooms,contact/css/open-iconic-bootstrap.min.css">
@@ -161,13 +161,13 @@ p {	margin: 20px 0px;}
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=2"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-2.jpg);">
+		    					<a href="/room/roomTogether?reSNum=2" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-2.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=2"="rooms-single.html">${listSize[1].sSize }</a></h3>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=2">${listSize[1].sSize }</a></h3>
 		    						<p><span class="price mr-2">${listSize[1].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[1].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
@@ -177,19 +177,19 @@ p {	margin: 20px 0px;}
 		    							<li><span>Bed:</span> 1 Double 1 Single</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=2"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=2" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=3"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-3.jpg);">
+		    					<a href="/room/roomTogether?reSNum=3" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-3.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=3"="rooms-single.html">${listSize[2].sSize }</a></h3>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=3">${listSize[2].sSize }</a></h3>
 		    						<p><span class="price mr-2">${listSize[2].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[2].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
@@ -199,7 +199,7 @@ p {	margin: 20px 0px;}
 		    							<li><span>Bed:</span> 2 Double</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=3"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=3" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>		
@@ -209,13 +209,13 @@ p {	margin: 20px 0px;}
 							<div class="row">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=4"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-4.jpg);">
+		    					<a href="/room/roomTogether?reSNum=4" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-4.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=4"="rooms-single.html">${listSize[3].sSize }</a></h3>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=4">${listSize[3].sSize }</a></h3>
 		    						<p><span class="price mr-2">${listSize[3].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[3].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
@@ -225,19 +225,19 @@ p {	margin: 20px 0px;}
 		    							<li><span>Bed:</span> 1 Double</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=4"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=4" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=5"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-5.jpg);">
+		    					<a href="/room/roomTogether?reSNum=5" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-5.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=5"="rooms-single.html">${listSize[4].sSize }</a></h3>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=5">${listSize[4].sSize }</a></h3>
 		    						<p><span class="price mr-2">${listSize[4].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[4].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
@@ -247,19 +247,19 @@ p {	margin: 20px 0px;}
 		    							<li><span>Bed:</span> 1 Double 1 Single</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=5"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=5" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=6"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-6.jpg);">
+		    					<a href="/room/roomTogether?reSNum=6" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-6.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=6"="rooms-single.html">${listSize[5].sSize }</a></h3>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=6">${listSize[5].sSize }</a></h3>
 		    						<p><span class="price mr-2">${listSize[5].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[5].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
@@ -269,7 +269,7 @@ p {	margin: 20px 0px;}
 		    							<li><span>Bed:</span> 2 Double</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=6"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=6" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>		
@@ -279,13 +279,13 @@ p {	margin: 20px 0px;}
 						<div class="row">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=7"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
+		    					<a href="/room/roomTogether?reSNum=7" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=7"="rooms-single.html">${listSize[6].sSize }견</a></h3>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=7">${listSize[6].sSize }</a></h3>
 		    						<p><span class="price mr-2">${listSize[6].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[6].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
@@ -296,19 +296,19 @@ p {	margin: 20px 0px;}
 		    							<li><span>Bath:</span> 2500</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=7"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=7" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=8"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-2.jpg);">
+		    					<a href="/room/roomTogether?reSNum=8" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-2.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=8"="rooms-single.html">${listSize[7].sSize }견</a></h3>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=8">${listSize[7].sSize }</a></h3>
 		    						<p><span class="price mr-2">${listSize[7].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[7].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
@@ -319,19 +319,19 @@ p {	margin: 20px 0px;}
 		    							<li><span>Bath:</span> 3000</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=8"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=8" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=9"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-3.jpg);">
+		    					<a href="/room/roomTogether?reSNum=9" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-3.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=9"="rooms-single.html">${listSize[8].sSize }견</a></h3>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=9">${listSize[8].sSize }</a></h3>
 		    						<p><span class="price mr-2">${listSize[8].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[8].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
@@ -342,7 +342,7 @@ p {	margin: 20px 0px;}
 		    							<li><span>Bath:</span> 5000</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=9"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=9" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>		
