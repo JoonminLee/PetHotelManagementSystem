@@ -33,7 +33,7 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	      	
 	        <ul class="navbar-nav ml-auto">
-	        <%
+	        	<%
 					String vFrom = "";
 					if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
 						vFrom = (String) session.getAttribute("from");
@@ -172,7 +172,12 @@
         </div>
       </div>
      </section>
-      
+
+	<!-- Footer -->
+	<footer id="footer">
+		<span class="copyright">&copy; 2020 PHMS. All Rights Reserved.
+		</span>
+	</footer>
 
 </body>
 <!-- JS, Bootstrap, 라이브러리 -->

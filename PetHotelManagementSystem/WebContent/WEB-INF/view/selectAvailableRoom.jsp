@@ -21,7 +21,7 @@ session.setAttribute("reCheckOut", reCheckOut);
 <style>
 p {	margin: 20px 0px;}
 </style>
-<title>selectAllAvailable</title>
+<title>PHMS : 룸 정보</title>
 <!-- StyleSheet -->
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 <link rel="stylesheet" href="/css/rooms,contact/css/open-iconic-bootstrap.min.css">
@@ -50,11 +50,63 @@ p {	margin: 20px 0px;}
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="/main/mainPage" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="/room/selectAvailableRoom" class="nav-link">Rooms</a></li>
-	          <li class="nav-item"><a href="/main/servicePage" class="nav-link">Service</a></li>
-	          <li class="nav-item"><a href="/my/myPage" class="nav-link">My page</a></li>
-	          <li class="nav-item active"><a href="/main/contactPage" class="nav-link">고객센터</a></li>
+				<%
+					String vFrom = "";
+					if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
+						vFrom = (String) session.getAttribute("from");
+				%><li class="nav-item" ><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
+				<%
+					switch (vFrom) {
+						case "kakao":
+				%>
+				<li class="nav-item" id="set_7_text"><a class="nav-link" href="/sess/sessionLogout" onclick="kakaoOut()">LogOut</a></li>
+				<%
+					break;
+						case "google":
+				%>
+				<li class="nav-item" ><a class="nav-link" href="/sess/sessionLogout" onclick="googleOut()">LogOut</a></li>
+				<%
+					break;
+						case "naver":
+				%>
+				<li class="nav-item" ><a class="nav-link" href="/sess/sessionLogout">LogOut</a></li>
+				<%
+					break;
+						case "phms":
+				%>
+				<li class="nav-item" ><a class="nav-link" href="/sess/sessionLogout">LogOut</a></li>
+				<%
+					break;
+								}//switch end
+					} else {
+				%>
+				<li class="nav-item" id="set_7_text"><a class="nav-link" href="/user/loginUser">LogIn</a></li>
+				<%
+					}//if end
+				%>
+				
+				<%
+				if (session.getAttribute("id") == null && session.getAttribute("from") == null) { 
+				%>
+		        <li class="nav-item" id="set_7_text"><a class="nav-link" href="/user/insertUser">Register</a></li>
+		      	<%
+		      		}//if end
+		      	%>
+		      	
+		      	<li class="nav-item active"><a href="/room/selectAvailableRoom" class="nav-link">Rooms</a></li>
+		      	
+		        <li class="nav-item" id="set_7_text"><a class="nav-link" href="/main/servicePage">Service</a></li>
+		      	
+		      	<% 
+		      	
+		      	if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
+		      	%>
+		        <li class="nav-item" id="set_7_text"><a class="nav-link" href="/my/myPage01">MyPage</a>
+		    	<%
+		    		}//if end
+		    	%>
+		    	
+		       <li class="nav-item" id="set_7_text"><a class="nav-link"  href="/main/contactPage">Contact</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -87,13 +139,13 @@ p {	margin: 20px 0px;}
 					<div class="row">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether01" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
+		    					<a href="/room/roomTogether01?reSNum=1" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="/room/roomTogether01">아담</a></h3>
+		    						<h3 class="mb-3"><a href="/room/roomTogether01?reSNum=1">아담</a></h3>
 		    						<p><span class="price mr-2">$120.00</span> <span class="per">per night</span></p>
 		    						<ul class="list">
 		    							<li><span>Max:</span> 3 Persons</li>
@@ -102,7 +154,7 @@ p {	margin: 20px 0px;}
 		    							<li><span>Bed:</span> 1</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="/room/roomTogether01" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether01?reSNum=1" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>
@@ -149,14 +201,6 @@ p {	margin: 20px 0px;}
 		    				</div>
 		    			</div>		
 		    		</div>
-						<p>
-							<c:forEach var="i" items="${listBothOkRoom }">
-								${i.toString() }
-								<br>
-								<a href="/reserve/insertReserve?rNum=${i.rNum }">예약</a>
-								<hr>
-							</c:forEach>
-						</p>
 					</div>
 					<div class="tab-pane fade" id="personOnly">
 							<div class="row">
@@ -224,14 +268,6 @@ p {	margin: 20px 0px;}
 		    				</div>
 		    			</div>		
 		    		</div>
-						<p>
-							<c:forEach var="i" items="${listPersonOnlyRoom }">
-								${i.toString() }
-								<br>
-								<a href="/reserve/insertReserve?rNum=${i.rNum }">예약</a>
-								<hr>
-							</c:forEach>
-						</p>
 					</div>
 					<div class="tab-pane fade" id="petOnly">
 						<div class="row">
@@ -298,15 +334,7 @@ p {	margin: 20px 0px;}
 		    					</div>
 		    				</div>
 		    			</div>		
-		    		</div>
-						<p>
-							<c:forEach var="i" items="${listPetOnlyRoom }">
-								${i.toString() }
-								<br>
-								<a href="/reserve/insertReserve?rNum=${i.rNum }">예약</a>
-								<hr>
-							</c:forEach>
-						</p>
+		    			</div>
 					</div>
 				</div>
 			</div>
