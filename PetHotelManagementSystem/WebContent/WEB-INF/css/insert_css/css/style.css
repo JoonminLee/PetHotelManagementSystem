@@ -195,6 +195,7 @@ body form{
 
 
 .container {
+	border-radius: 15px;
   width: 680px;
   position: relative;
   margin: 0 auto;
