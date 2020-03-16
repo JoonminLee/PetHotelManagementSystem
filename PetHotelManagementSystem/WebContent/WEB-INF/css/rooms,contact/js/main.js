@@ -374,7 +374,7 @@ $('#checkout_date').datepicker({
 
 //특정날짜 설정
 $.ajax({
-  url :"roomTogether01",
+  url :"roomTogether",
   dataType : "json",
   type : "post",
   

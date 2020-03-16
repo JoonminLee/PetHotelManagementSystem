@@ -1,6 +1,5 @@
 package phms.controller;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,9 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import common.priceCalculator;
 import phms.dto.ReservationDto;
 import phms.dto.RoomDto;
-import phms.dto.RoomSizeDto;
+import phms.dto.SizeDto;
 import phms.service.ReservationService;
 import phms.service.RoomService;
+import phms.service.SizeService;
  
 @Controller
 @RequestMapping("/room")
@@ -30,6 +29,9 @@ public class RoomController {
 	
 	@Autowired
 	RoomService roomService;
+	
+	@Autowired
+	SizeService sizeService;
 	
 	@Autowired
 	ReservationService reservationService;
@@ -60,26 +62,21 @@ public class RoomController {
 	@RequestMapping("/selectAvailableRoom")
 	public String selectAvailableRoom(Model model) {
 		System.out.println(":::selectAvailableRoom");
-		List<RoomSizeDto> listBothOkRoom = roomService.selectBothOkRoom();
-		List<RoomSizeDto> listPersonOnlyRoom = roomService.selectPersonOnlyRoom();
-		List<RoomSizeDto> listPetOnlyRoom = roomService.selectPetOnlyRoom();
-		model.addAttribute("listBothOkRoom", listBothOkRoom);
-		model.addAttribute("listPersonOnlyRoom", listPersonOnlyRoom);
-		model.addAttribute("listPetOnlyRoom", listPetOnlyRoom);
+		List<SizeDto> listSize = sizeService.selectAllSize();
+		model.addAttribute("listSize", listSize);
 		return "selectAvailableRoom";
 	}
 	
 	//roomTogether
-	@GetMapping("/roomTogether01")
-	public String roomTogether01() {
-		
-		System.out.println(":::roomTogether01");
-		return "roomTogether01";
+	@GetMapping("/roomTogether")
+	public String roomTogether() {
+		System.out.println(":::roomTogether");
+		return "roomTogether";
 	}
 	
 	//roomTogether
-	@PostMapping("/roomTogether01")
-	public @ResponseBody ArrayList<String> roomTogether01(HttpSession session) {
+	@PostMapping("/roomTogether")
+	public @ResponseBody ArrayList<String> roomTogether(HttpSession session) {
 		//아담은 reSNum=1이다.
 		int reSNum = 1;
 		//session에서 checkIO값과 size값을 가져온다.

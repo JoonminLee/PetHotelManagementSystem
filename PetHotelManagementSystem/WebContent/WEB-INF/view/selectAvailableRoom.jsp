@@ -139,64 +139,67 @@ p {	margin: 20px 0px;}
 					<div class="row">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether01?reSNum=1" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
+		    					<a href="/room/roomTogether?reSNum=1" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="/room/roomTogether01?reSNum=1">아담</a></h3>
-		    						<p><span class="price mr-2">$120.00</span> <span class="per">per night</span></p>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=1">${listSize[0].sSize }</a></h3>
+		    						<p><span class="price mr-2">${listSize[0].sRPrice } KRW</span> <span class="per">Weekday</span><br>
+		    						<span class="price mr-2">${listSize[0].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 3 Persons</li>
-		    							<li><span>Size:</span> 45 m2</li>
-		    							<li><span>View:</span> Sea View</li>
-		    							<li><span>Bed:</span> 1</li>
+		    							<li><span>Max:</span> 2 Person</li>
+		    							<li><span>Size:</span> 45m²</li>
+		    							<li><span>View:</span> City View</li>
+		    							<li><span>Bed:</span> 1 Double</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="/room/roomTogether01?reSNum=1" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=1" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-2.jpg);">
+		    					<a href="/room/roomTogether?reSNum=2"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-2.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">넉넉</a></h3>
-		    						<p><span class="price mr-2">$20.00</span> <span class="per">per night</span></p>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=2"="rooms-single.html">${listSize[1].sSize }</a></h3>
+		    						<p><span class="price mr-2">${listSize[1].sRPrice } KRW</span> <span class="per">Weekday</span><br>
+		    						<span class="price mr-2">${listSize[1].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 3 Persons</li>
-		    							<li><span>Size:</span> 45 m2</li>
-		    							<li><span>View:</span> Sea View</li>
-		    							<li><span>Bed:</span> 1</li>
+		    							<li><span>Max:</span> 3 Person</li>
+		    							<li><span>Size:</span> 59m²</li>
+		    							<li><span>View:</span> City View</li>
+		    							<li><span>Bed:</span> 1 Double 1 Single</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=2"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-3.jpg);">
+		    					<a href="/room/roomTogether?reSNum=3"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-3.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">푸짐</a></h3>
-		    						<p><span class="price mr-2">$150.00</span> <span class="per">per night</span></p>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=3"="rooms-single.html">${listSize[2].sSize }</a></h3>
+		    						<p><span class="price mr-2">${listSize[2].sRPrice } KRW</span> <span class="per">Weekday</span><br>
+		    						<span class="price mr-2">${listSize[2].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 5 Persons</li>
-		    							<li><span>Size:</span> 45 m2</li>
-		    							<li><span>View:</span> Sea View</li>
-		    							<li><span>Bed:</span> 2</li>
+		    							<li><span>Max:</span> 4 Person</li>
+		    							<li><span>Size:</span> 70m²</li>
+		    							<li><span>View:</span> Park View</li>
+		    							<li><span>Bed:</span> 2 Double</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=3"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>		
@@ -206,64 +209,67 @@ p {	margin: 20px 0px;}
 							<div class="row">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-4.jpg);">
+		    					<a href="/room/roomTogether?reSNum=4"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-4.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">싱글</a></h3>
-		    						<p><span class="price mr-2">$120.00</span> <span class="per">per night</span></p>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=4"="rooms-single.html">${listSize[3].sSize }</a></h3>
+		    						<p><span class="price mr-2">${listSize[3].sRPrice } KRW</span> <span class="per">Weekday</span><br>
+		    						<span class="price mr-2">${listSize[3].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 3 Persons</li>
-		    							<li><span>Size:</span> 45 m2</li>
-		    							<li><span>View:</span> Sea View</li>
-		    							<li><span>Bed:</span> 1</li>
+		    							<li><span>Max:</span> 2 Person</li>
+		    							<li><span>Size:</span> 45m²</li>
+		    							<li><span>View:</span> City View</li>
+		    							<li><span>Bed:</span> 1 Double</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=4"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-5.jpg);">
+		    					<a href="/room/roomTogether?reSNum=5"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-5.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">더블</a></h3>
-		    						<p><span class="price mr-2">$20.00</span> <span class="per">per night</span></p>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=5"="rooms-single.html">${listSize[4].sSize }</a></h3>
+		    						<p><span class="price mr-2">${listSize[4].sRPrice } KRW</span> <span class="per">Weekday</span><br>
+		    						<span class="price mr-2">${listSize[4].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 3 Persons</li>
-		    							<li><span>Size:</span> 45 m2</li>
-		    							<li><span>View:</span> Sea View</li>
-		    							<li><span>Bed:</span> 1</li>
+		    							<li><span>Max:</span> 3 Person</li>
+		    							<li><span>Size:</span> 59m²</li>
+		    							<li><span>View:</span> Park View</li>
+		    							<li><span>Bed:</span> 1 Double 1 Single</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=5"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-6.jpg);">
+		    					<a href="/room/roomTogether?reSNum=6"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-6.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">디럭스</a></h3>
-		    						<p><span class="price mr-2">$150.00</span> <span class="per">per night</span></p>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=6"="rooms-single.html">${listSize[5].sSize }</a></h3>
+		    						<p><span class="price mr-2">${listSize[5].sRPrice } KRW</span> <span class="per">Weekday</span><br>
+		    						<span class="price mr-2">${listSize[5].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 5 Persons</li>
-		    							<li><span>Size:</span> 45 m2</li>
-		    							<li><span>View:</span> Sea View</li>
-		    							<li><span>Bed:</span> 2</li>
+		    							<li><span>Max:</span> 4 Person</li>
+		    							<li><span>Size:</span> 70m²</li>
+		    							<li><span>View:</span> Park View</li>
+		    							<li><span>Bed:</span> 2 Double</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=6"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>		
@@ -273,64 +279,70 @@ p {	margin: 20px 0px;}
 						<div class="row">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
+		    					<a href="/room/roomTogether?reSNum=7"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">소형</a></h3>
-		    						<p><span class="price mr-2">$120.00</span> <span class="per">per night</span></p>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=7"="rooms-single.html">${listSize[6].sSize }견</a></h3>
+		    						<p><span class="price mr-2">${listSize[6].sRPrice } KRW</span> <span class="per">Weekday</span><br>
+		    						<span class="price mr-2">${listSize[6].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 3 Persons</li>
-		    							<li><span>Size:</span> 45 m2</li>
-		    							<li><span>View:</span> Sea View</li>
-		    							<li><span>Bed:</span> 1</li>
+		    							<li><span>Max:</span> 1 Pet</li>
+		    							<li><span>Lounge:</span> Yes</li>
+		    							<li><span>Room Limit:</span> 4 Pets</li>
+		    							<li><span>Care:</span> 2000</li>
+		    							<li><span>Bath:</span> 2500</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=7"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-2.jpg);">
+		    					<a href="/room/roomTogether?reSNum=8"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-2.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">중형</a></h3>
-		    						<p><span class="price mr-2">$20.00</span> <span class="per">per night</span></p>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=8"="rooms-single.html">${listSize[7].sSize }견</a></h3>
+		    						<p><span class="price mr-2">${listSize[7].sRPrice } KRW</span> <span class="per">Weekday</span><br>
+		    						<span class="price mr-2">${listSize[7].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 3 Persons</li>
-		    							<li><span>Size:</span> 45 m2</li>
-		    							<li><span>View:</span> Sea View</li>
-		    							<li><span>Bed:</span> 1</li>
+		    							<li><span>Max:</span> 1 Pet</li>
+		    							<li><span>Lounge:</span> Yes</li>
+		    							<li><span>Room Limit:</span> 3 Pets</li>
+		    							<li><span>Care:</span> 2500</li>
+		    							<li><span>Bath:</span> 3000</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=8"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-3.jpg);">
+		    					<a href="/room/roomTogether?reSNum=9"="rooms-single.html" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-3.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
 		    					</a>
 		    					<div class="text p-3 text-center">
-		    						<h3 class="mb-3"><a href="rooms-single.html">대형</a></h3>
-		    						<p><span class="price mr-2">$150.00</span> <span class="per">per night</span></p>
+		    						<h3 class="mb-3"><a href="/room/roomTogether?reSNum=9"="rooms-single.html">${listSize[8].sSize }견</a></h3>
+		    						<p><span class="price mr-2">${listSize[8].sRPrice } KRW</span> <span class="per">Weekday</span><br>
+		    						<span class="price mr-2">${listSize[8].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 5 Persons</li>
-		    							<li><span>Size:</span> 45 m2</li>
-		    							<li><span>View:</span> Sea View</li>
-		    							<li><span>Bed:</span> 2</li>
+		    							<li><span>Max:</span> 1 Pet</li>
+		    							<li><span>Lounge:</span> Yes</li>
+		    							<li><span>Room Limit:</span> 2 Pets</li>
+		    							<li><span>Care:</span> 4000</li>
+		    							<li><span>Bath:</span> 5000</li>
 		    						</ul>
 		    						<hr>
-		    						<p class="pt-1"><a href="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
+		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=9"="room-single.html" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
 		    					</div>
 		    				</div>
 		    			</div>		
