@@ -20,23 +20,76 @@
 <link rel="stylesheet" href="/css/rooms,contact/css/icomoon.css">
 <link rel="stylesheet" href="/css/rooms,contact/css/style.css">
 
-<title>contactPage</title>
+<title>PHMS : 따뜻함과 정성으로 보답하겠습니다</title>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="/main/mainPage">PETHOTEL</a>
+	      <a class="navbar-brand" href="/main/mainPage">PET.HOTEL.</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
+	      	
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="/main/mainPage" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="/room/selectAvailableRoom" class="nav-link">Rooms</a></li>
-	          <li class="nav-item"><a href="/main/servicePage" class="nav-link">Service</a></li>
-	          <li class="nav-item"><a href="/my/myPage01" class="nav-link">My page</a></li>
-	          <li class="nav-item active"><a href="/main/contactPage" class="nav-link">고객센터</a></li>
+	        <%
+					String vFrom = "";
+					if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
+						vFrom = (String) session.getAttribute("from");
+				%><li class="nav-item" ><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
+				<%
+					switch (vFrom) {
+						case "kakao":
+				%>
+				<li class="nav-item" id="set_7_text"><a class="nav-link" href="/sess/sessionLogout" onclick="kakaoOut()">LogOut</a></li>
+				<%
+					break;
+						case "google":
+				%>
+				<li class="nav-item" ><a class="nav-link" href="/sess/sessionLogout" onclick="googleOut()">LogOut</a></li>
+				<%
+					break;
+						case "naver":
+				%>
+				<li class="nav-item" ><a class="nav-link" href="/sess/sessionLogout">LogOut</a></li>
+				<%
+					break;
+						case "phms":
+				%>
+				<li class="nav-item" ><a class="nav-link" href="/sess/sessionLogout">LogOut</a></li>
+				<%
+					break;
+								}//switch end
+							} else {
+				%>
+				<li class="nav-item" id="set_7_text"><a class="nav-link" href="/user/loginUser">LogIn</a></li>
+				<%
+					}//if end
+				%>
+				
+				<%
+				if (session.getAttribute("id") == null && session.getAttribute("from") == null) { 
+				%>
+		        <li class="nav-item" id="set_7_text"><a class="nav-link" href="/user/insertUser">Register</a></li>
+		      	<%
+		      		}//if end
+		      	%>
+		      	
+		      	<li class="nav-item"><a href="/room/selectAvailableRoom" class="nav-link">Rooms</a></li>
+		      	
+		        <li class="nav-item" id="set_7_text"><a class="nav-link" href="/main/servicePage">Service</a></li>
+		      	
+		      	<% 
+		      	
+		      	if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
+		      	%>
+		        <li class="nav-item" id="set_7_text"><a class="nav-link" href="/my/myPage01">MyPage</a>
+		    	<%
+		    		}//if end
+		    	%>
+		    	
+		       <li class="nav-item active" id="set_7_text"><a class="nav-link"  href="/main/contactPage">Contact</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -65,22 +118,22 @@
           <div class="w-100"></div>
           <div class="col-md-3 d-flex">
           	<div class="info bg-white p-4">
-	            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+	            <p><span>Address:</span> 105, Supyo-ro, Jongno-gu, Seoul, Republic of Korea</p>
 	          </div>
           </div>
           <div class="col-md-3 d-flex">
           	<div class="info bg-white p-4">
-	            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+	            <p><span>Phone:</span> <a href="tel:010-7635-3210">+ 82) 010-7635-3210</a></p>
 	          </div>
           </div>
           <div class="col-md-3 d-flex">
           	<div class="info bg-white p-4">
-	            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+	            <p><span>Email:</span> <a href="mailto:com2181@gmail.com">com2181@gmail.com</a></p>
 	          </div>
           </div>
           <div class="col-md-3 d-flex">
           	<div class="info bg-white p-4">
-	            <p><span>Website</span> <a href="#">yoursite.com</a></p>
+	            <p><span>Website</span> <a href="https://www.instagram.com/Pet.Hotel.">instagram.com/Pet.H</a></p>
 	          </div>
           </div>
         </div>

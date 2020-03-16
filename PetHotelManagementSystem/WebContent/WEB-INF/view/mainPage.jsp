@@ -23,7 +23,7 @@
 <!-- JqueryCDN -->
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<title>mainPage</title>
+<title>PHMS : 반려동물과 함께하는 여행</title>
 </head>
 <body class="is-preload">
 	<div id="wrapper">
@@ -47,7 +47,7 @@
 						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
                			<rect id="set_7_button1" height="50" width="120"></rect>
                 		</svg>
-						<li id="set_7_text"><a href="/sess/sessionLogout" onclick="kakaoOut()">로그아웃</a></li>
+						<li id="set_7_text"><a href="/sess/sessionLogout" onclick="kakaoOut()">LogOut</a></li>
 						</div>
 						<%
 							break;
@@ -56,7 +56,7 @@
 						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
                			<rect id="set_7_button1" height="50" width="120"></rect>
                 		</svg>
-						<li><a href="/sess/sessionLogout" onclick="googleOut()">로그아웃</a></li>
+						<li><a href="/sess/sessionLogout" onclick="googleOut()">LogOut</a></li>
 						</div>
 						<%
 							break;
@@ -65,7 +65,7 @@
 						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
                			<rect id="set_7_button1" height="50" width="120"></rect>
                 		</svg>
-						<li><a href="/sess/sessionLogout">로그아웃</a></li>
+						<li><a href="/sess/sessionLogout">LogOut</a></li>
 						</div>
 						<%
 							break;
@@ -74,7 +74,7 @@
 						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
                			<rect id="set_7_button1" height="50" width="120"></rect>
                 		</svg>
-						<li><a href="/sess/sessionLogout">로그아웃</a></li>
+						<li><a href="/sess/sessionLogout">LogOut</a></li>
 						</div>
 						<%
 							break;
@@ -84,39 +84,51 @@
 						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
                			<rect id="set_7_button1" height="50" width="120"></rect>
                 		</svg>
-						<li id="set_7_text"><a href="/user/loginUser">로그인</a></li>
+						<li id="set_7_text"><a href="/user/loginUser">LogIn</a></li>
 						</div>
 						<%
 							}//if end
 						%>
-						<%if (session.getAttribute("id") == null && session.getAttribute("from") == null) { %>
+						
+						<%
+						if (session.getAttribute("id") == null && session.getAttribute("from") == null) { 
+						%>
 						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
 		                <rect id="set_7_button2" height="50" width="120"></rect>
 		                </svg>
-		                <li id="set_7_text"><a href="/user/insertUser">회원가입</a></li>
+		                <li id="set_7_text"><a href="/user/insertUser">Register</a></li>
 		              	</div>
-		              	<%} %>
+		              	<%
+		              		}//if end
+		              	%>
+		              	
 		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
 		                <rect id="set_7_button3" height="50" width="120"></rect>
 		                </svg>
-		                <li id="set_7_text"><a href="/main/servicePage">서비스소개</a></li>
+		                <li id="set_7_text"><a href="/main/servicePage">Service</a></li>
 		              	</div>
+		              	
 		              	<% 
-		              	if (session.getAttribute("id") != null && session.getAttribute("from") != null) {%>
+		              	if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
+		              	%>
 		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
 		                <rect id="set_7_button4" height="50" width="120"></rect>
 		                </svg>
-		                <li id="set_7_text"><a href="/my/myPage01">마이페이지</a>
+		                <li id="set_7_text"><a href="/my/myPage01">MyPage</a>
 		            	</div>
-		            	<%}%>
+		            	<%
+		            		}//if end
+		            	%>
+		            	
 		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
 		                <rect id="set_7_button5" height="50" width="120"></rect>
 		                </svg>
-		                <li id="set_7_text"><a href="/main/contactPage">고객센터</a></li>
+		                <li id="set_7_text"><a href="/main/contactPage">Contact</a></li>
 		              	</div>
 					</ul>
 				</nav>
 			</header>
+			
 			<!-- section -->
 			<section id="section">
 				<h1>Pet. Hotel.</h1>
@@ -132,7 +144,7 @@
 											<div class="icon">
 												<span class="icon-calendar"></span>
 											</div>
-											<input id="reCheckInDate" type="date" name="reCheckIn" class="form-control">
+											<input id="reCheckInDate" type="date" name="reCheckIn" class="form-control" required>
 										</div>
 									</div>
 									<div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
@@ -141,13 +153,13 @@
 											<div class="icon">
 												<span class="icon-calendar"></span>
 											</div>
-											<input id="reCheckOutDate" type="date" name="reCheckOut" class="form-control">
+											<input id="reCheckOutDate" type="date" name="reCheckOut" class="form-control" required>
 										</div>
 									</div>
 									<div class="col-md-6 mb-3 mb-md-0 col-lg-3">
 										<div class="row">
 											<div class="col-md-6 mb-3 mb-md-0">
-												<label for="adults" class="font-weight-bold-text-black">인원수</label>
+												<label for="adults" class="font-weight-bold-text-black">Visitors</label>
 												<div class="field-icon-wrap">
 													<div class="icon">
 														<span class="ion-ios-arrow-down"></span>
@@ -161,7 +173,7 @@
 												</div>
 											</div>
 											<div class="col-md-6 mb-3 mb-md-0">
-												<label for="children" class="font-weight-bold-text-black">동물수</label>
+												<label for="children" class="font-weight-bold-text-black">Pets</label>
 												<div class="field-icon-wrap">
 													<div class="icon">
 														<span class="ion-ios-arrow-down"></span>
@@ -189,8 +201,7 @@
 
 			<!-- Footer -->
 			<footer id="footer">
-				<span class="copyright">&copy; pet HOTEL 02) 000-0000: <a
-					href="http://html5up.net">문의</a>.
+				<span class="copyright">&copy; 2020 PHMS. All Rights Reserved.
 				</span>
 			</footer>
 		</div>

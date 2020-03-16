@@ -11,11 +11,11 @@
 
   var dateAndTime = function() {
     $('#m_date').datepicker({
-      'format': 'yyyy/mm/dd',
+      'format': 'yyyy-MM-dd',
       'autoclose': true
     });
     $('#reCheckInDate, #reCheckOutDate').datepicker({
-      'format': 'yyyy-MM-dd ',
+      'format': 'yyyy-MM-dd',
       'autoclose': true
     });
   };
