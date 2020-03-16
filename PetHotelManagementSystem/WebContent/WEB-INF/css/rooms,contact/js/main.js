@@ -339,63 +339,82 @@
     fixedContentPos: false
   });
 
-
-
-
-$('#checkin_date').datepicker({
-    format: "yyyy-mm-dd",
-    language: "kr",
-    autoclose: true,
-    todayHighlight: true,
-    constrainInput: false
-}).datepicker(
-        "setDate", new Date(new Date())
-).on("changeDate", function (e) {
-    if($('#checkin_date').val() >= $('#checkout_date').val()){
-        alert("퇴실날짜 보다 이전 날짜를 선택해 주세요");
-        $('#checkin_date').datepicker("setDate", today);
-    }
-});
-
-$('#checkout_date').datepicker({
-    format: "yyyy-mm-dd",
-    language: "kr",
-    autoclose: true,
-    todayHighlight: true,
-    constrainInput: false
-}).datepicker(
-        "setDate", new Date(new Date(+1))
-).on("changeDate", function (e) {
-    if($('#checkin_date').val() >= $('#checkout_date').val()){
-        alert("입실날짜 보다 나중 날짜를 선택해 주세요");
-        $('#checkin_date').datepicker("setDate", today);
-    }
-});
-
 //특정날짜 설정
-$.ajax({
-  url :"roomTogether",
-  dataType : "json",
-  type : "post",
+  var disabledDays = new Array();
   
-  success :function(result){ 
-  var disabledDays = ["2020-3-25","2020-3-31"];
-  }
-})
-
-//var disabledDays = ["2020-3-20","2020-3-31"];  
-//특정일 선택 막기
-//function disableAllTheseDays(date){
-//	var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
-//	console.log("disabledDays:::",disabledDays);
-//
-//	for(var i = 0; i<disabledDays.length; i++){
-//		if($.inArray(y + '-' +(m+1) + '-' + d,disabledDays) != -1){
-//			return false;
-//		}
-//	}
-//	return true;
-//}
+  var sel = document.getElementById("RoomType");
+  var rSNum = sel.options[sel.selectedIndex].value;
+  
+  console.log("rSNum:::",rSNum)
+  $.ajax({
+	  data:{"rSNum" : rSNum},
+	  url :"roomTogether",
+	  dataType : "json",
+	  type : "post",
+	  
+	  success :function(result){
+		  for(var i=0; i<result.length; i++){
+			  disabledDays[i] = result[i];
+		  }
+		  console.log("disabledDays:::",disabledDays);
+		  
+		//특정일 선택 막기
+		function disableAllTheseDays(date){
+			var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+			
+			if(m+1<10){
+				m = "0"+(m+1);
+				if(d<10){
+					d ="0"+d;
+				}
+			}else if(d<10){
+				d = "0"+d;
+			}
+		
+			for(var i = 0; i<disabledDays.length; i++){
+				
+				if($.inArray(y + '-' +m + '-' + d,disabledDays) != -1){
+				
+					return false;
+				}
+			}
+			return true;
+		}
+		
+		$('#checkin_date').datepicker({
+		    format: "yyyy-mm-dd",
+		    language: "kr",
+		    autoclose: true,
+		    todayHighlight: true,
+		    constrainInput: false,
+		    beforeShowDay : disableAllTheseDays
+		}).datepicker(
+		        "setDate", new Date(new Date())
+		).on("changeDate", function (e) {
+		    if($('#checkin_date').val() >= $('#checkout_date').val()){
+		        alert("퇴실날짜 보다 이전 날짜를 선택해 주세요");
+		        $('#checkin_date').datepicker("setDate", today);
+		    }
+		});
+		
+		$('#checkout_date').datepicker({
+		    format: "yyyy-mm-dd",
+		    language: "kr",
+		    autoclose: true,
+		    todayHighlight: true,
+		    constrainInput: false,
+		    beforeShowDay : disableAllTheseDays
+		}).datepicker(
+		        "setDate", new Date(new Date(+1))
+		).on("changeDate", function (e) {
+		    if($('#checkin_date').val() >= $('#checkout_date').val()){
+		        alert("입실날짜 보다 나중 날짜를 선택해 주세요");
+		        $('#checkin_date').datepicker("setDate", today);
+		    }
+		});
+		
+	  }
+  })
 
 
 })(jQuery);

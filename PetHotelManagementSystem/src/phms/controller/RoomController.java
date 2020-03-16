@@ -78,10 +78,10 @@ public class RoomController {
 
 	// roomTogether
 	@PostMapping("/roomTogether")
-	public @ResponseBody ArrayList<String> roomTogether(HttpSession session) {
+	public @ResponseBody ArrayList<String> roomTogether(HttpSession session, @RequestParam("rSNum") int reSNum) {
 		// 아담은 reSNum=1이다.
-		int reSNum = 1;
 		// session에서 checkIO값과 size값을 가져온다.
+		System.out.println("reSNum:::"+reSNum);
 		String checkIn = (String) session.getAttribute("reCheckIn");
 		String checkOut = (String) session.getAttribute("reCheckOut");
 
