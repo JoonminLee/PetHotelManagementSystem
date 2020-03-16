@@ -3,6 +3,8 @@ package phms.controller;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +30,7 @@ public class UserController {
 
 	@Autowired
 	loginAuthentication loginAuth;
-	
+
 	@Autowired
 	GuestService guestService;
 
@@ -40,7 +42,7 @@ public class UserController {
 		model.addAttribute("user", user);
 		return "selectOneUser";
 	}
-	
+
 	// selectAllUser
 	@RequestMapping("/selectAllUser")
 	public @ResponseBody List<UserDto> selectAllUser() {
@@ -85,8 +87,8 @@ public class UserController {
 		model.addAttribute("user", user);
 		return "updateUser";
 	}
-	
-	//userAdminpage
+
+	// userAdminpage
 	@GetMapping("/updateUserAdmin")
 	public @ResponseBody UserDto updateUser(@RequestParam("uId") String uId) {
 		System.out.println(":::updateUser");
@@ -121,22 +123,26 @@ public class UserController {
 
 	// loginUser
 	@PostMapping("/loginUser")
-	public String loginUser(Model model, @RequestParam("uId") String uId, @RequestParam("uPwd") String uPwd) {
+	public String loginUser(Model model, @RequestParam("uId") String uId, @RequestParam("uPwd") String uPwd, HttpSession session) {
 		System.out.println(":::loginUser");
 		int result = loginAuth.loginIdPwdCheck(uId, uPwd);
-		UserDto user = userService.selectOneUser(uId);
-		String uName = user.getuName();
-		String uFrom = "phms";
-		 
+
 		if (result == 1) {
+			UserDto user = userService.selectOneUser(uId);
+			String uName = user.getuName();
+			String uFrom = "phms";
 			System.out.println("로그인 성공");
 			model.addAttribute("id", uId);
 			model.addAttribute("from", "phms");
 			LocalDate today = LocalDate.now();
 			GuestDto guest = new GuestDto(0, uId, uName, today, uFrom);
 			guestService.insertGuest(guest);
-			System.out.println("guest :::"+guest);
+			System.out.println("guest :::" + guest);
 			return "sessionLogin";
+		} else if (result == 2) {
+			System.out.println("직원 로그인 성공");
+			session.setAttribute("id", uId);
+			return "redirect:/adminHome";
 		} else {
 			System.out.println("로그인 실패");
 			return "redirect:/user/loginUser";

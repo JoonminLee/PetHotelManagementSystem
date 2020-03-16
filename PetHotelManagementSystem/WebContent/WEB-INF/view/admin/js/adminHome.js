@@ -30,23 +30,7 @@ $(function(){
 		
 	});
 	
-		$("#fileUploadBtn").on("click", function() {
-		var files = $("input[name='filezData']")[0].files;
-		var formData = new FormData();
-		for (var i = 0; i < files.length; i++) {
-			formData.append("filezData", files[i]);
-		}
-		$.ajax({
-			url : "/adminHome",
-			processData : false,
-			contentType : false,
-			data : formData,
-			type : "post",
-			dataType : "text",
-			success : function(result) {
-				alert("업로드 성공");
-				location.href="/adminHome";
-			}
-		});
-	});
+		$.photoUpload = function() {
+			window.open("/adminProfilePhoto","사진수정","scrollbars=no, width=600, height=400, menubar=false");
+	}
 });

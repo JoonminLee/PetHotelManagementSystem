@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bootstrap Material Admin by Bootstrapious.com</title>
+    <title>adminHome</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
@@ -27,9 +26,6 @@
     <link rel="shortcut icon" href="view/admin/img/favicon.ico">
     <link rel="stylesheet" href="/css/admin_css/admin.css" />
     
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
   <body>
     <div class="page">
@@ -49,6 +45,7 @@
               <div class="navbar-header">
                 <!-- Navbar Brand --><a href="/adminHome" class="navbar-brand d-none d-sm-inline-block">
                   <div class="brand-text d-none d-lg-inline-block"><span></span><strong>PetHotel Admin</strong></div>
+                  </a>
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
@@ -66,7 +63,7 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img id="profilePicture" src="${empPhoto }" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><a href="#" onclick="$.photoUpload()"><img id="profilePicture" src="${empPhoto }" alt="..." class="img-fluid rounded-circle"></a></div>
             <div class="title">
               <h1 class="h4">노창옥</h1>
               <p>관리부</p>
@@ -192,11 +189,7 @@
           <footer class="main-footer">
             <div class="container-fluid col-sm-6">
               <p>Pet Hotel &copy; Admin</p>
-               <!-- 사진 업로드 시험중 -->
-            <div>
-				<input type="file" name="filezData" multiple>
-			</div>
-			<button id="fileUploadBtn">Upload</button>
+            <!-- 사진 업로드 시험중 -->
             </div>
           </footer>
         </div>

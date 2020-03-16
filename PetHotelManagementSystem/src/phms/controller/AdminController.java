@@ -1,7 +1,6 @@
 package phms.controller;
 
 import java.io.File;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,15 +39,16 @@ public class AdminController {
 	NoDupliFileName npfn;
 
 	@GetMapping("/adminHome")
-	public String adminHome(Model model, LocalDate today) {
+	public String adminHome(Model model, LocalDate today, HttpSession session) {
 		today = LocalDate.now();
 		int thisYear = today.getYear();
 		int thisMonth = today.getMonthValue();
 		System.out.println("ThisYear:::" + thisYear);
 		System.out.println("ThisMonth:::" + thisMonth);
+		int eNum = Integer.parseInt((String) session.getAttribute("id"));
 
 		// 사원 사진
-		EmployeeDto employee = employeeService.selectOneEmp(1);
+		EmployeeDto employee = employeeService.selectOneEmp(eNum);
 		model.addAttribute("empPhoto", employee.getePhoto());
 
 		// 오늘 예약한 사람
@@ -99,12 +99,18 @@ public class AdminController {
 
 	}
 
-	@PostMapping("/adminHome")
-	public @ResponseBody String adminHome(MultipartFile[] filezData) {
-		System.out.println(":::adminHomeUpload");
+	@GetMapping("/adminProfilePhoto")
+	public String adminProfilePhoto() {
+		return "adminProfilePhoto";
+	}
+
+	@PostMapping("/adminProfilePhoto")
+	public @ResponseBody String adminProfilePhoto(MultipartFile[] filezData, HttpSession session) {
+		System.out.println(":::adminProfilePhoto");
 		String filezUploadFolder = "emp";
 		List<String> filePathName = new ArrayList<String>();
 		String filename;
+		int eNum = Integer.parseInt((String) session.getAttribute("id"));
 
 		for (MultipartFile mf : filezData) {
 			filename = npfn.noDupliFileName(mf);
@@ -126,11 +132,11 @@ public class AdminController {
 				return "fail";
 			}
 
-			EmployeeDto employee = employeeService.selectOneEmp(1);
+			EmployeeDto employee = employeeService.selectOneEmp(eNum);
 			System.out.println(employee.toString());
 			employee.setePhoto("/image/" + filePathName.get(0));
 			System.out.println(employee.toString());
-			
+
 			employeeService.updateEmp(employee);
 
 		}
