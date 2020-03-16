@@ -3,6 +3,32 @@
   <display-name>PetHotelManagementSystem</display-name>
    	<!-- The front controller of this Spring Web application, responsible for 
 		handling all application requests -->
+
+	<error-page>
+		<error-code>400</error-code>
+		<location>/error/errorPage</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error/errorPage</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/errorPage</location>
+	</error-page>
+	<error-page>
+		<error-code>405</error-code>
+		<location>/error/errorPage</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/errorPage</location>
+	</error-page>
+	<error-page>
+		<error-code>503</error-code>
+		<location>/error/errorPage</location>
+	</error-page>
+		
 	<servlet>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
