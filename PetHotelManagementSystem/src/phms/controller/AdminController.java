@@ -16,11 +16,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import common.NoDupliFileName;
+import phms.dto.DepartmentDto;
 import phms.dto.EmployeeDto;
 import phms.dto.GuestDto;
+import phms.dto.PositionDto;
 import phms.dto.ReservationDto;
+import phms.service.DepartmentService;
 import phms.service.EmployeeService;
 import phms.service.GuestService;
+import phms.service.PositionService;
 import phms.service.ReservationService;
 
 @Controller
@@ -32,6 +36,12 @@ public class AdminController {
 	@Autowired
 	GuestService guestService;
 
+	@Autowired
+	DepartmentService departmentService;
+	
+	@Autowired
+	PositionService positionService;
+	
 	@Autowired
 	EmployeeService employeeService;
 
@@ -49,8 +59,13 @@ public class AdminController {
 
 		// 사원 사진
 		EmployeeDto employee = employeeService.selectOneEmp(eNum);
-		model.addAttribute("empPhoto", employee.getePhoto());
-
+		DepartmentDto department = departmentService.selectOneDepartment(employee.geteDNum());
+		PositionDto position = positionService.selectOnePosition(employee.getePoNum());
+		model.addAttribute("emp", employee);
+		model.addAttribute("department", department);
+		model.addAttribute("position", position);
+		
+		
 		// 오늘 예약한 사람
 		int todayReserveCnt = reservationService.todayReserveCnt(today);
 		model.addAttribute("todayReserveCnt", todayReserveCnt);

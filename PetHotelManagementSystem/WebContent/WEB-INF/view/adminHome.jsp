@@ -62,7 +62,7 @@ function gogo(){
 
                 <!-- Logout -->
                 <!-- 메인페이지로 이동 -->
-                <li class="nav-item"><a href="/user/loginUser" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="/sess/sessionLogout" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -73,11 +73,11 @@ function gogo(){
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><a href="#" onclick="$.photoUpload()"><img id="profilePicture" src="${empPhoto }" alt="..." class="img-fluid rounded-circle"></a></div>
+            <div class="avatar"><a href="#" onclick="$.photoUpload()"><img id="profilePicture" src="${emp.ePhoto }" alt="..." class="img-fluid rounded-circle"></a></div>
             <div class="title">
-              <h1 class="h4">노창옥</h1>
-              <p>관리부</p>
-              <p>Associate</p>
+              <h1 class="h4">${emp.eName }</h1>
+              <p>${department.dName }</p>
+              <p>${position.poName }</p>
             </div>
           </div>
           <ul class="list-unstyled">

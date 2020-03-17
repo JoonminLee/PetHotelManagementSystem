@@ -23,18 +23,9 @@
 <!-- JqueryCDN -->
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<script type="text/javascript">
-function gogo(){
-	if( '<%=session.getAttribute("id")%>' != 'null' && '<%=session.getAttribute("from")%>' != 'null'){
-	}else{
-		alert("로그인해주세요");
-		location.href="/user/loginUser"
-	}
-}
-</script>
 <title>PHMS : 룸 상세정보</title>
 </head>
-<body onload="gogo()">
+<body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="/main/mainPage">PETHOTEL</a>
