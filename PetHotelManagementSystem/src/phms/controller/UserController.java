@@ -1,8 +1,11 @@
 package phms.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import common.loginAuthentication;
 import phms.dto.GuestDto;
 import phms.dto.UserDto;
-import phms.dto.UserRoomSizeDto;
 import phms.service.GuestService;
 import phms.service.UserService;
 
@@ -123,7 +125,7 @@ public class UserController {
 
 	// loginUser
 	@PostMapping("/loginUser")
-	public String loginUser(Model model, @RequestParam("uId") String uId, @RequestParam("uPwd") String uPwd, HttpSession session) {
+	public String loginUser(Model model, @RequestParam("uId") String uId, @RequestParam("uPwd") String uPwd, HttpSession session) throws Exception{
 		System.out.println(":::loginUser");
 		int result = loginAuth.loginIdPwdCheck(uId, uPwd);
 
@@ -146,7 +148,7 @@ public class UserController {
 			return "redirect:/adminHome";
 		} else {
 			System.out.println("로그인 실패");
-			return "redirect:/user/loginUser";
+			return "redirect:/user/loginUser?status='fail'";
 		}
 	}
 }

@@ -37,7 +37,7 @@ public class loginAuthentication {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("loginAuthntication Error");
 			return 0;
 		}
 		return 0;

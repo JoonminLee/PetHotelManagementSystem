@@ -14,7 +14,7 @@
 	}
 	
 	function toMain(){
-		var url = document.getElementById("goLogOut").getAttribute("href");
+		var url = this.getAttribute("href");
 		window.open(url);
 		location.href = "/main/mainPage";
 	}
