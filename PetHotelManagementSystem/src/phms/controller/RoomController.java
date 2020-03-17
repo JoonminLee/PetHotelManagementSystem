@@ -1,5 +1,8 @@
 package phms.controller;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -79,14 +82,8 @@ public class RoomController {
 	// roomTogether
 	@PostMapping("/roomTogether")
 	public @ResponseBody ArrayList<String> roomTogether(HttpSession session, int reSNum) {
-		// 아담은 reSNum=1이다.
 		// session에서 checkIO값과 size값을 가져온다.
 		System.out.println(":::roomTogether");
-		String checkIn = (String) session.getAttribute("reCheckIn");
-		String checkOut = (String) session.getAttribute("reCheckOut");
-
-		// 체크인~체크아웃 날짜를 불러온다.
-		ArrayList<String> checkIODate = checkIO.checkIOBetweenSelectDate(checkIn, checkOut);
 
 		// size(아담)기준으로 예약리스트를 불러온다.
 		List<ReservationDto> reSNumList = reservationService.selectReservationByRoomSize(reSNum);
@@ -109,6 +106,7 @@ public class RoomController {
 			// 체크인-쳌아웃으로 불러온리스트를 전체리스트에 담음.
 			allDate.addAll(reCheckIODate);
 		}
+		
 
 		// 중복값 제거한 후 리스트에 담기
 		List allDateSet = new ArrayList(new HashSet(allDate));
