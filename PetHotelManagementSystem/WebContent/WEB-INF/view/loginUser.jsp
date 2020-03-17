@@ -40,6 +40,14 @@
 
 <!-- JqueryCDN -->
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	<%if (request.getParameter("status")!=null) {%>
+	alert("로그인 실패 : 아이디와 비밀번호를 다시 확인해주세요");
+	<%
+	}
+	%>
+</script>
 <title>loginUser</title>
 </head>
 <body>
