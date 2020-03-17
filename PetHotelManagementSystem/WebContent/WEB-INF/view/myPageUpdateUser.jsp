@@ -54,7 +54,7 @@
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-input" name="uPwd" placeholder="비밀번호를 다시 한번 입력해주세요" required/>
+                <input type="password" class="form-input" name="uPwd" title="비밀번호를 8자 이상 특수문자, 숫자를 포함해 주세요" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$" placeholder="비밀번호를 다시 한번 입력해주세요"/>
               </div>
             </div>
 

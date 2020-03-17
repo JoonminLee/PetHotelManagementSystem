@@ -87,10 +87,13 @@ public class MyPageController {
 			@RequestParam("uPwd") String uPwd, VisitorDto visitor, HttpSession session) {
 		System.out.println(":::myPageUpdate");
 		System.out.println(uPwd);
+		String pattern1 = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*?,./\\\\<>|_-[+]=\\`~\\(\\)\\[\\]\\{\\}])[A-Za-z[0-9]!@#$%^&*?,./\\\\<>|_-[+]=\\`~\\(\\)\\[\\]\\{\\}]{8,20}$";
 		String from = (String) session.getAttribute("from");
-		if (from == "phms") {
-			user.setuBirth(LocalDate.parse(uBirthStr));
-			user.setuPwd(uPwd);
+		System.out.println(pattern1);
+		System.out.println(uPwd.matches(pattern1));
+		if (from == "phms" && uPwd.matches(pattern1)) {
+			user.setuBirth(LocalDate.parse(uBirthStr));			
+			user.setuPwd(uPwd);			
 			userService.myPageUpdateUser(user);
 		} else {
 			visitorService.myPageUpdateVisitor(visitor);
