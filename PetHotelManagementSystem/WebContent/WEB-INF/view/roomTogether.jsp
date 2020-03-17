@@ -8,6 +8,8 @@
 <% 
 String checkIn = (String)session.getAttribute("reCheckIn");
 String checkOut = (String)session.getAttribute("reCheckOut");
+String numberOfPerson = (String)session.getAttribute("numberOfPerson");
+String numberOfPet = (String)session.getAttribute("numberOfPet");
 %>
 
 <!-- StyleSheet -->
@@ -29,6 +31,11 @@ String checkOut = (String)session.getAttribute("reCheckOut");
 <script   src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script type="text/javascript">
+$(function(){
+	$("#numberOfPerson option[value='${numberOfPerson}'").attr("selected", true);
+	$("#numberOfPet option[value='${numberOfPet}'").attr("selected", true);
+});
+
 function gogo(){
    if( '<%=session.getAttribute("id")%>' != 'null' && '<%=session.getAttribute("from")%>' != 'null'){
    }else{
@@ -180,10 +187,10 @@ function gogo(){
                   <form action="/reserve/reservationResult" method="get">
                     <div class="fields">
                     <div class="form-group">
-                      <input type="text" name="reCheckInStr" id="checkin_date" class="form-control checkin_date" placeholder="<%= checkIn %>" required>
+                      <input type="text" name="reCheckInStr" id="checkin_date" class="form-control checkin_date" value="<%= checkIn %>" required>
                     </div>
                     <div class="form-group">
-                      <input type="text" name="reCheckOutStr" id="checkout_date" class="form-control checkout_date" placeholder="<%= checkOut %>" required>
+                      <input type="text" name="reCheckOutStr" id="checkout_date" class="form-control checkout_date" value="<%= checkOut %>" required>
                     </div>
                     <div class="form-group">
                       <div class="select-wrap one-third">
@@ -205,7 +212,7 @@ function gogo(){
                     <div class="form-group">
                       <div class="select-wrap one-third">
                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                       <select name="numberOfPerson" class="form-control" required>
+                       <select id="numberOfPerson" name="numberOfPerson" class="form-control" required>
                          <option value="0">0 명</option>
                          <option value="1">1 명</option>
                          <option value="2">2 명</option>
@@ -219,7 +226,7 @@ function gogo(){
                     <div class="form-group">
                       <div class="select-wrap one-third">
                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                       <select name="numberOfPet" class="form-control" required>
+                       <select id="numberOfPet" name="numberOfPet" class="form-control" required>
                          <option value="0">0 마리</option>
                          <option value="1">1 마리</option>
                          <option value="2">2 마리</option>

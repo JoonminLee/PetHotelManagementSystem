@@ -16,6 +16,9 @@ String reCheckOut = request.getParameter("checkout_date");
 
 session.setAttribute("reCheckIn", reCheckIn);
 session.setAttribute("reCheckOut", reCheckOut);
+session.setAttribute("numberOfPerson", request.getParameter("numOfPeople"));
+session.setAttribute("numberOfPet", request.getParameter("numOfPets"));
+
 
 %>
 <style>

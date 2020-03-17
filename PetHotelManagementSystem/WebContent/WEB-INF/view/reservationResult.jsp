@@ -264,8 +264,8 @@ $(function(){
 																if (vFrom == "phms") {
 															%> 
 															<input type="text" name="uPhone" value="${user.uPhone }" readonly />
-															<input type="text" name="uPhone1" value="${uPhone[1] }"/>
-															<input type="text" name="uPhone2" value="${uPhone[2] }"/>																														
+															<input type="hidden" name="uPhone1" value="${uPhone[1] }"/>
+															<input type="hidden" name="uPhone2" value="${uPhone[2] }"/>																														
 															<%
 															} else {
  															%>
