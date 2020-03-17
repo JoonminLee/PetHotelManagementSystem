@@ -42,7 +42,12 @@ function gogo(){
 				회원 생년월일 : ${user.uBirth }<br>
 				<a href="/my/myPageUpdate">회원정보 수정</a><br><br>
 				<h1>반려 동물 정보</h1>
+				<c:forEach var="i" items="${pet}">
+					반려동물 이름 : ${i.pName }<br>	
+					반려동물 종류 : ${i.pType }<br>
+				</c:forEach>
 				<a href="/my/myPet">반려동물 추가</a>
+				<a href="/my/myPetDelete"></a>				
 		</header>
 
 	<hr>
@@ -77,6 +82,10 @@ function gogo(){
 				회원 경로 : ${visitor.vFrom }<br>
 				<a href="/my/myPageUpdate">회원정보 수정</a>
 				<h1>반려 동물 정보</h1>
+				<c:forEach var="i" items="${pet}">
+					반려동물 이름 : ${i.pName }<br>	
+					반려동물 종류 : ${i.pType }<br>
+				</c:forEach>
 				<a href="/my/myPet">반려동물 추가</a>
 		</header>
 	<hr>

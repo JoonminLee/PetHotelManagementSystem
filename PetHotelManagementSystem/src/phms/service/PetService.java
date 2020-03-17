@@ -33,5 +33,13 @@ public class PetService {
 	public int deletePet(int pNum) {
 		return petMapper.deletePet(pNum);
 	}
+	
+	public List<PetDto> selectAllUserPet(int pUNum){
+		return petMapper.selectAllUserPet(pUNum);
+	};
+	
+	public List<PetDto> selectAllVisitorPet(int pVNum){
+		return petMapper.selectAllVisitorPet(pVNum);
+	};
 
 }

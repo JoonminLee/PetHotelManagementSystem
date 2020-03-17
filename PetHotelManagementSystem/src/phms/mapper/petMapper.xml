@@ -25,4 +25,10 @@
 	<delete id="deletePet">
 		delete from pet where p_num=#{pNum}
 	</delete>
+	<select id="selectAllUserPet" resultType="pet">
+		select * from pet where p_u_num = #{pUNum}
+	</select>
+	<select id="selectAllVisitorPet" resultType="pet">
+		select * from pet where p_v_num = #{pVNum}
+	</select>
 </mapper>

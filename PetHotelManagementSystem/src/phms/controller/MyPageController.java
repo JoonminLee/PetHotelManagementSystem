@@ -55,18 +55,21 @@ public class MyPageController {
 		String id = (String) session.getAttribute("id");
 		String from = (String) session.getAttribute("from");
 		if (from == "phms") {
-			UserDto user = userService.selectOneUser(id);
+			UserDto user = userService.selectOneUser(id);		
 			List<ReRoomSizeDto> userReserve = reserveService.selectAllReRoomSizeDto(id);
+			List<PetDto> pet = petService.selectAllUserPet(user.getuNum());		
 			model.addAttribute("user", user);
+			model.addAttribute("pet", pet);
 			model.addAttribute("userReserve", userReserve);
 		} else {
 			VisitorDto visitor = visitorService.selectOneVisitor(id);
 			List<ReRoomSizeDto> visitorReserve = reserveService.selectAllReRoomSizeDto(id);
+			List<PetDto> pet = petService.selectAllVisitorPet(visitor.getvNum());
 			model.addAttribute("visitor", visitor);
+			model.addAttribute("pet", pet);
 			model.addAttribute("visitorReserve", visitorReserve);
 		}
 		return "myPage01";
-
 	}	
 
 	//마이페이지 회원정보 업데이트 - user, visitor 분간해서 해당하는 jsp호출

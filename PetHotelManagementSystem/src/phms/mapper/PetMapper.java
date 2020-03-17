@@ -15,5 +15,9 @@ public interface PetMapper {
 	public int updatePet(PetDto pet);
 
 	public int deletePet(int pNum);
+	
+	public List<PetDto> selectAllUserPet(int pUNum);
+	
+	public List<PetDto> selectAllVisitorPet(int pVNum);
 
 }
