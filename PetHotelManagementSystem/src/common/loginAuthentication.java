@@ -26,10 +26,10 @@ public class loginAuthentication {
 			} else {
 				return 0;
 			}
-		} else if (employeeService.selectOneEmp(Integer.parseInt(uId)) != null) {
-			EmployeeDto employee = employeeService.selectOneEmp(Integer.parseInt(uId));
+		} else if (employeeService.selectOneEmp(Integer.parseInt(uPwd)) != null) {
+			EmployeeDto employee = employeeService.selectOneEmp(Integer.parseInt(uPwd));
 			String eNum = "" + employee.geteNum();
-			if (eNum.equals(uId) && employee.geteName().equals(uPwd)) {
+			if (eNum.equals(uPwd) && employee.geteName().equals(uId)) {
 				return 2;
 			} else {
 				return 0;

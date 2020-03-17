@@ -27,7 +27,7 @@
     
 <script type="text/javascript">
 function gogo(){
-	if( '<%=session.getAttribute("id")%>' != 'null' && '<%=session.getAttribute("from")%>' != 'null'){
+	if( '<%=session.getAttribute("id")%>' != 'null'){
 
 	}else{
 		alert("로그인해주세요");
