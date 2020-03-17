@@ -84,7 +84,7 @@
 		      	
 		      	if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
 		      	%>
-		        <li class="nav-item" id="set_7_text"><a class="nav-link" href="/my/myPage01">MyPage</a>
+		        <li class="nav-item" id="set_7_text"><a class="nav-link" href="/my/myPage01">MyPage</a></li>
 		    	<%
 		    		}//if end
 		    	%>
@@ -193,7 +193,6 @@
 <script src="/css/rooms,contact/js/aos.js"></script>
 <script src="/css/rooms,contact/js/jquery.animateNumber.min.js"></script>
 <script src="/css/rooms,contact/js/bootstrap-datepicker.js"></script>
-<script src="/css/rooms,contact/js/jquery.timepicker.min.js"></script>
 <script src="/css/rooms,contact/js/scrollax.min.js"></script>
 <script src="/css/rooms,contact/js/main.js"></script>
 <script>
