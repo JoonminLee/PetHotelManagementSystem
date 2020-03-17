@@ -19,21 +19,26 @@ public class loginAuthentication {
 
 	public int loginIdPwdCheck(String uId, String uPwd) {
 		System.out.println(":::loginAuthentication");
-		if (userService.selectOneUser(uId) != null) {
-			UserDto user = userService.selectOneUser(uId);
-			if (user.getuId().equals(uId) && user.getuPwd().equals(uPwd)) {
-				return 1;
-			} else {
-				return 0;
+		try {
+			if (userService.selectOneUser(uId) != null) {
+				UserDto user = userService.selectOneUser(uId);
+				if (user.getuId().equals(uId) && user.getuPwd().equals(uPwd)) {
+					return 1;
+				} else {
+					return 0;
+				}
+			} else if (employeeService.selectOneEmp(Integer.parseInt(uPwd)) != null) {
+				EmployeeDto employee = employeeService.selectOneEmp(Integer.parseInt(uPwd));
+				String eNum = "" + employee.geteNum();
+				if (eNum.equals(uPwd) && employee.geteName().equals(uId)) {
+					return 2;
+				} else {
+					return 0;
+				}
 			}
-		} else if (employeeService.selectOneEmp(Integer.parseInt(uPwd)) != null) {
-			EmployeeDto employee = employeeService.selectOneEmp(Integer.parseInt(uPwd));
-			String eNum = "" + employee.geteNum();
-			if (eNum.equals(uPwd) && employee.geteName().equals(uId)) {
-				return 2;
-			} else {
-				return 0;
-			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
 		}
 		return 0;
 	}

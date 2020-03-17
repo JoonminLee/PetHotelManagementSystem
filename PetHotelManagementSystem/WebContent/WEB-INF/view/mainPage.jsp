@@ -172,7 +172,7 @@
 						                      <label for="adults" class="font-weight-bold text-black">Visitors</label>
 						                      <div class="field-icon-wrap">
 						                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-						                        <select name="numOfPeople" id="adults" class="form-control">
+						                        <select name="numOfPeople" id="adults" class="form-control" required>
 						                         	<option value="0">0</option>
 													<option value="1">1</option>
 													<option value="2">2</option>
@@ -184,7 +184,7 @@
 						                      <label for="children" class="font-weight-bold text-black">Pets</label>
 						                      <div class="field-icon-wrap">
 						                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-						                        <select name="numOfPets" id="children" class="form-control">
+						                        <select name="numOfPets" id="children" class="form-control" required>
 						                        	<option value="0">0</option>
 													<option value="1">1</option>
 													<option value="2">2</option>

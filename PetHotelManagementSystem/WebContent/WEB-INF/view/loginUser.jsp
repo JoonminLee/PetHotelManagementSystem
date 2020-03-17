@@ -94,8 +94,7 @@
 
 		Kakao.Auth.loginForm({
 			success : function(authObj) {
-				Kakao.API
-						.request({
+				Kakao.API.request({
 							url : '/v2/user/me',
 							success : function(res) {
 								var kakaoProfile = "?vId=" + res.id + "&vName="
