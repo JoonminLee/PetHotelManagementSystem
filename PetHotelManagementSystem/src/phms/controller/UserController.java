@@ -142,6 +142,7 @@ public class UserController {
 		} else if (result == 2) {
 			System.out.println("직원 로그인 성공");
 			session.setAttribute("id", uPwd);
+			session.setAttribute("from", "emp");
 			return "redirect:/adminHome";
 		} else {
 			System.out.println("로그인 실패");
