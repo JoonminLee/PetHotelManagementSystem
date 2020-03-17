@@ -8,23 +8,39 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>sessionLogout</title>
 </head>
-<body>
-	<%=(String) session.getAttribute("id")%>님 로그아웃 성공
+<script type="text/javascript">
+	function gogo(){
+		alert("<%=(String) session.getAttribute("id")%>님 로그아웃 성공");
+	}
+	
+	function toMain(){
+		var url = document.getElementById("goLogOut").getAttribute("href");
+		window.open(url);
+		location.href = "/main/mainPage";
+	}
+</script>
+<body onload="gogo()">
 	<%
 		String vFrom = "";
-		if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
-			vFrom = (String) session.getAttribute("from");
+			if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
+		vFrom = (String) session.getAttribute("from");
 			switch (vFrom) {
 			case "kakao":
-	%>	<a id="goLogOut" href="https://accounts.kakao.com/" target="_blank" onclick="toMain()">카카오 계정 로그아웃(자동로그인 방지)</a>
+	%>
+		<p>자동로그인 방지를 위해 <%=vFrom %>사이트에서 한번 더 로그아웃해주세요.</p>
+		<a id="goLogOut" href="https://accounts.kakao.com/" target="_blank" onclick="toMain()">카카오 계정 로그아웃</a>
 	<%
 		break;
 			case "google":
-	%>	<a id="goLogOut" href="https://www.google.com/accounts/Logout" target="_blank" onclick="toMain()">구글 계정 로그아웃(자동로그인 방지)</a>
+	%>	
+		<p>자동로그인 방지를 위해 <%=vFrom %>사이트에서 한번 더 로그아웃해주세요.</p>	
+		<a id="goLogOut" href="https://www.google.com/accounts/Logout" target="_blank" onclick="toMain()">구글 계정 로그아웃</a>
 	<%
 		break;
 			case "naver":
-	%>	<a id="goLogOut" href="https://nid.naver.com/" target="_blank" onclick="toMain()">네이버 계정 로그아웃(자동로그인 방지)</a>
+	%>	
+		<p>자동로그인 방지를 위해 <%=vFrom %>사이트에서 한번 더 로그아웃해주세요.</p>	
+		<a id="goLogOut" href="https://nid.naver.com/" target="_blank" onclick="toMain()">네이버 계정 로그아웃</a>
 	<%
 		break;
 			}// switch end
@@ -33,11 +49,4 @@
 	%>
 	<a href="/main/mainPage">메인</a>
 </body>
-<script type="text/javascript">
-	function toMain(){
-		var url = document.getElementById("goLogOut").getAttribute("href");
-		window.open(url);
-		location.href = "/main/mainPage";
-	}
-</script>
 </html>

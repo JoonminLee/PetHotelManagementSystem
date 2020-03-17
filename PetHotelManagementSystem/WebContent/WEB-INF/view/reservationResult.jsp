@@ -16,7 +16,7 @@ input{
 	border:none; 
 }
 </style>
-<title>reservationResult</title>
+<title>PHMS : 예약확인 및 결제</title>
 <!-- StyleSheet -->
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i"	rel="stylesheet">
 <link rel="stylesheet" href="/css/reserveResult/css/animate.css">
@@ -36,6 +36,15 @@ input{
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+function gogo(){
+	function gogo(){
+		if( '<%=session.getAttribute("id")%>' != 'null' && '<%=session.getAttribute("from")%>' != 'null'){
+
+		}else{
+			alert("로그인해주세요");
+			location.href="/user/loginUser"
+		}
+	}
 $(function(){
 	$("#pay").click(function(){
 		var uPhone = $("input[name='uPhone']").val();
@@ -115,7 +124,7 @@ $(function(){
 </script>
 
 </head>
-<body>
+<body onload="gogo()">
 	<nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
@@ -129,16 +138,64 @@ $(function(){
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a href="/main/mainPage" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="/room/selectAvailableRoom"
-						class="nav-link">Rooms</a></li>
-					<li class="nav-item"><a href="/main/servicePage"
-						class="nav-link">Service</a></li>
-					<li class="nav-item"><a href="/my/myPage01" class="nav-link">My
-							page</a></li>
-					<li class="nav-item active"><a href="/main/contactPage"
-						class="nav-link">고객센터</a></li>
-				</ul>
+	        	<%
+					String vFrom = "";
+					if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
+						vFrom = (String) session.getAttribute("from");
+				%><li class="nav-item" ><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
+				<%
+					switch (vFrom) {
+						case "kakao":
+				%>
+				<li class="nav-item" id="set_7_text"><a class="nav-link" href="/sess/sessionLogout" onclick="kakaoOut()">LogOut</a></li>
+				<%
+					break;
+						case "google":
+				%>
+				<li class="nav-item" ><a class="nav-link" href="/sess/sessionLogout" onclick="googleOut()">LogOut</a></li>
+				<%
+					break;
+						case "naver":
+				%>
+				<li class="nav-item" ><a class="nav-link" href="/sess/sessionLogout">LogOut</a></li>
+				<%
+					break;
+						case "phms":
+				%>
+				<li class="nav-item" ><a class="nav-link" href="/sess/sessionLogout">LogOut</a></li>
+				<%
+					break;
+								}//switch end
+					} else {
+				%>
+				<li class="nav-item" id="set_7_text"><a class="nav-link" href="/user/loginUser">LogIn</a></li>
+				<%
+					}//if end
+				%>
+				
+				<%
+				if (session.getAttribute("id") == null && session.getAttribute("from") == null) { 
+				%>
+		        <li class="nav-item" id="set_7_text"><a class="nav-link" href="/user/insertUser">Register</a></li>
+		      	<%
+		      		}//if end
+		      	%>
+		      	
+		      	<li class="nav-item active"><a href="/room/selectAvailableRoom" class="nav-link">Rooms</a></li>
+		      	
+		        <li class="nav-item" id="set_7_text"><a class="nav-link" href="/main/servicePage">Service</a></li>
+		      	
+		      	<% 
+		      	
+		      	if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
+		      	%>
+		        <li class="nav-item" id="set_7_text"><a class="nav-link" href="/my/myPage01">MyPage</a>
+		    	<%
+		    		}//if end
+		    	%>
+		    	
+		       <li class="nav-item" id="set_7_text"><a class="nav-link"  href="/main/contactPage">Contact</a></li>
+	        </ul>
 			</div>
 		</div>
 	</nav>
@@ -205,12 +262,11 @@ $(function(){
 														<th>Phone Number :</th>
 														<td>
 															<%
-																String vFrom = (String) session.getAttribute("from");
 																if (vFrom == "phms") {
 															%> 
 															<input type="text" name="uPhone" value="${user.uPhone }" readonly />
-															<input type="hidden" name="uPhone1"/>
-															<input type="hidden" name="uPhone2"/>																														
+															<input type="text" name="uPhone1" value="${uPhone[1] }"/>
+															<input type="text" name="uPhone2" value="${uPhone[2] }"/>																														
 															<%
 															} else {
  															%>

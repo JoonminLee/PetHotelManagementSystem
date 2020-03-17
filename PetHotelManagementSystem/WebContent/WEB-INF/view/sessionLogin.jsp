@@ -9,10 +9,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript">
+	function gogo(){
+	alert("<%=(String) session.getAttribute("id")%>님 로그인 성공");
+	location.href="/main/mainPage"
+	}	
+</script>
 <title>sessionLogin</title>
 </head>
-<body>
-	<%=(String) session.getAttribute("id")%>님 로그인 성공
-	<a href="/main/mainPage">메인</a>
+<body onload="gogo()">
 </body>
 </html>

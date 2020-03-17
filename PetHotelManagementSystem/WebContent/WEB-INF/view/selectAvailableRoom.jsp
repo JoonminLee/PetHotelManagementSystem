@@ -11,8 +11,8 @@
 <% 
 request.setCharacterEncoding("utf-8");
 
-String reCheckIn = request.getParameter("reCheckIn");
-String reCheckOut = request.getParameter("reCheckOut");
+String reCheckIn = request.getParameter("checkin_date");
+String reCheckOut = request.getParameter("checkout_date");
 
 session.setAttribute("reCheckIn", reCheckIn);
 session.setAttribute("reCheckOut", reCheckOut);

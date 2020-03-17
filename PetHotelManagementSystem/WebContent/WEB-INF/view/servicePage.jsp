@@ -62,6 +62,7 @@
 		      	<%
 		      		}//if end
 		      	%>
+		        <li id="set_7_text"><a href="/room/selectAvailableRoom">Rooms</a></li>
 		        <li id="set_7_text"><a href="/main/servicePage">Service</a></li>
 		      	<% 
 		      	

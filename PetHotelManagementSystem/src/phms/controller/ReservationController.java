@@ -45,7 +45,7 @@ public class ReservationController {
 
 	@Autowired
 	SizeService sizeService;
-	
+
 	@Autowired
 	priceCalculator priceCalc;
 
@@ -80,7 +80,9 @@ public class ReservationController {
 
 		if (from == "phms") {
 			UserDto user = userService.selectOneUser(id);
+			String[] uPhone = user.getuPhone().split("-");
 			model.addAttribute("user", user);
+			model.addAttribute("uPhone", uPhone);
 		} else {
 			VisitorDto visitor = visitorService.selectOneVisitor(id);
 			model.addAttribute("visitor", visitor);
@@ -88,7 +90,7 @@ public class ReservationController {
 		SizeDto sizeDto = sizeService.selectOneSize(Integer.parseInt(rSNum));
 
 		ArrayList<Object> totalPriceList = priceCalc.getTotalPrice(reCheckInStr, reCheckOutStr, rSNum);
-		
+
 		model.addAttribute("rSNum", rSNum);
 		model.addAttribute("rSNumStr", sizeDto.getsSize());
 		model.addAttribute("numberOfPerson", numberOfPerson);
@@ -118,7 +120,7 @@ public class ReservationController {
 		reservationDto.setReCheckIn(LocalDate.parse(reCheckInStr));
 		reservationDto.setReCheckOut(LocalDate.parse(reCheckOutStr));
 		reservationDto.setReDay(LocalDate.now());
-		
+
 		if (from == "phms") {
 			UserDto user = userService.selectOneUser(id);
 			user.setuRNum(rNum);
