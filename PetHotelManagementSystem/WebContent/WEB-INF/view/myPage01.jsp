@@ -40,7 +40,9 @@ function gogo(){
 				회원 전화번호 : ${user.uPhone }<br>
 				회원 이메일 : ${user.uEmail }<br>
 				회원 생년월일 : ${user.uBirth }<br>
-				<a href="/my/myPageUpdate">회원정보 수정</a>
+				<a href="/my/myPageUpdate">회원정보 수정</a><br><br>
+				<h1>반려 동물 정보</h1>
+				<a href="/my/myPet">반려동물 추가</a>
 		</header>
 
 	<hr>
@@ -74,6 +76,8 @@ function gogo(){
 				회원 이메일 : ${visitor.vEmail }<br>
 				회원 경로 : ${visitor.vFrom }<br>
 				<a href="/my/myPageUpdate">회원정보 수정</a>
+				<h1>반려 동물 정보</h1>
+				<a href="/my/myPet">반려동물 추가</a>
 		</header>
 	<hr>
 	

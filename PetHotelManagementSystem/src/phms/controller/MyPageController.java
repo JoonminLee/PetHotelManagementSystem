@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import phms.dto.PetDto;
 import phms.dto.ReRoomSizeDto;
 import phms.dto.ReservationDto;
 import phms.dto.RoomDto;
@@ -21,6 +22,7 @@ import phms.dto.UserDto;
 import phms.dto.UserRoomSizeDto;
 import phms.dto.VisitorDto;
 import phms.dto.VisitorRoomSizeDto;
+import phms.service.PetService;
 import phms.service.ReservationService;
 import phms.service.RoomService;
 import phms.service.UserService;
@@ -42,6 +44,9 @@ public class MyPageController {
 	@Autowired
 	RoomService roomService;
 	
+	@Autowired
+	PetService petService;
+	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// 세션 아이디 값 가져와서 마이페이지에 정보 넘겨주기
 	@RequestMapping("/myPage01")
@@ -62,7 +67,7 @@ public class MyPageController {
 		}
 		return "myPage01";
 
-	}
+	}	
 
 	//마이페이지 회원정보 업데이트 - user, visitor 분간해서 해당하는 jsp호출
 	@GetMapping("/myPageUpdate")
@@ -171,6 +176,38 @@ public class MyPageController {
 		List<VisitorRoomSizeDto> visitorReserveList = visitorService.selectVisitorRoom(vId);
 		return visitorReserveList;
 	}
+	
+	@RequestMapping("/myPet")
+	public String myPet() {
+		System.out.println(":::myPet");
+		return "myPet";
+	}
+	
+	@RequestMapping("/insertMyPet")
+	public String insertMyPet(UserDto user, @RequestParam("pName") String pName, PetDto pet,
+			@RequestParam("pType") String pType, VisitorDto visitor, HttpSession session) {
+		String id = (String) session.getAttribute("id");
+		String from = (String) session.getAttribute("from");
+		System.out.println(pName);
+		System.out.println(pType);
+		System.out.println(id);
+		System.out.println(from);
+		if (from == "phms") {
+			user = userService.selectOneUser(id);			
+			pet.setpUNum(user.getuNum());
+			pet.setpName(pName);
+			pet.setpType(pType);
+			petService.insertPet(pet);				
+		}else {
+			visitor = visitorService.selectOneVisitor(id);
+			pet.setpVNum(visitor.getvNum());
+			pet.setpName(pName);
+			pet.setpType(pType);
+			petService.insertPet(pet);
+		}
+		return "redirect:/my/myPage01";
+	}
+	
 }
 //	//ajax 회원정보 수정부분
 //	@RequestMapping(value = "/selectOneUser")
