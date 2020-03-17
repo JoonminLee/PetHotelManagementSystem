@@ -76,11 +76,11 @@ public class priceCalculator {
 	}
 
 	//체크인~체크아웃 사이의 날짜 값을 불러오는 메소드.
-	public static ArrayList<String> checkIOBetweenSelectDate(String checkInDate, String checkOutDate) {
+	public ArrayList<String> checkIOBetweenSelectDate(String checkInDate, String checkOutDate) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar cal = Calendar.getInstance();
 		ArrayList<String> checkList = new ArrayList<String>();
-
+		
 		// 종료날짜 : -1 해주어야 마지막날은 계산하지 않는다
 		String[] endDate = checkOutDate.split("-");
 		cal.set(Integer.parseInt(endDate[0]), Integer.parseInt(endDate[1]) - 1, Integer.parseInt(endDate[2]));

@@ -22,9 +22,19 @@
 
 <!-- JqueryCDN -->
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+function gogo(){
+	if( '<%=session.getAttribute("id")%>' != 'null' && '<%=session.getAttribute("from")%>' != 'null'){
+	}else{
+		alert("로그인해주세요");
+		location.href="/user/loginUser"
+	}
+}
+</script>
 <title>PHMS : 룸 상세정보</title>
 </head>
-<body>
+<body onload="gogo()">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="/main/mainPage">PETHOTEL</a>
@@ -62,7 +72,7 @@
 				<%
 					break;
 								}//switch end
-							} else {
+					} else {
 				%>
 				<li class="nav-item" id="set_7_text"><a class="nav-link" href="/user/loginUser">LogIn</a></li>
 				<%
@@ -277,8 +287,7 @@ $(function(){
 			    todayHighlight: true,
 			    constrainInput: false,
 			    beforeShowDay : disableAllTheseDays
-			}).datepicker(
-			        "setDate", new Date(new Date())
+			}).datepicker("setDate", new Date(new Date())
 			).on("changeDate", function (e) {
 			    if($('#checkin_date').val() >= $('#checkout_date').val()){
 			        alert("퇴실날짜 보다 이전 날짜를 선택해 주세요");
@@ -293,8 +302,7 @@ $(function(){
 			    todayHighlight: true,
 			    constrainInput: false,
 			    beforeShowDay : disableAllTheseDays
-			}).datepicker(
-			        "setDate", new Date(new Date(+1))
+			}).datepicker("setDate", new Date(new Date(+1))
 			).on("changeDate", function (e) {
 			    if($('#checkin_date').val() >= $('#checkout_date').val()){
 			        alert("입실날짜 보다 나중 날짜를 선택해 주세요");
