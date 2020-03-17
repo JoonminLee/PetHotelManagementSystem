@@ -41,14 +41,17 @@ $(function(){
 		var uPhone = $("input[name='uPhone']").val();
 		var uPhone1 = $("input[name='uPhone1']").val();
 		var uPhone2 = $("input[name='uPhone2']").val();
+		var uPhone3 = $("input[name='uPhone3']").val();
+		var uPhone4 = $("input[name='uPhone4']").val();
 		var rSNumStr = $("input[name='rSNumStr']").val();		
 		var price = parseInt($("input[name='totalPrice']").val());
 		console.log(rSNumStr);
 		console.log(price);
-		if(uPhone1 == "" || uPhone2 == ""){
-			alert("전화번호를 입력해주세요");
-		}
-		if(uPhone1 != "" && uPhone2 != ""){
+		console.log(uPhone3);
+		console.log(uPhone4);
+		if(uPhone3 == "" || uPhone4 == ""){
+			alert("전화번호를 입력해주세요!");
+		}else if(uPhone != "" || uPhone1 != "" && uPhone2 != ""){
 			var IMP = window.IMP; // 생략가능
 			IMP.init('imp16403775');
 			// 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
@@ -105,7 +108,7 @@ $(function(){
 					alert(msg);
 				}				
 			});			
-		}		
+		}
 	})	
 })
 
@@ -168,7 +171,7 @@ $(function(){
 							<p>예약정보를 확인하세요.</p>
 						</div>
 						<form class="form-register" action="/reserve/reservationResult"
-							method="post">
+							method="post" onsubmit="return check()">
 							<div id="form-total">
 								<section>
 									<div class="inner">
@@ -212,8 +215,8 @@ $(function(){
 															} else {
  															%>
  															<input style="border:1px solid #ccc; border-radius:4px; width:60px; text-align: center;" type="text" value="010">-
-															<input style="border:1px solid #ccc; border-radius:4px; width:60px; text-align: center;" type="text" maxlength="4" name="uPhone1" required />-
-															<input style="border:1px solid #ccc; border-radius:4px; width:60px; text-align: center;" type="text" maxlength="4" name="uPhone2" required />
+															<input style="border:1px solid #ccc; border-radius:4px; width:60px; text-align: center;" type="text" maxlength="4" name="uPhone3" required />-
+															<input style="border:1px solid #ccc; border-radius:4px; width:60px; text-align: center;" type="text" maxlength="4" name="uPhone4" required />
  															<%
 															}
 															%>

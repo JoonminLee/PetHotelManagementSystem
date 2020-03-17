@@ -83,11 +83,14 @@ public class MyPageController {
 
 	//회원정보 업데이트 및 마이페이지로 redirect
 	@PostMapping("/myPageUpdate")
-	public String myPageUpdate(UserDto user, @RequestParam("uBirthStr") String uBirthStr, VisitorDto visitor, HttpSession session) {
+	public String myPageUpdate(UserDto user, @RequestParam("uBirthStr") String uBirthStr,
+			@RequestParam("uPwd") String uPwd, VisitorDto visitor, HttpSession session) {
 		System.out.println(":::myPageUpdate");
+		System.out.println(uPwd);
 		String from = (String) session.getAttribute("from");
 		if (from == "phms") {
 			user.setuBirth(LocalDate.parse(uBirthStr));
+			user.setuPwd(uPwd);
 			userService.myPageUpdateUser(user);
 		} else {
 			visitorService.myPageUpdateVisitor(visitor);
@@ -165,7 +168,7 @@ public class MyPageController {
 		List<VisitorRoomSizeDto> visitorReserveList = visitorService.selectVisitorRoom(vId);
 		return visitorReserveList;
 	}
-
+}
 //	//ajax 회원정보 수정부분
 //	@RequestMapping(value = "/selectOneUser")
 //	public @ResponseBody Object selectOneUser(String uId, String uEmail, String uPhone, String uPhone1, String uPhone2) {
@@ -177,50 +180,40 @@ public class MyPageController {
 //	return user;
 //	}
 
-	// ajax 비회원정보 수정부분
-	@RequestMapping(value = "/changeVisitor")
-	public @ResponseBody Object changeVisitor(String vId, String vName) {
-
-		System.out.println(":::changeVisitor");
-		VisitorDto visitor = visitorService.selectOneVisitor(vId);
-		visitor.setvName(vName);
-		visitorService.updateVisitor(visitor);
-
-		return visitor;
-	}
-
-	// ajax 회원정보 수정 업데이트 부분
-	@RequestMapping("/updateUser")
-	public @ResponseBody Object updateUser(String id, String from) {
-		System.out.println(id);
-		System.out.println(from);
-		System.out.println(":::updateUser");
-		if (from.equals("phms")) {
-			UserDto user = userService.selectOneUser(id);
-			return user;
-		} else {
-			VisitorDto visitor = visitorService.selectOneVisitor(id);
-			visitor.getvName();
-			visitorService.updateVisitor(visitor);
-			return visitor;
-		}
-	}
-
-	// 회원 예약정보 삭제 부분
-	@RequestMapping("/deleteUserRoom")
-	public @ResponseBody List<UserRoomSizeDto> deleteUserRoom(String uId) {
-		System.out.println(":::deleteUserRoom");
-		userService.deleteUserRoom(uId);
-		List<UserRoomSizeDto> listUserRoom = userService.selectUserRoomAll();
-		return listUserRoom;
-	}
-
-	// 비회원 예약정보 삭제 부분
-	@RequestMapping("/deleteVisitorRoom")
-	public @ResponseBody List<VisitorRoomSizeDto> deleteVisitorRoom(String vId) {
-		System.out.println(":::deleteVisitorRoom");
-		visitorService.deleteVisitorRoom(vId);
-		List<VisitorRoomSizeDto> listVisitorRoom = visitorService.selectVisitorRoomAll();
-		return listVisitorRoom;
-	}
-}
+/*
+ * // ajax 비회원정보 수정부분
+ * 
+ * @RequestMapping(value = "/changeVisitor") public @ResponseBody Object
+ * changeVisitor(String vId, String vName) {
+ * 
+ * System.out.println(":::changeVisitor"); VisitorDto visitor =
+ * visitorService.selectOneVisitor(vId); visitor.setvName(vName);
+ * visitorService.updateVisitor(visitor);
+ * 
+ * return visitor; }
+ * 
+ * // ajax 회원정보 수정 업데이트 부분
+ * 
+ * @RequestMapping("/updateUser") public @ResponseBody Object updateUser(String
+ * id, String from) { System.out.println(id); System.out.println(from);
+ * System.out.println(":::updateUser"); if (from.equals("phms")) { UserDto user
+ * = userService.selectOneUser(id); return user; } else { VisitorDto visitor =
+ * visitorService.selectOneVisitor(id); visitor.getvName();
+ * visitorService.updateVisitor(visitor); return visitor; } }
+ * 
+ * // 회원 예약정보 삭제 부분
+ * 
+ * @RequestMapping("/deleteUserRoom") public @ResponseBody List<UserRoomSizeDto>
+ * deleteUserRoom(String uId) { System.out.println(":::deleteUserRoom");
+ * userService.deleteUserRoom(uId); List<UserRoomSizeDto> listUserRoom =
+ * userService.selectUserRoomAll(); return listUserRoom; }
+ * 
+ * // 비회원 예약정보 삭제 부분
+ * 
+ * @RequestMapping("/deleteVisitorRoom") public @ResponseBody
+ * List<VisitorRoomSizeDto> deleteVisitorRoom(String vId) {
+ * System.out.println(":::deleteVisitorRoom");
+ * visitorService.deleteVisitorRoom(vId); List<VisitorRoomSizeDto>
+ * listVisitorRoom = visitorService.selectVisitorRoomAll(); return
+ * listVisitorRoom; } }
+ */
