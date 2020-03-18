@@ -8,21 +8,18 @@
 <!-- CSS -->
 <link rel="stylesheet" href="/css/main/assets/css/main.css" />
 <noscript><link rel="stylesheet" href="/css/main/assets/css/noscript.css" /></noscript>
+
 <!-- chackin css-->
 <link rel="stylesheet" href="/css/main/chackin/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/main/chackin/css/bootstrap-datepicker.css">
+
 <!-- chackin Theme Style -->
 <link rel="stylesheet" href="/css/main/chackin/css/style.css">
+
 <!-- nav StyleSheet -->
 <link rel="stylesheet" href="/css/main/menu/css/animate.css">
 <link rel="stylesheet" href="/css/main/menu/css/style.css">
 	
-<!-- OAuth2.0 -->
-<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<meta name="google-signin-client_id" content="676303489666-7vh4op3lmi7j8pb5h2om655eoohkh449.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
 <!-- JqueryCDN -->
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -230,11 +227,13 @@
 <!-- chackin datepicker js -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+
 <!-- chackin js -->
 <script src="/css/main/chackin/js/jquery-3.3.1.min.js"></script>
 <script src="/css/main/chackin/js/aos.js"></script>
 <script src="/css/main/chackin/js/bootstrap-datepicker.js"></script>
 <script src="/css/main/chackin/js/main.js"></script>
+
 <!--nav Javascript -->
 <script src="/css/main/menu/js/jquery.min.js"></script>
 <script src="/css/main/menu/js/bootstrap.min.js"></script>
@@ -244,6 +243,7 @@
 <script src="/css/main/menu/js/jquery.animateNumber.min.js"></script>
 <script src="/css/main/menu/js/scrollax.min.js"></script>
 <script src="/css/main/menu/js/main.js"></script>
+
 <script type="text/javascript">
 
 	// 페이지가 로드된 후에 문서안에 있는 바디태그 안에 is-preload이런 이름의  클래스를 지운다.
@@ -251,31 +251,16 @@
 		document.body.classList.remove('is-preload');
 	}
 	
-	
-	//카카오 로그아웃
-	function kakaoOut() {
-		Kakao.init('f93055f9d183a780c81d29d70f577730');
-		Kakao.Auth.logout();
-	}
 
-	//구글 init
-	function init() {
-		gapi.load('auth2', function() {
-				gapi.auth2.init({
-				client_id : "676303489666-7vh4op3lmi7j8pb5h2om655eoohkh449.apps.googleusercontent.com"
-				});
-		});
-	}
-	
-	//구글 로그아웃
-	function googleOut() {
-		init();
-		var gauth = gapi.auth2.getAuthInstance();
-		console.log(gauth);
-		gauth.signOut();
-		gauth.disconnect();
-		console.log(gauth);
-	}
-	
 </script>
+
+<!-- logOut javascript -->
+<script type="text/javascript" src="/js/logOut.js"></script>
+
+<!-- OAuth2.0 -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<meta name="google-signin-client_id" content="676303489666-7vh4op3lmi7j8pb5h2om655eoohkh449.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 </html>

@@ -399,4 +399,14 @@ $(function(){
 	};
 });
 </script>
+
+<!-- logOut javascript -->
+<script type="text/javascript" src="/js/logOut.js"></script>
+
+<!-- OAuth2.0 -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<meta name="google-signin-client_id" content="676303489666-7vh4op3lmi7j8pb5h2om655eoohkh449.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 </html>
