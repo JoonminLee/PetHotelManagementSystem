@@ -287,6 +287,10 @@
       <div class="container">
         <div class="signup-content">
           <form action="/user/insertUser" method="POST" onsubmit="return check()" id="signup-form" class="signup-form">
+         	<span class="login100-form-title p-b-49 animated bounce">
+				Sing.Up.
+			</span>
+			<br><br>
 			<div class="form-row">
               <div class="form-group">
                 <label for="id">id</label>
@@ -302,7 +306,7 @@
                 <input type="password" class="form-input" name="uPwd" id="password" required/>
               </div>
               <div class="form-group">
-                <label for="re_password"> password</label>
+                <label for="re_password">password</label>
                 <input type="password" class="form-input" name="uPwd2" id="re_password" required/>
               </div>
             </div>
@@ -375,14 +379,13 @@
 <script src="/css/insert_css/menu/js/jquery.waypoints.min.js"></script>
 <script src="/css/insert_css/menu/js/jquery.stellar.min.js"></script>
 <script src="/css/insert_css/menu/js/owl.carousel.min.js"></script>
-<script src="/css/insert_css/menu/js/jquery.animateNumber.min.js"></script>
 <script src="/css/insert_css/menu/js/scrollax.min.js"></script>
 <script src="/css/insert_css/menu/js/main.js"></script>
   <!-- JS -->
-  <script src="/css/insert_css/css/vendor/jquery/jquery.min.js"></script>
-  <script src="/css/insert_css/css/vendor/jquery-ui/jquery-ui.min.js"></script>
-  <script src="/css/insert_css/css/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-  <script src="/css/insert_css/css/vendor/jquery-validation/dist/additional-methods.min.js"></script>
-  <script src="/css/insert_css/css/js/main.js"></script>  
+<script src="/css/insert_css/css/vendor/jquery/jquery.min.js"></script>
+<script src="/css/insert_css/css/vendor/jquery-ui/jquery-ui.min.js"></script>
+<script src="/css/insert_css/css/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/css/insert_css/css/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+<script src="/css/insert_css/css/js/main.js"></script>  
 </body>
 </html>

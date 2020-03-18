@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta charset="utf-8">
-
-<!-- Theme Style -->
+<meta name="viewport"content="width=device-width, initial-scale=1, user-scalable=no">
+<!-- css -->
 <link rel="stylesheet" href="/css/service/assets/css/main.css">
+<!--nav StyleSheet -->
+<link rel="stylesheet" href="/css/service/menu/css/animate.css">
+<link rel="stylesheet" href="/css/service/menu/css/style.css">
 
 <!-- JqueryCDN -->
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -15,79 +18,121 @@
 </head>
 <body class="is-preload">
 
-	<!-- Header -->
-	<header id="header">
-		<h2><a href="/main/mainPage"><img src="/css/main/assets/css/images/main_images/logo.png" width="70" height="70"></a></h2>
-		<nav>
-			<ul>
-				<%
-					String vFrom = "";
-					if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
-						vFrom = (String) session.getAttribute("from");
-				%><li><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
-				<%
-					switch (vFrom) {
-						case "kakao":
-				%>
-				<li id="set_7_text"><a href="/sess/sessionLogout" onclick="kakaoOut()">LogOut</a></li>
-				<%
-					break;
-						case "google":
-				%>
-				<li><a href="/sess/sessionLogout" onclick="googleOut()">LogOut</a></li>
-				<%
-					break;
-						case "naver":
-				%>
-				<li><a href="/sess/sessionLogout">LogOut</a></li>
-				<%
-					break;
-						case "phms":
-				%>
-				<li><a href="/sess/sessionLogout">LogOut</a></li>
-				<%
-					break;
-						case "emp":
-				%>
-				<li><a href="/sess/sessionLogout">LogOut</a></li>
-				<%
-					break;
+	   				<!-- header -->
+				<header id="header">
+						<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+						<a class="navbar-brand" href="index.html">
+								<a href="/main/mainPage"><img src="/images/logo.png" ></a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="oi oi-menu"></span> Menu
+							</button>
+							<div class="collapse navbar-collapse" id="ftco-nav">
+							<ul class="navbar-nav ml-auto">
+						<%
+							String vFrom = "";
+							if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
+								vFrom = (String) session.getAttribute("from");
+						%><li><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
+						<%
+							switch (vFrom) {
+								case "kakao":
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li class="nav-item" id="set_7_text"><a href="/sess/sessionLogout" onclick="kakaoOut()">LogOut</a></li>
+						</div>
+						<%
+							break;
+								case "google":
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li class="nav-item" id="set_7_text"><a href="/sess/sessionLogout" onclick="googleOut()">LogOut</a></li>
+						</div>
+						<%
+							break;
+								case "naver":
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li class="nav-item" id="set_7_text"><a href="/sess/sessionLogout">LogOut</a></li>
+						</div>
+						<%
+							break;
+								case "phms":
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li class="nav-item" id="set_7_text"><a href="/sess/sessionLogout">LogOut</a></li>
+						</div>
+						<%
+							break;
 								}//switch end
 							} else {
-				%>
-				<li id="set_7_text"><a href="/user/loginUser">LogIn</a></li>
-				<%
-					}//if end
-				%>
-				
-				<%
-				if (session.getAttribute("id") == null && session.getAttribute("from") == null) { 
-				%>
-		        <li id="set_7_text"><a href="/user/insertUser">Register</a></li>
-		      	<%
-		      		}//if end
-		      	%>
-		        <li id="set_7_text"><a href="/room/selectAvailableRoom">Rooms</a></li>
-		        <li id="set_7_text"><a href="/main/servicePage">Service</a></li>
-		      	<% 
-		      	
-		      	if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
-		      	%>
-		        <li id="set_7_text"><a href="/my/myPage01">MyPage</a>
-		    	<%
-		    		}//if end
-		    	%>
-		    	
-		        <li id="set_7_text"><a href="/main/contactPage">Contact Us</a></li>
-			</ul>
-		</nav>
-	</header>
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li class="nav-item" id="set_7_text"><a href="/user/loginUser">LogIn</a></li>
+						</div>
+						<%
+							}//if end
+						%>
+						
+						<%
+						if (session.getAttribute("id") == null && session.getAttribute("from") == null) { 
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button1" height="50" width="120"></rect>
+		                </svg>
+		                <li class="nav-item" id="set_7_text"><a href="/user/insertUser">Register</a></li>
+		              	</div>
+		              	<%
+		              		}//if end
+		              	%>
+		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button1" height="50" width="120"></rect>
+		                </svg>
+		                <li class="nav-item" id="set_7_text"><a href="/room/selectAvailableRoom">Rooms</a></li>
+		            	</div>
+		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button1" height="50" width="120"></rect>
+		                </svg>
+		                <li class="nav-item" id="set_7_text"><a href="/main/servicePage">Service</a></li>
+		              	</div>
+		              	
+		              	<% 
+		              	if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
+		              	%>
+		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button1" height="50" width="120"></rect>
+		                </svg>
+		                <li class="nav-item" id="set_7_text"><a href="/my/myPage01">MyPage</a>
+		            	</div>
+		            	<%
+		            		}//if end
+		            	%>
+		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button1" height="50" width="120"></rect>
+		                </svg>
+		                <li class="nav-item" id="set_7_text"><a href="/main/contactPage">Contact</a></li>
+		              	</div>
+		              	
+					</ul>
+				</div>
+
+			</nav>
+			</header>
 	
 	<!-- Intro -->
 	<section id="intro" class="main style1 dark fullscreen">
 		<div class="content">
 			<header>
-				<h2>Pet. Hotel. Service.</h2>
+				<h2 class="animated bounce">Pet. Hotel. Service.</h2>
 			</header>
 			<p>
 				Welcome to <strong>PHMS</strong>
@@ -142,6 +187,14 @@
 <script src="/css/service/assets/js/breakpoints.min.js"></script>
 <script src="/css/service/assets/js/util.js"></script>
 <script src="/css/service/assets/js/main.js"></script>
+<!--nav Javascript -->
+<script src="/css/service/menu/js/jquery.min.js"></script>
+<script src="/css/service/menu/js/bootstrap.min.js"></script>
+<script src="/css/service/menu/js/jquery.waypoints.min.js"></script>
+<script src="/css/service/menu/js/jquery.stellar.min.js"></script>
+<script src="/css/service/menu/js/owl.carousel.min.js"></script>
+<script src="/css/service/menu/js/scrollax.min.js"></script>
+<script src="/css/service/menu/js/main.js"></script>
 
 <!-- logOut javascript -->
 <script type="text/javascript" src="/js/logOut.js"></script>
