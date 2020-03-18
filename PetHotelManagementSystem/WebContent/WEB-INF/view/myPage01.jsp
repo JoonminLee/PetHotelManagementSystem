@@ -20,6 +20,26 @@ function gogo(){
 		alert("로그인해주세요");
 		location.href="/user/loginUser"
 	}
+	$(function(){
+		$("#confirm").click(function(){
+			var result = confirm("정말로 예약을 취소하시겠습니까? 환불관련은 고객센터로 문의해주세요");
+			
+			if(result){				
+				location.href="/main/contactPage";
+			}else{
+				
+			}
+		})
+		$("#confirm1").click(function(){
+			var result = confirm("정말로 예약을 취소하시겠습니까? 환불관련은 고객센터로 문의해주세요");
+			
+			if(result){				
+				location.href="/main/contactPage";
+			}else{
+				
+			}
+		})
+	})
 }
 </script>
 <title>PHMS : <%=session.getAttribute("id") %></title>
@@ -64,7 +84,7 @@ function gogo(){
 					체크인 : ${i.reCheckIn }<br>
 					체크아웃 : ${i.reCheckOut }<br>
 					</p>
-					<a href="/my/myPageReserveCancle" class="btn btn-primary" onclick="return confirm('정말로 예약을 취소하시겠습니까? 환불관련은 고객센터로 문의해주세요');">예약취소</a>
+					<a id="confirm" class="btn btn-primary" style="color: white">예약취소</a>
 				</div>
 			</div>
 		</c:forEach>
@@ -102,7 +122,7 @@ function gogo(){
 					체크인 : ${i.reCheckIn }<br>
 					체크아웃 : ${i.reCheckOut }<br>
 					</p>
-					<a href="/my/myPageReserveCancle" class="btn btn-primary" onclick="return confirm('정말로 예약을 취소하시겠습니까? 환불관련은 고객센터로 문의해주세요');">예약취소</a>
+					<a id="confirm" class="btn btn-primary" style="color: white">예약취소</a>
 				</div>
 			</div>
 	</c:forEach>
