@@ -24,7 +24,10 @@
 <!-- Favicon-->
 <link rel="shortcut icon" href="view/admin/img/favicon.ico">
 <link rel="stylesheet" href="/css/admin_css/admin.css" />
-    
+
+<% 
+String emp = (String)session.getAttribute("emp");
+%>    
 <script type="text/javascript">
 function gogo(){
 	if( '<%=session.getAttribute("id")%>' != 'null'){

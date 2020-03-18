@@ -160,14 +160,32 @@ public class AdminController {
 	}
 
 	@GetMapping("/updateDeleteAdmin")
-	public String userAdmin() {
+	public String userAdmin(Model model, HttpSession session) {
 		System.out.println(":::updateDeleteAdmin로 고고");
+		int eNum = Integer.parseInt((String) session.getAttribute("id"));
+
+		// 사원 사진
+		EmployeeDto employee = employeeService.selectOneEmp(eNum);
+		DepartmentDto department = departmentService.selectOneDepartment(employee.geteDNum());
+		PositionDto position = positionService.selectOnePosition(employee.getePoNum());
+		model.addAttribute("emp", employee);
+		model.addAttribute("department", department);
+		model.addAttribute("position", position);
 		return "updateDeleteAdmin";
 	}
 
 	@GetMapping("/insertAdmin")
-	public String reserveAdmin() {
+	public String reserveAdmin(Model model, HttpSession session) {
 		System.out.println(":::insertAdmin로 고고");
+		int eNum = Integer.parseInt((String) session.getAttribute("id"));
+
+		// 사원 사진
+		EmployeeDto employee = employeeService.selectOneEmp(eNum);
+		DepartmentDto department = departmentService.selectOneDepartment(employee.geteDNum());
+		PositionDto position = positionService.selectOnePosition(employee.getePoNum());
+		model.addAttribute("emp", employee);
+		model.addAttribute("department", department);
+		model.addAttribute("position", position);
 		return "insertAdmin";
 	}
 

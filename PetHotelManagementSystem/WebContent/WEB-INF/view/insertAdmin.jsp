@@ -28,12 +28,19 @@
     <link rel="stylesheet" href="view/admin/css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="view/admin/img/favicon.ico">
-	
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+<script type="text/javascript">	
+function gogo(){
+	if( '<%=session.getAttribute("id")%>' != 'null'){
+
+	}else{
+		alert("로그인해주세요");
+		location.href="/user/loginUser"
+	}
+}
+</script>	
+    <title>PHMS : 관리자 페이지</title>
   </head>
-  <body>
+  <body onload="gogo()">
     <div class="page">
       <!-- Main Navbar-->
       <header class="header">
@@ -51,13 +58,14 @@
               <div class="navbar-header">
                 <!-- Navbar Brand --><a href="/adminHome" class="navbar-brand d-none d-sm-inline-block">
                   <div class="brand-text d-none d-lg-inline-block"><span></span><strong>PetHotel Admin</strong></div>
+                  </a>
               </div>
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
 
                 <!-- Logout -->
-                <!-- 로그인페이지로 이동 -->
-                <li class="nav-item"><a href="/user/loginUser" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                <!-- 메인페이지로 이동 -->
+                <li class="nav-item"><a href="/sess/sessionLogout" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -68,17 +76,17 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="view/admin/img/노창옥.JPG" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><a href="#" onclick="$.photoUpload()"><img id="profilePicture" src="${emp.ePhoto }" alt="..." class="img-fluid rounded-circle"></a></div>
             <div class="title">
-              <h1 class="h4">노창옥</h1>
-              <p>관리부</p>
-              <p>Associate</p>
+              <h1 class="h4">${emp.eName }</h1>
+              <p>${department.dName }</p>
+              <p>${position.poName }</p>
             </div>
           </div>
           <ul class="list-unstyled">
-            <li><a href="/adminHome"> <i class="icon-home"></i>Home </a></li>
+            <li class="active"><a href="/adminHome"> <i class="icon-home"></i>Home </a></li>
             <li><a href="/updateDeleteAdmin"> - 관리 </a></li>
-            <li class="active"><a href="/insertAdmin"> - 추가 </a></li>
+            <li><a href="/insertAdmin"> - 추가 </a></li>
           </ul>
         </nav>
           <div class="content-inner">
