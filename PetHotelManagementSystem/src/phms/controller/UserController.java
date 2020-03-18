@@ -73,7 +73,7 @@ public class UserController {
 		int result = userService.insertUser(user);
 		if (result == 1) {
 			System.out.println("insertUser 성공");
-			return "redirect:/user/selectAllUser";
+			return "redirect:/main/mainPage";
 		} else {
 			System.out.println("insertUser 실패");
 			return "redirect:/user/insertUser";

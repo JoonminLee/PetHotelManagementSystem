@@ -84,6 +84,7 @@
 					return false;
 				}else {
 					alert("이메일 확인 완료");
+					$("input[name='uEmail2']").prop('readonly', false);
 					return false;
 				}
 			},
@@ -167,7 +168,7 @@
 				$.sendCheck();
 				emailCheckNum = 1;
 			});		
-		
+	 })
 });  
 </script>
 </head>
@@ -355,14 +356,14 @@
 			<div class="form-row">
               <div class="form-group">
                 <label for="email">Email인증번호입력</label>
-                <input type="text" class="form-input" name="uEmail2" />
+                <input type="text" class="form-input" name="uEmail2" required/>
               </div>
               <div class="form-group">
                 <input type="button" id="sendCheck" class="overlap-submit" value="인증번호확인" placeholder="인증번호를 입력하세요"/>
               </div>
             </div>
 			<div class="form-group">
-              <input type="submit" name="submit" id="join" class="form-submit" value="Submit" />
+              <input type="submit" name="submit" id="join" class="form-submit" value="Submit"/>
             </div>
           </form>
         </div>
