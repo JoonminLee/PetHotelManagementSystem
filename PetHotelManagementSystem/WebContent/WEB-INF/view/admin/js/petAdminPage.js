@@ -16,11 +16,11 @@ $(function(){
 			$("table").remove();
 			var makeTable = document.createElement('table');
 			
-			makeTable.innerHTML = '<tr><td>pNum</td><td>pName</td><td>pType</td><td>pUNum</td><td>pVNum</td><td>관리</td></tr>';
+			makeTable.innerHTML = '<tr><td>pNum</td><td>pName</td><td>pType</td><td>pUNum</td><td>pVNum</td><td>pPhoto</td><td>관리</td></tr>';
 		
 			for(var i=0; i<result.length; i++){
 				makeTable.innerHTML += '<tr><td>'+ result[i].pNum+'</td><td>'+ result[i].pName+'</td><td>'+ result[i].pType+'</td><td>'+ result[i].pUNum+
-				'</td><td>'+ result[i].pVNum+'</td><td><input type="button" name="updateBtn" value="수정"><input type="button" name="deleteBtn" value="삭제">'+
+				'</td><td>'+ result[i].pVNum+'</td><td>'+ result[i].pPhoto+'</td><td><input type="button" name="updateBtn" value="수정"><input type="button" name="deleteBtn" value="삭제">'+
 				'<input type="button" class="visibility" name="updateOkBtn" value="수정완료"><input type="button" class="visibility" name="cencleBtn" value="취소"></td></tr>';
 			}
 		
@@ -39,6 +39,7 @@ $(function(){
 				'<input type="text" name="pType" placeholder="펫종류">'+
 				'<input type="number" name="pUNum" placeholder="펫주인번호">'+
 				'<input type="number" name="pVNum" placeholder="방문자번호">'+
+				'<input type="text" name="pPhoto" placeholder="펫사진">'+
 				'<input type="button" id="PetAddBtn"value="추가"></div>';
 			
 			$('#adminInsert').append(makeInsert);
@@ -49,11 +50,12 @@ $(function(){
 				var pType = $("input[name='pType']").val();
 				var pUNum = $("input[name='pUNum']").val();
 				var pVNum = $("input[name='pVNum']").val();
+				var pPhoto =$("input[name='pPhoto']").val();
 				
 				//insert
 				$.ajax({
 					url :"pet/insertPet",
-					data : {"pName" : pName, "pType" : pType, "pUNum" : pUNum, "pVNum" :pVNum},
+					data : {"pName" : pName, "pType" : pType, "pUNum" : pUNum, "pVNum" :pVNum, "pPhoto":pPhoto},
 					dataType : "json",
 					type : "post",
 					
@@ -123,6 +125,7 @@ $(function(){
 								Tr.childNodes[2].innerHTML ='<input type="text" id ="pType" value="'+result.pType+'">';
 								Tr.childNodes[3].innerHTML ='<input type="number" id ="pUNum" value="'+result.pUNum+'">';
 								Tr.childNodes[4].innerHTML ='<input type="number" id ="pVNum" value="'+result.pVNum+'">';
+								Tr.childNodes[5].innerHTML ='<input type="text" id ="pPhoto" value="'+result.pPhoto+'">';
 							}
 						});
 						
@@ -134,16 +137,18 @@ $(function(){
 							var pType = $("#pType").val();
 							var pUNum = $("#pUNum").val();
 							var pVNum = $("#pVNum").val();
+							var pPhoto = $("#pPhoto").val();
 							
 							console.log("pNum ::: ",pNum);
 							console.log("pName ::: ",pName);
 							console.log("pType ::: ",pType);
 							console.log("pUNum ::: ",pUNum);
 							console.log("pVNum ::: ",pVNum);
+							console.log("pPhoto ::: ",pPhoto);
 							
 							$.ajax({
 								url :"pet/updatePet",
-								data : {"pNum" : pNum, "pName" : pName, "pType" : pType, "pUNum" : pUNum, "pVNum" :pVNum},
+								data : {"pNum" : pNum, "pName" : pName, "pType" : pType, "pUNum" : pUNum, "pVNum" :pVNum, "pPhoto" :pPhoto},
 								dataType : "json",
 								type : "post",
 								

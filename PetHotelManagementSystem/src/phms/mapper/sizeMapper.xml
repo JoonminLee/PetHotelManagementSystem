@@ -4,16 +4,25 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="phms.mapper.SizeMapper">
 	<select id="selectOneSize" resultType="size">
-		select * from size where s_num = #{sNum}
+		select * from size where
+		s_num = #{sNum}
 	</select>
 	<select id="selectAllSize" resultType="size">
 		select * from size
 	</select>
-	<insert id="insertSize">
-		insert into size (s_num, s_size, s_r_price, s_w_price, s_max, s_space, s_view, s_bed, s_lounge, s_limit, s_care, s_bath) values(0, #{sSize}, #{sRPrice}, #{sWPrice}, #{sMax}, #{sSpace}, #{sView}, #{sBed}, #{sLounge}, #{sLimit}, #{sCare}, #{sBath})
+	<insert id="insertSize">	
+		insert into size (s_num, s_size, s_r_price,
+		s_w_price, s_max, s_space, s_view, s_bed, s_lounge, s_limit, s_care,
+		s_bath) values(0, #{sSize}, #{sRPrice}, #{sWPrice}, #{sMax},
+		#{sSpace}, #{sView}, #{sBed}, #{sLounge}, #{sLimit}, #{sCare},
+		#{sBath})
 	</insert>
 	<update id="updateSize">
-		update size set s_size=#{sSize}, s_r_price=#{sRPrice}, s_w_price=#{sWPrice}, s_max=#{sMax}, s_space=#{sSpace}, s_view=#{sView}, s_bed=#{sBed}, s_lounge=#{sLounge} s_limit=#{sLimit}, s_care=#{sCare}, s_bath=#{sBath} where s_num=#{sNum}
+		update size set s_size=#{sSize},
+		s_r_price=#{sRPrice}, s_w_price=#{sWPrice}, s_max=#{sMax},
+		s_space=#{sSpace}, s_view=#{sView}, s_bed=#{sBed}, s_lounge=#{sLounge},
+		s_limit=#{sLimit}, s_care=#{sCare}, s_bath=#{sBath} where
+		s_num=#{sNum}
 	</update>
 	<delete id="deleteSize">
 		delete from size where s_num=#{sNum}

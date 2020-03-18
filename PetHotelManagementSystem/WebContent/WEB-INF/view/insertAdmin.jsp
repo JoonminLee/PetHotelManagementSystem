@@ -84,9 +84,9 @@ function gogo(){
             </div>
           </div>
           <ul class="list-unstyled">
-            <li class="active"><a href="/adminHome"> <i class="icon-home"></i>Home </a></li>
+            <li><a href="/adminHome"> <i class="icon-home"></i>Home </a></li>
             <li><a href="/updateDeleteAdmin"> - 관리 </a></li>
-            <li><a href="/insertAdmin"> - 추가 </a></li>
+            <li class="active"><a href="/insertAdmin"> - 추가 </a></li>
           </ul>
         </nav>
           <div class="content-inner">
