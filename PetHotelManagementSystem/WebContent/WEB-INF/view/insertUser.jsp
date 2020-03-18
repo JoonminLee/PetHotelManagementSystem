@@ -275,7 +275,6 @@
 		                </svg>
 		                <li class="nav-item" id="set_7_text"><a href="/main/contactPage">Contact</a></li>
 		              	</div>
-		              	
 					</ul>
 				</div>
 
