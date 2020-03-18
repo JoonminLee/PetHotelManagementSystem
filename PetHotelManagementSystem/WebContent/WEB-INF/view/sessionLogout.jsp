@@ -13,7 +13,6 @@
 		alert('<%=(String) session.getAttribute("id")%>'+"님 로그아웃 성공");
 
 		var from = '<%=(String) session.getAttribute("from")%>';
-		
 
 		switch (from) {
 		case "kakao":
