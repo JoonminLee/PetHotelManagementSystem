@@ -10,19 +10,13 @@ $(function(){
 			
 			$("table").remove();
 			var makeTable = document.createElement('table');
-			makeTable.innerHTML = '<tr><td>방번호</td><td>상태</td></tr>';
 			
 			for(var i=0; i<result.length; i++){
-				
-				if(result[i].rStatus==0){
-					makeTable.innerHTML += '<tr><td>'+ result[i].rNum+'</td><td style="background: #2ECC71; border-radius: 50%"></td></tr>';
-				}else if(result[i].rStatus==1){
-					makeTable.innerHTML += '<tr><td>'+ result[i].rNum+'</td><td style="border-radius:50%" class="icon bg-red"></td></tr>';
-				}else{
-					makeTable.innerHTML += '<tr><td>'+ result[i].rNum+'</td><td style="background: #F4D03F; border-radius: 50%"></td></tr>';
-				}
+				makeTable.innerHTML += '<tr class="bg_gray"><td>방번호</td><td>'+result[i].rNum+'</td><td>'+result[i+1].rNum+'</td><td>'+result[i+2].rNum+'</td><td>'+result[i+3].rNum+'</td><td>'+result[i+4].rNum+'</td><td>'+result[i+5].rNum+'</td><td>'+result[i+6].rNum+'</td><td>'+result[i+7].rNum+'</td><td>'+result[i+8].rNum+'</td></tr>';
+				makeTable.innerHTML += '<tr class="status"><td>Status</td><td name="status">'+result[i].rStatus+'</td><td name="status">'+result[i+1].rStatus+'</td><td>'+result[i+2].rStatus+'</td><td>'+result[i+3].rStatus+'</td><td>'+result[i+4].rStatus+'</td><td>'+result[i+5].rStatus+'</td><td>'+result[i+6].rStatus+'</td><td>'+result[i+7].rStatus+'</td><td>'+result[i+8].rStatus+'</td></tr>';
+				i +=8;	
 			}
-
+			
 			$('#roomList').append(makeTable);
 			}
 		
