@@ -504,10 +504,10 @@ header img{
 	}
 
 	#section {
-		-moz-animation: section 1s 2.25s forwards;
-		-webkit-animation: section 1s 2.25s forwards;
-		-ms-animation: section 1s 2.25s forwards;
-		animation: section 1s 2.25s forwards;
+		-moz-animation: section 1s 0.25s forwards;
+		-webkit-animation: section 1s 0.25s forwards;
+		-ms-animation: section 1s 0.25s forwards;
+		animation: section 1s 0.25s forwards;
 		-moz-backface-visibility: hidden;
 		-webkit-backface-visibility: hidden;
 		-ms-backface-visibility: hidden;
