@@ -32,7 +32,7 @@
 							String vFrom = "";
 							if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
 								vFrom = (String) session.getAttribute("from");
-						%><li><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
+						%><li class="user_name"><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
 						<%
 							switch (vFrom) {
 								case "kakao":
