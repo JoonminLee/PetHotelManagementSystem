@@ -65,11 +65,9 @@ table {
   color: #666;
 }
 
-#roomList{
-	margin-left:50%;
-}
 .td{
 	margin:5px;
+	padding:10px;
 }
 
 .status-bar{

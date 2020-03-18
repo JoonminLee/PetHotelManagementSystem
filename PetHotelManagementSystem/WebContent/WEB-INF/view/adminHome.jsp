@@ -153,44 +153,36 @@ function gogo(){
           <!-- Dashboard Header Section    -->
           <section class="dashboard-header">
             <div class="container-fluid">
-              <div class="row">
-                <div class="col-lg-4">
-                  <div class="line-chart-example card no-margin-bottom" style="width:300px">
+              <div class="row" style="position:relative;">
+              
+                <div class="col-lg-4 width_500" style="position:absolute">
+                  <div class="line-chart-example card no-margin-bottom">
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Memo</h3>
+                    </div>
+                    <div class="card-body">
+                    	<form class ="js-toDoForm">
+      				  		<input type="text" placeholder="Write a to do" />
+  						</form><br>
+                    	<ul class="js-toDoList">
+    					</ul>
+                    	
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-lg-4 width_500" style="position:absolute; left:50%">
+                  <div class="line-chart-example card no-margin-bottom">
                     <div class="card-header d-flex align-items-center">
                       <h3 class="h4">Room Status</h3>
                     </div>
                     <div class="card-body">
-	                    <div class="status-bar">
-                    		<p class="bar1" style="background: #2ECC71; border-radius: 50%">빈방</p>
-                    		<p class="bar2" style="background: #F4D03F; border-radius: 50%">청소중</p>
-                    		<p class="bar3" style="background: #ff7676; border-radius: 50%">사용중</p>
-                    	</div>
                     	<div id="roomList"></div>
                     </div>
                   </div>
-                  <%-- <div class="line-chart-example card">
-                    <div class="card-body">
-                      <canvas id="lineChartExample2"></canvas>
-                    </div>
-                  </div> --%>
                 </div>
-                <!-- Line Chart            -->
-                <div class="col-lg-8">
-                  <div class="line-chart-example card">
-                    <div class="card-close">
-                      <div class="dropdown">
-                        <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                        <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                      </div>
-                    </div>
-                    <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Line Chart Example</h3>
-                    </div>
-                    <div class="card-body">
-                      <canvas id="lineChartExample"></canvas>
-                    </div>
-                  </div>
-                </div>
+                
+                
               </div>
             </div>
           </section>
@@ -219,5 +211,6 @@ function gogo(){
     <!-- Main File-->
     <script src="view/admin/js/front.js"></script>
     <script type="text/javascript" src="view/admin/js/adminHome.js"></script>
+    <script type="text/javascript" src="view/admin/js/todoList.js"></script>
   </body>
 </html>
