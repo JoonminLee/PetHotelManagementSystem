@@ -7,53 +7,74 @@ public class PetDto {
 	private String pType;
 	private int pUNum;
 	private int pVNum;
+	private String pPhoto;
+
+	public String getpPhoto() {
+		return pPhoto;
+	}
+
+	public void setpPhoto(String pPhoto) {
+		this.pPhoto = pPhoto;
+	}
+
 	public int getpNum() {
 		return pNum;
 	}
+
 	public void setpNum(int pNum) {
 		this.pNum = pNum;
 	}
+
 	public String getpName() {
 		return pName;
 	}
+
 	public void setpName(String pName) {
 		this.pName = pName;
 	}
+
 	public String getpType() {
 		return pType;
 	}
+
 	public void setpType(String pType) {
 		this.pType = pType;
 	}
+
 	public int getpUNum() {
 		return pUNum;
 	}
+
 	public void setpUNum(int pUNum) {
 		this.pUNum = pUNum;
 	}
+
 	public int getpVNum() {
 		return pVNum;
 	}
+
 	public void setpVNum(int pVNum) {
 		this.pVNum = pVNum;
 	}
-	public PetDto(int pNum, String pName, String pType, int pUNum, int pVNum) {
+
+	public PetDto(int pNum, String pName, String pType, int pUNum, int pVNum, String pPhoto) {
 		super();
 		this.pNum = pNum;
 		this.pName = pName;
 		this.pType = pType;
 		this.pUNum = pUNum;
 		this.pVNum = pVNum;
+		this.pPhoto = pPhoto;
 	}
+
 	public PetDto() {
 		super();
 	}
+
 	@Override
 	public String toString() {
 		return "PetDto [pNum=" + pNum + ", pName=" + pName + ", pType=" + pType + ", pUNum=" + pUNum + ", pVNum="
-				+ pVNum + "]";
+				+ pVNum + ", pPhoto=" + pPhoto + "]";
 	}
-	
-	
-	
+
 }

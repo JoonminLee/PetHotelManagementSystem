@@ -157,10 +157,10 @@ p {	margin: 20px 0px;}
 		    						<p><span class="price mr-2">${listSize[0].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[0].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 2 Person</li>
-		    							<li><span>Size:</span> 45m²</li>
-		    							<li><span>View:</span> City View</li>
-		    							<li><span>Bed:</span> 1 Double</li>
+		    							<li><span>Max:</span> ${listSize[0].sMax }</li>
+		    							<li><span>Size:</span> ${listSize[0].sSpace }</li>
+		    							<li><span>View:</span> ${listSize[0].sView }</li>
+		    							<li><span>Bed:</span> ${listSize[0].sBed }</li>
 		    						</ul>
 		    						<hr>
 		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=1" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
@@ -179,10 +179,10 @@ p {	margin: 20px 0px;}
 		    						<p><span class="price mr-2">${listSize[1].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[1].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 3 Person</li>
-		    							<li><span>Size:</span> 59m²</li>
-		    							<li><span>View:</span> City View</li>
-		    							<li><span>Bed:</span> 1 Double 1 Single</li>
+		    							<li><span>Max:</span> ${listSize[1].sMax }</li>
+		    							<li><span>Size:</span> ${listSize[1].sSpace }</li>
+		    							<li><span>View:</span> ${listSize[1].sView }</li>
+		    							<li><span>Bed:</span> ${listSize[1].sBed }</li>
 		    						</ul>
 		    						<hr>
 		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=2" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
@@ -201,10 +201,10 @@ p {	margin: 20px 0px;}
 		    						<p><span class="price mr-2">${listSize[2].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[2].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 4 Person</li>
-		    							<li><span>Size:</span> 70m²</li>
-		    							<li><span>View:</span> Park View</li>
-		    							<li><span>Bed:</span> 2 Double</li>
+		    							<li><span>Max:</span> ${listSize[2].sMax }</li>
+		    							<li><span>Size:</span> ${listSize[2].sSpace }</li>
+		    							<li><span>View:</span> ${listSize[2].sView }</li>
+		    							<li><span>Bed:</span> ${listSize[2].sBed }</li>
 		    						</ul>
 		    						<hr>
 		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=3" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
@@ -227,10 +227,10 @@ p {	margin: 20px 0px;}
 		    						<p><span class="price mr-2">${listSize[3].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[3].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 2 Person</li>
-		    							<li><span>Size:</span> 45m²</li>
-		    							<li><span>View:</span> City View</li>
-		    							<li><span>Bed:</span> 1 Double</li>
+		    							<li><span>Max:</span> ${listSize[3].sMax }</li>
+		    							<li><span>Size:</span> ${listSize[3].sSpace }</li>
+		    							<li><span>View:</span> ${listSize[3].sView }</li>
+		    							<li><span>Bed:</span> ${listSize[3].sBed }</li>
 		    						</ul>
 		    						<hr>
 		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=4" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
@@ -249,10 +249,10 @@ p {	margin: 20px 0px;}
 		    						<p><span class="price mr-2">${listSize[4].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[4].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 3 Person</li>
-		    							<li><span>Size:</span> 59m²</li>
-		    							<li><span>View:</span> Park View</li>
-		    							<li><span>Bed:</span> 1 Double 1 Single</li>
+		    							<li><span>Max:</span> ${listSize[4].sMax }</li>
+		    							<li><span>Size:</span> ${listSize[4].sSpace }</li>
+		    							<li><span>View:</span> ${listSize[4].sView }</li>
+		    							<li><span>Bed:</span> ${listSize[4].sBed }</li>
 		    						</ul>
 		    						<hr>
 		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=5" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
@@ -271,10 +271,10 @@ p {	margin: 20px 0px;}
 		    						<p><span class="price mr-2">${listSize[5].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[5].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 4 Person</li>
-		    							<li><span>Size:</span> 70m²</li>
-		    							<li><span>View:</span> Park View</li>
-		    							<li><span>Bed:</span> 2 Double</li>
+		    							<li><span>Max:</span> ${listSize[5].sMax }</li>
+		    							<li><span>Size:</span> ${listSize[5].sSpace }</li>
+		    							<li><span>View:</span> ${listSize[5].sView }</li>
+		    							<li><span>Bed:</span> ${listSize[5].sBed }</li>
 		    						</ul>
 		    						<hr>
 		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=6" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
@@ -297,11 +297,11 @@ p {	margin: 20px 0px;}
 		    						<p><span class="price mr-2">${listSize[6].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[6].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 1 Pet</li>
-		    							<li><span>Lounge:</span> Yes</li>
-		    							<li><span>Room Limit:</span> 4 Pets</li>
-		    							<li><span>Care:</span> 2000</li>
-		    							<li><span>Bath:</span> 2500</li>
+		    							<li><span>Max:</span> ${listSize[6].sMax }</li>
+		    							<li><span>Lounge:</span> ${listSize[6].sLounge }</li>
+		    							<li><span>Room Limit:</span> ${listSize[6].sLimit }</li>
+		    							<li><span>Care:</span> ${listSize[6].sCare } KRW</li>
+		    							<li><span>Bath:</span> ${listSize[6].sBath } KRW</li>
 		    						</ul>
 		    						<hr>
 		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=7" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
@@ -320,11 +320,11 @@ p {	margin: 20px 0px;}
 		    						<p><span class="price mr-2">${listSize[7].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[7].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 1 Pet</li>
-		    							<li><span>Lounge:</span> Yes</li>
-		    							<li><span>Room Limit:</span> 3 Pets</li>
-		    							<li><span>Care:</span> 2500</li>
-		    							<li><span>Bath:</span> 3000</li>
+		    							<li><span>Max:</span> ${listSize[7].sMax }</li>
+		    							<li><span>Lounge:</span> ${listSize[7].sLounge }</li>
+		    							<li><span>Room Limit:</span> ${listSize[7].sLimit }</li>
+		    							<li><span>Care:</span> ${listSize[7].sCare } KRW</li>
+		    							<li><span>Bath:</span> ${listSize[7].sBath } KRW</li>
 		    						</ul>
 		    						<hr>
 		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=8" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>
@@ -343,11 +343,11 @@ p {	margin: 20px 0px;}
 		    						<p><span class="price mr-2">${listSize[8].sRPrice } KRW</span> <span class="per">Weekday</span><br>
 		    						<span class="price mr-2">${listSize[8].sWPrice } KRW</span> <span class="per">Weekend</span></p>
 		    						<ul class="list">
-		    							<li><span>Max:</span> 1 Pet</li>
-		    							<li><span>Lounge:</span> Yes</li>
-		    							<li><span>Room Limit:</span> 2 Pets</li>
-		    							<li><span>Care:</span> 4000</li>
-		    							<li><span>Bath:</span> 5000</li>
+		    							<li><span>Max:</span> ${listSize[8].sMax }</li>
+		    							<li><span>Lounge:</span> ${listSize[8].sLounge }</li>
+		    							<li><span>Room Limit:</span> ${listSize[8].sLimit }</li>
+		    							<li><span>Care:</span> ${listSize[8].sCare } KRW</li>
+		    							<li><span>Bath:</span> ${listSize[8].sBath } KRW</li>
 		    						</ul>
 		    						<hr>
 		    						<p class="pt-1"><a href="/room/roomTogether?reSNum=9" class="btn-custom">Book Now <span class="icon-long-arrow-right"></span></a></p>

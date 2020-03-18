@@ -137,7 +137,6 @@ function gogo(){
       </div>
     </div>
 
-
     <section class="ftco-section">
       <div class="container-room">
         <div class="row">
@@ -145,43 +144,67 @@ function gogo(){
              <div class="row">
                 <div class="col-md-12 ftco-animate">
                    <h2 class="mb-4">${size.sSize }</h2>
-                   <div class="single-slider owl-carousel">
+				   <%
+				   	int sNum =  (Integer) request.getAttribute("sizeNumber");
+				   	if (sNum < 7) {
+				   %>
+					<div class="single-slider owl-carousel">
                       <div class="item">
-                         <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-1.jpg);"></div>
+                         <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-${size.sNum }1.jpg);"></div>
                       </div>
                       <div class="item">
-                         <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-2.jpg);"></div>
+                         <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-${size.sNum }2.jpg);"></div>
                       </div>
                       <div class="item">
-                         <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-3.jpg);"></div>
+                         <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-${size.sNum }3.jpg);"></div>
                       </div>
                    </div>
                 </div>
-                  <div class="col-md-12 room-single mt-4 mb-5 ftco-animate">
-                     <div class="d-md-flex mt-5 mb-5">
+                <div class="col-md-12 room-single mt-4 mb-5 ftco-animate">
+                    <div class="d-md-flex mt-5 mb-5">
                         <ul class="list">
-                           <li><span>Max:</span> 3 Persons</li>
-                           <li><span>Size:</span> 45 m2</li>
+                           <li><span>Max : ${size.sMax }</span></li>
+                           <li><span>Size : ${size.sSpace }</span></li>
+                           <li><span>View : ${size.sView }</span></li>
+                           <li><span>Bed : ${size.sBed }</span></li>
+                           <li><span>Weekday Price : ${size.sRPrice } KRW</span></li>
+                           <li><span>Weekend Price : ${size.sWPrice } KRW</span></li>                                                     
                         </ul>
-                        <ul class="list ml-md-5">
-                           <li><span>View:</span> Sea View</li>
-                           <li><span>Bed:</span> 1</li>
-                        </ul>
-                        <ul class="list ml-md-5">
-                           <li><span>무료 Wi-Fi</span> 3 Persons</li>
-                           <li><span>Size:</span> 45 m2</li>
-                        </ul>
-                        <ul class="list ml-md-5">
-                           <li><span>View:</span> Sea View</li>
-                           <li><span>Bed:</span> 1</li>
-                        </ul>
+                   <% 
+                   }else{
+                   %>
+                	  <div class="single-slider owl-carousel">
+                       <div class="item">
+                          <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-1.jpg);"></div>
+                       </div>
+                       <div class="item">
+                          <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-2.jpg);"></div>
+                       </div>
+                       <div class="item">
+                          <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-3.jpg);"></div>
+                       </div>
+                      </div>
+                 	</div>
+                   <div class="col-md-12 room-single mt-4 mb-5 ftco-animate">
+                      <div class="d-md-flex mt-5 mb-5">
+                         <ul class="list">
+                            <li><span>Max : ${size.sMax }</span></li>
+                            <li><span>Lounge : ${size.sLounge }</span></li>
+                            <li><span>Limit : ${size.sLimit }</span></li>
+                            <li><span>Care : ${size.sCare } KRW</span></li>
+                            <li><span>Bath : ${size.sBath } KRW</span></li>
+                            <li><span>Weekday Price : ${size.sRPrice } KRW</span></li>
+                            <li><span>Weekend Price : ${size.sWPrice } KRW</span></li>
+                         </ul>   
+                   <%
+                   }
+                   %>
                      </div>
                      <p>침대 종류 퀸베드 1개 욕실 및 세면도구 거울 목욕 가운 타월 헤어드라이어 엔터테인먼트 객실 내
                         영화(VOD) 무료 Wi-Fi (모든 객실) 위성 방송/케이블 방송 전화기 객실 편의 용품/시설 난방 방음 슬리퍼
                         에어컨 식음료 시설/서비스 냉장고 무료 생수 무료 웰컴 드링크 무료 인스턴트 커피 무료 차 미니바 커피/티 메이커
                         객실 구조 및 가구 책상</p>
-                  </div>
-
+                  	</div>
                </div>
           </div>
 

@@ -73,6 +73,7 @@ public class RoomController {
 		System.out.println(":::roomTogether");
 		SizeDto size = sizeService.selectOneSize(rSNum);
 		model.addAttribute("size", size);
+		model.addAttribute("sizeNumber", size.getsNum());
 		return "roomTogether";
 	}
 
