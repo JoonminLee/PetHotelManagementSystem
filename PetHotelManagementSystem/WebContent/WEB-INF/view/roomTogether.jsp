@@ -150,13 +150,13 @@ function gogo(){
 				   %>
 					<div class="single-slider owl-carousel">
                       <div class="item">
-                         <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-${size.sNum }1.jpg);"></div>
+                         <div class="room-img" style="background-image: url(/css/rooms,contact/images/room${size.sNum }1.jpg);"></div>
                       </div>
                       <div class="item">
-                         <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-${size.sNum }2.jpg);"></div>
+                         <div class="room-img" style="background-image: url(/css/rooms,contact/images/room${size.sNum }2.jpg);"></div>
                       </div>
                       <div class="item">
-                         <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-${size.sNum }3.jpg);"></div>
+                         <div class="room-img" style="background-image: url(/css/rooms,contact/images/room${size.sNum }3.jpg);"></div>
                       </div>
                    </div>
                 </div>
@@ -175,13 +175,13 @@ function gogo(){
                    %>
                 	  <div class="single-slider owl-carousel">
                        <div class="item">
-                          <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-1.jpg);"></div>
+                          <div class="room-img" style="background-image: url(/css/rooms,contact/images/room${size.sNum }1.jpg);"></div>
                        </div>
                        <div class="item">
-                          <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-2.jpg);"></div>
+                          <div class="room-img" style="background-image: url(/css/rooms,contact/images/room${size.sNum }2.jpg);"></div>
                        </div>
                        <div class="item">
-                          <div class="room-img" style="background-image: url(/css/rooms,contact/images/room-3.jpg);"></div>
+                          <div class="room-img" style="background-image: url(/css/rooms,contact/images/room${size.sNum }3.jpg);"></div>
                        </div>
                       </div>
                  	</div>

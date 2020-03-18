@@ -147,7 +147,7 @@ p {	margin: 20px 0px;}
 					<div class="row">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=1" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
+		    					<a href="/room/roomTogether?reSNum=1" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room11.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
@@ -169,7 +169,7 @@ p {	margin: 20px 0px;}
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=2" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-2.jpg);">
+		    					<a href="/room/roomTogether?reSNum=2" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room21.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
@@ -191,7 +191,7 @@ p {	margin: 20px 0px;}
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=3" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-3.jpg);">
+		    					<a href="/room/roomTogether?reSNum=3" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room31.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
@@ -217,7 +217,7 @@ p {	margin: 20px 0px;}
 							<div class="row">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=4" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-4.jpg);">
+		    					<a href="/room/roomTogether?reSNum=4" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room41.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
@@ -239,7 +239,7 @@ p {	margin: 20px 0px;}
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=5" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-5.jpg);">
+		    					<a href="/room/roomTogether?reSNum=5" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room51.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
@@ -261,7 +261,7 @@ p {	margin: 20px 0px;}
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=6" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-6.jpg);">
+		    					<a href="/room/roomTogether?reSNum=6" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room61.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
@@ -287,7 +287,7 @@ p {	margin: 20px 0px;}
 						<div class="row">
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=7" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-1.jpg);">
+		    					<a href="/room/roomTogether?reSNum=7" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room71.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
@@ -310,7 +310,7 @@ p {	margin: 20px 0px;}
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=8" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-2.jpg);">
+		    					<a href="/room/roomTogether?reSNum=8" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room81.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
@@ -333,7 +333,7 @@ p {	margin: 20px 0px;}
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="room">
-		    					<a href="/room/roomTogether?reSNum=9" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room-3.jpg);">
+		    					<a href="/room/roomTogether?reSNum=9" class="img d-flex justify-content-center align-items-center" style="background-image: url(/css/rooms,contact/images/room91.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-search2"></span>
 		    						</div>
