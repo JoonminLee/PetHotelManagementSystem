@@ -164,7 +164,12 @@ $(function(){
 				<li class="nav-item" ><a class="nav-link" href="/sess/sessionLogout">LogOut</a></li>
 				<%
 					break;
-								}//switch end
+						case "emp":
+				%>
+				<li class="nav-item" ><a class="nav-link" href="/sess/sessionLogout">LogOut</a></li>
+				<%
+					break;				
+						}//switch end
 					} else {
 				%>
 				<li class="nav-item" id="set_7_text"><a class="nav-link" href="/user/loginUser">LogIn</a></li>

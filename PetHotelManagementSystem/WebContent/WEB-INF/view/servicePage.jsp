@@ -47,6 +47,11 @@
 				<li><a href="/sess/sessionLogout">LogOut</a></li>
 				<%
 					break;
+						case "emp":
+				%>
+				<li><a href="/sess/sessionLogout">LogOut</a></li>
+				<%
+					break;
 								}//switch end
 							} else {
 				%>
