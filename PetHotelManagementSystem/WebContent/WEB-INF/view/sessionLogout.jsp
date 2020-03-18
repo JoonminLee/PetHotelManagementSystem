@@ -10,43 +10,37 @@
 </head>
 <script type="text/javascript">
 	function gogo(){
-		alert("<%=(String) session.getAttribute("id")%>님 로그아웃 성공");
-	}
-	
-	function toMain(){
-		var url = this.getAttribute("href");
-		window.open(url);
+		alert('<%=(String) session.getAttribute("id")%>'+"님 로그아웃 성공");
+
+		var from = '<%=(String) session.getAttribute("from")%>';
+		
+
+		switch (from) {
+		case "kakao":
+			var result = confirm("자동로그인 방지를 위해 " + from + " 사이트에서 로그아웃 하시겠습니까? ('예' 클릭 시, 자동으로 로그아웃 됩니다)");
+			if (result) {
+				window.open("https://accounts.kakao.com/logout?continue=https://accounts.kakao.com/weblogin/account");
+			}
+			break;
+
+		case "google":
+			var result = confirm("자동로그인 방지를 위해 " + from + " 사이트에서 로그아웃 하시겠습니까? ('예' 클릭 시, 자동으로 로그아웃 됩니다)");
+			if (result) {
+				window.open("https://www.google.com/accounts/Logout");
+			}
+			break;
+
+		case "naver":
+			var result = confirm("자동로그인 방지를 위해 " + from + " 사이트에서 로그아웃 하시겠습니까? ('예' 클릭 시, 자동으로 로그아웃 됩니다)");
+			if (result) {
+				window.open("https://nid.naver.com/nidlogin.logout");
+			}
+			break;
+		}
+		<%session.invalidate();%>
 		location.href = "/main/mainPage";
 	}
 </script>
 <body onload="gogo()">
-	<%
-		String vFrom = "";
-			if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
-		vFrom = (String) session.getAttribute("from");
-			switch (vFrom) {
-			case "kakao":
-	%>
-		<p>자동로그인 방지를 위해 <%=vFrom %>사이트에서 한번 더 로그아웃해주세요.</p>
-		<a id="goLogOut" href="https://accounts.kakao.com/" target="_blank" onclick="toMain()">카카오 계정 로그아웃</a>
-	<%
-		break;
-			case "google":
-	%>	
-		<p>자동로그인 방지를 위해 <%=vFrom %>사이트에서 한번 더 로그아웃해주세요.</p>	
-		<a id="goLogOut" href="https://www.google.com/accounts/Logout" target="_blank" onclick="toMain()">구글 계정 로그아웃</a>
-	<%
-		break;
-			case "naver":
-	%>	
-		<p>자동로그인 방지를 위해 <%=vFrom %>사이트에서 한번 더 로그아웃해주세요.</p>	
-		<a id="goLogOut" href="https://nid.naver.com/" target="_blank" onclick="toMain()">네이버 계정 로그아웃</a>
-	<%
-		break;
-			}// switch end
-		}//if end
-		session.invalidate();
-	%>
-	<a href="/main/mainPage">메인</a>
 </body>
 </html>
