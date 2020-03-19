@@ -80,7 +80,9 @@ public class MyPageController {
 		String from = (String) session.getAttribute("from");
 		if (from == "phms") {
 			UserDto user = userService.selectOneUser(id);
+			String[] uPhone = user.getuPhone().split("-");
 			model.addAttribute("user", user);
+			model.addAttribute("uPhone", uPhone);
 			return "myPageUpdateUser";
 		} else {
 			VisitorDto visitor = visitorService.selectOneVisitor(id);
@@ -91,17 +93,15 @@ public class MyPageController {
 
 	//회원정보 업데이트 및 마이페이지로 redirect
 	@PostMapping("/myPageUpdate")
-	public String myPageUpdate(UserDto user, @RequestParam("uBirthStr") String uBirthStr,
-			@RequestParam("uPwd") String uPwd, VisitorDto visitor, HttpSession session) {
+	public String myPageUpdate(UserDto user, @RequestParam("uPhone") String uPhone, @RequestParam("uPhone1") String uPhone1, @RequestParam("uPhone2") String uPhone2,
+			@RequestParam("uPwd") String uPwd, @RequestParam("uBirthStr") String uBirthStr, VisitorDto visitor, HttpSession session) {
 		System.out.println(":::myPageUpdate");
-		System.out.println(uPwd);
 		String pattern1 = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*?,./\\\\<>|_-[+]=\\`~\\(\\)\\[\\]\\{\\}])[A-Za-z[0-9]!@#$%^&*?,./\\\\<>|_-[+]=\\`~\\(\\)\\[\\]\\{\\}]{8,20}$";
 		String from = (String) session.getAttribute("from");
-		System.out.println(pattern1);
-		System.out.println(uPwd.matches(pattern1));
 		if (from == "phms" && uPwd.matches(pattern1)) {
-			user.setuBirth(LocalDate.parse(uBirthStr));			
-			user.setuPwd(uPwd);			
+			user.setuPhone("010-" + uPhone1 + "-" + uPhone2);
+			user.setuBirth(LocalDate.parse(uBirthStr));
+			user.setuPwd(uPwd);		
 			userService.myPageUpdateUser(user);
 		} else {
 			visitorService.myPageUpdateVisitor(visitor);

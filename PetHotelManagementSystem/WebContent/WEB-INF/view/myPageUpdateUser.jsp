@@ -1,3 +1,4 @@
+<%@page import="phms.dto.UserDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -130,7 +131,7 @@
     <section class="signup">
       <div class="container">
         <div class="signup-content">
-          <form action="/user/insertUser" method="POST" onsubmit="return check()" id="signup-form" class="signup-form">
+          <form action="/my/myPageUpdate" method="POST" onsubmit="return check()" id="signup-form" class="signup-form">
          	<span class="login100-form-title p-b-49 animated bounce">
 				<h1>회원정보수정</h1>
 			</span>
@@ -156,13 +157,17 @@
                 <input type="text" class="form-input" name="uEmail" value="${user.uEmail }" readonly/>
               </div>
             </div>
-
-
-          	 <div class="form-group">
+			
+			<div class="form-group">
               <label for="name">Phone number</label>
-              <input type="text" class="form-input" name="uPhone" value="${user.uPhone }"/>
-            </div>
-
+              <input type="text" class="form-input" name="uPhone" value="010" readonly/>-
+            	</div>
+          	  <div class="form-group">
+              <input type="text" class="form-input" maxlength="4" name="uPhone1" placeholder="${uPhone[1] }"/>-
+             	</div>
+             	<div class="form-group"> 
+              <input type="text" class="form-input" maxlength="4" name="uPhone2" placeholder="${uPhone[2] }"/>
+				</div>
             <div class="form-row">
               <div class="form-group form-icon">
                 <label for="uBirthStr">Birth date</label>
