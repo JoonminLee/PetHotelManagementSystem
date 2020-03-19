@@ -114,11 +114,17 @@
 		              	<%
 		              		}//if end
 		              	%>
+		              	<%
+						if (session.getAttribute("id") == null && session.getAttribute("from") == null) { 
+						%>
 		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
 		                <rect id="set_7_button1" height="50" width="120"></rect>
 		                </svg>
 		                <li class="nav-item" id="set_7_text"><a href="/room/selectAvailableRoom">Rooms</a></li>
 		            	</div>
+		            		<%
+		              		}//if end
+		              	%>
 		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
 		                <rect id="set_7_button1" height="50" width="120"></rect>
 		                </svg>
