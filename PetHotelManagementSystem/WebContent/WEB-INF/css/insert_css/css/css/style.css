@@ -506,7 +506,7 @@ header h2 {
 .set_7_btn-wrapper {
   float: left;
   width: auto;
-  /* line-height: 45px; */
+  line-height: 45px;
   display: inline-block;
   margin-right: 0em;
   text-align: center;
@@ -533,12 +533,12 @@ header h2 {
   margin-top: -65px;
   text-align: center;
   font-family: 'Montserrat';
-  font-weight: bold;
 }
 
 #set_7_text a {
   color: #fff;
   text-decoration: none;
+  font-size: 15px;
 }
 ul li{
   color: #fff;

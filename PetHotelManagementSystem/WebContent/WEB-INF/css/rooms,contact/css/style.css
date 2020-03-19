@@ -1375,11 +1375,11 @@ pre {
   max-width: 100%;
   margin-bottom: 1rem;
   background-color: transparent; }
-  .table th,
+  /* .table th,
   .table td {
     padding: 0.75rem;
     vertical-align: top;
-    border-top: 1px solid #dee2e6; }
+    border-top: 1px solid #dee2e6; } */
   .table thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6; }
@@ -5032,6 +5032,7 @@ button.bg-dark:focus {
   background-color: #1d2124 !important; }
 
 .bg-white {
+  box-shadow: 0px 10px 9.9px 0.1px rgba(0, 0, 0, 0.1);
   background-color: #fff !important; }
 
 .bg-transparent {
@@ -7295,10 +7296,10 @@ a.text-dark:hover, a.text-dark:focus {
     border: 1px solid #dee2e6 !important; } }
 
 body {
-  font-family: "Poppins", Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   background: #ebebeb;
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: 16px;
+/*   line-height: 1.8; */
   font-weight: 400;
   color: gray; }
   body.menu-show {
@@ -7323,7 +7324,7 @@ h1, h2, h3, h4, h5,
   line-height: 1.5;
   color: #000000;
   font-weight: 400;
-  font-family: "Playfair Display", Arial, serif;
+  font-family: "Montserrat";
 }
 
 .text-primary {
@@ -7333,7 +7334,7 @@ h1, h2, h3, h4, h5,
 .ftco-navbar-light {
   background: transparent !important;
   position: absolute;
-  top: 20px;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 3;
@@ -7343,17 +7344,18 @@ h1, h2, h3, h4, h5,
       background: #000000 !important;
       position: relative;
       top: 0;
-      padding: 10px 15px; } }
+      padding: 6px 8px 0px 0; } }
   .ftco-navbar-light .navbar-brand {
     color: #fff; }
   @media (max-width: 991.98px) {
     .ftco-navbar-light .navbar-nav {
-      padding-bottom: 10px; } }
+       } }
   .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
-    font-size: 14px;
+    font-family: 'Montserrat';
+    font-size: 16px;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    padding-left: 20px;
+    padding-left: 35px;
     padding-right: 20px;
     color: rgba(255, 255, 255, 0.7);
     font-weight: 400;
@@ -7436,6 +7438,14 @@ h1, h2, h3, h4, h5,
     .ftco-navbar-light.scrolled .nav-item.cta.cta-colored span {
       border-color: #ffba5a
 ; }
+
+@media (max-width: 991.98px) {
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: .9rem;
+    padding-bottom: .9rem; } }
+
     @media (max-width: 991.98px) {
       .ftco-navbar-light.scrolled .navbar-nav {
         background: none;
@@ -7461,8 +7471,12 @@ h1, h2, h3, h4, h5,
       padding-bottom: 0.9rem !important;
       color: #000000 !important; }
       .ftco-navbar-light.scrolled .nav-link.active {
-        color: #ffba5a
- !important; }
+        color: #ffba5a!important; }
+        .ftco-navbar-light.scrolled .nav-link:hover {
+          color: #ffba5a!important; }
+        .ftco-navbar-light.scrolled .user_name {
+    color: #000;
+  }
     .ftco-navbar-light.scrolled.awake {
       margin-top: 0px;
       -webkit-transition: .3s all ease-out;
@@ -7508,9 +7522,17 @@ h1, h2, h3, h4, h5,
         .hero-wrap .slider-text .breadcrumbs span a {
           color: #fff; }
     .hero-wrap .slider-text .bread {
-      font-weight: 400;
       color: #fff;
-      font-size: 60px; }
+      font-size: 60px;
+
+      display: block;
+      font-weight: bold;
+      line-height: 1.2;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      font-weight: 900;
+      letter-spacing: -0.03em;
+     }
     .hero-wrap .slider-text .btn-primary {
       border: 1px solid rgba(255, 255, 255, 0.4);
       -webkit-border-radius: 30px;
@@ -8714,7 +8736,9 @@ textarea.form-control {
   color: #1a1a1a; }
 
 .contact-section .info {
-  width: 100%; }
+    width: 100%;
+    box-shadow: 0px 10px 9.9px 0.1px rgba(0, 0, 0, 0.1);
+  }
 
 .contact-section .contact-form {
   width: 100%; }
@@ -9166,3 +9190,24 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+    header ul li{
+      color: #fff;
+      text-align: center;
+
+    }
+    header img{
+	width: 65px;
+	margin-left: 68px;
+	-webkit-box-shadow: 3px 7px 10px 0.1px rgba(0, 0, 0, 0.2)
+}
+.user_name{margin: auto;
+text-align: center;
+text-shadow: 1px 1px 2px grey;
+color: #fff;
+}
+ nav li a {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    color: #ffba5a;
+}

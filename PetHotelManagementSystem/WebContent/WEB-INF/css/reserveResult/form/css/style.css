@@ -319,15 +319,6 @@ body {
 }
 
 
-/* Responsive */
-@media screen and (max-width: 1199px) {
-	.wizard-v2-content {
-		margin: 180px 20px;
-	}
-	.wizard-v2-content .wizard-form {
-	    padding: 40px;
-	}
-}
 @media screen and (max-width: 991px) {
 	.inner .form-row {
 		flex-direction: column;

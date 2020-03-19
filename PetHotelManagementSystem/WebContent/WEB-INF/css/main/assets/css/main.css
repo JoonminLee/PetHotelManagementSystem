@@ -340,6 +340,7 @@ header img{
 	  top: 0;
 	  /* height: 3em; */
 	  line-height: 3em;
+	  padding: 6px 0 6px;
 	}
 
 	#header nav ul {

@@ -47,11 +47,12 @@ function gogo(){
 <title>PHMS : 룸 상세정보</title>
 </head>
 <body onload="gogo()">
+<header id="header">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-       <div class="container">
-         <a class="navbar-brand" href="/main/mainPage">PETHOTEL</a>
+      
+         <a class="navbar-brand" href="/main/mainPage"><img src="/images/logo.png"></a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="oi oi-menu"></span> Menu
+           Menu
          </button>
 
          <div class="collapse navbar-collapse" id="ftco-nav">
@@ -60,7 +61,7 @@ function gogo(){
                String vFrom = "";
                if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
                   vFrom = (String) session.getAttribute("from");
-            %><li class="nav-item" ><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
+            %><li class="user_name" ><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
             <%
                switch (vFrom) {
                   case "kakao":
@@ -120,17 +121,18 @@ function gogo(){
              <li class="nav-item" id="set_7_text"><a class="nav-link"  href="/main/contactPage">Contact</a></li>
            </ul>
          </div>
-       </div>
+    
      </nav>
+     </header>
     <!-- END nav -->
 
-    <div class="hero-wrap" style="background-image: url('/css/rooms,contact/images/roombg1.jpg');">
+    <div class="hero-wrap" style="background-image: url('/css/rooms,contact/images/roombg2.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
           <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
-             <div class="text">
-               <h1 class="mb-4 bread">Room Detail</h1>
+             <div class="text animated bounce" >
+               <h1 class="mb-4 bread">Room. Detail.</h1>
             </div>
           </div>
         </div>

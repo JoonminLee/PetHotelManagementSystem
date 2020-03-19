@@ -307,7 +307,6 @@
 	};
 	OnePageNav();
 
-
 	// magnific popup
 	$('.image-popup').magnificPopup({
     type: 'image',
@@ -338,6 +337,9 @@
 
     fixedContentPos: false
   });
+
+	
+
 
 
 })(jQuery);

@@ -8,17 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-p {
-	margin: 20px 0px;
-}
-input{
-	border:none; 
-}
-</style>
+
 <title>PHMS : 예약확인 및 결제</title>
 <!-- StyleSheet -->
-<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i"	rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i"	rel="stylesheet"> -->
 <link rel="stylesheet" href="/css/reserveResult/css/animate.css">
 <link rel="stylesheet" href="/css/rooms,contact/css/style.css">
 
@@ -124,15 +117,16 @@ $(function(){
 
 </head>
 <body onload="gogo()">
+<header id="header">
 	<nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
-		<div class="container">
-			<a class="navbar-brand" href="/main/mainPage">petHotel</a>
+		
+			<a class="navbar-brand" href="/main/mainPage"><img src="/images/logo.png"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="oi oi-menu"></span> Menu
+				 Menu
 			</button>
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
@@ -141,7 +135,7 @@ $(function(){
 					String vFrom = "";
 					if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
 						vFrom = (String) session.getAttribute("from");
-				%><li class="nav-item" ><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
+				%><li class="user_name" ><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
 				<%
 					switch (vFrom) {
 						case "kakao":
@@ -201,8 +195,9 @@ $(function(){
 		       <li class="nav-item" id="set_7_text"><a class="nav-link"  href="/main/contactPage">Contact</a></li>
 	        </ul>
 			</div>
-		</div>
+	
 	</nav>
+	</header>
 	<!-- END nav -->
 
 	<div id="headerBg" class="hero-wrap"
@@ -213,8 +208,8 @@ $(function(){
 				class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
 				<div
 					class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
-					<div class="text">
-						<h1 class="mb-4 bread">Reservation</h1>
+					<div class="text animated bounce">
+						<h1 class="mb-4 bread">Reservation.</h1>
 					</div>
 				</div>
 			</div>
