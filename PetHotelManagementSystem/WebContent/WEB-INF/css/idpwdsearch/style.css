@@ -152,10 +152,10 @@ iframe {
 
 .cont {
   overflow: hidden;
-  position: relative;
+  position: relative;ㄴ
   width: 900px;
-  height: 550px;
-  margin: 0 auto 100px;
+	height: 600px;
+  margin: 30px auto 100px;
   background: #fff;
   border-radius: 10px;
   -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.2);
