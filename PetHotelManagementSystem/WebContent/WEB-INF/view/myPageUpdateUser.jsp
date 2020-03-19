@@ -4,49 +4,137 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- StyleSheet -->
+<link rel="stylesheet" href="/css/insert_css/menu/css/animate.css">
+<link rel="stylesheet" href="/css/insert_css/menu/css/style.css">
+
 <!-- Font Icon -->
-<link rel="stylesheet" href="/css/insert_css/fonts/material-icon/css/material-design-iconic-font.min.css">
-<link rel="stylesheet" href="/css/insert_css/vendor/jquery-ui/jquery-ui.min.css">
+<link rel="stylesheet" href="/css/insert_css/css/fonts/material-icon/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" href="/css/insert_css/css/vendor/jquery-ui/jquery-ui.min.css">
 <!-- Main css -->
-<link rel="stylesheet" href="/css/insert_css/css/style.css">
+<link rel="stylesheet" href="/css/insert_css/css/css/style.css">
 <title>myPageUpdateUser</title>
 </head>
 <body>
   <header id="header">
-    <h2>pethotel</h2>
-    <nav>
-      <ul>
-        <div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
-            <rect id="set_7_button1" height="50" width="120"></rect>
-          </svg>
-          <li id="set_7_text"><a href="#intro">LOGIN</a></li>
-        </div>
-        <div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
-            <rect id="set_7_button3" height="50" width="120"></rect>
-          </svg>
-          <li id="set_7_text"><a href="#work">SERVICE</a></li>
-        </div>
-        <div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
-            <rect id="set_7_button4" height="50" width="120"></rect>
-          </svg>
-          <li id="set_7_text"><a href="#contact">MY PAGE</a></li>
-        </div>
-        <div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
-            <rect id="set_7_button5" height="50" width="120"></rect>
-          </svg>
-          <li id="set_7_text"><a href="#two">고객센터</a></li>
-        </div>
-      </ul>
-    </nav>
-  </header>
-  <div class="main">
+       				<!-- header -->
+				<header id="header">
+						<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+								<a href="/main/mainPage"><img src="/images/logo.png" ></a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+							 Menu
+							</button>
+							<div class="collapse navbar-collapse" id="ftco-nav">
+							<ul class="navbar-nav ml-auto">
+						<%
+							String vFrom = "";
+							if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
+								vFrom = (String) session.getAttribute("from");
+						%><li><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
+						<%
+							switch (vFrom) {
+								case "kakao":
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li class="nav-item" id="set_7_text"><a href="/sess/sessionLogout" onclick="kakaoOut()">LogOut</a></li>
+						</div>
+						<%
+							break;
+								case "google":
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li class="nav-item" id="set_7_text"><a href="/sess/sessionLogout" onclick="googleOut()">LogOut</a></li>
+						</div>
+						<%
+							break;
+								case "naver":
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li class="nav-item" id="set_7_text"><a href="/sess/sessionLogout">LogOut</a></li>
+						</div>
+						<%
+							break;
+								case "phms":
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li class="nav-item" id="set_7_text"><a href="/sess/sessionLogout">LogOut</a></li>
+						</div>
+						<%
+							break;
+								}//switch end
+							} else {
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+               			<rect id="set_7_button1" height="50" width="120"></rect>
+                		</svg>
+						<li class="nav-item" id="set_7_text"><a href="/user/loginUser">LogIn</a></li>
+						</div>
+						<%
+							}//if end
+						%>
+						
+						<%
+						if (session.getAttribute("id") == null && session.getAttribute("from") == null) { 
+						%>
+						<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button1" height="50" width="120"></rect>
+		                </svg>
+		                <li class="nav-item" id="set_7_text"><a href="/user/insertUser">Register</a></li>
+		              	</div>
+		              	<%
+		              		}//if end
+		              	%>
+		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button1" height="50" width="120"></rect>
+		                </svg>
+		                <li class="nav-item" id="set_7_text"><a href="/room/selectAvailableRoom">Rooms</a></li>
+		            	</div>
+		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button1" height="50" width="120"></rect>
+		                </svg>
+		                <li class="nav-item" id="set_7_text"><a href="/main/servicePage">Service</a></li>
+		              	</div>
+		              	
+		              	<% 
+		              	if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
+		              	%>
+		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button1" height="50" width="120"></rect>
+		                </svg>
+		                <li class="nav-item" id="set_7_text"><a href="/my/myPage01">MyPage</a>
+		            	</div>
+		            	<%
+		            		}//if end
+		            	%>
+		              	<div class="set_7_btn-wrapper"> <svg height="50" width="120" xmlns="#">
+		                <rect id="set_7_button1" height="50" width="120"></rect>
+		                </svg>
+		                <li class="nav-item" id="set_7_text"><a href="/main/contactPage">Contact</a></li>
+		              	</div>
+					</ul>
+				</div>
 
+			</nav>
+			</header>
+   <div class="main">
     <section class="signup">
       <div class="container">
         <div class="signup-content">
-          <form action="/my/myPageUpdate" method="post" class="signup-form">
-            <h1>회원정보수정</h1>
-
+          <form action="/user/insertUser" method="POST" onsubmit="return check()" id="signup-form" class="signup-form">
+         	<span class="login100-form-title p-b-49 animated bounce">
+				<h1>회원정보수정</h1>
+			</span>
+			<br><br>
             <div class="form-row">
               <div class="form-group">
                 <label for="id">id</label>
@@ -72,13 +160,13 @@
 
           	 <div class="form-group">
               <label for="name">Phone number</label>
-              <input type="text" class="form-input" name="uPhone" value="${user.uPhone }" readonly/>
+              <input type="text" class="form-input" name="uPhone" value="${user.uPhone }"/>
             </div>
 
             <div class="form-row">
               <div class="form-group form-icon">
                 <label for="uBirthStr">Birth date</label>
-                <input type="text" class="form-input" name="uBirthStr" id="uBirthStr" value="${user.uBirth }"/>
+                <input type="text" class="form-input" name="uBirthStr" id="uBirthStr" value="${user.uBirth }" readonly/>
               </div>
               <div class="form-group">
                 <label for="re_password"> Gender</label>
@@ -108,11 +196,20 @@
 		<input type="submit" value="수정">
 	</form> --%>
 	
+  	<!-- Javascript -->
+<script src="/css/insert_css/menu/js/jquery.min.js"></script>
+<script src="/css/insert_css/menu/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="/css/insert_css/menu/js/bootstrap.min.js"></script>
+<script src="/css/insert_css/menu/js/jquery.waypoints.min.js"></script>
+<script src="/css/insert_css/menu/js/jquery.stellar.min.js"></script>
+<script src="/css/insert_css/menu/js/owl.carousel.min.js"></script>
+<script src="/css/insert_css/menu/js/scrollax.min.js"></script>
+<script src="/css/insert_css/menu/js/main.js"></script>
   <!-- JS -->
-  <script src="/css/insert_css/vendor/jquery/jquery.min.js"></script>
-  <script src="/css/insert_css/vendor/jquery-ui/jquery-ui.min.js"></script>
-  <script src="/css/insert_css/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-  <script src="/css/insert_css/vendor/jquery-validation/dist/additional-methods.min.js"></script>
-  <script src="/css/insert_css/js/main.js"></script>	
+<script src="/css/insert_css/css/vendor/jquery/jquery.min.js"></script>
+<script src="/css/insert_css/css/vendor/jquery-ui/jquery-ui.min.js"></script>
+<script src="/css/insert_css/css/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/css/insert_css/css/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+<script src="/css/insert_css/css/js/main.js"></script>  
 </body>
 </html>
