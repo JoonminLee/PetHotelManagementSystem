@@ -93,7 +93,7 @@ public class MyPageController {
 
 	//회원정보 업데이트 및 마이페이지로 redirect
 	@PostMapping("/myPageUpdate")
-	public String myPageUpdate(UserDto user, @RequestParam("uPhone") String uPhone, @RequestParam("uPhone1") String uPhone1, @RequestParam("uPhone2") String uPhone2,
+	public String myPageUpdate(UserDto user, @RequestParam("uPhone1") String uPhone1, @RequestParam("uPhone2") String uPhone2,
 			@RequestParam("uPwd") String uPwd, @RequestParam("uBirthStr") String uBirthStr, VisitorDto visitor, HttpSession session) {
 		System.out.println(":::myPageUpdate");
 		String pattern1 = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*?,./\\\\<>|_-[+]=\\`~\\(\\)\\[\\]\\{\\}])[A-Za-z[0-9]!@#$%^&*?,./\\\\<>|_-[+]=\\`~\\(\\)\\[\\]\\{\\}]{8,20}$";

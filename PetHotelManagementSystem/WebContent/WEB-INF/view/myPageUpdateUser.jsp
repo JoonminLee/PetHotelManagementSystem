@@ -157,17 +157,20 @@
                 <input type="text" class="form-input" name="uEmail" value="${user.uEmail }" readonly/>
               </div>
             </div>
-			
-			<div class="form-group">
-              <label for="name">Phone number</label>
-              <input type="text" class="form-input" name="uPhone" value="010" readonly/>-
-            	</div>
-          	  <div class="form-group">
-              <input type="text" class="form-input" maxlength="4" name="uPhone1" placeholder="${uPhone[1] }"/>-
-             	</div>
-             	<div class="form-group"> 
-              <input type="text" class="form-input" maxlength="4" name="uPhone2" placeholder="${uPhone[2] }"/>
-				</div>
+			<div class="form-row">
+              <div class="form-group">
+                <label for="phone_number" class="phonenum">Phone number</label>
+                <input type="text" class="form-phoneinput" value="010" readonly />
+              </div>
+              <div class="form-group">
+                <br>
+                <input type="text" class="form-phoneinput" maxlength="4" name="uPhone1" placeholder="${uPhone[1] }"/>
+              </div>
+              <div class="form-group">
+                <br>
+                <input type="text" class="form-phoneinput" maxlength="4" name="uPhone2" placeholder="${uPhone[2] }" />
+              </div>
+            </div>		
             <div class="form-row">
               <div class="form-group form-icon">
                 <label for="uBirthStr">Birth date</label>
