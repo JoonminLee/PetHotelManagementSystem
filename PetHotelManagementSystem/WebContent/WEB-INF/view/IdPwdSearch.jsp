@@ -79,7 +79,7 @@ $(function(){
 				success : function(result){
 					alert(result);
 					if(result == "임시비밀번호 전송완료"){
-						location.href="/idpwd/search";
+						location.href="/user/insertUser";
 					}
 				},
 				error : function(e){
@@ -154,7 +154,7 @@ $(function(){
         </div>
         <div class="wrap-login100-form-btn">
           <div class="login100-form-bgbtn"></div>
-          <input class="login100-form-btn" type="button" id="pwdSearch" value="임시 인증번호 전송">
+          <input class="login100-form-btn" type="button" id="pwdSearch" value="임시 비밀번호 전송">
         </div>
       </div>
     </div>
