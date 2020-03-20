@@ -8,8 +8,7 @@
 <!-- CSS -->
   <link rel='stylesheet' href='/css/idpwdsearch/photo.jpg'>
   <link rel="stylesheet" href="/css/idpwdsearch/style.css">
-  
-  <!--====css===========================================================================================-->
+<!--====css===========================================================================================-->
 <link rel="stylesheet" type="text/css" href="/css/login_css/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/css/login_css/login/fonts/iconic/css/material-design-iconic-font.min.css">
 <link rel="stylesheet" type="text/css" href="/css/login_css/login/vendor/animate/animate.css">
@@ -103,15 +102,13 @@ $(function(){
 
 	<!-- header -->
 	<header id="header">
-		<nav
-			class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 			id="ftco-navbar">
-			<a href="/main/mainPage"><img
-				src="/css/main/assets/css/images/logo.png"></a>
+			<a href="/main/mainPage"><img src="/images/logo.png"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="oi oi-menu"></span> Menu
+				 Menu
 			</button>
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
@@ -236,7 +233,7 @@ $(function(){
      <div class="cont">
     <div class="form sign-in">
       <span class="login100-form-title p-b-49 animated bounce">
-        아이디 찾기
+       ID찾기
       </span>
       <div class="wrap-input100 validate-input m-b-23" data-validate="이름이 필요합니다">
         <label>

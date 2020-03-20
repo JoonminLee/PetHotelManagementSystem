@@ -24,6 +24,7 @@
 <title>PHMS : 따뜻함과 정성으로 보답하겠습니다</title>
 </head>
 <body>
+
 	<header id="header">
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    
@@ -199,7 +200,6 @@
 <script src="/css/rooms,contact/js/owl.carousel.min.js"></script>
 <script src="/css/rooms,contact/js/jquery.magnific-popup.min.js"></script>
 <script src="/css/rooms,contact/js/aos.js"></script>
-<script src="/css/rooms,contact/js/jquery.animateNumber.min.js"></script>
 <script src="/css/rooms,contact/js/bootstrap-datepicker.js"></script>
 <script src="/css/rooms,contact/js/scrollax.min.js"></script>
 <script src="/css/rooms,contact/js/main.js"></script>
