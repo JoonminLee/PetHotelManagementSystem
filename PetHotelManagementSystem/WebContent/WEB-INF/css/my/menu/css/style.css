@@ -79,7 +79,7 @@ sub {
 sup {
   top: -.5em; }
 
-img {
+.card-img-top {
   vertical-align: middle;
   border-style: none; 
   width: 200px;
