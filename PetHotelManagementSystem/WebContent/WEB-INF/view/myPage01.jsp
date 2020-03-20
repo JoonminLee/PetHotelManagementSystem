@@ -271,7 +271,7 @@ $(function(){
 			<article id="about">
 				<h2 class="major">예약정보</h2>
 				<c:forEach var="i" items="${userReserve }">
-				<div class="card bg-light mb-3" style="max-width: 18rem;">
+				<div class="card bg-light mb-3">
 					<div class="card-body">
 						<h5 class="card-title text-primary">${i.sSize }방</h5>
 						<p class="card-text">
@@ -338,7 +338,8 @@ $(function(){
 				회원 이메일 : ${visitor.vEmail }<br>
 				회원 경로 : ${visitor.vFrom1 }<br>
 				<br>
-				<a href="/my/myPageUpdate" class="btn btn-primary">회원정보 수정</a></div>
+				<a class="link l4" href="/my/myPageUpdate" value="회원정보 수정"></a></div>
+				<!-- <a href="/my/myPageUpdate" class="btn btn-primary">회원정보 수정</a> -->
 				</article>
 
 				<!-- Work -->
@@ -368,7 +369,7 @@ $(function(){
 				<article id="about">
 					<h2 class="major">예약정보</h2>
 					<c:forEach var="i" items="${visitorReserve }">
-	<div class="card bg-light mb-3" style="max-width: 18rem;">
+	<div class="card bg-light mb-3">
 				<div class="card-body">
 					<h5 class="card-title text-primary">${i.sSize }방</h5>
 					<p class="card-text">
