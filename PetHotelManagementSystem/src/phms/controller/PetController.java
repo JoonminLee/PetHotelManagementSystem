@@ -127,7 +127,7 @@ public class PetController {
 			}
 
 			PetDto pet = petService.selectOnePet(pNum);
-			if (pet.getpPhoto() != null) {
+			if (pet.getpPhoto() != null && pet.getpPhoto().length() > 5) {
 
 				String[] petPhotoPath = pet.getpPhoto().split("/");
 

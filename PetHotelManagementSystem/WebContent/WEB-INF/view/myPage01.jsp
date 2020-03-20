@@ -82,7 +82,7 @@ $(function(){
 				<div class="card-group justify-content-center">
 				<c:forEach var="i" items="${pet}">
 					<div class="card text-center col-3">
-						<a href="#" onclick="$.photoUpload(${i.pNum})"><img class="card-img-top" height="auto" src="${i.pPhoto }" onerror="this.src='/image/petImageAvatar.jpg'"></a>
+						<a href="#" onclick="$.photoUpload(${i.pNum})"><img class="card-img-top" height="100%" src="${i.pPhoto }" onerror="this.src='/image/petImageAvatar.jpg'"></a>
 						<div class="card-body">
 							<h5 class="card-title">Card title</h5>
 							<p class="card-text">
