@@ -131,13 +131,13 @@ $(function(){
 
 							//성공시 다시 select해줌
 							success :function(result){
-								Tr.childNodes[1].innerHTML ='<input type="text" id ="uId" value="'+result.uId+'" readonly>';
-								Tr.childNodes[2].innerHTML ='<input type="text" id ="uPwd" value="'+result.uPwd+'">';
-								Tr.childNodes[3].innerHTML ='<input type="text" id ="uName" value="'+result.uName+'">';
-								Tr.childNodes[4].innerHTML ='<input type="text" id ="uGender" value="'+result.uGender+'" readonly>';
-								Tr.childNodes[5].innerHTML ='<input type="text" id ="uPhone" value="'+result.uPhone+'">';
-								Tr.childNodes[6].innerHTML ='<input type="text" id ="uEmail" value="'+result.uEmail+'">';
-								Tr.childNodes[7].innerHTML ='<input type="date" id ="uBirth" value="'+result.uBirth+'" readonly>';
+								Tr.childNodes[1].innerHTML ='<input type="text" id ="uId" value="'+result[0].uId+'" readonly>';
+								Tr.childNodes[2].innerHTML ='<input type="text" id ="uPwd" value="'+result[0].uPwd+'">';
+								Tr.childNodes[3].innerHTML ='<input type="text" id ="uName" value="'+result[0].uName+'">';
+								Tr.childNodes[4].innerHTML ='<input type="text" id ="uGender" value="'+result[0].uGender+'" readonly>';
+								Tr.childNodes[5].innerHTML ='<input type="text" id ="uPhone" value="'+result[0].uPhone+'">';
+								Tr.childNodes[6].innerHTML ='<input type="text" id ="uEmail" value="'+result[0].uEmail+'">';
+								Tr.childNodes[7].innerHTML ='<input type="text" id ="uBirth" value="'+result[1]+'" readonly>';
 							}
 						});
 

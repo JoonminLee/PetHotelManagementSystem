@@ -13,7 +13,7 @@
 		insert into user (u_num, u_id, u_pwd, u_name, u_gender, u_phone, u_email, u_birth) values(0, #{uId}, #{uPwd}, #{uName}, #{uGender}, #{uPhone}, #{uEmail}, #{uBirth})
 	</insert>
 	<update id="updateUser">
-		update user set u_pwd=#{uPwd}, u_gender=#{uGender}, u_phone=#{uPhone}, u_email=#{uEmail}, u_birth=#{uBirth}, u_r_num=#{uRNum} where u_id=#{uId}
+		update user set u_pwd=#{uPwd}, u_name=#{uName}, u_gender=#{uGender}, u_phone=#{uPhone}, u_email=#{uEmail}, u_birth=#{uBirth}, u_r_num=#{uRNum} where u_id=#{uId}
 	</update>
 	<update id="updateUserRoom">
 		update user set u_r_num=#{uRNum} where u_id=#{uId}

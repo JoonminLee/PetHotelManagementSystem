@@ -76,12 +76,12 @@ $(function(){
 							
 							//성공시 다시 select해줌
 							success :function(result){
-								Tr.childNodes[1].innerHTML ='<input type="text" id ="reId" value="'+result.reId+'" readonly>';
-								Tr.childNodes[2].innerHTML ='<input type="text" id ="rePhone" value="'+result.rePhone+'">';
-								Tr.childNodes[3].innerHTML ='<input type="number" id ="reSNum" value="'+result.reSNum+'" readonly>';
-								Tr.childNodes[4].innerHTML ='<input type="number" id ="reRNum" value="'+result.reRNum+'" >';
-								Tr.childNodes[5].innerHTML ='<input type="date" id ="reCheckIn" value="'+result.reCheckIn+'">';
-								Tr.childNodes[6].innerHTML ='<input type="date" id ="reCheckOut" value="'+result.reCheckOut+'">';
+								Tr.childNodes[1].innerHTML ='<input type="text" id ="reId" value="'+result[0].reId+'" readonly>';
+								Tr.childNodes[2].innerHTML ='<input type="text" id ="rePhone" value="'+result[0].rePhone+'">';
+								Tr.childNodes[3].innerHTML ='<input type="number" id ="reSNum" value="'+result[0].reSNum+'" readonly>';
+								Tr.childNodes[4].innerHTML ='<input type="number" id ="reRNum" value="'+result[0].reRNum+'" >';
+								Tr.childNodes[5].innerHTML ='<input type="text" id ="reCheckIn" value="'+result[1]+'">';
+								Tr.childNodes[6].innerHTML ='<input type="text" id ="reCheckOut" value="'+result[2]+'">';
 							}
 						});
 						

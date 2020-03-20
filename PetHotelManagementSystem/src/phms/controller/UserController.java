@@ -3,6 +3,7 @@ package phms.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -90,19 +91,24 @@ public class UserController {
 		return "updateUser";
 	}
 
-	// userAdminpage
-	@GetMapping("/updateUserAdmin")
-	public @ResponseBody UserDto updateUser(@RequestParam("uId") String uId) {
-		System.out.println(":::updateUser");
-		UserDto user = userService.selectOneUser(uId);
-		return user;
-	}
+
+   // userAdminpage
+   @GetMapping("/updateUserAdmin")
+   public @ResponseBody ArrayList<Object> updateUser(@RequestParam("uId") String uId) {
+      System.out.println(":::updateUser");
+      ArrayList<Object> list = new ArrayList<Object>();
+      
+      UserDto user = userService.selectOneUser(uId);
+      list.add(user);
+      list.add(user.getuBirth().toString());
+      return list;
+   }
 
 	@PostMapping("/updateUser")
 	public @ResponseBody List<UserDto> updateUser(UserDto user, @RequestParam("uBirthStr") String uBirthStr) {
 		System.out.println(":::updateUser");
 		user.setuBirth(LocalDate.parse(uBirthStr));
-		userService.updateUser(user);
+		userService.updateUser(user); 
 		List<UserDto> listUser = userService.selectAllUser();
 		return listUser;
 	}

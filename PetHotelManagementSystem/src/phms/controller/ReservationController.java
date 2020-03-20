@@ -148,11 +148,15 @@ public class ReservationController {
 
 	// 관리자페이지
 	@GetMapping("/updateReserveAdmin")
-	public @ResponseBody ReservationDto updateReserveAdmin(@RequestParam("reId") String reId) {
+	public @ResponseBody ArrayList<Object> updateReserveAdmin(@RequestParam("reId") String reId) {
 		System.out.println(":::updateReserve");
+		ArrayList<Object> list = new ArrayList<Object>();
 		ReservationDto reserve = reserveService.selectOneReservation(reId);
+		list.add(reserve);
+		list.add(reserve.getReCheckIn().toString());
+		list.add(reserve.getReCheckOut().toString());
 		System.out.println(reserve.toString());
-		return reserve;
+		return list;
 	}
 
 	// 관리자페이지

@@ -76,7 +76,7 @@ function gogo(){
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><a href="#" onclick="$.photoUpload()"><img id="profilePicture" src="${emp.ePhoto }" alt="..." class="img-fluid rounded-circle"></a></div>
+            <div class="avatar"><a href="#" onclick="$.photoUpload()"><img id="profilePicture" src="${emp.ePhoto }" onerror="this.src='/image/emp/admin.png'" class="img-fluid rounded-circle"></a></div>
             <div class="title">
               <h1 class="h4">${emp.eName }</h1>
               <p>${department.dName }</p>
