@@ -188,10 +188,12 @@ public class MyPageController {
 	}
 
 	@RequestMapping("/insertMyPet")
-	public String insertMyPet(UserDto user, @RequestParam("pName") String pName, PetDto pet,
-			@RequestParam("pType") String pType, VisitorDto visitor, HttpSession session) {
+	public @ResponseBody String insertMyPet(UserDto user, VisitorDto visitor, PetDto pet, String pName, String pType,
+			HttpSession session) {
 		String id = (String) session.getAttribute("id");
 		String from = (String) session.getAttribute("from");
+		System.out.println(pName);
+		System.out.println(pType);
 		if (from == "phms") {
 			user = userService.selectOneUser(id);
 			pet.setpUNum(user.getuNum());
@@ -216,18 +218,19 @@ public class MyPageController {
 		return "myPetUpdate";
 	}
 
-	@PostMapping("/myPetUpdate")
-	public String myPetUpdate(PetDto pet) {
+	@PostMapping(value = "/myPetUpdate", produces = "application/text; charset=utf8")
+	public @ResponseBody String myPetUpdate(PetDto pet) {
 		System.out.println(":::myPetUpdate");
+		System.out.println(pet.toString());
 		petService.updatePet(pet);
-		return "redirect:/my/myPage01";
+		return "success";
 	}
-	
-	@PostMapping("/myPetDelete")
-	public String myPetDelete(PetDto pet) {
+
+	@PostMapping(value = "/myPetDelete", produces = "application/text; charset=utf8")
+	public @ResponseBody String myPetDelete(PetDto pet) {
 		System.out.println(":::myPetDelete");
 		petService.deletePet(pet.getpNum());
-		return "redirect:/my/myPage01";
+		return "success";
 	}
 }
 //	//ajax 회원정보 수정부분
