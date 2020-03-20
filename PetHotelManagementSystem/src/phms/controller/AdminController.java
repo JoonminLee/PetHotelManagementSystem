@@ -116,6 +116,7 @@ public class AdminController {
 
 	@GetMapping("/adminProfilePhoto")
 	public String adminProfilePhoto() {
+		System.out.println();
 		return "adminProfilePhoto";
 	}
 
@@ -148,9 +149,27 @@ public class AdminController {
 			}
 
 			EmployeeDto employee = employeeService.selectOneEmp(eNum);
-			System.out.println(employee.toString());
+			if (employee.getePhoto() != null) {
+
+				String[] empPhotoPath = employee.getePhoto().split("/");
+
+				File fdfd = new File(
+						"C:/Users/jay/git/PetHotelManagementSystem/PetHotelManagementSystem/WebContent/WEB-INF/images/"
+								+ empPhotoPath[2] + "/" + empPhotoPath[3]);
+
+				if (fdfd.exists()) {
+					System.out.println(empPhotoPath[3] + "삭제합니다");
+					if (fdfd.delete()) {
+						System.out.println(":::직원 사진 삭제 성공");
+					} else {
+						System.out.println(":::직원 사진 삭제 실패");
+					}
+				} else {
+					System.out.println(":::직원 사진이 존재하지 않습니다");
+				}
+			}
+
 			employee.setePhoto("/image/" + filePathName.get(0));
-			System.out.println(employee.toString());
 
 			employeeService.updateEmp(employee);
 

@@ -41,6 +41,12 @@ function gogo(){
 		})
 	})
 }
+
+$(function(){
+	$.photoUpload = function(pNum) {
+		window.open("/pet/petPhoto?pNum=" + pNum,"사진수정","scrollbars=no, width=600, height=400, menubar=false");
+	}
+});
 </script>
 <title>PHMS : <%=session.getAttribute("id") %></title>
 </head>
@@ -53,7 +59,7 @@ function gogo(){
 	%>
 
 		<header id="header">
-			<span class="avatar"><img src="/css/mypage/images/노창옥.JPG"	alt="" /></span>
+			<span class="avatar"><img src="/image/emp/admin.png" /></span>
 				<h1>회원 정보</h1><br>
 				회원 아이디 : ${user.uId }<br>
 				회원 이름 : ${user.uName }<br>
@@ -62,12 +68,22 @@ function gogo(){
 				회원 생년월일 : ${user.uBirth }<br>
 				<a href="/my/myPageUpdate">회원정보 수정</a><br><br>
 				<h1>반려 동물 정보</h1>
+				<div class="card-group">
 				<c:forEach var="i" items="${pet}">
-					반려동물 이름 : ${i.pName }<br>	
-					반려동물 종류 : ${i.pType }<br>
+					<div class="card text-center">
+						<a href="#" onclick="$.photoUpload(${i.pNum})"><img class="card-img-top" height="100%" src="${i.pPhoto }" onerror="this.src='/image/petImageAvatar.jpg'"></a>
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<p class="card-text">
+							반려동물 이름 : ${i.pName }<br>
+							반려동물 종류 : ${i.pType }<br>
+							</p>
+							<a href="/pet/updatePet?pNum=${i.pNum }" class="btn btn-primary">펫 정보수정</a>
+						</div>
+					</div>
 				</c:forEach>
+				</div>
 				<a href="/my/myPet">반려동물 추가</a>
-				<a href="/my/myPetDelete"></a>				
 		</header>
 
 	<hr>
