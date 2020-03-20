@@ -40,13 +40,13 @@ public class MyPageController {
 
 	@Autowired
 	VisitorService visitorService;
-	
+
 	@Autowired
 	RoomService roomService;
-	
+
 	@Autowired
 	PetService petService;
-	
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// 세션 아이디 값 가져와서 마이페이지에 정보 넘겨주기
 	@RequestMapping("/myPage01")
@@ -55,9 +55,9 @@ public class MyPageController {
 		String id = (String) session.getAttribute("id");
 		String from = (String) session.getAttribute("from");
 		if (from == "phms") {
-			UserDto user = userService.selectOneUser(id);		
+			UserDto user = userService.selectOneUser(id);
 			List<ReRoomSizeDto> userReserve = reserveService.selectAllReRoomSizeDto(id);
-			List<PetDto> pet = petService.selectAllUserPet(user.getuNum());		
+			List<PetDto> pet = petService.selectAllUserPet(user.getuNum());
 			model.addAttribute("user", user);
 			model.addAttribute("pet", pet);
 			model.addAttribute("userReserve", userReserve);
@@ -70,9 +70,9 @@ public class MyPageController {
 			model.addAttribute("visitorReserve", visitorReserve);
 		}
 		return "myPage01";
-	}	
+	}
 
-	//마이페이지 회원정보 업데이트 - user, visitor 분간해서 해당하는 jsp호출
+	// 마이페이지 회원정보 업데이트 - user, visitor 분간해서 해당하는 jsp호출
 	@GetMapping("/myPageUpdate")
 	public String myPageUpdate(Model model, HttpSession session) {
 		System.out.println(":::myPageUpdate");
@@ -91,24 +91,25 @@ public class MyPageController {
 		}
 	}
 
-	//회원정보 업데이트 및 마이페이지로 redirect
+	// 회원정보 업데이트 및 마이페이지로 redirect
 	@PostMapping("/myPageUpdate")
-	public String myPageUpdate(UserDto user, @RequestParam("uPhone1") String uPhone1, @RequestParam("uPhone2") String uPhone2,
-			@RequestParam("uPwd") String uPwd, @RequestParam("uBirthStr") String uBirthStr, VisitorDto visitor, HttpSession session) {
+	public String myPageUpdate(UserDto user, @RequestParam("uPhone1") String uPhone1,
+			@RequestParam("uPhone2") String uPhone2, @RequestParam("uPwd") String uPwd,
+			@RequestParam("uBirthStr") String uBirthStr, VisitorDto visitor, HttpSession session) {
 		System.out.println(":::myPageUpdate");
 		String pattern1 = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*?,./\\\\<>|_-[+]=\\`~\\(\\)\\[\\]\\{\\}])[A-Za-z[0-9]!@#$%^&*?,./\\\\<>|_-[+]=\\`~\\(\\)\\[\\]\\{\\}]{8,20}$";
 		String from = (String) session.getAttribute("from");
 		if (from == "phms" && uPwd.matches(pattern1)) {
 			user.setuPhone("010-" + uPhone1 + "-" + uPhone2);
 			user.setuBirth(LocalDate.parse(uBirthStr));
-			user.setuPwd(uPwd);		
+			user.setuPwd(uPwd);
 			userService.myPageUpdateUser(user);
 		} else {
 			visitorService.myPageUpdateVisitor(visitor);
 		}
 		return "redirect:/my/myPage01";
 	}
-	
+
 	@RequestMapping("/myPageReserveCancle")
 	public String myPageReserveCancle(HttpSession session) {
 		System.out.println(":::myPageReserveCancle");
@@ -116,27 +117,27 @@ public class MyPageController {
 		String from = (String) session.getAttribute("from");
 		if (from == "phms") {
 			ReservationDto reservationDto = reserveService.selectOneReservation(id);
-			
+
 			RoomDto roomDto = roomService.selectOneRoom(reservationDto.getReRNum());
 			roomDto.setrStatus(0);
 			roomService.updateRoom(roomDto);
-			
+
 			UserDto userDto = userService.selectOneUser(id);
 			userDto.setuRNum(0);
 			userService.updateUser(userDto);
-			
+
 			reserveService.deleteReservation(reservationDto.getReNum());
-		}else {
+		} else {
 			ReservationDto reservationDto = reserveService.selectOneReservation(id);
-			
+
 			RoomDto roomDto = roomService.selectOneRoom(reservationDto.getReRNum());
 			roomDto.setrStatus(0);
 			roomService.updateRoom(roomDto);
-			
+
 			VisitorDto visitorDto = visitorService.selectOneVisitor(id);
 			visitorDto.setvRoom(0);
 			visitorService.updateVisitor(visitorDto);
-			
+
 			reserveService.deleteReservation(reservationDto.getReNum());
 		}
 		return "redirect:/my/myPage01";
@@ -179,29 +180,25 @@ public class MyPageController {
 		List<VisitorRoomSizeDto> visitorReserveList = visitorService.selectVisitorRoom(vId);
 		return visitorReserveList;
 	}
-	
+
 	@RequestMapping("/myPet")
 	public String myPet() {
 		System.out.println(":::myPet");
 		return "myPet";
 	}
-	
+
 	@RequestMapping("/insertMyPet")
 	public String insertMyPet(UserDto user, @RequestParam("pName") String pName, PetDto pet,
 			@RequestParam("pType") String pType, VisitorDto visitor, HttpSession session) {
 		String id = (String) session.getAttribute("id");
 		String from = (String) session.getAttribute("from");
-		System.out.println(pName);
-		System.out.println(pType);
-		System.out.println(id);
-		System.out.println(from);
 		if (from == "phms") {
-			user = userService.selectOneUser(id);			
+			user = userService.selectOneUser(id);
 			pet.setpUNum(user.getuNum());
 			pet.setpName(pName);
 			pet.setpType(pType);
-			petService.insertPet(pet);				
-		}else {
+			petService.insertPet(pet);
+		} else {
 			visitor = visitorService.selectOneVisitor(id);
 			pet.setpVNum(visitor.getvNum());
 			pet.setpName(pName);
@@ -210,7 +207,28 @@ public class MyPageController {
 		}
 		return "redirect:/my/myPage01";
 	}
+
+	@GetMapping("/myPetUpdate")
+	public String myPetUpdate(@RequestParam("pNum") int pNum, Model model) {
+		System.out.println(":::myPetUpdate");
+		PetDto pet = petService.selectOnePet(pNum);
+		model.addAttribute("pet", pet);
+		return "myPetUpdate";
+	}
+
+	@PostMapping("/myPetUpdate")
+	public String myPetUpdate(PetDto pet) {
+		System.out.println(":::myPetUpdate");
+		petService.updatePet(pet);
+		return "redirect:/my/myPage01";
+	}
 	
+	@PostMapping("/myPetDelete")
+	public String myPetDelete(PetDto pet) {
+		System.out.println(":::myPetDelete");
+		petService.deletePet(pet.getpNum());
+		return "redirect:/my/myPage01";
+	}
 }
 //	//ajax 회원정보 수정부분
 //	@RequestMapping(value = "/selectOneUser")

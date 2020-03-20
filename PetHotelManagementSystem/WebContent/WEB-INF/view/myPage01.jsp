@@ -46,6 +46,14 @@ $(function(){
 	$.photoUpload = function(pNum) {
 		window.open("/pet/petPhoto?pNum=" + pNum,"사진수정","scrollbars=no, width=600, height=400, menubar=false");
 	}
+	
+	$.petInsert= function() {
+		window.open("/my/myPet", "펫 추가","scrollbars=no, width=600, height=400, menubar=false");
+	}
+	
+	$.petUpdate= function(pNum) {
+		window.open("/my/myPetUpdate?pNum=" + pNum, "펫 수정","scrollbars=no, width=600, height=400, menubar=false");
+	}
 });
 </script>
 <title>PHMS : <%=session.getAttribute("id") %></title>
@@ -66,11 +74,14 @@ $(function(){
 				회원 전화번호 : ${user.uPhone }<br>
 				회원 이메일 : ${user.uEmail }<br>
 				회원 생년월일 : ${user.uBirth }<br>
-				<a href="/my/myPageUpdate">회원정보 수정</a><br><br>
+				<br>
+				<a href="/my/myPageUpdate" class="btn btn-primary">회원정보 수정</a>
+				<hr>
 				<h1>반려 동물 정보</h1>
-				<div class="card-group">
+				<br>
+				<div class="card-group justify-content-center">
 				<c:forEach var="i" items="${pet}">
-					<div class="card text-center">
+					<div class="card text-center col-3">
 						<a href="#" onclick="$.photoUpload(${i.pNum})"><img class="card-img-top" height="100%" src="${i.pPhoto }" onerror="this.src='/image/petImageAvatar.jpg'"></a>
 						<div class="card-body">
 							<h5 class="card-title">Card title</h5>
@@ -78,12 +89,14 @@ $(function(){
 							반려동물 이름 : ${i.pName }<br>
 							반려동물 종류 : ${i.pType }<br>
 							</p>
-							<a href="/pet/updatePet?pNum=${i.pNum }" class="btn btn-primary">펫 정보수정</a>
+							<a href="#" onclick="$.petUpdate(${i.pNum})" class="btn btn-primary">펫 정보수정</a>
 						</div>
 					</div>
 				</c:forEach>
 				</div>
-				<a href="/my/myPet">반려동물 추가</a>
+				<br>
+				<br>
+				<a href="#" onclick="$.petInsert()" class="btn btn-primary">반려동물 추가</a>
 		</header>
 
 	<hr>
@@ -116,13 +129,29 @@ $(function(){
 				회원 이름 : ${visitor.vName }<br>
 				회원 이메일 : ${visitor.vEmail }<br>
 				회원 경로 : ${visitor.vFrom }<br>
-				<a href="/my/myPageUpdate">회원정보 수정</a>
+				<br>
+				<a href="/my/myPageUpdate" class="btn btn-primary">회원정보 수정</a>
+				<hr>
 				<h1>반려 동물 정보</h1>
+				<br>
+				<div class="card-group justify-content-center">
 				<c:forEach var="i" items="${pet}">
-					반려동물 이름 : ${i.pName }<br>	
-					반려동물 종류 : ${i.pType }<br>
+					<div class="card text-center col-3">
+						<a href="#" onclick="$.photoUpload(${i.pNum})"><img class="card-img-top" height="100%" src="${i.pPhoto }" onerror="this.src='/image/petImageAvatar.jpg'"></a>
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<p class="card-text">
+							반려동물 이름 : ${i.pName }<br>
+							반려동물 종류 : ${i.pType }<br>
+							</p>
+							<a href="#" onclick="$.petUpdate(${i.pNum})"class="btn btn-primary">펫 정보수정</a>
+						</div>
+					</div>
 				</c:forEach>
-				<a href="/my/myPet">반려동물 추가</a>
+				</div>
+				<br>
+				<br>
+				<a href="#" onclick="$.petInsert()" class="btn btn-primary">반려동물 추가</a>
 		</header>
 	<hr>
 	

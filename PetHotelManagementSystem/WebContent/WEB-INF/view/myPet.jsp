@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>my Pet</title>
+<title>myPet</title>
 </head>
 <body>
 <form action="/my/insertMyPet" method="post">
