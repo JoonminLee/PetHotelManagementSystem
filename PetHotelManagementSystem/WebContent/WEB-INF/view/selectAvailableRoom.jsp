@@ -34,11 +34,9 @@ session.setAttribute("numberOfPet", request.getParameter("numOfPets"));
 <link rel="stylesheet" href="/css/rooms,contact/css/flaticon.css">
 <link rel="stylesheet" href="/css/rooms,contact/css/icomoon.css">
 <link rel="stylesheet" href="/css/rooms,contact/css/style.css">
-
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 <!-- Jquery/CDN -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
 <header id="header">
@@ -371,7 +369,6 @@ session.setAttribute("numberOfPet", request.getParameter("numOfPets"));
 <script src="/css/rooms,contact/js/owl.carousel.min.js"></script>
 <script src="/css/rooms,contact/js/jquery.magnific-popup.min.js"></script>
 <script src="/css/rooms,contact/js/aos.js"></script>
-<script src="/css/rooms,contact/js/jquery.animateNumber.min.js"></script>
 <script src="/css/rooms,contact/js/bootstrap-datepicker.js"></script>
 <script src="/css/rooms,contact/js/scrollax.min.js"></script>
 <script src="/css/rooms,contact/js/main.js"></script>
