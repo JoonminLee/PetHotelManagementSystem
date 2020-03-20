@@ -355,9 +355,7 @@ $(function(){
 							반려동물 종류 : ${i.pType }<br>
 							</p>
 							<a class="link l4" href="#" onclick="$.petUpdate(${i.pNum})" value="펫 정보수정" onclick="$.petInsert()"></a>
-						</div><br>
-					<br>
-				<br>
+						</div>
 					</div>
 				</c:forEach>
 				</div>
@@ -390,9 +388,7 @@ $(function(){
 			<!-- Footer -->
 		<footer id="footer">
 			<p>
-				&copy; Untitled. All rights reserved. Design: <a
-					href="http://templated.co">TEMPLATED</a>. Demo Images: <a
-					href="http://unsplash.com">Unsplash</a>.
+				© Untitled. All rights reserved. Design: TEMPLATED. Demo Images: Unsplash.
 			</p>
 		</footer>
 
