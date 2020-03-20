@@ -82,7 +82,7 @@ $(function(){
 				<div class="card-group justify-content-center">
 				<c:forEach var="i" items="${pet}">
 					<div class="card text-center col-3">
-						<a href="#" onclick="$.photoUpload(${i.pNum})"><img class="card-img-top" height="100%" src="${i.pPhoto }" onerror="this.src='/image/petImageAvatar.jpg'"></a>
+						<a href="#" onclick="$.photoUpload(${i.pNum})"><img class="card-img-top" height="auto" src="${i.pPhoto }" onerror="this.src='/image/petImageAvatar.jpg'"></a>
 						<div class="card-body">
 							<h5 class="card-title">Card title</h5>
 							<p class="card-text">
@@ -101,7 +101,7 @@ $(function(){
 
 	<hr>
 	
-	<h1>사용 대기중인 예약 정보</h1><br>
+	<h1 class="text-center">사용 대기중인 예약 정보</h1><br>
 	<c:forEach var="i" items="${userReserve }">
 			<div class="card bg-light mb-3" style="max-width: 18rem;">
 				<div class="card-body">
@@ -136,7 +136,7 @@ $(function(){
 				<br>
 				<div class="card-group justify-content-center">
 				<c:forEach var="i" items="${pet}">
-					<div class="card text-center col-3">
+					<div class="card text-center col-3" >
 						<a href="#" onclick="$.photoUpload(${i.pNum})"><img class="card-img-top" height="100%" src="${i.pPhoto }" onerror="this.src='/image/petImageAvatar.jpg'"></a>
 						<div class="card-body">
 							<h5 class="card-title">Card title</h5>
@@ -155,7 +155,7 @@ $(function(){
 		</header>
 	<hr>
 	
-	<h1>예약 정보</h1><br>
+	<h1 class="text-center">사용 대기중인 예약 정보</h1><br>
 	<c:forEach var="i" items="${visitorReserve }">
 	<div class="card bg-light mb-3" style="max-width: 18rem;">
 				<div class="card-body">
