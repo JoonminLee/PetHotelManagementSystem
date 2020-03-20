@@ -141,7 +141,7 @@ public class UserController {
 			String uFrom = "phms";
 			System.out.println("로그인 성공");
 			model.addAttribute("id", uId);
-			model.addAttribute("from", "phms");
+			model.addAttribute("from", uFrom);
 			LocalDate today = LocalDate.now();
 			GuestDto guest = new GuestDto(0, uId, uName, today, uFrom);
 			guestService.insertGuest(guest);
