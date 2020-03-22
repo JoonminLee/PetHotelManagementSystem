@@ -145,6 +145,11 @@
 		    if(emailCheckNum == 0){
 		    $.sendCheck();
 		    }
+		    if(idCheckNum == 1 && emailSendNum == 1 && emailCheckNum){
+				 alert("회원 가입이 완료되었습니다!");
+			 }else{
+				 alert("입력 사항을 확인해주세요!");		 
+			 }
 	});
 		    //아이디 중복
 	 		$("#uIdCheck").click(function(){
@@ -168,6 +173,7 @@
 				$.sendCheck();
 				emailCheckNum = 1;
 			});		
+	
 	 })
  
 </script>
@@ -300,13 +306,13 @@
               </div>
             </div>
 			<div class="form-row">
-              <div class="form-group">
+              <div class="form-group"><br>
                 <label for="password">Password</label>
-                <input type="password" class="form-input" name="uPwd" id="password" required/>
+                <input type="password" class="form-input" name="uPwd" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$" id="password"  title="문자와 숫자 특수문자를 포함한 8자리를 입력하세요" required/>
               </div>
-              <div class="form-group">
+              <div class="form-group"><br>
                 <label for="re_password">password</label>
-                <input type="password" class="form-input" name="uPwd2" id="re_password" required/>
+                <input type="password" class="form-input" name="uPwd2" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$" id="re_password" required/>
               </div>
             </div>
 			<div class="form-group">

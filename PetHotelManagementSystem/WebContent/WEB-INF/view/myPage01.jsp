@@ -196,8 +196,8 @@ $(function(){
 	</header>
 
 <%
-		String vFrom1 = (String) session.getAttribute("from");
-		if (vFrom1 == "phms") {
+		vFrom = (String) session.getAttribute("from");
+		if (vFrom == "phms") {
 %>
 
 	<!-- Wrapper -->
@@ -336,7 +336,7 @@ $(function(){
 					<div>회원 아이디 : ${visitor.vId }<br>
 				회원 이름 : ${visitor.vName }<br>
 				회원 이메일 : ${visitor.vEmail }<br>
-				회원 경로 : ${visitor.vFrom1 }<br>
+				회원 경로 : ${visitor.vFrom }<br>
 				<br>
 				<a class="link l4" href="/my/myPageUpdate" value="회원정보 수정"></a></div>
 				<!-- <a href="/my/myPageUpdate" class="btn btn-primary">회원정보 수정</a> -->
