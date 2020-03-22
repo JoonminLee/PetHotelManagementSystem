@@ -190,7 +190,8 @@
 
 					<div class="wrap-input100 validate-input m-b-23"
 						data-validate="ID가 필요합니다">
-						<span class="label-input100">ID</span> <input class="input100"
+						<span class="label-input100">ID</span> 
+						<input class="input100"
 							type="text" name="uId" placeholder="ID를 입력하세요"> <span
 							class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>

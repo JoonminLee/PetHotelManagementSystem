@@ -1678,47 +1678,6 @@ input, select, textarea {
 	color:#fff
 }
 
-
-
-.links{
-  width: 90%;
-  margin: 0 auto;
-}
-.link{
-
-  transition: all 0.3s ease-in-out;
-  display:inline-block;
-  width:100px;
-  height:40px;
-  line-height:40px;
-  border:2px solid white;
-  text-transform: capitalize;
-  border-radius:2px;
-  margin:5px;
-  position:relative;
-  overflow:hidden;
-}
-.l4:before{
-  content: attr(value);
-  display:block; 
-}
-.l4:after {
-    transition: all 0.1s ease-in-out;  
-    content: "";
-    display: block;
-    background-color:white;
-    margin-top:-40px;
-    opacity:0;
-    height: 40px;
-}
-.l4:hover:after{
-  opacity:1;
-}
-.l4:hover{
-    color:#e22575;
-}
 .user_name{margin: auto;
 font-size:17px;}
 
-
-.card text-center col-3

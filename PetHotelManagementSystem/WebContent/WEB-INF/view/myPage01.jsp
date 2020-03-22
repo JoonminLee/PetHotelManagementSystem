@@ -55,7 +55,7 @@ $(function(){
 	}
 	
 	$.petUpdate= function(pNum) {
-		window.open("/my/myPetUpdate?pNum=" + pNum, "펫 수정","scrollbars=no, width=600, height=400, menubar=false");
+		window.open("/my/myPetUpdate?pNum=" + pNum, "펫 수정","scrollbars=no, width=600, height=700, menubar=false");
 	}
 });
 </script>
@@ -338,8 +338,7 @@ $(function(){
 				회원 이메일 : ${visitor.vEmail }<br>
 				회원 경로 : ${visitor.vFrom }<br>
 				<br>
-				<a class="link l4" href="/my/myPageUpdate" value="회원정보 수정"></a></div>
-				<!-- <a href="/my/myPageUpdate" class="btn btn-primary">회원정보 수정</a> -->
+				<a href="/my/myPageUpdate" class="btn btn-primary">회원정보 수정</a>
 				</article>
 
 				<!-- Work -->
@@ -355,14 +354,14 @@ $(function(){
 							반려동물 이름 : ${i.pName }<br>
 							반려동물 종류 : ${i.pType }<br>
 							</p>
-							<a class="link l4" href="#" onclick="$.petUpdate(${i.pNum})" value="펫 정보수정" onclick="$.petInsert()"></a>
+							<a href="#" onclick="$.petUpdate(${i.pNum})" class="btn btn-primary">펫 정보수정</a>
 						</div>
 					</div>
 				</c:forEach>
 				</div>
 				<br>
 				<br>
-				<a class="link l4" href="#" value="반려동물 추가" onclick="$.petInsert()"></a>
+				<a href="#" onclick="$.petInsert()" class="btn btn-primary">반려동물 추가</a>
 				</article>
 
 				<!-- About -->

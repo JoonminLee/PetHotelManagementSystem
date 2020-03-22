@@ -13,7 +13,6 @@
 
 <!-- Font Icon -->
 <link rel="stylesheet" href="/css/insert_css/css/fonts/material-icon/css/material-design-iconic-font.min.css">
-<link rel="stylesheet" href="/css/insert_css/css/vendor/jquery-ui/jquery-ui.min.css">
 <!-- Main css -->
 <link rel="stylesheet" href="/css/insert_css/css/css/style.css">
 <title>myPageUpdateUser</title>
@@ -33,7 +32,7 @@
 							String vFrom = "";
 							if (session.getAttribute("id") != null && session.getAttribute("from") != null) {
 								vFrom = (String) session.getAttribute("from");
-						%><li><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
+						%><li class="user_name"><%=(String) session.getAttribute("id")%>님 안녕하세요</li>
 						<%
 							switch (vFrom) {
 								case "kakao":
@@ -215,7 +214,6 @@
 <script src="/css/insert_css/menu/js/main.js"></script>
   <!-- JS -->
 <script src="/css/insert_css/css/vendor/jquery/jquery.min.js"></script>
-<script src="/css/insert_css/css/vendor/jquery-ui/jquery-ui.min.js"></script>
 <script src="/css/insert_css/css/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="/css/insert_css/css/vendor/jquery-validation/dist/additional-methods.min.js"></script>
 <script src="/css/insert_css/css/js/main.js"></script>  
